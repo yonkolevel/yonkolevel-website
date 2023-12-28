@@ -13,7 +13,7 @@ interface ISliderProps {
 
 const Slider: React.FunctionComponent<ISliderProps> = ({
   children,
-  itemMarkers,
+  itemMarkers = [],
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [itemWidth, setItemWidth] = useState(0);

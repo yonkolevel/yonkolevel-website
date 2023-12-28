@@ -52,7 +52,7 @@ const BlogBlock: React.FunctionComponent<IBlogBlockProps> = (props) => {
       </DesktopOnly>
 
       <TabletAndBelow>
-        <Slider itemMarkers={[]}>
+        <Slider>
           <div className='w-[290px]'>
             <BlogPostCard
               title='UX/UI Unicorn'

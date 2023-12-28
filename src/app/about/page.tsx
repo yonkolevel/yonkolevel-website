@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Container from '@/components/Container';
 import RicardoIdle from '@/components/placeholders/RicardoIdle';
 import * as React from 'react';
@@ -23,7 +24,7 @@ const AboutUsPage: React.FunctionComponent<IAboutUsPageProps> = (props) => {
                   design of clothing, furniture, and other common artefacts was
                   left mostly to tradition or artisans specializing in
                   hand-making them With the increasing complexity in industrial
-                  design of today's society, and due to the need for mass
+                  design of today&apos;s society, and due to the need for mass
                   production where more time is usually associated with more
                   cost, the production methods became more.
                 </p>
@@ -32,6 +33,8 @@ const AboutUsPage: React.FunctionComponent<IAboutUsPageProps> = (props) => {
                 <img
                   className='w-[270px]'
                   src='/images/illustrations/digital_pen.png'
+                  alt="A designer's digital pen"
+                  
                 />
               </div>
             </div>
@@ -45,6 +48,7 @@ const AboutUsPage: React.FunctionComponent<IAboutUsPageProps> = (props) => {
                 <img
                   className='w-[270px]'
                   src='/images/illustrations/keyboard.png'
+                  alt='A computer keyboard'
                 />
               </div>
               <div className='col-span-2 md:col-span-1 prose'>
@@ -92,6 +96,7 @@ const AboutUsPage: React.FunctionComponent<IAboutUsPageProps> = (props) => {
                 <img
                   className='w-[270px]'
                   src='/images/illustrations/fist_pump.gif'
+                  alt='Two fists bumping into each other in a friendly manner'
                 />
               </div>
             </div>
@@ -105,6 +110,7 @@ const AboutUsPage: React.FunctionComponent<IAboutUsPageProps> = (props) => {
                 <img
                   className='w-[270px]'
                   src='/images/illustrations/sprint_run.webp'
+                  alt='An illustration of person running in a sprint'
                 />
               </div>
               <div className='col-span-2 md:col-span-1 prose'>
@@ -132,6 +138,7 @@ const AboutUsPage: React.FunctionComponent<IAboutUsPageProps> = (props) => {
                 <img
                   className='w-[270px]'
                   src='/images/illustrations/project_management.gif'
+                  alt='An illustration with different elements related to managing a project'
                 />
               </div>
               <div className='col-span-2 md:col-span-1 prose'>
