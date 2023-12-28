@@ -8,7 +8,7 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -16,12 +16,42 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  html,
+  body {
+    font-family: 'Noto Sans', system-ui, sans-serif;
+    background-color: white;
+  }
+}
+
+.reverse-pixel-fade {
+  transform: scaleY(-1) translateY(-70px);
+  stroke: white !important;
+  z-index: 9;
+  position: relative;
+}
+
+.reverse-pixel-fade path {
+  fill: white;
+}
+
+.right-thing-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.right-thing-section .reverse-pixel-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 70px;
+  stroke: white !important;
+  z-index: 9;
+}
+
+.right-thing-section .playdate {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
 }

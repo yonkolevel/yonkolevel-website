@@ -1,113 +1,243 @@
-import Image from 'next/image'
+'use client';
+import RightThingPixelBottom from '@/components/shapes/RightThingPixelBottom';
+import { motion, useAnimation } from 'framer-motion';
+import Head from 'next/head';
+import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import Button from '../components/Button';
+import Container from '../components/Container';
+import PlayDate from '../components/PlayDate';
+import SplitText from '../components/SplitText';
+import USPCard from '../components/USPCard';
+import RicardoIdle from '../components/placeholders/RicardoIdle';
+import RicardoWalking from '../components/placeholders/RicardoWalking';
+import { PopupButton } from '@typeform/embed-react';
 
-export default function Home() {
+const item = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.75, ease: 'easeOut' } },
+};
+
+const uspsSectionVariants = {
+  hidden: {
+    opacity: 0,
+    y: 500,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.75, ease: 'easeOut' },
+  },
+};
+
+// hero section definitions
+const walkingVariants = {
+  hidden: {
+    // opacity: 0,
+    x: 'calc(-20vw - 273px)',
+  },
+  walking: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 3, ease: 'easeOut' },
+  },
+  hide: {
+    display: 'none',
+  },
+};
+
+const idleVariants = {
+  hidden: {
+    display: 'none',
+  },
+  visible: {
+    display: 'block',
+  },
+};
+
+const titleVariants = {
+  hidden: { opacity: 0 },
+  visible: (i: number) => ({
+    opacity: 1,
+    transition: {
+      delay: i * 0.1,
+    },
+  }),
+};
+
+const Home = () => {
+  const walkingControls = useAnimation();
+  const idleControls = useAnimation();
+  const heroControls = useAnimation();
+  const heroSubControls = useAnimation();
+  const heroButtonControls = useAnimation();
+  const { ref: uspsSectionRef, inView: uspsSectionInView } = useInView();
+  const uspsSectionControls = useAnimation();
+
+  const sequence = async () => {
+    await idleControls.start('hidden');
+    await walkingControls.start('hidden');
+    await walkingControls.start('walking');
+    await walkingControls.start('hide');
+    await idleControls.start('visible');
+    await heroControls.start('visible');
+    await heroSubControls.start('visible');
+    await heroButtonControls.start('visible');
+    await uspsSectionControls.start('visible');
+  };
+
+  useEffect(() => {
+    sequence();
+  }, []);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div>
+      <Head>
+        <title>Yonko Level</title>
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
+      <Container>
+        <section className='mb-60 relative top-[25%]'>
+          <div className='grid grid-cols-4 gap-4'>
+            <div className='col-span-4 md:col-span-2'>
+              <motion.div variants={item}>
+                <div className='mb-8'>
+                  <div>
+                    <h1 className='font-pixel text-xl md:text-2xl text-blue2'>
+                      <SplitText
+                        initial='hidden'
+                        animate={heroControls}
+                        variants={titleVariants}
+                      >
+                        Software & Design Production Team
+                      </SplitText>
+                    </h1>
+                  </div>
+                </div>
+              </motion.div>
+              <motion.div
+                initial='hidden'
+                variants={item}
+                animate={heroControls}
+              >
+                <p className='mb-16 text-black'>
+                  We pride ourselves in building in-house software solutions
+                  that delight users as well as helping companies deliver
+                  stunning and high quality experiences to their customers.
+                </p>
+              </motion.div>
+              <motion.div
+                initial='hidden'
+                animate={heroButtonControls}
+                variants={item}
+                className='text-center md:text-left'
+              >
+                <PopupButton id='JpaDXdWY'>
+                  <Button>Start Project</Button>
+                </PopupButton>
+              </motion.div>
+            </div>
+
+            <div className='col-span-4 md:col-span-2 my-10'>
+              <div className='relative scale-x-[-1] lg:block'>
+                <motion.div
+                  initial='hidden'
+                  animate={walkingControls}
+                  variants={walkingVariants}
+                  className='w-[270px]'
+                >
+                  <RicardoWalking />
+                </motion.div>
+
+                <motion.div
+                  initial='hidden'
+                  animate={idleControls}
+                  variants={idleVariants}
+                  className='w-[270px]'
+                >
+                  <RicardoIdle />
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </Container>
+
+      <section>
+        <Container>
+          <motion.div
+            initial='hidden'
+            animate={uspsSectionControls}
+            variants={uspsSectionVariants}
+            ref={uspsSectionRef}
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            <div className='grid grid-cols-2 gap-8'>
+              <div className='col-span-2 md:col-span-1'>
+                <div className='h-[100%]'>
+                  <USPCard
+                    title='Native'
+                    description="We're experts in building immersive native applications. Be it on iOS, macOS or Android with SwiftUI and React-Native"
+                    backgroundImage='/images/usp-native.webp'
+                    variant='blue'
+                  />
+                </div>
+              </div>
+              <div className='col-span-2 md:col-span-1 gap-y-8'>
+                <div className='pb-8 md:h-[300px]'>
+                  <USPCard
+                    title='Web'
+                    description='We transform early-stage ideas into dynamic digital realities. Our expertise ranges from initial prototyping for startups to sophisticated, interactive websites using cutting-edge technologies like React and NextJS.'
+                    variant='yellow'
+                  />
+                </div>
+                <div className='h-[100%] md:h-[300px]'>
+                  <USPCard
+                    title='Design'
+                    description='UX and UI Design are part of our DNA. We have developed a set of principles and design processes that helps us deliver beautiful products or help you visualise the most complex ideas'
+                    variant='orange'
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </Container>
+      </section>
+
+      <section className='bg-black h-[540px] overflow-hidden my-[128px] p-36 right-thing-section'>
+        <Container>
+          <PlayDate />
+        </Container>
+        <div className='reverse-pixel-fade'>
+          <RightThingPixelBottom />
         </div>
-      </div>
+      </section>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      {/* <BlogBlock /> */}
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
+      <section className='py-14 relative text-center'>
+        <div className='container mx-auto'>
+          <div className='text-center'>
+            <h2 className='text-blue2 mb-[16px] text-xl font-pixel'>
+              Let’s work together!
+            </h2>
+            <span className='mb-[80px] block text-black'>
+              We will help you to make your product a reality. Working closely,
+              we will certainly achieve the best results.
             </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+            <PopupButton id='JpaDXdWY'>
+              <Button>Start Project</Button>
+            </PopupButton>
+          </div>
+          <Container>
+            <div className='absolute left-[-40px] z-10 w-[270px]'>
+              <RicardoIdle />
+            </div>
+          </Container>
+        </div>
+      </section>
+    </div>
+  );
+};
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+export default Home;
