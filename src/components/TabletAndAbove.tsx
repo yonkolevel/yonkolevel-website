@@ -1,7 +1,9 @@
 import * as React from 'react';
 
 
-interface ITabletAndAboveProps {}
+interface ITabletAndAboveProps {
+  children: React.ReactNode;
+}
 
 const TabletAndAbove: React.FunctionComponent<ITabletAndAboveProps> = ({
   children,

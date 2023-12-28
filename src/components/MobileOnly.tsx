@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-interface IMobileOnlyProps {}
+interface IMobileOnlyProps {
+  children: React.ReactNode;
+}
 
 const MobileOnly: React.FunctionComponent<IMobileOnlyProps> = ({
   children,

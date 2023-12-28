@@ -3,7 +3,9 @@ import * as React from 'react';
 import Footer from './Footer';
 import Script from 'next/script';
 
-interface ILayoutProps {}
+interface ILayoutProps {
+  children: React.ReactNode;
+}
 
 const Layout: React.FunctionComponent<ILayoutProps> = ({ children }) => {
   return (

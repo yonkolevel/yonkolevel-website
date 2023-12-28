@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { Box, Flex, Image, Text } from 'rebass/styled-components';
-import styled from 'styled-components';
 
 interface IAuthorCardProps {
   pictureUrl: string;
@@ -10,20 +8,6 @@ interface IAuthorCardProps {
   instagramUrl?: string;
 }
 
-const Avatar = styled('div')<{ imageUrl: string }>`
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  background: url(${(props) => props.imageUrl});
-  background-size: cover;
-`;
-
-const Details = styled(Box)`
-  > span {
-    display: block;
-  }
-`;
-
 const AuthorCard: React.FunctionComponent<IAuthorCardProps> = ({
   pictureUrl,
   name,
@@ -32,42 +16,38 @@ const AuthorCard: React.FunctionComponent<IAuthorCardProps> = ({
   twitterUrl,
 }) => {
   return (
-    <Box width={434}>
-      <Flex>
-        <Flex mr={24} flexDirection='column' alignItems='center'>
-          <Avatar imageUrl={pictureUrl} />
-          <Flex mt={24}>
+    <div className='w-[434px]'>
+      <div className='flex'>
+        <div className='flex flex-column align-center mb-[24px]'>
+          <div
+            style={{
+              width: '88px',
+              height: '88px',
+              borderRadius: '50%',
+              background: `url(${pictureUrl})`,
+              backgroundSize: 'cover',
+            }}
+          />
+          <div className='flex flex-column align-center mt-[24px]'>
             {twitterUrl && (
               <a href={twitterUrl} target='_blank'>
-                <Image src='/images/icons/twitter.svg' mr={20} />
+                <img className='mr-[20px]' src='/images/icons/twitter.svg' />
               </a>
             )}
             {instagramUrl && (
               <a href={instagramUrl} target='_blank'>
-                <Image src='/images/icons/instagram.svg' />
+                <img src='/images/icons/instagram.svg' />
               </a>
             )}
-          </Flex>
-        </Flex>
-        <Details flex={1}>
-          <Text as='span' fontFamily='pixel' variant='caption' mb={12}>
-            Written by
-          </Text>
-          <Text
-            as='span'
-            variant='body'
-            fontWeight='bold'
-            color='orange'
-            mb={12}
-          >
-            {name}
-          </Text>
-          <Text as='span' variant='caption' color='blue3'>
-            {description}
-          </Text>
-        </Details>
-      </Flex>
-    </Box>
+          </div>
+        </div>
+        <div >
+          <span className='font-pixel text-caption mb-[12px]'>Written by</span>
+          <span className='font-weight-bold text-orange mb-[12px]'>{name}</span>
+          <span className='text-caption text-blue3'>{description}</span>
+        </div>
+      </div>
+    </div>
   );
 };
 

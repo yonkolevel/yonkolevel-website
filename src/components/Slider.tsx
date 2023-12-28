@@ -8,7 +8,8 @@ interface ItemMarker {
 }
 
 interface ISliderProps {
-  itemMarkers: ItemMarker[];
+  itemMarkers?: ItemMarker[];
+  children: React.ReactNode;
 }
 
 const Slider: React.FunctionComponent<ISliderProps> = ({

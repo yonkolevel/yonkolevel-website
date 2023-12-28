@@ -1,23 +1,23 @@
 import * as React from 'react';
-import { Box, Text } from 'rebass/styled-components';
-import { useTheme } from 'styled-components';
+import config from '../../tailwind.config';
 
-interface IBadgeProps {}
+
+interface IBadgeProps {
+  children: React.ReactNode;
+}
 
 const Badge: React.FunctionComponent<IBadgeProps> = ({ children }) => {
-  const theme = useTheme();
+
   return (
-    <Box
-      sx={{
-        // @ts-ignore
-        color: theme.colors.blue2,
-        // @ts-ignore
-        border: `1px solid ${theme.colors.blue2}`,
-        p: 2,
+    <div
+      style={{
+        color: config.colors.blue2,
+        border: `1px solid ${config.colors.blue2}`,
+        padding: 2,
       }}
     >
-      <Text variant='small'>{children}</Text>
-    </Box>
+      <span >{children}</span>
+    </div>
   );
 };
 

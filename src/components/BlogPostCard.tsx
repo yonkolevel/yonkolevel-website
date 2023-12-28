@@ -15,7 +15,9 @@ interface IBlogPostCardProps {
 }
 
 
-const CategoryLabel: React.FunctionComponent = ({ children }) => {
+const CategoryLabel: React.FunctionComponent<{
+  children: React.ReactNode;
+}> = ({ children }) => {
   return (
     <div
       className='flex p-2 absolute bottom-0 left-0 bg-white items-center'
