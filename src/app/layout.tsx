@@ -30,13 +30,13 @@ export const metadata: Metadata = {
     description: 'Your remote friendly tech and design team.',
     images: [
       {
-        url: '/images/og_800_x_600.jpg',
+        url: 'https://yonkolevel.com/images/og_800_x_600.jpg',
         width: 800,
         height: 600,
         alt: 'Yonko Level logo',
       },
       {
-        url: '/images/og_900_x_800.jpg',
+        url: 'https://yonkolevel.com/images/og_900_x_800.jpg',
         width: 900,
         height: 800,
         alt: 'Yonko Level logo',
