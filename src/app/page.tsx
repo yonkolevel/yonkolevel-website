@@ -132,7 +132,7 @@ const Home = () => {
                 variants={item}
                 className='text-center md:text-left'
               >
-                <PopupButton id='JpaDXdWY'>
+                <PopupButton id='JpaDXdWY' autoClose>
                   <Button>Start Project</Button>
                 </PopupButton>
               </motion.div>
@@ -225,7 +225,7 @@ const Home = () => {
               we will certainly achieve the best results.
             </span>
 
-            <PopupButton id='JpaDXdWY'>
+            <PopupButton id='JpaDXdWY' autoClose>
               <Button>Start Project</Button>
             </PopupButton>
           </div>
