@@ -48,6 +48,7 @@ export const metadata: Metadata = {
     site: '@yonkolevel',
     card: 'summary_large_image',
   },
+  metadataBase: new URL('https://yonkolevel.com'),
 };
 
 export default function RootLayout({
