@@ -34,7 +34,7 @@ const MenuList = () => {
           </NavLink>
         </li> */}
         <li>
-          <NavLink href='/contact-us' color='#F8FAFC' arrowColor='#F8FAFC'>
+          <NavLink href='/contact' color='#F8FAFC' arrowColor='#F8FAFC'>
             Contact us
           </NavLink>
         </li>
