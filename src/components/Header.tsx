@@ -21,25 +21,34 @@ const variants = {
 interface IHeaderProps {}
 
 const MenuList = () => {
-    return (
-      <ul>
-        <li>
-          <NavLink href='/about' color='#F8FAFC' arrowColor='#F8FAFC'>
-            About
-          </NavLink>
-        </li>
-        {/* <li>
+  return (
+    <ul>
+      <li>
+        <NavLink
+          href='/products/midi-scout'
+          color='#F8FAFC'
+          arrowColor='#F8FAFC'
+        >
+          MIDIScout
+        </NavLink>
+      </li>
+      <li>
+        <NavLink href='/about' color='#F8FAFC' arrowColor='#F8FAFC'>
+          About
+        </NavLink>
+      </li>
+      {/* <li>
           <NavLink href='/blog' color='white'>
             Blog
           </NavLink>
         </li> */}
-        <li>
-          <NavLink href='/contact' color='#F8FAFC' arrowColor='#F8FAFC'>
-            Contact us
-          </NavLink>
-        </li>
-      </ul>
-    );
+      <li>
+        <NavLink href='/contact' color='#F8FAFC' arrowColor='#F8FAFC'>
+          Contact us
+        </NavLink>
+      </li>
+    </ul>
+  );
 };
 
 const Header: React.FunctionComponent<IHeaderProps> = (props) => {
@@ -61,18 +70,21 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
         <nav className='relative flex align-center'>
           <TabletAndAbove>
             <div className='flex'>
+              <NavLink
+                active={pathname === '/products/midi-scout'}
+                href='/products/midi-scout'
+              >
+                MIDIScout
+              </NavLink>
               <NavLink active={pathname === '/about'} href='/about-us'>
                 <NextLink href='/about'>About</NextLink>
               </NavLink>
-
               {/* <NavLink href='/blog' active={pathname === '/blog'}>
                 Blog
               </NavLink> */}
-
               {/* <NavLink href='/case-studies' active={pathname === '/case-studies'}>
                 Case Studies
               </NavLink> */}
-
               <NavLink href='/contact' active={pathname === '/contact'}>
                 Contact
               </NavLink>
