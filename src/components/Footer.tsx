@@ -22,13 +22,10 @@ const Footer: React.FunctionComponent<IFooterProps> = (props) => {
 
   return (
     <>
-      {!isProductPage && (
-        <div className='reverse-pixel-fade'>
+      <section className='bg-blue2 py-24 relative'>
+        <div className='absolute w-full top-[-76px]'>
           <FooterPixelTop />
         </div>
-      )}
-
-      <section className='bg-blue2 py-24 relative'>
         <footer className='footer footer-center p-10 bg-blue2 text-blue5 rounded'>
           <nav className='grid grid-flow-col gap-4 relative z-10'>
             <NavLink href='/about' className='link link-hover'>
