@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+'use client';
 import * as React from 'react';
 import Button from './Button';
 import Column from './Columns';
@@ -7,6 +8,7 @@ import NextLink from './NextLink';
 import Row from './Row';
 import FooterPixelTop from './shapes/FooterPixelTop';
 import NavLink from './NavLink/NavLink';
+import { usePathname } from 'next/navigation';
 
 interface IFooterProps {}
 
@@ -15,11 +17,16 @@ const styles = {
 };
 
 const Footer: React.FunctionComponent<IFooterProps> = (props) => {
+  const pathname = usePathname();
+  const isProductPage = pathname.includes('/products');
+
   return (
     <>
-      <div className='reverse-pixel-fade'>
-        <FooterPixelTop />
-      </div>
+      {!isProductPage && (
+        <div className='reverse-pixel-fade'>
+          <FooterPixelTop />
+        </div>
+      )}
 
       <section className='bg-blue2 py-24 relative'>
         <footer className='footer footer-center p-10 bg-blue2 text-blue5 rounded'>

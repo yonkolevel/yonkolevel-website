@@ -1,9 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Button from '@/components/Button';
-import Column from '@/components/Columns';
 import Container from '@/components/Container';
-import Row from '@/components/Row';
-import RicardoIdle from '@/components/placeholders/RicardoIdle';
 import * as React from 'react';
 
 interface IAboutUsPageProps {}

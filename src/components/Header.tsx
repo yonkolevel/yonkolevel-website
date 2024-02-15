@@ -55,12 +55,15 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const { width } = useWindowSize();
+  const isProductPage = pathname.includes('/products');
 
   const handleToggleMenu = React.useCallback(() => {
     setMenuOpen((v) => !v);
   }, []);
   return (
-    <header className='navbar bg-white mb-12'>
+    <header
+      className={`navbar ${isProductPage ? 'bg-black' : 'bg-white'}  pb-12`}
+    >
       <div className='flex flex-column flex-1'>
         <NextLink href='/' passHref>
           <img src='/images/logo.svg' className='w-[100px]' />
