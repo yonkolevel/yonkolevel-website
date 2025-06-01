@@ -1,6 +1,5 @@
 
 /* eslint-disable @next/next/no-img-element */
-import Button from '@/components/Button';
 import Container from '@/components/Container';
 import * as React from 'react';
 
