@@ -18,7 +18,7 @@ const variants = {
   closed: { opacity: 0, y: '-100%', zIndex: -1 },
 };
 
-interface IHeaderProps {}
+interface IHeaderProps { }
 
 const MenuList = () => {
   return (
@@ -55,7 +55,7 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const { width } = useWindowSize();
-  const isProductPage = pathname.includes('/products');
+  const isProductPage = pathname.includes('/products/midi-scout');
 
   const handleToggleMenu = React.useCallback(() => {
     setMenuOpen((v) => !v);
