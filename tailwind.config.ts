@@ -19,7 +19,7 @@ const config: Config = {
         yellow: '#FDE895',
         originalYellow: '#FCC552',
         white: '#F8FAFC',
-        black: '#000015',
+        black: '#121212',
       },
       fontSize: {
         xs: '12px',
@@ -55,6 +55,7 @@ const config: Config = {
         ...defaultTheme.fontFamily,
         body: ['var(--font-body)'],
         pixel: ['var(--font-pixel)'],
+        'departure-mono': ['var(--font-departure-mono)'],
       },
       fontWeight: {
         body: '400',
