@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        blue1: '#084176',
-        blue2: '#0C5DA8',
+        blue1: '#007AFF',
+        blue2: '#007AFF',
         blue3: '#558EC2',
         blue4: '#9EBEDC',
         blue5: '#E7EFF6',
@@ -54,8 +54,7 @@ const config: Config = {
       fontFamily: {
         ...defaultTheme.fontFamily,
         body: ['var(--font-body)'],
-        pixel: ['var(--font-pixel)'],
-        'departure-mono': ['var(--font-departure-mono)'],
+        pixel: ['var(--font-departure-mono)'],
       },
       fontWeight: {
         body: '400',

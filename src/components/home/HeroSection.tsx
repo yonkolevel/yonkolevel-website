@@ -10,7 +10,6 @@ const heroVariants = {
   },
 };
 
-
 const HeroSection = () => {
   return (
     <section className='bg-black min-h-screen flex items-center justify-center py-20'>
@@ -22,10 +21,10 @@ const HeroSection = () => {
             variants={heroVariants}
             className='mb-8'
           >
-            <h1 className='font-departure-mono text-4xl md:text-5xl lg:text-6xl text-originalYellow mb-6'>
+            <h1 className='font-pixel text-4xl md:text-5xl lg:text-6xl text-originalYellow mb-6'>
               YONKO LEVEL
             </h1>
-            <p className='font-departure-mono text-lg md:text-xl text-originalYellow opacity-80'>
+            <p className='font-pixel text-lg md:text-xl text-originalYellow opacity-80'>
               apps that make you smile :)
             </p>
           </motion.div>
