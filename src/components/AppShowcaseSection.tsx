@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import Container from './Container';
 import PhoneMockup from './PhoneMockup';
+import PixelGrid from './PixelGrid';
 import Link from 'next/link';
 
 interface AppShowcaseSectionProps {
@@ -40,10 +41,10 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   };
 
   return (
-    <section className='py-20 bg-white relative overflow-hidden min-h-screen'>
-      <div className='grid grid-cols-1 lg:grid-cols-12 gap-12 items-center h-full min-h-screen'>
+    <section className='bg-white relative overflow-hidden min-h-screen'>
+      <div className='grid grid-cols-1 lg:grid-cols-12 gap-0 items-center h-full min-h-screen'>
         {/* Left side - Decorative elements and phone mockup */}
-        <div className='relative lg:col-span-7 relative'>
+        <div className='relative lg:col-span-7 relative px-12'>
           <h2
             className='font-departure-mono text-blue2 max-w-md'
             style={{ fontSize: '160px' }}
@@ -58,8 +59,35 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
             alt={appName}
           />
         </div>
-        <div className='relative lg:col-span-5'>
-          <div className='app-description-container grid'>
+
+        {/* Right side - App description with pixel grid background */}
+        <div className='app-description-container relative lg:col-span-5 h-full bg-blue2'>
+          {/* Pixel grid background that fills top to bottom of section */}
+          {/* <PixelGrid backgroundColor={backgroundColor} /> */}
+
+          {/* App description content */}
+          <motion.div
+            initial='hidden'
+            whileInView='visible'
+            viewport={{ once: true }}
+            variants={sectionVariants}
+            className='relative z-10 p-12 md:p-16 h-full flex flex-col justify-center'
+          >
+            <h2 className='font-departure-mono text-3xl md:text-4xl text-white mb-8'>
+              {appName}
+            </h2>
+
+            <p className='font-departure-mono text-sm md:text-base text-white opacity-90 mb-8 leading-relaxed'>
+              {appDescription}
+            </p>
+
+            <Link
+              href={learnMoreLink}
+              className='inline-flex items-center font-departure-mono text-white opacity-90 hover:opacity-100 transition-opacity'
+            >
+              Learn more →
+            </Link>
+          </motion.div>
         </div>
       </div>
     </section>
