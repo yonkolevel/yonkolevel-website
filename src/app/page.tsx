@@ -16,8 +16,18 @@ const Home = () => {
         appDescription="A super simple, easy-to-use mobile camera app that lets you capture moments instantly. With a clean, clutter-free design, it opens fast and takes great photos without any fuss. Just tap and shoot—it's that delightful."
         appScreenshot='/images/products/invisible-camera/ic-app-store-preview.png'
         learnMoreLink='/products/invisible-camera'
-        decorativeText={['I', 'N', 'V', 'I', 'S', 'I', 'B', 'L', 'E']}
-        backgroundColor='bg-blue2'
+        sectionBackgroundColor='#F8FAFC'
+        backgroundColorGrid='#F4A717'
+        reversed={false}
+      />
+      <AppShowcaseSection
+        appName='MIDICIRCUIT'
+        appDescription="A super simple, easy-to-use mobile camera app that lets you capture moments instantly. With a clean, clutter-free design, it opens fast and takes great photos without any fuss. Just tap and shoot—it's that delightful."
+        appScreenshot='/images/products/midicircuit/midicircuit-preview-1.png'
+        learnMoreLink='/products/invisible-camera'
+        sectionBackgroundColor='#F8FAFC'
+        backgroundColorGrid='#895efb'
+        reversed={true}
       />
     </div>
   );
