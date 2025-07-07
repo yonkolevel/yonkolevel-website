@@ -18,7 +18,7 @@ const variants = {
   closed: { opacity: 0, y: '-100%', zIndex: -1 },
 };
 
-interface IHeaderProps { }
+interface IHeaderProps {}
 
 const MenuList = () => {
   return (
@@ -61,9 +61,7 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
     setMenuOpen((v) => !v);
   }, []);
   return (
-    <header
-      className={`navbar ${isProductPage ? 'bg-black' : 'bg-white'}  pb-12`}
-    >
+    <header className={`navbar bg-black  pb-12`}>
       <div className='flex flex-column flex-1'>
         <NextLink href='/' passHref>
           <img src='/images/logo.svg' className='w-[100px]' />
@@ -74,21 +72,17 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
           <TabletAndAbove>
             <div className='flex'>
               <NavLink
-                active={pathname === '/products/midi-scout'}
-                href='/products/midi-scout'
+                active={pathname === '/about'}
+                href='/about'
+                color='white'
               >
-                MIDIScout
+                About
               </NavLink>
-              <NavLink active={pathname === '/about'} href='/about-us'>
-                <NextLink href='/about'>About</NextLink>
-              </NavLink>
-              {/* <NavLink href='/blog' active={pathname === '/blog'}>
-                Blog
-              </NavLink> */}
-              {/* <NavLink href='/case-studies' active={pathname === '/case-studies'}>
-                Case Studies
-              </NavLink> */}
-              <NavLink href='/contact' active={pathname === '/contact'}>
+              <NavLink
+                href='/contact'
+                active={pathname === '/contact'}
+                color='white'
+              >
                 Contact
               </NavLink>
             </div>

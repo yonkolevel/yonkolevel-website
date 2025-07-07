@@ -15,14 +15,15 @@ const Home = () => {
       <HeroWithPixels
         title='Yonko Level'
         subtitle='Apps that make you smile :)'
-        backgroundColor='#FF2D55'
-        pixelColor='#FF2D55'
+        backgroundColor='#FF5C24'
+        pixelColor='#FF5C24'
         holeColor='#F8FAFC'
       />
       <AppShowcaseSection
         appName='INVISIBLE CAMERA'
         appDescription="A super simple, easy-to-use mobile camera app that lets you capture moments instantly. With a clean, clutter-free design, it opens fast and takes great photos without any fuss. Just tap and shoot—it's that delightful."
-        appScreenshot='/images/products/invisible-camera/ic-app-store-preview.png'
+        appScreenshot='/products/invisible-camera/ic-app-store-preview.png'
+        mediaType='image'
         learnMoreLink='/products/invisible-camera'
         sectionBackgroundColor='#F8FAFC'
         backgroundColorGrid='#007AFF'
@@ -41,18 +42,23 @@ const Home = () => {
       />
       <AppShowcaseSection
         appName='MIDICIRCUIT'
-        appDescription="A super simple, easy-to-use mobile camera app that lets you capture moments instantly. With a clean, clutter-free design, it opens fast and takes great photos without any fuss. Just tap and shoot—it's that delightful."
-        appScreenshot='/images/products/midicircuit/midicircuit-preview-1.png'
+        appDescription='Experience the future of music creation with our innovative MIDI circuit builder. Design, connect, and play with virtual circuits that respond to your creativity in real-time.'
+        videoSource='/products/midicircuit/videos/promo-video.mov'
+        mediaType='video'
         learnMoreLink='/products/invisible-camera'
         sectionBackgroundColor='#F8FAFC'
         backgroundColorGrid='#895efb'
         reversed={true}
         pixelDisplacements={[
-          { row: 0, col: 1, displaceX: 2, displaceY: -1 },
-          { row: 1, col: 3, displaceX: -1, displaceY: 3 },
-          { row: 3, col: 0, displaceX: 3, displaceY: -2 },
+          { row: 0, col: 1, displaceX: 8, displaceY: -1 },
+          { row: 3, col: 0, displaceX: 3 + 7, displaceY: -2 },
           { row: 7, col: 2, displaceX: -4, displaceY: 2 },
           { row: 9, col: 4, displaceX: 2, displaceY: -1 },
+
+          { row: 0, col: 2, displaceX: 8, displaceY: 1 },
+          { row: 1, col: 0, displaceX: 9, displaceY: 2 },
+          { row: 8, col: 1, displaceX: 11, displaceY: -3 },
+          { row: 10, col: 3, displaceX: 17, displaceY: 1 },
         ]}
         contentSafeZones={[
           { startRow: 3, endRow: 5, startCol: 0, endCol: 2 }, // Custom title area for purple theme

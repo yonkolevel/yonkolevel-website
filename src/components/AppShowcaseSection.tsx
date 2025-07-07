@@ -7,7 +7,9 @@ import Link from 'next/link';
 interface AppShowcaseSectionProps {
   appName: string;
   appDescription: string;
-  appScreenshot: string;
+  appScreenshot?: string;
+  videoSource?: string;
+  mediaType: 'image' | 'video';
   learnMoreLink: string;
   decorativeText?: string[];
   backgroundColor?: string;
@@ -41,6 +43,8 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   appName,
   appDescription,
   appScreenshot,
+  videoSource,
+  mediaType,
   learnMoreLink,
   sectionBackgroundColor = '#F8FAFC',
   backgroundColorGrid = '#007AFF',
@@ -97,26 +101,64 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
     (displacement) => !isInSafeZone(displacement, activeSafeZones)
   );
 
-  // Define the left and right content
+  const padding = mediaType === 'video' ? '0' : reversed ? 'pl-12' : 'pr-12';
+
+  // Define the left and right content based on media type
   const leftContent = (
     <div
-      className={`relative lg:col-span-7 relative ${
-        reversed ? 'pl-12 text-right' : 'pr-12'
+      className={`relative lg:col-span-7 ${padding} ${
+        reversed ? 'text-right' : ''
       }`}
     >
-      <h2
-        className={`font-pixel max-w-md ${reversed ? 'ml-auto' : ''}`}
-        style={{ fontSize: '160px', color: backgroundColorGrid }}
-      >
-        {splitIntoChunks(appName).map((chunk, index) => (
-          <div key={index}>{chunk}</div>
-        ))}
-      </h2>
-      <img
-        className='app-image w-[320.15px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10'
-        src={appScreenshot}
-        alt={appName}
-      />
+      {mediaType === 'video' ? (
+        // Video mode: full container video or animated GIF
+        <div className='w-full h-full min-h-screen flex items-center justify-center bg-black'>
+          {videoSource?.endsWith('.gif') ? (
+            <img
+              className='w-full h-full object-cover'
+              src={videoSource}
+              alt={`${appName} demo`}
+            />
+          ) : (
+            <video
+              className='w-full h-full object-cover min-screen min-h-screen'
+              autoPlay
+              loop
+              muted
+              playsInline
+              onError={(e) => {
+                console.error('Video failed to load:', e);
+              }}
+            >
+              <source src={videoSource} type='video/mp4' />
+              <source
+                src={videoSource?.replace('.mp4', '.webm')}
+                type='video/webm'
+              />
+              Your browser does not support the video tag.
+            </video>
+          )}
+        </div>
+      ) : (
+        // Image mode: chunked text with image overlay (current behavior)
+        <>
+          <h2
+            className={`font-pixel max-w-md ${reversed ? 'ml-auto' : ''}`}
+            style={{ fontSize: '160px', color: backgroundColorGrid }}
+          >
+            {splitIntoChunks(appName).map((chunk, index) => (
+              <div key={index}>{chunk}</div>
+            ))}
+          </h2>
+          {appScreenshot && (
+            <img
+              className='app-image w-[320.15px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10'
+              src={appScreenshot}
+              alt={appName}
+            />
+          )}
+        </>
+      )}
     </div>
   );
 

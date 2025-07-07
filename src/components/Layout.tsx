@@ -2,6 +2,7 @@ import Head from 'next/head';
 import * as React from 'react';
 import Footer from './Footer';
 import Script from 'next/script';
+import Header from './Header';
 
 interface ILayoutProps {
   children: React.ReactNode;
@@ -31,7 +32,10 @@ const Layout: React.FunctionComponent<ILayoutProps> = ({ children }) => {
           content='width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0'
         />
       </Head>
-      <main>{children}</main>
+      <main>
+        <Header />
+        {children}
+      </main>
       <Footer />
     </>
   );

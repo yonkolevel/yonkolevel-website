@@ -11,12 +11,6 @@ const notoSans = Noto_Sans({
   variable: '--font-body',
 });
 
-const pressStart2P = Press_Start_2P({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--font-pixel',
-});
-
 const departureMono = localFont({
   src: [
     {
@@ -35,7 +29,7 @@ const departureMono = localFont({
       style: 'normal',
     },
   ],
-  variable: '--font-departure-mono',
+  variable: '--font-pixel',
 });
 
 export const metadata: Metadata = {
@@ -78,9 +72,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body
-        className={`${notoSans.variable} ${pressStart2P.variable} ${departureMono.variable}`}
-      >
+      <body className={`${notoSans.variable} ${departureMono.variable}`}>
         <Layout>{children}</Layout>
       </body>
     </html>

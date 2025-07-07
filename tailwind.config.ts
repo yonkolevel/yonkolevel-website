@@ -54,7 +54,7 @@ const config: Config = {
       fontFamily: {
         ...defaultTheme.fontFamily,
         body: ['var(--font-body)'],
-        pixel: ['var(--font-departure-mono)'],
+        pixel: ['var(--font-pixel)'],
       },
       fontWeight: {
         body: '400',

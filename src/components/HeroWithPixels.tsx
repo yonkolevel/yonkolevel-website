@@ -23,7 +23,6 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
     { row: 0, col: 0, displaceX: -1, displaceY: -1 }, // Top-left corner
     { row: 0, col: 2, displaceX: 1, displaceY: -1 }, // Top-right area
     { row: 2, col: 1, displaceX: -2, displaceY: 0 }, // Middle-left
-    { row: 3, col: 3, displaceX: 2, displaceY: 1 }, // Lower-right
     { row: 1, col: 0, displaceX: -1, displaceY: 2 }, // Left side, down
   ];
 
@@ -51,7 +50,7 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            {title}
+            <span className='text-white font-pixel'>{title}</span>
           </motion.h1>
 
           <motion.p
