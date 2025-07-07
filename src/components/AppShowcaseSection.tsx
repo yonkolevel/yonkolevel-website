@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
-import { useEffect, useState, useRef } from 'react';
+import { useRef } from 'react';
+import PixelDisplacementGrid from './PixelDisplacementGrid';
 import Link from 'next/link';
 
 interface AppShowcaseSectionProps {
@@ -13,22 +14,18 @@ interface AppShowcaseSectionProps {
   backgroundColorGrid?: string;
   sectionBackgroundColor?: string;
   reversed?: boolean;
-}
-
-interface DisplacedPixel {
-  id: string;
-  originalX: number;
-  originalY: number;
-  newX: number;
-  newY: number;
-  size: number;
-  color: string;
-}
-
-interface GridPixel {
-  x: number;
-  y: number;
-  isDisplaced: boolean;
+  pixelDisplacements?: Array<{
+    row: number;
+    col: number;
+    displaceX: number;
+    displaceY: number;
+  }>;
+  contentSafeZones?: Array<{
+    startRow: number;
+    endRow: number;
+    startCol: number;
+    endCol: number;
+  }>;
 }
 
 const sectionVariants = {
@@ -48,16 +45,10 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   sectionBackgroundColor = '#F8FAFC',
   backgroundColorGrid = '#007AFF',
   reversed = false,
+  pixelDisplacements,
+  contentSafeZones,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [containerDimensions, setContainerDimensions] = useState({
-    width: 0,
-    height: 0,
-  });
-  const [displacedPixels, setDisplacedPixels] = useState<DisplacedPixel[]>([]);
-  const [gridPixels, setGridPixels] = useState<
-    { x: number; y: number; isDisplaced: boolean }[]
-  >([]);
 
   // Function to split text into chunks of 4 characters
   const splitIntoChunks = (text: string, chunkSize: number = 4) => {
@@ -68,82 +59,43 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
     return chunks;
   };
 
-  useEffect(() => {
-    const updateDimensions = () => {
-      if (containerRef.current) {
-        const { width, height } = containerRef.current.getBoundingClientRect();
-        setContainerDimensions({ width, height });
-      }
-    };
+  // Default pixel displacements if none provided
+  const defaultPixelDisplacements = [
+    { row: 0, col: 1, displaceX: -2, displaceY: 1 }, // Row 0, Col 1: left 2x, down 1x
+    { row: 1, col: 0, displaceX: -2, displaceY: 1 }, // Row 1, Col 0: left 2x, down 1x
+    { row: 2, col: 2, displaceX: -3, displaceY: -1 }, // Row 2, Col 2: left 3x, up 1x
+    { row: 4, col: 1, displaceX: 2, displaceY: -2 }, // Row 4, Col 1: right 2x, up 2x
+    { row: 6, col: 0, displaceX: -1, displaceY: 2 }, // Row 6, Col 0: left 1x, down 2x
+  ];
 
-    updateDimensions();
-    window.addEventListener('resize', updateDimensions);
-    return () => window.removeEventListener('resize', updateDimensions);
-  }, []);
+  // Default content-safe zones (typical areas where text content appears)
+  const defaultContentSafeZones = [
+    { startRow: 2, endRow: 4, startCol: 0, endCol: 2 }, // Title area
+    { startRow: 5, endRow: 8, startCol: 0, endCol: 3 }, // Description area
+    { startRow: 9, endRow: 10, startCol: 0, endCol: 2 }, // Button area
+  ];
 
-  useEffect(() => {
-    if (containerDimensions.width > 0 && containerDimensions.height > 0) {
-      const pixelSize = 80;
-      const cols = Math.floor(containerDimensions.width / pixelSize);
-      const rows = Math.floor(containerDimensions.height / pixelSize);
+  // Function to check if a displacement is in a content-safe zone
+  const isInSafeZone = (
+    displacement: { row: number; col: number },
+    safeZones: typeof defaultContentSafeZones
+  ) => {
+    return safeZones.some(
+      (zone) =>
+        displacement.row >= zone.startRow &&
+        displacement.row <= zone.endRow &&
+        displacement.col >= zone.startCol &&
+        displacement.col <= zone.endCol
+    );
+  };
 
-      // Helper function to create displaced pixels using matrix coordinates
-      const createDisplacedPixel = (
-        row: number,
-        col: number,
-        displaceX: number, // in grid units (positive = right, negative = left)
-        displaceY: number // in grid units (positive = down, negative = up)
-      ) => {
-        const gridIndex = row * cols + col;
-        return {
-          gridIndex,
-          newX: displaceX * pixelSize,
-          newY: displaceY * pixelSize,
-        };
-      };
+  // Use provided displacements or defaults, then filter out those in safe zones
+  const activeDisplacements = pixelDisplacements || defaultPixelDisplacements;
+  const activeSafeZones = contentSafeZones || defaultContentSafeZones;
 
-      // Create grid positions
-      const grid: GridPixel[] = [];
-      for (let row = 0; row < rows; row++) {
-        for (let col = 0; col < cols; col++) {
-          grid.push({
-            x: col * pixelSize,
-            y: row * pixelSize,
-            isDisplaced: false,
-          });
-        }
-      }
-
-      // Define which pixels to displace using matrix coordinates
-      const pixelsToDisplace = [
-        createDisplacedPixel(0, 1, -2, 1), // Row 0, Col 1: left 2x, down 1x
-        createDisplacedPixel(1, 0, -2, 1), // Row 1, Col 0: left 2x, down 1x
-        // Add your new ones:
-        createDisplacedPixel(rows - 2, 0, -2, 0), // Second to last row, Col 0: left 2x
-        createDisplacedPixel(rows - 1, 1, -1, 0), // Last row, Col 1: left 1x
-      ];
-
-      const displaced = pixelsToDisplace
-        .filter((p) => p.gridIndex < grid.length)
-        .map((p, index) => {
-          const originalPixel = grid[p.gridIndex];
-          grid[p.gridIndex].isDisplaced = true;
-
-          return {
-            id: `displaced-${index}`,
-            originalX: originalPixel.x,
-            originalY: originalPixel.y,
-            newX: originalPixel.x + p.newX,
-            newY: originalPixel.y + p.newY,
-            size: pixelSize,
-            color: backgroundColorGrid,
-          };
-        });
-
-      setGridPixels(grid);
-      setDisplacedPixels(displaced);
-    }
-  }, [containerDimensions]);
+  const safePixelDisplacements = activeDisplacements.filter(
+    (displacement) => !isInSafeZone(displacement, activeSafeZones)
+  );
 
   // Define the left and right content
   const leftContent = (
@@ -174,72 +126,16 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
       className='app-description-container relative lg:col-span-5 h-full'
       style={{ backgroundColor: backgroundColorGrid }}
     >
-      {/* Grid pixels (background) */}
-      {gridPixels.map((pixel, index) => {
-        // Find if this pixel has a displaced version and get its animation delay
-        const displacedPixelIndex = displacedPixels.findIndex(
-          (dp) => dp.originalX === pixel.x && dp.originalY === pixel.y
-        );
-        const hasDisplacedVersion = displacedPixelIndex !== -1;
-        const animationDelay = hasDisplacedVersion
-          ? displacedPixelIndex * 0.3
-          : 0;
-
-        return (
-          <motion.div
-            key={`grid-${index}`}
-            className={`absolute`}
-            initial={{ opacity: 1 }}
-            animate={{
-              backgroundColor: pixel.isDisplaced
-                ? sectionBackgroundColor
-                : backgroundColorGrid,
-              opacity: 1,
-            }}
-            transition={{
-              delay: hasDisplacedVersion ? animationDelay : 0,
-              duration: 0.3,
-              ease: 'easeOut',
-            }}
-            style={{
-              left: pixel.x,
-              top: pixel.y,
-              width: 80,
-              height: 80,
-              backgroundColor: backgroundColorGrid,
-            }}
-          />
-        );
-      })}
-
-      {/* Displaced pixels */}
-      {displacedPixels.map((pixel, index) => (
-        <motion.div
-          key={pixel.id}
-          initial={{
-            opacity: 0,
-            scale: 0,
-          }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-          }}
-          transition={{
-            delay: index * 0.3,
-            duration: 0.3,
-            ease: 'backOut',
-          }}
-          className='absolute'
-          style={{
-            left: pixel.newX,
-            top: pixel.newY,
-            width: pixel.size,
-            height: pixel.size,
-            backgroundColor: pixel.color,
-            zIndex: 20,
-          }}
-        />
-      ))}
+      {/* Pixel displacement grid */}
+      <PixelDisplacementGrid
+        backgroundColor={backgroundColorGrid}
+        holeColor={sectionBackgroundColor}
+        displacedPixelColor={backgroundColorGrid}
+        pixelSize={80}
+        displacements={safePixelDisplacements}
+        animationDelay={0.3}
+        animationDuration={0.3}
+      />
 
       {/* App description content */}
       <motion.div
