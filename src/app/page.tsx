@@ -15,8 +15,8 @@ const Home = () => {
       <HeroWithPixels
         title='Yonko Level'
         subtitle='Apps that make you smile :)'
-        backgroundColor='#FF5C24'
-        pixelColor='#FF5C24'
+        backgroundColor='#121212'
+        pixelColor='#F3B23F'
         holeColor='#F8FAFC'
       />
       <AppShowcaseSection
@@ -26,7 +26,7 @@ const Home = () => {
         mediaType='image'
         learnMoreLink='/products/invisible-camera'
         sectionBackgroundColor='#F8FAFC'
-        backgroundColorGrid='#007AFF'
+        backgroundColorGrid='#F3B23F'
         reversed={false}
         pixelDisplacements={[
           { row: 0, col: 2, displaceX: -3, displaceY: 1 },
@@ -45,18 +45,18 @@ const Home = () => {
         appDescription='Experience the future of music creation with our innovative MIDI circuit builder. Design, connect, and play with virtual circuits that respond to your creativity in real-time.'
         videoSource='/products/midicircuit/videos/promo-video.mov'
         mediaType='video'
-        learnMoreLink='/products/invisible-camera'
+        learnMoreLink='/products/midicircuit'
         sectionBackgroundColor='#F8FAFC'
-        backgroundColorGrid='#895efb'
+        backgroundColorGrid='#FF5C24'
         reversed={true}
         pixelDisplacements={[
-          { row: 0, col: 1, displaceX: 8, displaceY: -1 },
-          { row: 3, col: 0, displaceX: 3 + 7, displaceY: -2 },
+          { row: 0, col: 1, displaceX: 7, displaceY: -1 },
+          { row: 3, col: 0, displaceX: 9, displaceY: 5 },
           { row: 7, col: 2, displaceX: -4, displaceY: 2 },
           { row: 9, col: 4, displaceX: 2, displaceY: -1 },
 
-          { row: 0, col: 2, displaceX: 8, displaceY: 1 },
-          { row: 1, col: 0, displaceX: 9, displaceY: 2 },
+          { row: 0, col: 2, displaceX: 5, displaceY: 1 },
+          { row: 1, col: 0, displaceX: 8, displaceY: 1 },
           { row: 8, col: 1, displaceX: 11, displaceY: -3 },
           { row: 10, col: 3, displaceX: 17, displaceY: 1 },
         ]}

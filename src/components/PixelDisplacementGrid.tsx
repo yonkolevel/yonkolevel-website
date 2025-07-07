@@ -167,7 +167,7 @@ const PixelDisplacementGrid: React.FC<PixelDisplacementGridProps> = ({
           key={pixel.id}
           initial={{
             opacity: 0,
-            scale: 0,
+            scale: 1,
           }}
           animate={{
             opacity: 1,
@@ -178,7 +178,7 @@ const PixelDisplacementGrid: React.FC<PixelDisplacementGridProps> = ({
             duration: animationDuration,
             ease: 'backOut',
           }}
-          className='absolute'
+          className='absolute z-100'
           style={{
             left: pixel.newX,
             top: pixel.newY,

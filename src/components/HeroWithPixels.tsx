@@ -20,10 +20,10 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
 }) => {
   // Example: Different displacement pattern for hero sections
   const heroPixelDisplacements = [
-    { row: 0, col: 0, displaceX: -1, displaceY: -1 }, // Top-left corner
-    { row: 0, col: 2, displaceX: 1, displaceY: -1 }, // Top-right area
-    { row: 2, col: 1, displaceX: -2, displaceY: 0 }, // Middle-left
-    { row: 1, col: 0, displaceX: -1, displaceY: 2 }, // Left side, down
+    { row: 0, col: 0, displaceX: 1, displaceY: -1 }, // Top-left corner
+    { row: 0, col: 2, displaceX: 10, displaceY: -1 }, // Top-right area
+    { row: 2, col: 1, displaceX: 2, displaceY: 0 }, // Middle-left
+    { row: 1, col: 0, displaceX: 1, displaceY: 2 }, // Left side, down
   ];
 
   return (

@@ -24,13 +24,7 @@ const ProductAppIcon: React.FC<ProductAppIconProps> = ({
         }}
         className='relative -top-24 -mb-24'
       >
-        <img
-          width={200}
-          height={200}
-          src={appIcon}
-          alt={appIconAlt}
-          className='rounded-3xl shadow-2xl'
-        />
+        <img width={200} height={200} src={appIcon} alt={appIconAlt} />
       </motion.div>
     </div>
   );
