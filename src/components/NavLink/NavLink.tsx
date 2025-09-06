@@ -31,7 +31,7 @@ const NavLink: React.FunctionComponent<INavLinkProps & any> = ({
   return (
     <Link
       href={href}
-      className={`${styles.navLink} white ${active ? 'active' : ''} font-pixel`}
+      className={`${styles.navLink} white ${active ? 'active' : ''} font-pixel font-semibold`}
       {...props}
       style={{ color: color }}
     >

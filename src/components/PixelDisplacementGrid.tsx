@@ -40,7 +40,7 @@ const PixelDisplacementGrid: React.FC<PixelDisplacementGridProps> = ({
   backgroundColor,
   holeColor,
   displacedPixelColor,
-  pixelSize = 80,
+  pixelSize = 60,
   displacements,
   animationDelay = 0.3,
   animationDuration = 0.3,

@@ -19,7 +19,7 @@
 @layer base {
   html,
   body {
-    font-family: 'Noto Sans', system-ui, sans-serif;
+    font-family: "Noto Sans", system-ui, sans-serif;
     background-color: white;
   }
 }
@@ -54,4 +54,14 @@
   bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.hero-image {
+  left: -25%;
+  top: 0;
+  opacity: 0.3;
+}
+
+.hero-section span {
+  text-shadow: 6px 12px #1d1d1d;
 }

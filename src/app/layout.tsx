@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Noto_Sans, Press_Start_2P } from 'next/font/google';
+import { Noto_Sans, Press_Start_2P, Doto } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
 import Layout from '@/components/Layout';
@@ -11,24 +11,9 @@ const notoSans = Noto_Sans({
   variable: '--font-body',
 });
 
-const departureMono = localFont({
-  src: [
-    {
-      path: '../../public/fonts/DepartureMono/DepartureMono-Regular.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../../public/fonts/DepartureMono/DepartureMono-Regular.woff',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../../public/fonts/DepartureMono/DepartureMono-Regular.otf',
-      weight: '400',
-      style: 'normal',
-    },
-  ],
+const departureMono = Doto({
+  subsets: ['latin'],
+  weight: ['400', '500', '700', '900'],
   variable: '--font-pixel',
 });
 

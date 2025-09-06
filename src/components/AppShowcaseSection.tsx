@@ -185,7 +185,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
         whileInView='visible'
         viewport={{ once: true }}
         variants={sectionVariants}
-        className='relative z-10 p-12 md:p-16 h-full flex flex-col justify-center'
+        className='relative z-40 p-12 md:p-16 h-full flex flex-col justify-center'
       >
         <h2 className='font-pixel text-3xl md:text-4xl text-white mb-8'>
           {appName}
@@ -206,7 +206,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   );
 
   return (
-    <section className='bg-white relative overflow-hidden min-h-screen'>
+    <section className='bg-white relative overflow-hidden min-h-screen overflow-hidden'>
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-0 items-center h-full min-h-screen'>
         {/* Conditionally render content based on reversed prop */}
         {reversed ? (

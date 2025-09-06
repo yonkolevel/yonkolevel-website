@@ -12,11 +12,12 @@ const Home = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       {/* <HeroSection /> */}
+      {/* <div className='mt-60 bg-black' /> */}
       <HeroWithPixels
         title='Yonko Level'
-        subtitle='Apps that make you smile :)'
+        subtitle='Apps that make you smile 😁'
         backgroundColor='#121212'
-        pixelColor='#F3B23F'
+        pixelColor='#FF5C24'
         holeColor='#F8FAFC'
       />
       <AppShowcaseSection

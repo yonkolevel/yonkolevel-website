@@ -18,20 +18,11 @@ const variants = {
   closed: { opacity: 0, y: '-100%', zIndex: -1 },
 };
 
-interface IHeaderProps {}
+interface IHeaderProps { }
 
 const MenuList = () => {
   return (
     <ul>
-      <li>
-        <NavLink
-          href='/products/midi-scout'
-          color='#F8FAFC'
-          arrowColor='#F8FAFC'
-        >
-          MIDIScout
-        </NavLink>
-      </li>
       <li>
         <NavLink href='/about' color='#F8FAFC' arrowColor='#F8FAFC'>
           About
@@ -76,14 +67,14 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
                 href='/about'
                 color='white'
               >
-                About
+                ABOUT
               </NavLink>
               <NavLink
                 href='/contact'
                 active={pathname === '/contact'}
                 color='white'
               >
-                Contact
+                CONTACT
               </NavLink>
             </div>
           </TabletAndAbove>
