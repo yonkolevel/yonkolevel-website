@@ -4,7 +4,6 @@
   font-size: theme('fontSize.lg');
   transition: all 500ms;
   display: flex;
-  transform: translateX(-22px);
   color: theme('colors.blue2');
 }
 
@@ -20,20 +19,6 @@
   transition: all 350ms ease-in;
 }
 
-.navLinkArrow {
-  transition: all 500ms;
-  opacity: 0;
-  position: relative;
-  left: -11px;
-  margin-right: 11px;
-}
-
-.navLink:hover .navLinkArrow {
-  display: inline-block;
-  opacity: 1;
-  transform: translateX(11px);
-}
-
 .navLink .active,
 .navLink:hover {
   /* color: theme('colors.blue2'); */
@@ -41,5 +26,5 @@
 }
 
 .navLink.white {
-    color: theme('colors.white');
+  color: theme('colors.white');
 }

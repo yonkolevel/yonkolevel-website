@@ -15,7 +15,7 @@ const AboutUsPage: React.FunctionComponent<IAboutUsPageProps> = (props) => {
               <div>
                 <img
                   width={200}
-                  src='/images/products/midi-scout/icon.png'
+                  src='/products/midi-scout/icon.png'
                   alt='midiscout app icon'
                 />
               </div>
@@ -39,7 +39,7 @@ const AboutUsPage: React.FunctionComponent<IAboutUsPageProps> = (props) => {
             <div>
               <img
                 className='shadow'
-                src='/images/products/midi-scout/promo-graphic.png'
+                src='/products/midi-scout/promo-graphic.png'
                 alt='Screenshot of MIDI Scout with details of key features.'
               />
             </div>

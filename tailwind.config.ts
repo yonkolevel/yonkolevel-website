@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        blue1: '#084176',
-        blue2: '#0C5DA8',
+        blue1: '#007AFF',
+        blue2: '#007AFF',
         blue3: '#558EC2',
         blue4: '#9EBEDC',
         blue5: '#E7EFF6',
@@ -19,7 +19,7 @@ const config: Config = {
         yellow: '#FDE895',
         originalYellow: '#FCC552',
         white: '#F8FAFC',
-        black: '#000015',
+        black: '#121212',
       },
       fontSize: {
         xs: '12px',

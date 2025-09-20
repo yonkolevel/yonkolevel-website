@@ -24,15 +24,6 @@ const MenuList = () => {
   return (
     <ul>
       <li>
-        <NavLink
-          href='/products/midi-scout'
-          color='#F8FAFC'
-          arrowColor='#F8FAFC'
-        >
-          MIDIScout
-        </NavLink>
-      </li>
-      <li>
         <NavLink href='/about' color='#F8FAFC' arrowColor='#F8FAFC'>
           About
         </NavLink>
@@ -61,12 +52,10 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
     setMenuOpen((v) => !v);
   }, []);
   return (
-    <header
-      className={`navbar ${isProductPage ? 'bg-black' : 'bg-white'}  pb-12`}
-    >
+    <header className={`navbar bg-black  pb-12`}>
       <div className='flex flex-column flex-1'>
         <NextLink href='/' passHref>
-          <img src='/images/logo.svg' className='w-[100px]' />
+          <img src='/images/logo.svg' className='w-[100px]' alt='Logo' />
         </NextLink>
       </div>
       <div className='flex-none flex-column'>
@@ -74,22 +63,18 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
           <TabletAndAbove>
             <div className='flex'>
               <NavLink
-                active={pathname === '/products/midi-scout'}
-                href='/products/midi-scout'
+                active={pathname === '/about'}
+                href='/about'
+                color='white'
               >
-                MIDIScout
+                ABOUT
               </NavLink>
-              <NavLink active={pathname === '/about'} href='/about-us'>
-                <NextLink href='/about'>About</NextLink>
-              </NavLink>
-              {/* <NavLink href='/blog' active={pathname === '/blog'}>
-                Blog
-              </NavLink> */}
-              {/* <NavLink href='/case-studies' active={pathname === '/case-studies'}>
-                Case Studies
-              </NavLink> */}
-              <NavLink href='/contact' active={pathname === '/contact'}>
-                Contact
+              <NavLink
+                href='/contact'
+                active={pathname === '/contact'}
+                color='white'
+              >
+                CONTACT
               </NavLink>
             </div>
           </TabletAndAbove>

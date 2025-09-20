@@ -31,12 +31,12 @@ const AuthorCard: React.FunctionComponent<IAuthorCardProps> = ({
           <div className='flex flex-column align-center mt-[24px]'>
             {twitterUrl && (
               <a href={twitterUrl} target='_blank'>
-                <img className='mr-[20px]' src='/images/icons/twitter.svg' />
+                <img className='mr-[20px]' src='/images/icons/twitter.svg' alt='Twitter' />
               </a>
             )}
             {instagramUrl && (
               <a href={instagramUrl} target='_blank'>
-                <img src='/images/icons/instagram.svg' />
+                <img src='/images/icons/instagram.svg' alt='Instagram' />
               </a>
             )}
           </div>
