@@ -2,7 +2,7 @@
 import RightThingPixelBottom from '@/components/shapes/RightThingPixelBottom';
 import { motion, useAnimation } from 'framer-motion';
 import Head from 'next/head';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import Button from '../components/Button';
 import Container from '../components/Container';
@@ -74,7 +74,7 @@ const Home = () => {
   const { ref: uspsSectionRef, inView: uspsSectionInView } = useInView();
   const uspsSectionControls = useAnimation();
 
-  const sequence = async () => {
+  const sequence = useCallback(async () => {
     await idleControls.start('hidden');
     await walkingControls.start('hidden');
     await walkingControls.start('walking');
@@ -84,11 +84,11 @@ const Home = () => {
     await heroSubControls.start('visible');
     await heroButtonControls.start('visible');
     await uspsSectionControls.start('visible');
-  };
+  }, [idleControls, walkingControls, heroControls, heroSubControls, heroButtonControls, uspsSectionControls]);
 
   useEffect(() => {
     sequence();
-  }, []);
+  }, [sequence]);
 
   return (
     <div>

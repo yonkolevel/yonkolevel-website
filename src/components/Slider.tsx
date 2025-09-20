@@ -43,12 +43,13 @@ const Slider: React.FunctionComponent<ISliderProps> = ({
       }
     };
 
-    scrollContainerRef.current?.addEventListener('scroll', handleScroll);
+    const currentRef = scrollContainerRef.current;
+    currentRef?.addEventListener('scroll', handleScroll);
 
     return () => {
-      scrollContainerRef.current?.removeEventListener('scroll', handleScroll);
+      currentRef?.removeEventListener('scroll', handleScroll);
     };
-  }, [scrollContainerRef.current, itemWidth, visibleItem]);
+  }, [itemWidth, visibleItem, itemMarkers.length]);
 
   useEffect(() => {
     const firstChild = scrollContainerRef.current?.children[0];
@@ -56,7 +57,7 @@ const Slider: React.FunctionComponent<ISliderProps> = ({
     if (!firstChild) return;
 
     setItemWidth(firstChild.clientWidth);
-  }, [scrollContainerRef]);
+  }, []);
 
   return (
     <>

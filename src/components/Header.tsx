@@ -55,7 +55,7 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
     <header className={`navbar bg-black  pb-12`}>
       <div className='flex flex-column flex-1'>
         <NextLink href='/' passHref>
-          <img src='/images/logo.svg' className='w-[100px]' />
+          <img src='/images/logo.svg' className='w-[100px]' alt='Logo' />
         </NextLink>
       </div>
       <div className='flex-none flex-column'>

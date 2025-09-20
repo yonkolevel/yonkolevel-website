@@ -45,7 +45,7 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
         />
       </div>
 
-      <img className="hero-image z-10 absolute" src='/images/mercury-diagram.svg' />
+      <img className="hero-image z-10 absolute" src='/images/mercury-diagram.svg' alt='Mercury diagram' />
 
 
       {/* Hero content */}
