@@ -45,8 +45,8 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
           displacedPixelColor={pixelColor}
           pixelSize={80} // Larger pixels for hero
           displacements={heroPixelDisplacements}
-          animationDelay={0.5} // Slower animation
-          animationDuration={0.6}
+          animationDelay={0.15}
+          animationDuration={0.5}
         />
       </div>
 
