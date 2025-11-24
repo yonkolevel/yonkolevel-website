@@ -60,7 +60,7 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
       <Container>
         <div className='relative z-40 container'>
           {/* Split title for maximum impact */}
-          <div className='flex flex-col items-start md:items-center'>
+          <div className='flex flex-col items-center'>
             <motion.div
               className='mb-2 md:mb-4'
               initial={{ opacity: 0, x: -50 }}
@@ -96,27 +96,15 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
 
           {/* Decorative elements */}
           <motion.div
-            className='flex items-center gap-4 mb-8 md:mb-12'
+            className='flex items-center justify-center mb-8 md:mb-12'
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            <div className='flex gap-1'>
-              <div className='w-1 h-1 rounded-full bg-white/60'></div>
-              <div className='w-1 h-1 rounded-full bg-white/60'></div>
-              <div className='w-1.5 h-1.5 rounded-full bg-white/80'></div>
-              <div className='w-1 h-1 rounded-full bg-white/60'></div>
-            </div>
-            <motion.span className='font-pixel text-sm md:text-base tracking-[0.2em] text-white/60 uppercase'>
+            <motion.span className='font-pixel text-lg md:text-xl lg:text-2xl tracking-wider text-white/90 uppercase px-6 py-3 border border-white/20 rounded-full bg-white/5 backdrop-blur-sm'>
               {subtitle}
             </motion.span>
-            <div className='flex gap-1'>
-              <div className='w-1 h-1 rounded-full bg-white/60'></div>
-              <div className='w-1 h-1 rounded-full bg-white/60'></div>
-              <div className='w-1.5 h-1.5 rounded-full bg-white/80'></div>
-              <div className='w-1 h-1 rounded-full bg-white/60'></div>
-            </div>
           </motion.div>
 
           {/* Japanese text - repositioned */}
@@ -125,7 +113,7 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className='font-pixel text-lg md:text-xl tracking-[0.08em] text-white/50 block text-center md:text-left'
+            className='font-pixel text-lg md:text-xl tracking-[0.08em] text-white/50 block text-center'
           >
             ヨンコ・レベル
           </motion.span>
