@@ -3,6 +3,7 @@ import Head from 'next/head';
 import HeroSection from '@/components/home/HeroSection';
 import AppShowcaseSection from '@/components/AppShowcaseSection';
 import HeroWithPixels from '@/components/HeroWithPixels';
+import PromotionalVideoSection from '@/components/PromotionalVideoSection';
 
 const Home = () => {
   return (
@@ -46,24 +47,33 @@ const Home = () => {
           { startRow: 9, endRow: 10, startCol: 0, endCol: 2 }, // Button safe zone
         ]}
       />
+
+      {/* Promotional Video Section */}
+      <PromotionalVideoSection
+        videoSource='/products/midicircuit/videos/promo-video.mov'
+        appName='MIDICIRCUIT'
+        appDescription='Experience the future of music creation with our innovative MIDI circuit builder. Design, connect, and play with virtual circuits that respond to your creativity in real-time.'
+        learnMoreLink='/products/midicircuit'
+        backgroundColor='#000000'
+        overlayOpacity={0.4}
+        showControls={true}
+      />
+
       <AppShowcaseSection
         appName='MIDICIRCUIT'
         appDescription='Experience the future of music creation with our innovative MIDI circuit builder. Design, connect, and play with virtual circuits that respond to your creativity in real-time.'
-        videoSource='/products/midicircuit/videos/promo-video.mov'
-        mediaType='video'
+        appScreenshot='/products/midicircuit/midicircuit-preview-1.png'
+        mediaType='image'
         learnMoreLink='/products/midicircuit'
-        sectionBackgroundColor='#F8FAFC'
+        sectionBackgroundColor='#121212'
         backgroundColorGrid='#FF5C24'
+        backgroundImage='/images/section-backgrounds/midicircuit-app-section-background.svg'
         reversed={true}
         pixelDisplacements={[
-          { row: 0, col: 1, displaceX: 7, displaceY: -1 },
-          { row: 3, col: 0, displaceX: 9, displaceY: 5 },
-          { row: 7, col: 2, displaceX: -4, displaceY: 2 },
-          { row: 9, col: 4, displaceX: 2, displaceY: -1 },
-
+          { row: 12, col: 13, displaceX: 2, displaceY: -1 },
           { row: 0, col: 2, displaceX: 5, displaceY: 1 },
           { row: 1, col: 0, displaceX: 8, displaceY: 1 },
-          { row: 8, col: 1, displaceX: 11, displaceY: -3 },
+          { row: 8, col: 1, displaceX: 8, displaceY: -1 },
           { row: 10, col: 3, displaceX: 17, displaceY: 1 },
         ]}
         contentSafeZones={[

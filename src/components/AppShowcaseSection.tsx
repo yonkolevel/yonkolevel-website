@@ -129,9 +129,13 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
       );
     }
 
-    // Image mode: Just show the app screenshot centered
+    // Image mode: Just show the app screenshot with proper alignment based on reversed prop
     return (
-      <div className='w-full h-full flex items-center py-12 justify-center lg:justify-start'>
+      <div
+        className={`w-full h-full flex items-center py-12 justify-center lg:${
+          reversed ? 'justify-end' : 'justify-start'
+        }`}
+      >
         {appScreenshot && (
           <img
             className='w-full max-w-[400px] h-auto object-contain'
