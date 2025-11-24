@@ -26,14 +26,27 @@ const Home = () => {
         appScreenshot='/products/invisible-camera/ic-app-store-preview.png'
         mediaType='image'
         learnMoreLink='/products/invisible-camera'
-        sectionBackgroundColor='#F8FAFC'
+        sectionBackgroundColor='#1a1a1a'
         backgroundColorGrid='#F3B23F'
+        backgroundImage='/images/section-backgrounds/invisible-camera-app-section-background.svg'
         reversed={false}
         pixelDisplacements={[
-          { row: 0, col: 2, displaceX: -3, displaceY: 1 },
-          { row: 1, col: 0, displaceX: -2, displaceY: 2 },
-          { row: 8, col: 1, displaceX: 1, displaceY: -3 },
-          { row: 10, col: 3, displaceX: -2, displaceY: 1 },
+          // Top row - displace within bounds
+          { row: 0, col: 8, displaceX: -10, displaceY: 2 },
+          { row: 0, col: 10, displaceX: -3, displaceY: 3 },
+          { row: 1, col: 9, displaceX: 5, displaceY: 1 },
+          { row: 1, col: 11, displaceX: -4, displaceY: 2 },
+
+          // Middle area
+          { row: 5, col: 8, displaceX: 3, displaceY: -2 },
+          { row: 6, col: 10, displaceX: -5, displaceY: 3 },
+          { row: 7, col: 9, displaceX: 4, displaceY: -3 },
+
+          // Bottom row - displace within bounds
+          { row: 11, col: 8, displaceX: -4, displaceY: -2 },
+          { row: 11, col: 10, displaceX: 3, displaceY: -1 },
+          { row: 12, col: 9, displaceX: 5, displaceY: -3 },
+          { row: 12, col: 11, displaceX: -3, displaceY: -2 },
         ]}
         contentSafeZones={[
           { startRow: 2, endRow: 4, startCol: 0, endCol: 2 }, // Title safe zone

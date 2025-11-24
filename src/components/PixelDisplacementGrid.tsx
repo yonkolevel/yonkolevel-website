@@ -123,7 +123,7 @@ const PixelDisplacementGrid: React.FC<PixelDisplacementGridProps> = ({
     <div
       ref={containerRef}
       className={`absolute inset-0 ${className}`}
-      style={{ backgroundColor }}
+      style={{ backgroundColor: 'transparent' }}
     >
       {/* Grid pixels (background) */}
       {gridPixels.map((pixel, index) => {
@@ -140,15 +140,15 @@ const PixelDisplacementGrid: React.FC<PixelDisplacementGridProps> = ({
           <motion.div
             key={`grid-${index}`}
             className='absolute'
-            initial={{ opacity: 1 }}
+            initial={{ opacity: 1, scale: 1 }}
             animate={{
-              backgroundColor: pixel.isDisplaced ? holeColor : backgroundColor,
-              opacity: 1,
+              opacity: pixel.isDisplaced ? 0 : 1,
+              scale: pixel.isDisplaced ? 0.8 : 1,
             }}
             transition={{
               delay: hasDisplacedVersion ? delay : 0,
               duration: animationDuration,
-              ease: 'easeOut',
+              ease: 'easeInOut',
             }}
             style={{
               left: pixel.x,
@@ -166,22 +166,24 @@ const PixelDisplacementGrid: React.FC<PixelDisplacementGridProps> = ({
         <motion.div
           key={pixel.id}
           initial={{
+            left: pixel.originalX,
+            top: pixel.originalY,
             opacity: 0,
-            scale: 1,
+            scale: 0.8,
           }}
           animate={{
+            left: pixel.newX,
+            top: pixel.newY,
             opacity: 1,
             scale: 1,
           }}
           transition={{
             delay: index * animationDelay,
             duration: animationDuration,
-            ease: 'backOut',
+            ease: 'easeInOut',
           }}
           className='absolute z-100'
           style={{
-            left: pixel.newX,
-            top: pixel.newY,
             width: pixel.size,
             height: pixel.size,
             backgroundColor: pixel.color,

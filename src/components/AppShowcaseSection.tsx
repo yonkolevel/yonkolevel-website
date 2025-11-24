@@ -15,6 +15,7 @@ interface AppShowcaseSectionProps {
   backgroundColor?: string;
   backgroundColorGrid?: string;
   sectionBackgroundColor?: string;
+  backgroundImage?: string;
   reversed?: boolean;
   pixelDisplacements?: Array<{
     row: number;
@@ -48,20 +49,12 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   learnMoreLink,
   sectionBackgroundColor = '#F8FAFC',
   backgroundColorGrid = '#007AFF',
+  backgroundImage,
   reversed = false,
   pixelDisplacements,
   contentSafeZones,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-
-  // Function to split text into chunks of 4 characters
-  const splitIntoChunks = (text: string, chunkSize: number = 4) => {
-    const chunks = [];
-    for (let i = 0; i < text.length; i += chunkSize) {
-      chunks.push(text.slice(i, i + chunkSize));
-    }
-    return chunks;
-  };
 
   // Default pixel displacements if none provided
   const defaultPixelDisplacements = [
@@ -101,17 +94,11 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
     (displacement) => !isInSafeZone(displacement, activeSafeZones)
   );
 
-  const padding = mediaType === 'video' ? '0' : reversed ? 'pl-12' : 'pr-12';
-
-  // Define the left and right content based on media type
-  const leftContent = (
-    <div
-      className={`relative lg:col-span-7 ${padding} ${
-        reversed ? 'text-right' : ''
-      }`}
-    >
-      {mediaType === 'video' ? (
-        // Video mode: full container video or animated GIF
+  // Media Content Component (Left Column)
+  const MediaContent = () => {
+    if (mediaType === 'video') {
+      // Video mode: full container video or animated GIF
+      return (
         <div className='w-full h-full min-h-screen flex items-center justify-center bg-black'>
           {videoSource?.endsWith('.gif') ? (
             <img
@@ -139,75 +126,96 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
             </video>
           )}
         </div>
-      ) : (
-        // Image mode: chunked text with image overlay (current behavior)
-        <>
-          <h2
-            className={`font-pixel max-w-md ${reversed ? 'ml-auto' : ''}`}
-            style={{ fontSize: '160px', color: backgroundColorGrid }}
-          >
-            {splitIntoChunks(appName).map((chunk, index) => (
-              <div key={index}>{chunk}</div>
-            ))}
-          </h2>
-          {appScreenshot && (
-            <img
-              className='app-image w-[320.15px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10'
-              src={appScreenshot}
-              alt={appName}
-            />
-          )}
-        </>
-      )}
+      );
+    }
+
+    // Image mode: Just show the app screenshot centered
+    return (
+      <div className='w-full h-full flex items-center py-12'>
+        {appScreenshot && (
+          <img
+            className='w-full max-w-[400px] h-auto object-contain'
+            src={appScreenshot}
+            alt={appName}
+          />
+        )}
+      </div>
+    );
+  };
+
+  const leftContent = (
+    <div className='relative lg:col-span-7'>
+      <MediaContent />
     </div>
+  );
+
+  // App Content Component (Right Column)
+  const AppContent = () => (
+    <motion.div
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true }}
+      variants={sectionVariants}
+      className='relative z-40 p-12 md:p-16 h-full flex flex-col justify-center'
+    >
+      <h2 className='font-pixel text-3xl md:text-4xl text-white mb-8'>
+        {appName}
+      </h2>
+
+      <p className='font-body text-sm md:text-base text-white opacity-90 mb-8 leading-relaxed pb-12'>
+        {appDescription}
+      </p>
+
+      <Link
+        href={learnMoreLink}
+        className='inline-flex items-center font-pixel text-white text-xl opacity-90 hover:opacity-100 transition-opacity'
+      >
+        Learn more →
+      </Link>
+    </motion.div>
   );
 
   const rightContent = (
     <div
       ref={containerRef}
-      className='app-description-container relative lg:col-span-5 h-full'
-      style={{ backgroundColor: backgroundColorGrid }}
+      className='app-description-container relative lg:col-span-5 h-[523px]'
     >
       {/* Pixel displacement grid */}
       <PixelDisplacementGrid
         backgroundColor={backgroundColorGrid}
-        holeColor={sectionBackgroundColor}
+        holeColor='transparent'
         displacedPixelColor={backgroundColorGrid}
-        pixelSize={80}
+        pixelSize={40}
         displacements={safePixelDisplacements}
-        animationDelay={0.3}
-        animationDuration={0.3}
+        animationDelay={0.15}
+        animationDuration={0.5}
       />
 
       {/* App description content */}
-      <motion.div
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ once: true }}
-        variants={sectionVariants}
-        className='relative z-40 p-12 md:p-16 h-full flex flex-col justify-center'
-      >
-        <h2 className='font-pixel text-3xl md:text-4xl text-white mb-8'>
-          {appName}
-        </h2>
-
-        <p className='font-body text-sm md:text-base text-white opacity-90 mb-8 leading-relaxed pb-12'>
-          {appDescription}
-        </p>
-
-        <Link
-          href={learnMoreLink}
-          className='inline-flex items-center font-pixel text-white text-xl opacity-90 hover:opacity-100 transition-opacity'
-        >
-          Learn more →
-        </Link>
-      </motion.div>
+      <AppContent />
     </div>
   );
 
   return (
-    <section className='bg-white relative overflow-hidden min-h-screen overflow-hidden'>
-      <div className='grid grid-cols-1 lg:grid-cols-12 gap-0 items-center h-full min-h-screen'>
+    <section
+      className='relative overflow-hidden py-16 md:py-24'
+      style={{ backgroundColor: sectionBackgroundColor }}
+    >
+      {/* Background SVG Overlay */}
+      {backgroundImage && (
+        <div
+          className='absolute inset-0 w-full h-full z-0'
+          style={{
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+      )}
+
+      {/* Content */}
+      <div className='relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-0 items-center px-[24px] md:px-[48px]'>
         {/* Conditionally render content based on reversed prop */}
         {reversed ? (
           <>
