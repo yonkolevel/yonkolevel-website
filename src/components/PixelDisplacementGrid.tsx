@@ -119,11 +119,14 @@ const PixelDisplacementGrid: React.FC<PixelDisplacementGridProps> = ({
     }
   }, [containerDimensions, pixelSize, displacements, displacedPixelColor]);
 
+  // Determine if we should use transparent holes or colored holes
+  const useTransparentHoles = holeColor === 'transparent';
+
   return (
     <div
       ref={containerRef}
       className={`absolute inset-0 ${className}`}
-      style={{ backgroundColor: 'transparent' }}
+      style={{ backgroundColor: useTransparentHoles ? 'transparent' : backgroundColor }}
     >
       {/* Grid pixels (background) */}
       {gridPixels.map((pixel, index) => {
@@ -141,10 +144,12 @@ const PixelDisplacementGrid: React.FC<PixelDisplacementGridProps> = ({
             key={`grid-${index}`}
             className='absolute'
             initial={{ opacity: 1, scale: 1 }}
-            animate={{
-              opacity: pixel.isDisplaced ? 0 : 1,
+            whileInView={{
+              opacity: pixel.isDisplaced && useTransparentHoles ? 0 : 1,
               scale: pixel.isDisplaced ? 0.8 : 1,
+              backgroundColor: pixel.isDisplaced && !useTransparentHoles ? holeColor : backgroundColor,
             }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               delay: hasDisplacedVersion ? delay : 0,
               duration: animationDuration,
@@ -171,12 +176,13 @@ const PixelDisplacementGrid: React.FC<PixelDisplacementGridProps> = ({
             opacity: 0,
             scale: 0.8,
           }}
-          animate={{
+          whileInView={{
             left: pixel.newX,
             top: pixel.newY,
             opacity: 1,
             scale: 1,
           }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{
             delay: index * animationDelay,
             duration: animationDuration,

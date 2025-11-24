@@ -18,16 +18,16 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
   pixelColor = '#007AFF',
   holeColor = '#F8FAFC',
 }) => {
-  // Example: Different displacement pattern for hero sections
+  // Edge-based minimal ladder pattern
   const heroPixelDisplacements = [
-    { row: 0, col: 0, displaceX: 1, displaceY: -1 }, // Top-left corner
-    { row: 0, col: 2, displaceX: 10, displaceY: -1 }, // Top-right area
-    { row: 2, col: 1, displaceX: 2, displaceY: 0 }, // Middle-left
-    { row: 1, col: 0, displaceX: 1, displaceY: 2 }, // Left side, down
-    { row: 8, col: 3, displaceX: 1, displaceY: 2 }, // Left side, down
-    { row: 9, col: 5, displaceX: 3, displaceY: 0 }, // Left side, down
-    { row: 11, col: 0, displaceX: 0, displaceY: 1 }, // Left side, down
+    // Top-left corner ladder flowing outward
+    { row: 0, col: 0, displaceX: 2, displaceY: -1 },
+    { row: 1, col: 1, displaceX: 2, displaceY: 1 },
+    { row: 2, col: 0, displaceX: 1, displaceY: 2 },
 
+    // Bottom-left corner ladder flowing outward
+    { row: 11, col: 0, displaceX: -1, displaceY: 2 },
+    { row: 11, col: 2, displaceX: 2, displaceY: 2 },
   ];
 
   return (
@@ -45,8 +45,11 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
         />
       </div>
 
-      <img className="hero-image z-10 absolute" src='/images/mercury-diagram.svg' alt='Mercury diagram' />
-
+      <img
+        className='hero-image z-10 absolute'
+        src='/images/mercury-diagram.svg'
+        alt='Mercury diagram'
+      />
 
       {/* Hero content */}
       <Container>
@@ -54,16 +57,18 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
           <motion.h1
             className='font-pixel text-6xl md:text-9xl text-white mb-8 font-black halation-text'
             initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
           >
             <span className='text-white font-pixel'>{title}</span>
           </motion.h1>
 
           <motion.span
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
             className='font-pixel text-xl tracking-[0.08em] text-white/70 [writing-mode:horizontal-rl]'
           >
             ヨンコ・レベル
@@ -72,8 +77,9 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
           <motion.p
             className='font-body text-l text-white opacity-90 mt-36'
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
           >
             {subtitle}
           </motion.p>

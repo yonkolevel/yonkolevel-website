@@ -131,7 +131,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
 
     // Image mode: Just show the app screenshot centered
     return (
-      <div className='w-full h-full flex items-center py-12'>
+      <div className='w-full h-full flex items-center py-12 justify-center lg:justify-start'>
         {appScreenshot && (
           <img
             className='w-full max-w-[400px] h-auto object-contain'
@@ -144,7 +144,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   };
 
   const leftContent = (
-    <div className='relative lg:col-span-7'>
+    <div className='relative lg:col-span-7 h-full min-h-screen'>
       <MediaContent />
     </div>
   );

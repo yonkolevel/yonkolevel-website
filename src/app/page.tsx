@@ -31,22 +31,14 @@ const Home = () => {
         backgroundImage='/images/section-backgrounds/invisible-camera-app-section-background.svg'
         reversed={false}
         pixelDisplacements={[
-          // Top row - displace within bounds
-          { row: 0, col: 8, displaceX: -10, displaceY: 2 },
-          { row: 0, col: 10, displaceX: -3, displaceY: 3 },
-          { row: 1, col: 9, displaceX: 5, displaceY: 1 },
-          { row: 1, col: 11, displaceX: -4, displaceY: 2 },
+          // Top-right edge ladder flowing outward
+          { row: 0, col: 13, displaceX: 3, displaceY: -2 },
+          { row: 1, col: 12, displaceX: 4, displaceY: -1 },
+          { row: 2, col: 11, displaceX: 5, displaceY: 1 },
 
-          // Middle area
-          { row: 5, col: 8, displaceX: 3, displaceY: -2 },
-          { row: 6, col: 10, displaceX: -5, displaceY: 3 },
-          { row: 7, col: 9, displaceX: 4, displaceY: -3 },
-
-          // Bottom row - displace within bounds
-          { row: 11, col: 8, displaceX: -4, displaceY: -2 },
-          { row: 11, col: 10, displaceX: 3, displaceY: -1 },
-          { row: 12, col: 9, displaceX: 5, displaceY: -3 },
-          { row: 12, col: 11, displaceX: -3, displaceY: -2 },
+          // Bottom-right edge ladder flowing outward
+          { row: 12, col: 13, displaceX: 3, displaceY: 2 },
+          { row: 11, col: 12, displaceX: 4, displaceY: 1 },
         ]}
         contentSafeZones={[
           { startRow: 2, endRow: 4, startCol: 0, endCol: 2 }, // Title safe zone
