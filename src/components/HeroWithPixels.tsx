@@ -18,6 +18,11 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
   pixelColor = '#007AFF',
   holeColor = '#F8FAFC',
 }) => {
+  // Split title into words for dramatic effect
+  const titleWords = title.split(' ');
+  const firstWord = titleWords[0] || title;
+  const secondWord = titleWords.slice(1).join(' ') || '';
+
   // Edge-based minimal ladder pattern
   const heroPixelDisplacements = [
     // Top-left corner ladder flowing outward
@@ -53,36 +58,77 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
 
       {/* Hero content */}
       <Container>
-        <div className='relative z-40 text-center container'>
-          <motion.h1
-            className='font-pixel text-6xl md:text-9xl text-white mb-8 font-black halation-text'
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          >
-            <span className='text-white font-pixel'>{title}</span>
-          </motion.h1>
+        <div className='relative z-40 container'>
+          {/* Split title for maximum impact */}
+          <div className='flex flex-col items-start md:items-center'>
+            <motion.div
+              className='mb-2 md:mb-4'
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            >
+              <h1 className='font-pixel text-5xl md:text-8xl lg:text-[10rem] text-white font-black leading-[0.9] tracking-tight uppercase'>
+                {firstWord}
+              </h1>
+            </motion.div>
 
+            {secondWord && (
+              <motion.div
+                className='mb-8 md:mb-12'
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+              >
+                <h1
+                  className='font-pixel text-5xl md:text-8xl lg:text-[10rem] font-black leading-[0.9] tracking-tight uppercase'
+                  style={{
+                    color: pixelColor,
+                    textShadow: `0 0 20px ${pixelColor}40, 0 0 40px ${pixelColor}20`,
+                  }}
+                >
+                  {secondWord}
+                </h1>
+              </motion.div>
+            )}
+          </div>
+
+          {/* Decorative elements */}
+          <motion.div
+            className='flex items-center gap-4 mb-8 md:mb-12'
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            <div className='flex gap-1'>
+              <div className='w-1 h-1 rounded-full bg-white/60'></div>
+              <div className='w-1 h-1 rounded-full bg-white/60'></div>
+              <div className='w-1.5 h-1.5 rounded-full bg-white/80'></div>
+              <div className='w-1 h-1 rounded-full bg-white/60'></div>
+            </div>
+            <motion.span className='font-pixel text-sm md:text-base tracking-[0.2em] text-white/60 uppercase'>
+              {subtitle}
+            </motion.span>
+            <div className='flex gap-1'>
+              <div className='w-1 h-1 rounded-full bg-white/60'></div>
+              <div className='w-1 h-1 rounded-full bg-white/60'></div>
+              <div className='w-1.5 h-1.5 rounded-full bg-white/80'></div>
+              <div className='w-1 h-1 rounded-full bg-white/60'></div>
+            </div>
+          </motion.div>
+
+          {/* Japanese text - repositioned */}
           <motion.span
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className='font-pixel text-xl tracking-[0.08em] text-white/70 [writing-mode:horizontal-rl]'
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className='font-pixel text-lg md:text-xl tracking-[0.08em] text-white/50 block text-center md:text-left'
           >
             ヨンコ・レベル
           </motion.span>
-
-          <motion.p
-            className='font-body text-l text-white opacity-90 mt-36'
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-          >
-            {subtitle}
-          </motion.p>
         </div>
       </Container>
     </section>
