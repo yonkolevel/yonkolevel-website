@@ -138,7 +138,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
       >
         {appScreenshot && (
           <img
-            className='w-full max-w-[400px] h-auto object-contain'
+            className='w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[400px] h-auto object-contain'
             src={appScreenshot}
             alt={appName}
           />
@@ -148,7 +148,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   };
 
   const leftContent = (
-    <div className='relative lg:col-span-7 h-full min-h-screen'>
+    <div className='relative lg:col-span-7 h-full min-h-[400px] sm:min-h-[500px] md:min-h-screen'>
       <MediaContent />
     </div>
   );
@@ -160,19 +160,19 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
       whileInView='visible'
       viewport={{ once: true }}
       variants={sectionVariants}
-      className='relative z-40 p-12 md:p-16 h-full flex flex-col justify-center'
+      className='relative z-40 p-6 sm:p-8 md:p-12 lg:p-16 h-full flex flex-col justify-center'
     >
-      <h2 className='font-pixel text-3xl md:text-4xl text-white mb-8'>
+      <h2 className='font-pixel text-2xl sm:text-3xl md:text-4xl text-white mb-4 sm:mb-6 md:mb-8'>
         {appName}
       </h2>
 
-      <p className='font-body text-sm md:text-base text-white opacity-90 mb-8 leading-relaxed pb-12'>
+      <p className='font-body text-xs sm:text-sm md:text-base text-white opacity-90 mb-6 sm:mb-8 leading-relaxed pb-6 sm:pb-8 md:pb-12'>
         {appDescription}
       </p>
 
       <Link
         href={learnMoreLink}
-        className='inline-flex items-center font-pixel text-white text-xl opacity-90 hover:opacity-100 transition-opacity'
+        className='inline-flex items-center font-pixel text-white text-base sm:text-lg md:text-xl opacity-90 hover:opacity-100 transition-opacity'
       >
         Learn more →
       </Link>
@@ -182,7 +182,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   const rightContent = (
     <div
       ref={containerRef}
-      className='app-description-container relative lg:col-span-5 h-[523px]'
+      className='app-description-container relative lg:col-span-5 h-auto min-h-[400px] sm:min-h-[450px] md:h-[523px]'
     >
       {/* Pixel displacement grid */}
       <PixelDisplacementGrid
@@ -219,7 +219,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
       )}
 
       {/* Content */}
-      <div className='relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-0 items-center px-[24px] md:px-[48px]'>
+      <div className='relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-0 items-center px-4 sm:px-6 md:px-12'>
         {/* Conditionally render content based on reversed prop */}
         {reversed ? (
           <>

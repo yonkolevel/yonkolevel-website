@@ -43,7 +43,7 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
           backgroundColor={backgroundColor}
           holeColor={holeColor}
           displacedPixelColor={pixelColor}
-          pixelSize={80} // Larger pixels for hero
+          pixelSize={40} // Larger pixels for hero
           displacements={heroPixelDisplacements}
           animationDelay={0.15}
           animationDuration={0.5}
@@ -62,27 +62,27 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
           {/* Split title for maximum impact */}
           <div className='flex flex-col items-center'>
             <motion.div
-              className='mb-2 md:mb-4'
+              className='mb-2 sm:mb-3 md:mb-4'
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              <h1 className='font-pixel text-5xl md:text-8xl lg:text-[10rem] text-white font-black leading-[0.9] tracking-tight uppercase'>
+              <h1 className='font-pixel text-3xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-[10rem] text-white font-black leading-[0.9] tracking-tight uppercase px-2 sm:px-0'>
                 {firstWord}
               </h1>
             </motion.div>
 
             {secondWord && (
               <motion.div
-                className='mb-8 md:mb-12'
+                className='mb-6 sm:mb-8 md:mb-12'
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
               >
                 <h1
-                  className='font-pixel text-5xl md:text-8xl lg:text-[10rem] font-black leading-[0.9] tracking-tight uppercase'
+                  className='font-pixel text-3xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-[10rem] font-black leading-[0.9] tracking-tight uppercase px-2 sm:px-0'
                   style={{
                     color: pixelColor,
                     textShadow: `0 0 20px ${pixelColor}40, 0 0 40px ${pixelColor}20`,
@@ -96,13 +96,13 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
 
           {/* Decorative elements */}
           <motion.div
-            className='flex items-center justify-center mb-8 md:mb-12'
+            className='flex items-center justify-center mb-6 sm:mb-8 md:mb-12'
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            <motion.span className='font-pixel text-lg md:text-xl lg:text-2xl tracking-wider text-white/90 uppercase px-6 py-3 border border-white/20 rounded-full bg-white/5 backdrop-blur-sm'>
+            <motion.span className='font-pixel text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-wider text-white/90 uppercase px-4 py-2 sm:px-6 sm:py-3 border border-white/20 rounded-full bg-white/5 backdrop-blur-sm mx-2 sm:mx-0'>
               {subtitle}
             </motion.span>
           </motion.div>
@@ -113,7 +113,7 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className='font-pixel text-lg md:text-xl tracking-[0.08em] text-white/50 block text-center'
+            className='font-pixel text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.08em] text-white/50 block text-center'
           >
             ヨンコ・レベル
           </motion.span>
