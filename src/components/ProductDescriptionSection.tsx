@@ -65,7 +65,7 @@ const ProductDescriptionSection: React.FC<ProductDescriptionSectionProps> = ({
               className='max-w-4xl'
             >
               <h2
-                className={`font-bold text-2xl lg:text-2xl xl:text-2xl ${textColor} mb-8`}
+                className={`font-pixel font-bold text-3xl lg:text-4xl xl:text-5xl ${textColor} mb-8 uppercase tracking-wider`}
               >
                 {title}
               </h2>

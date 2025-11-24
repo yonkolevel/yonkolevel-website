@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+'use client';
+import { motion } from 'framer-motion';
 import ProductHeroSection from '@/components/ProductHeroSection';
 import ProductDescriptionSection from '@/components/ProductDescriptionSection';
 import ProductImageSection from '@/components/ProductImageSection';
@@ -84,57 +86,93 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
       />
 
       {/* Testimonials Section */}
-      <section className='bg-white'>
+      <section className='bg-black'>
         <Container>
-          <div className='py-16'>
-            <div className='text-center mb-12'>
-              <h2 className='text-3xl font-bold text-black mb-4'>
+          <div className='py-16 lg:py-24'>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className='text-center mb-12'
+            >
+              <h2 className='font-pixel text-3xl md:text-4xl lg:text-5xl text-white mb-4 uppercase tracking-wider'>
                 What people say
               </h2>
-            </div>
+            </motion.div>
             <div className='grid md:grid-cols-2 gap-8 max-w-4xl mx-auto'>
-              <div className='bg-gray-50 p-8 rounded-lg'>
-                <p className='text-lg text-black mb-4'>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className='bg-[#1a1a1a] border border-white/10 p-8 rounded-lg'
+              >
+                <p className='text-lg text-white mb-6 leading-relaxed'>
                   "This is the coolest, most impressive thing I've seen in a
                   LONG fucking time."
                 </p>
-                <div className='text-sm text-gray-600'>
-                  <p className='font-semibold'>Ken Wheeler</p>
-                  <p>SOFTWARE DEVELOPER AND MUSIC PRODUCER</p>
-                  <p className='text-blue-600'>@KEN_WHEELER</p>
+                <div className='text-sm text-white/60'>
+                  <p className='font-pixel font-semibold text-white mb-1 uppercase tracking-wider'>
+                    Ken Wheeler
+                  </p>
+                  <p className='font-pixel text-xs uppercase tracking-wider mb-1'>
+                    SOFTWARE DEVELOPER AND MUSIC PRODUCER
+                  </p>
+                  <p className='text-[#FF5C24] font-pixel text-xs uppercase tracking-wider'>
+                    @KEN_WHEELER
+                  </p>
                 </div>
-              </div>
-              <div className='bg-gray-50 p-8 rounded-lg'>
-                <p className='text-lg text-black mb-4'>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className='bg-[#1a1a1a] border border-white/10 p-8 rounded-lg'
+              >
+                <p className='text-lg text-white mb-6 leading-relaxed'>
                   "Love it. I like the integration with Push. This program would
                   be really helpful to use with my introductory electronic music
                   students."
                 </p>
-                <div className='text-sm text-gray-600'>
-                  <p className='font-semibold'>Brian Ellison</p>
-                  <p>ELECTRONIC MUSIC EDUCATOR</p>
-                  <p className='text-blue-600'>@MUSICTECHED</p>
+                <div className='text-sm text-white/60'>
+                  <p className='font-pixel font-semibold text-white mb-1 uppercase tracking-wider'>
+                    Brian Ellison
+                  </p>
+                  <p className='font-pixel text-xs uppercase tracking-wider mb-1'>
+                    ELECTRONIC MUSIC EDUCATOR
+                  </p>
+                  <p className='text-[#FF5C24] font-pixel text-xs uppercase tracking-wider'>
+                    @MUSICTECHED
+                  </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </Container>
       </section>
 
       {/* App Store Section */}
-      <section className='bg-white'>
+      <section className='bg-black'>
         <Container>
-          <div className='py-16'>
+          <div className='py-16 lg:py-24'>
             <div className='text-center flex justify-center w-full'>
-              <div className='w-[320px]'>
-                <a target='_blank' href=''>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className='w-[320px]'
+              >
+                <a target='_blank' href='' className='inline-block'>
                   <img
-                    className='inline-block mr-2'
+                    className='inline-block transition-opacity hover:opacity-80'
                     src='/images/common/badge-pre-order-on-the-app-store.svg'
                     alt='Apple pre-order badge'
                   />
                 </a>
-              </div>
+              </motion.div>
             </div>
           </div>
         </Container>

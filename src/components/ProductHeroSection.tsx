@@ -53,27 +53,50 @@ const ProductHeroSection: React.FC<ProductHeroSectionProps> = ({
             <source src={heroVideo} type='video/mp4' />
           </motion.video>
         ) : heroImage ? (
-          <motion.img
-            src={heroImage}
-            alt='Hero background'
-            className='w-full h-full object-cover'
-            initial={{
-              filter: 'blur(8px) contrast(0.8)',
-              scale: 1.1,
-            }}
-            animate={{
-              filter: imageLoaded ? '' : 'blur(8px) contrast(0.8)',
-              scale: imageLoaded ? 1.05 : 1.1,
-            }}
-            transition={{
-              duration: 2,
-              ease: 'easeOut',
-            }}
-            style={{
-              imageRendering: 'pixelated',
-            }}
-            onLoad={() => setImageLoaded(true)}
-          />
+          <>
+            <motion.img
+              src={heroImage}
+              alt='Hero background'
+              className='w-full h-full object-cover'
+              initial={{
+                filter: 'contrast(1.3) saturate(1.2) brightness(0.9)',
+                scale: 1.1,
+              }}
+              animate={{
+                filter: imageLoaded
+                  ? 'contrast(1.15) saturate(1.1) brightness(0.98)'
+                  : 'contrast(1.3) saturate(1.2) brightness(0.9)',
+                scale: imageLoaded ? 1.05 : 1.1,
+              }}
+              transition={{
+                duration: 2,
+                ease: 'easeOut',
+              }}
+              style={{
+                imageRendering: 'pixelated',
+              }}
+              onLoad={() => setImageLoaded(true)}
+            />
+            {/* Classic halftone/stippled dithering pattern */}
+            <div
+              className='absolute inset-0 opacity-60 mix-blend-mode-multiply'
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='6' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='halftone-dots' x='0' y='0' width='6' height='6' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='1.5' cy='1.5' r='0.8' fill='%23000' opacity='0.4'/%3E%3Ccircle cx='4.5' cy='1.5' r='0.6' fill='%23000' opacity='0.3'/%3E%3Ccircle cx='1.5' cy='4.5' r='0.6' fill='%23000' opacity='0.3'/%3E%3Ccircle cx='4.5' cy='4.5' r='1' fill='%23000' opacity='0.5'/%3E%3Ccircle cx='3' cy='3' r='0.4' fill='%23000' opacity='0.25'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23halftone-dots)'/%3E%3C/svg%3E")`,
+                backgroundSize: '6px 6px',
+                pointerEvents: 'none',
+              }}
+            />
+            {/* Fine stippled texture layer */}
+            <div
+              className='absolute inset-0 opacity-25 mix-blend-mode-overlay'
+              style={{
+                backgroundImage: `radial-gradient(circle, rgba(0,0,0,0.5) 0.5px, transparent 0.5px), radial-gradient(circle, rgba(0,0,0,0.3) 0.5px, transparent 0.5px)`,
+                backgroundSize: '3px 3px, 2px 2px',
+                backgroundPosition: '0 0, 1px 1px',
+                pointerEvents: 'none',
+              }}
+            />
+          </>
         ) : (
           // Fallback pixelated pattern
           <div

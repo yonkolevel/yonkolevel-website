@@ -84,7 +84,7 @@ const ProductContentSection: React.FC<ProductContentSectionProps> = ({
                 className={`${reverse ? 'lg:col-start-2' : 'lg:col-start-1'}`}
               >
                 <h2
-                  className={`font-bold text-2xl lg:text-3xl xl:text-4xl ${textColor} mb-6`}
+                  className={`font-pixel font-bold text-2xl lg:text-3xl xl:text-4xl ${textColor} mb-6 uppercase tracking-wider`}
                 >
                   {title}
                 </h2>
@@ -113,7 +113,7 @@ const ProductContentSection: React.FC<ProductContentSectionProps> = ({
                 <img
                   src={image}
                   alt={imageAlt}
-                  className={`max-w-full h-auto object-contain ${imageClassName}`}
+                  className={`max-w-full max-h-[400px] lg:max-h-[500px] h-auto object-contain ${imageClassName}`}
                 />
               </motion.div>
             </div>

@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+'use client';
+import { motion } from 'framer-motion';
 import ProductHeroSection from '@/components/ProductHeroSection';
 import ProductDescriptionSection from '@/components/ProductDescriptionSection';
 import ProductImageSection from '@/components/ProductImageSection';
@@ -63,19 +65,25 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
       />
 
       {/* App Store Section */}
-      <section className='bg-white'>
+      <section className='bg-black'>
         <Container>
-          <div className='py-16'>
+          <div className='py-16 lg:py-24'>
             <div className='text-center flex justify-center w-full'>
-              <div className='w-[320px]'>
-                <a target='_blank' href=''>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className='w-[320px]'
+              >
+                <a target='_blank' href='' className='inline-block'>
                   <img
-                    className='inline-block mr-2'
+                    className='inline-block transition-opacity hover:opacity-80'
                     src='/images/common/badge-pre-order-on-the-app-store.svg'
                     alt='Apple pre-order badge'
                   />
                 </a>
-              </div>
+              </motion.div>
             </div>
           </div>
         </Container>
