@@ -29,11 +29,35 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      const handleLoadedData = () => setIsLoaded(true);
-      video.addEventListener('loadeddata', handleLoadedData);
-      return () => video.removeEventListener('loadeddata', handleLoadedData);
+      // Reset loading state when video source changes
+      setIsLoaded(false);
+
+      // Check if video is already loaded (e.g., from cache)
+      if (video.readyState >= 2) {
+        setIsLoaded(true);
+        return;
+      }
+
+      const handleLoaded = () => setIsLoaded(true);
+
+      // Listen to multiple events to catch different loading stages
+      video.addEventListener('loadeddata', handleLoaded);
+      video.addEventListener('canplay', handleLoaded);
+      video.addEventListener('loadedmetadata', handleLoaded);
+
+      // Safety timeout - hide loading after 5 seconds even if events don't fire
+      const timeout = setTimeout(() => {
+        setIsLoaded(true);
+      }, 5000);
+
+      return () => {
+        video.removeEventListener('loadeddata', handleLoaded);
+        video.removeEventListener('canplay', handleLoaded);
+        video.removeEventListener('loadedmetadata', handleLoaded);
+        clearTimeout(timeout);
+      };
     }
-  }, []);
+  }, [videoSource]);
 
   const handlePlayPause = () => {
     const video = videoRef.current;
