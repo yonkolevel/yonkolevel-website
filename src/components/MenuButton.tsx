@@ -13,10 +13,14 @@ const MenuButton: React.FunctionComponent<IMenuButtonProps> = ({
   onClick,
 }) => {
   return (
-    <button onClick={onClick}>
+    <button
+      onClick={onClick}
+      className='text-white hover:text-[#FF5C24] transition-colors'
+      aria-label={isOpen ? 'Close menu' : 'Open menu'}
+    >
       {!isOpen && <Menu />}
       {/* @ts-ignore */}
-      {isOpen && <Close style={{ background: '#0C5DA8' }} />}
+      {isOpen && <Close style={{ background: '#FF5C24' }} />}
     </button>
   );
 };

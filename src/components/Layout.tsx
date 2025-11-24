@@ -18,13 +18,13 @@ const Layout: React.FunctionComponent<ILayoutProps> = ({ children }) => {
 
       <Script strategy='lazyOnload' id='google-analytics'>
         {`
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', 'UA-180033245-1', {
-                    page_path: window.location.pathname,
-                    });
-                `}
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-180033245-1', {
+            page_path: window.location.pathname,
+          });
+        `}
       </Script>
       <Head>
         <meta
@@ -32,11 +32,11 @@ const Layout: React.FunctionComponent<ILayoutProps> = ({ children }) => {
           content='width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0'
         />
       </Head>
-      <main>
+      <div className='relative min-h-screen bg-black'>
         <Header />
-        {children}
-      </main>
-      <Footer />
+        <main className='relative'>{children}</main>
+        <Footer />
+      </div>
     </>
   );
 };

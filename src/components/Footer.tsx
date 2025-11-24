@@ -1,43 +1,43 @@
-/* eslint-disable @next/next/no-img-element */
 'use client';
 import * as React from 'react';
-import Button from './Button';
-import Column from './Columns';
 import Container from './Container';
-import NextLink from './NextLink';
-import Row from './Row';
-import FooterPixelTop from './shapes/FooterPixelTop';
 import NavLink from './NavLink/NavLink';
 import { usePathname } from 'next/navigation';
 
 interface IFooterProps {}
 
-const styles = {
-  footer: 'py-6 min-h-[220px] h-[220px] bg-blue2',
-};
-
 const Footer: React.FunctionComponent<IFooterProps> = (props) => {
   const pathname = usePathname();
-  const isProductPage = pathname.includes('/products');
 
   return (
-    <>
-      <section className='bg-black py-24 relative'>
-        <footer className='footer footer-center p-10 bg-black text-blue5 rounded'>
-          <nav className='grid grid-flow-col gap-4 relative z-10'>
-            <NavLink href='/about' className='link link-hover'>
-              About us
+    <footer className='bg-black border-t border-white/5'>
+      <Container>
+        <div className='flex flex-col md:flex-row items-center justify-between py-12 md:py-16 gap-8'>
+          {/* Navigation */}
+          <nav className='flex items-center gap-8'>
+            <NavLink
+              href='/about'
+              active={pathname === '/about'}
+              color={pathname === '/about' ? '#FF5C24' : '#F8FAFC'}
+            >
+              ABOUT
             </NavLink>
-            <NavLink href='/contact' className='link link-hover'>
-              Contact
+            <NavLink
+              href='/contact'
+              active={pathname === '/contact'}
+              color={pathname === '/contact' ? '#FF5C24' : '#F8FAFC'}
+            >
+              CONTACT
             </NavLink>
           </nav>
-          <aside>
-            <p>© {new Date().getFullYear()} - Yonko Level Ltd.</p>
-          </aside>
-        </footer>
-      </section>
-    </>
+
+          {/* Copyright */}
+          <div className='text-white/60 font-pixel text-sm tracking-wider'>
+            © {new Date().getFullYear()} - Yonko Level Ltd.
+          </div>
+        </div>
+      </Container>
+    </footer>
   );
 };
 
