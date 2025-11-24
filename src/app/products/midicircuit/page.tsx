@@ -6,6 +6,7 @@ import ProductDescriptionSection from '@/components/ProductDescriptionSection';
 import ProductImageSection from '@/components/ProductImageSection';
 import ProductContentSection from '@/components/ProductContentSection';
 import ProductAppIcon from '@/components/ProductAppIcon';
+import PromotionalVideoSection from '@/components/PromotionalVideoSection';
 import Container from '@/components/Container';
 import * as React from 'react';
 
@@ -36,27 +37,21 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
         />
       </div>
 
-      <ProductImageSection
-        image='/products/midicircuit/midicircuit-preview-1.png'
-        imageAlt='MidiCircuit app interface showing musical grid'
-        backgroundColor='#FF5C24'
-        showPixelEffect
-      />
-
-      <ProductContentSection
-        title='Learn'
-        description='Delve into the fascinating world of music concepts and theories with Circuits. Practice musical patterns with instant feedback and challenge yourself with engaging lessons that make learning accessible and fun.'
-        image='/products/midicircuit/midicircuit-preview-1.png'
-        imageAlt='MidiCircuit Circuits for learning music'
-        backgroundColor='bg-white'
-        textColor='text-black'
-        showPixelEffect
+      {/* Promotional Video Section */}
+      <PromotionalVideoSection
+        videoSource='/products/midicircuit/videos/promo-video.mp4'
+        // appName='MIDICIRCUIT'
+        // appDescription='Experience the future of music creation with our innovative MIDI circuit builder. Design, connect, and play with virtual circuits that respond to your creativity in real-time.'
+        // learnMoreLink='/products/midicircuit'
+        // backgroundColor='#000000'
+        overlayOpacity={0.4}
+        showControls={true}
       />
 
       <ProductContentSection
         title='Playgrounds'
         description='Discover the potential of your creativity in Playgrounds, where you can unleash your imagination and give birth to new sounds and melodies. Our DAW experience is designed to be intuitive, making it easy for you to explore, create, and share your sonic masterpieces with your friends.'
-        image='/products/midicircuit/midicircuit-preview-1.png'
+        image='/products/midicircuit/app-store-6.png'
         imageAlt='MidiCircuit Playgrounds creative DAW'
         backgroundColor='bg-gray-50'
         textColor='text-black'
@@ -67,7 +62,7 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
       <ProductContentSection
         title='Whenever, Wherever'
         description='Midicircuit is your trusty sidekick, ready to groove on any iOS and macOS device. Learn and create your beats and harmonies whenever and wherever the creativity strikes.'
-        image='/products/midicircuit/midicircuit-preview-1.png'
+        image='/products/midicircuit/midicircuit-multi-platform.png'
         imageAlt='MidiCircuit on iOS and macOS devices'
         backgroundColor='bg-white'
         textColor='text-black'
@@ -77,7 +72,7 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
       <ProductContentSection
         title='Apple Entrepreneur Camp Alumni'
         description={`We are honoured to have been selected as a mentee company at the Apple Entrepreneur Camp. We've learned so much from the best minds in tech, and are ready to take our app to the next level.`}
-        image='/products/midicircuit/midicircuit-preview-1.png'
+        image='/images/other/apple-logo.svg'
         imageAlt='Apple Entrepreneur Camp recognition'
         backgroundColor='bg-gray-50'
         textColor='text-black'

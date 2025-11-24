@@ -54,29 +54,29 @@ const ProductHeroSection: React.FC<ProductHeroSectionProps> = ({
           </motion.video>
         ) : heroImage ? (
           <>
-            <motion.img
-              src={heroImage}
-              alt='Hero background'
-              className='w-full h-full object-cover'
-              initial={{
+          <motion.img
+            src={heroImage}
+            alt='Hero background'
+            className='w-full h-full object-cover'
+            initial={{
                 filter: 'contrast(1.3) saturate(1.2) brightness(0.9)',
-                scale: 1.1,
-              }}
-              animate={{
+              scale: 1.1,
+            }}
+            animate={{
                 filter: imageLoaded
                   ? 'contrast(1.15) saturate(1.1) brightness(0.98)'
                   : 'contrast(1.3) saturate(1.2) brightness(0.9)',
-                scale: imageLoaded ? 1.05 : 1.1,
-              }}
-              transition={{
-                duration: 2,
-                ease: 'easeOut',
-              }}
-              style={{
-                imageRendering: 'pixelated',
-              }}
-              onLoad={() => setImageLoaded(true)}
-            />
+              scale: imageLoaded ? 1.05 : 1.1,
+            }}
+            transition={{
+              duration: 2,
+              ease: 'easeOut',
+            }}
+            style={{
+              imageRendering: 'pixelated',
+            }}
+            onLoad={() => setImageLoaded(true)}
+          />
             {/* Classic halftone/stippled dithering pattern */}
             <div
               className='absolute inset-0 opacity-60 mix-blend-mode-multiply'

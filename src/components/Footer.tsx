@@ -45,7 +45,7 @@ const Footer: React.FunctionComponent<IFooterProps> = (props) => {
                   color={isActive ? ACTIVE_COLOR : INACTIVE_COLOR}
                 >
                   {product.label}
-                </NavLink>
+            </NavLink>
               );
             })}
           </nav>
@@ -56,7 +56,7 @@ const Footer: React.FunctionComponent<IFooterProps> = (props) => {
           </div>
         </div>
       </Container>
-    </footer>
+        </footer>
   );
 };
 

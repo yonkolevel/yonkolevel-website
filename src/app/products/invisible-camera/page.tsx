@@ -37,7 +37,7 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
       </div>
 
       <ProductImageSection
-        image='/products/invisible-camera/ic-app-store-preview.png'
+        image='/products/invisible-camera/app-store-2.png'
         imageAlt='Invisible Camera app screenshot'
         backgroundColor='#FBBF2A'
         showPixelEffect
@@ -46,7 +46,7 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
       <ProductContentSection
         title='Capture Life Instantly'
         description='No complex settings, no overwhelming options. Just open the app and start capturing. Invisible Camera strips away the clutter to give you the purest photography experience possible.'
-        image='/products/invisible-camera/ic-app-store-preview.png'
+        image='/products/invisible-camera/app-store-1.png'
         imageAlt='App interface showing simple camera view'
         backgroundColor='bg-white'
         textColor='text-black'
@@ -56,7 +56,7 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
       <ProductContentSection
         title='Privacy First Design'
         description='Your photos stay yours. Built with privacy at its core, Invisible Camera ensures your memories remain secure while delivering an exceptional user experience.'
-        image='/products/invisible-camera/ic-app-store-preview.png'
+        image='/products/invisible-camera/app-store-3.png'
         imageAlt='Privacy features interface'
         backgroundColor='bg-gray-50'
         textColor='text-black'
