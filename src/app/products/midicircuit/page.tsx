@@ -2,10 +2,8 @@
 'use client';
 import { motion } from 'framer-motion';
 import ProductHeroSection from '@/components/ProductHeroSection';
-import ProductDescriptionSection from '@/components/ProductDescriptionSection';
 import ProductImageSection from '@/components/ProductImageSection';
 import ProductContentSection from '@/components/ProductContentSection';
-import ProductAppIcon from '@/components/ProductAppIcon';
 import PromotionalVideoSection from '@/components/PromotionalVideoSection';
 import Container from '@/components/Container';
 import * as React from 'react';
@@ -15,27 +13,17 @@ interface PageProps {}
 const Page: React.FunctionComponent<PageProps> = (props) => {
   return (
     <div>
-      <div className='relative'>
-        <ProductHeroSection
-          className='bg-white'
-          heroImage='/products/midicircuit/cover-photo-full-pixelated.jpg'
-        />
-
-        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10'>
-          <ProductAppIcon
-            appIcon='/products/midicircuit/app-icon.png'
-            appIconAlt='MidiCircuit app icon'
-          />
-        </div>
-
-        <ProductDescriptionSection
-          title='Learn, Create, Share'
-          description='Midicircuit takes you on a musical journey with our Circuits, offering engaging lessons and challenges. Plus, our Playgrounds give you the space to express your creativity and share your music with the world.'
-          backgroundColor='#FF5C24'
-          textColor='text-black'
-          showPixelEffect
-        />
-      </div>
+      <ProductHeroSection
+        className='bg-white'
+        heroImage='/products/midicircuit/cover-photo-full-pixelated.jpg'
+        appIcon='/products/midicircuit/app-icon.png'
+        appIconAlt='MidiCircuit app icon'
+        title='Learn, Create, Share'
+        description='Midicircuit takes you on a musical journey with our Circuits, offering engaging lessons and challenges. Plus, our Playgrounds give you the space to express your creativity and share your music with the world.'
+        backgroundColor='#FF5C24'
+        textColor='text-white'
+        showPixelEffect
+      />
 
       {/* Promotional Video Section */}
       <PromotionalVideoSection

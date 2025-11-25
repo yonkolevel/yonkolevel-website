@@ -2,17 +2,32 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Container from './Container';
+import PixelDisplacementGrid from './PixelDisplacementGrid';
 
 interface ProductHeroSectionProps {
   heroImage?: string;
   heroVideo?: string;
   className?: string;
+  appIcon?: string;
+  appIconAlt?: string;
+  title?: string;
+  description?: string;
+  backgroundColor?: string;
+  textColor?: string;
+  showPixelEffect?: boolean;
 }
 
 const ProductHeroSection: React.FC<ProductHeroSectionProps> = ({
   heroImage,
   heroVideo,
   className = '',
+  appIcon,
+  appIconAlt,
+  title,
+  description,
+  backgroundColor = 'bg-orange',
+  textColor = 'text-black',
+  showPixelEffect = true,
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -21,6 +36,12 @@ const ProductHeroSection: React.FC<ProductHeroSectionProps> = ({
     const timer = setTimeout(() => setImageLoaded(true), 500);
     return () => clearTimeout(timer);
   }, []);
+
+  // Pixel displacement pattern for the corners
+  const pixelDisplacements = [
+    // Top left corner pixels
+    { row: 0, col: 0, displaceX: -1, displaceY: -1 },
+  ];
 
   return (
     <section className={`relative overflow-hidden ${className}`}>
@@ -54,29 +75,29 @@ const ProductHeroSection: React.FC<ProductHeroSectionProps> = ({
           </motion.video>
         ) : heroImage ? (
           <>
-          <motion.img
-            src={heroImage}
-            alt='Hero background'
-            className='w-full h-full object-cover'
-            initial={{
+            <motion.img
+              src={heroImage}
+              alt='Hero background'
+              className='w-full h-full object-cover'
+              initial={{
                 filter: 'contrast(1.3) saturate(1.2) brightness(0.9)',
-              scale: 1.1,
-            }}
-            animate={{
+                scale: 1.1,
+              }}
+              animate={{
                 filter: imageLoaded
                   ? 'contrast(1.15) saturate(1.1) brightness(0.98)'
                   : 'contrast(1.3) saturate(1.2) brightness(0.9)',
-              scale: imageLoaded ? 1.05 : 1.1,
-            }}
-            transition={{
-              duration: 2,
-              ease: 'easeOut',
-            }}
-            style={{
-              imageRendering: 'pixelated',
-            }}
-            onLoad={() => setImageLoaded(true)}
-          />
+                scale: imageLoaded ? 1.05 : 1.1,
+              }}
+              transition={{
+                duration: 2,
+                ease: 'easeOut',
+              }}
+              style={{
+                imageRendering: 'pixelated',
+              }}
+              onLoad={() => setImageLoaded(true)}
+            />
             {/* Classic halftone/stippled dithering pattern */}
             <div
               className='absolute inset-0 opacity-60 mix-blend-mode-multiply'
@@ -116,11 +137,85 @@ const ProductHeroSection: React.FC<ProductHeroSectionProps> = ({
         <div className='absolute inset-0 bg-black/20' />
       </div>
 
-      {/* Content */}
-      <div className='relative z-10 min-h-[60vh] flex items-center justify-center'>
+      {/* Pixel displacement effect overlay - only show if no hero image/video */}
+      {showPixelEffect &&
+        (title || description) &&
+        !heroImage &&
+        !heroVideo && (
+          <PixelDisplacementGrid
+            backgroundColor={backgroundColor}
+            holeColor='white'
+            displacedPixelColor={backgroundColor}
+            pixelSize={40}
+            displacements={pixelDisplacements}
+            animationDelay={0.2}
+            animationDuration={0.4}
+            className='z-0'
+          />
+        )}
+
+      {/* App Store Banner Content */}
+      <div className='relative z-10'>
+        {/* Blurred backdrop for content area - frosted glass effect - full width and height */}
+        {(appIcon || title || description) && (
+          <div className='absolute inset-0 backdrop-blur-sm bg-black/40' />
+        )}
+
         <Container>
-          <div className='text-center flex flex-col justify-center items-center py-16'>
-            {/* Content can be added here if needed */}
+          <div className='relative min-h-[60vh] lg:min-h-[70vh] flex items-center py-16 lg:py-24'>
+            <div className='relative z-10 grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-8 lg:gap-12 items-center w-full px-4 lg:px-8'>
+              {/* App Icon */}
+              {appIcon && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, y: 30 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.3,
+                    ease: 'backOut',
+                  }}
+                  className='flex justify-center lg:justify-start'
+                >
+                  <img
+                    width={200}
+                    height={200}
+                    src={appIcon}
+                    alt={appIconAlt}
+                    className='drop-shadow-2xl'
+                  />
+                </motion.div>
+              )}
+
+              {/* Title and Description */}
+              {(title || description) && (
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.5,
+                    ease: 'easeOut',
+                  }}
+                  className='text-center lg:text-left'
+                >
+                  {title && (
+                    <h1
+                      className={`font-pixel font-bold text-3xl lg:text-4xl xl:text-5xl ${textColor} mb-6 uppercase tracking-wider drop-shadow-lg`}
+                    >
+                      {title}
+                    </h1>
+                  )}
+
+                  {description && (
+                    <div
+                      className={`text-lg lg:text-xl ${textColor} leading-relaxed drop-shadow-md`}
+                    >
+                      {description}
+                    </div>
+                  )}
+                </motion.div>
+              )}
+            </div>
           </div>
         </Container>
       </div>

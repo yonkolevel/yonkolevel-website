@@ -2,10 +2,8 @@
 'use client';
 import { motion } from 'framer-motion';
 import ProductHeroSection from '@/components/ProductHeroSection';
-import ProductDescriptionSection from '@/components/ProductDescriptionSection';
 import ProductImageSection from '@/components/ProductImageSection';
 import ProductContentSection from '@/components/ProductContentSection';
-import ProductAppIcon from '@/components/ProductAppIcon';
 import Container from '@/components/Container';
 import * as React from 'react';
 
@@ -14,27 +12,17 @@ interface PageProps {}
 const Page: React.FunctionComponent<PageProps> = (props) => {
   return (
     <div>
-      <div className='relative'>
-        <ProductHeroSection
-          className='bg-white'
-          heroImage='/products/invisible-camera/cover-photo-full-pixelated.jpg'
-        />
-
-        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10'>
-          <ProductAppIcon
-            appIcon='/products/invisible-camera/app-icon.png'
-            appIconAlt='Invisible Camera app icon'
-          />
-        </div>
-
-        <ProductDescriptionSection
-          title='For Moments, Not Menus'
-          description="What you see is what you get. A camera app designed for capturing life's spontaneous moments without the complexity of endless menus and settings. Simply point, shoot, and let the magic happen."
-          backgroundColor='#FBBF2A'
-          textColor='text-black'
-          showPixelEffect
-        />
-      </div>
+      <ProductHeroSection
+        className='bg-white'
+        heroImage='/products/invisible-camera/cover-photo-full-pixelated.jpg'
+        appIcon='/products/invisible-camera/app-icon.png'
+        appIconAlt='Invisible Camera app icon'
+        title='For Moments, Not Menus'
+        description="What you see is what you get. A camera app designed for capturing life's spontaneous moments without the complexity of endless menus and settings. Simply point, shoot, and let the magic happen."
+        backgroundColor='#FBBF2A'
+        textColor='text-white'
+        showPixelEffect
+      />
 
       <ProductImageSection
         image='/products/invisible-camera/app-store-2.png'
