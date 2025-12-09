@@ -118,31 +118,33 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
                 transition={{ delay: 0.3, duration: 0.8 }}
               >
               {appName && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4, duration: 0.8 }}
-                  className='mb-6 sm:mb-8 md:mb-10 lg:mb-12'
-                >
-                  <h2 className='font-pixel text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-white'>
-                    {appName}
-                  </h2>
-                </motion.div>
+                <div className='mb-6 sm:mb-8 md:mb-10 lg:mb-12'>
+                  <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4, duration: 0.8 }}
+                  >
+                    <span className='font-pixel text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-white'>
+                      {appName}
+                    </span>
+                  </motion.h2>
+                </div>
               )}
 
               {appDescription && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5, duration: 0.8 }}
-                  className='mb-8 sm:mb-10 md:mb-12 lg:mb-14'
-                >
-                  <p className='font-body text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-relaxed px-2 sm:px-0'>
-                    {appDescription}
-                  </p>
-                </motion.div>
+                <div className='mb-8 sm:mb-10 md:mb-12 lg:mb-14'>
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
+                  >
+                    <span className='font-body text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-relaxed px-2 sm:px-0 block'>
+                      {appDescription}
+                    </span>
+                  </motion.p>
+                </div>
               )}
 
                 {learnMoreLink && (
