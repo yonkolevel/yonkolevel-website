@@ -15,7 +15,7 @@ import { PopupButton } from '@typeform/embed-react';
 
 const item = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.75, ease: 'easeOut' } },
+  visible: { opacity: 1, transition: { duration: 0.75 } },
 };
 
 const uspsSectionVariants = {
@@ -26,7 +26,7 @@ const uspsSectionVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.75, ease: 'easeOut' },
+    transition: { duration: 0.75 },
   },
 };
 
@@ -39,7 +39,7 @@ const walkingVariants = {
   walking: {
     opacity: 1,
     x: 0,
-    transition: { duration: 3, ease: 'easeOut' },
+    transition: { duration: 3 },
   },
   hide: {
     display: 'none',
@@ -84,7 +84,14 @@ const Home = () => {
     await heroSubControls.start('visible');
     await heroButtonControls.start('visible');
     await uspsSectionControls.start('visible');
-  }, [idleControls, walkingControls, heroControls, heroSubControls, heroButtonControls, uspsSectionControls]);
+  }, [
+    idleControls,
+    walkingControls,
+    heroControls,
+    heroSubControls,
+    heroButtonControls,
+    uspsSectionControls,
+  ]);
 
   useEffect(() => {
     sequence();

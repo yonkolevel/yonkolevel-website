@@ -67,7 +67,6 @@ const ProductImageSection: React.FC<ProductImageSectionProps> = ({
               viewport={{ once: true }}
               transition={{
                 duration: 0.8,
-                ease: 'easeOut',
               }}
               className='w-full flex justify-center'
             >

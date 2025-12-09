@@ -126,7 +126,9 @@ const PixelDisplacementGrid: React.FC<PixelDisplacementGridProps> = ({
     <div
       ref={containerRef}
       className={`absolute inset-0 ${className}`}
-      style={{ backgroundColor: useTransparentHoles ? 'transparent' : backgroundColor }}
+      style={{
+        backgroundColor: useTransparentHoles ? 'transparent' : backgroundColor,
+      }}
     >
       {/* Grid pixels (background) */}
       {gridPixels.map((pixel, index) => {
@@ -147,13 +149,15 @@ const PixelDisplacementGrid: React.FC<PixelDisplacementGridProps> = ({
             whileInView={{
               opacity: pixel.isDisplaced && useTransparentHoles ? 0 : 1,
               scale: pixel.isDisplaced ? 0.8 : 1,
-              backgroundColor: pixel.isDisplaced && !useTransparentHoles ? holeColor : backgroundColor,
+              backgroundColor:
+                pixel.isDisplaced && !useTransparentHoles
+                  ? holeColor
+                  : backgroundColor,
             }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{
               delay: hasDisplacedVersion ? delay : 0,
               duration: animationDuration,
-              ease: 'easeInOut',
             }}
             style={{
               left: pixel.x,
@@ -186,7 +190,6 @@ const PixelDisplacementGrid: React.FC<PixelDisplacementGridProps> = ({
           transition={{
             delay: index * animationDelay,
             duration: animationDuration,
-            ease: 'easeInOut',
           }}
           className='absolute z-100'
           style={{

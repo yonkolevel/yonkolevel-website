@@ -13,14 +13,14 @@ const AboutUsPage: React.FunctionComponent<IAboutUsPageProps> = (props) => {
     <div>
       {/* Hero Section */}
       <section className='bg-black relative overflow-hidden'>
-          <Container>
+        <Container>
           <div className='py-24 md:py-32 lg:py-40'>
             <div className='text-center flex flex-col justify-center items-center'>
               {/* App Icon */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, ease: 'easeOut' }}
+                transition={{ duration: 0.6 }}
                 className='mb-12'
               >
                 <img
@@ -52,20 +52,20 @@ const AboutUsPage: React.FunctionComponent<IAboutUsPageProps> = (props) => {
                 className='text-center flex justify-center w-full mt-12'
               >
                 <div className='w-full max-w-[320px]'>
-                <Button variant='primary' className='w-full'>
+                  <Button variant='primary' className='w-full'>
                     <a
                       target='_blank'
                       href='/midi-scout/downloads/midiscout.zip'
                       className='block w-full'
                     >
-                    Download for macOS
-                  </a>
-                </Button>
-              </div>
+                      Download for macOS
+                    </a>
+                  </Button>
+                </div>
               </motion.div>
             </div>
-            </div>
-          </Container>
+          </div>
+        </Container>
       </section>
 
       {/* Promo Graphic Section */}

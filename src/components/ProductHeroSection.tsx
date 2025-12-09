@@ -43,7 +43,6 @@ const ProductHeroSection: React.FC<ProductHeroSectionProps> = ({
             }}
             transition={{
               duration: 2,
-              ease: 'easeOut',
             }}
             style={{
               imageRendering: 'pixelated',
@@ -70,7 +69,6 @@ const ProductHeroSection: React.FC<ProductHeroSectionProps> = ({
               }}
               transition={{
                 duration: 2,
-                ease: 'easeOut',
               }}
               style={{
                 imageRendering: 'pixelated',

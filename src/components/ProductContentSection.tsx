@@ -121,7 +121,6 @@ const ProductContentSection: React.FC<ProductContentSectionProps> = ({
                 viewport={{ once: true }}
                 transition={{
                   duration: 0.8,
-                  ease: 'easeOut',
                 }}
                 className={`${reverse ? 'lg:col-start-2' : 'lg:col-start-1'}`}
               >
@@ -146,7 +145,6 @@ const ProductContentSection: React.FC<ProductContentSectionProps> = ({
                 transition={{
                   duration: 0.8,
                   delay: 0.2,
-                  ease: 'easeOut',
                 }}
                 className={`${
                   reverse ? 'lg:col-start-1' : 'lg:col-start-2'

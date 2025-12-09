@@ -11,7 +11,7 @@
   "dependencies": {
     "@typeform/embed-react": "^3.9.0",
     "date-fns": "^3.0.5",
-    "framer-motion": "^10.16.16",
+    "framer-motion": "^12.23.25",
     "gray-matter": "^4.0.3",
     "next": "^15.3.5",
     "next-mdx-remote": "^5.0.0",

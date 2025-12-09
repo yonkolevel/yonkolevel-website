@@ -20,7 +20,6 @@ const ProductAppIcon: React.FC<ProductAppIconProps> = ({
         transition={{
           duration: 0.8,
           delay: 0.3,
-          ease: 'backOut',
         }}
         className='relative -top-24 -mb-24'
       >

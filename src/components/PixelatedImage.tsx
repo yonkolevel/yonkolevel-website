@@ -12,11 +12,11 @@ interface PixelatedImageProps {
   className?: string;
 }
 
-declare global {
+declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
       'image-pixelated': {
-        ref?: any;
+        ref?: React.Ref<HTMLElement>;
         src: string;
         'pixel-size'?: string;
         'lego-size'?: string;
