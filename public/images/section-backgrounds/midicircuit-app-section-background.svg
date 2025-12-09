@@ -1,185 +1,110 @@
 <svg width="1440" height="1024" viewBox="0 0 1440 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- MIDICIRCUIT Background - Sequencer Grid & Circuit Elements -->
-  
-  <!-- Main Sequencer Grid Pattern -->
-  <g opacity="0.75">
-    <!-- Large grid container -->
-    <rect x="200" y="100" width="800" height="600" rx="8" stroke="#FF5C24" stroke-width="2" fill="none"/>
+  <g opacity="0.8">
+    <!-- Main Sequencer Grid Container -->
+    <path d="M200 150 H1000 M200 650 H1000 M200 150 V650 M1000 150 V650" stroke="#FF5C24" stroke-width="2.5" stroke-dasharray="20 10"/>
     
-    <!-- Grid lines (8x12 pattern) -->
-    <g opacity="0.4">
-      <!-- Horizontal lines -->
-      <line x1="200" y1="150" x2="1000" y2="150" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="200" y1="200" x2="1000" y2="200" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="200" y1="250" x2="1000" y2="250" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="200" y1="300" x2="1000" y2="300" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="200" y1="350" x2="1000" y2="350" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="200" y1="400" x2="1000" y2="400" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="200" y1="450" x2="1000" y2="450" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="200" y1="500" x2="1000" y2="500" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="200" y1="550" x2="1000" y2="550" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="200" y1="600" x2="1000" y2="600" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="200" y1="650" x2="1000" y2="650" stroke="#FF5C24" stroke-width="1"/>
-      
-      <!-- Vertical lines -->
-      <line x1="250" y1="100" x2="250" y2="700" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="300" y1="100" x2="300" y2="700" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="350" y1="100" x2="350" y2="700" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="400" y1="100" x2="400" y2="700" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="450" y1="100" x2="450" y2="700" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="500" y1="100" x2="500" y2="700" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="550" y1="100" x2="550" y2="700" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="600" y1="100" x2="600" y2="700" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="650" y1="100" x2="650" y2="700" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="700" y1="100" x2="700" y2="700" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="750" y1="100" x2="750" y2="700" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="800" y1="100" x2="800" y2="700" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="850" y1="100" x2="850" y2="700" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="900" y1="100" x2="900" y2="700" stroke="#FF5C24" stroke-width="1"/>
-      <line x1="950" y1="100" x2="950" y2="700" stroke="#FF5C24" stroke-width="1"/>
+    <!-- Grid Intersections (Stylized) -->
+    <g fill="#FF5C24">
+       <!-- Row 1 -->
+       <rect x="298" y="148" width="4" height="4" /> <rect x="398" y="148" width="4" height="4" /> <rect x="498" y="148" width="4" height="4" /> <rect x="598" y="148" width="4" height="4" /> <rect x="698" y="148" width="4" height="4" /> <rect x="798" y="148" width="4" height="4" /> <rect x="898" y="148" width="4" height="4" />
+       <!-- Row 2 -->
+       <rect x="298" y="248" width="4" height="4" /> <rect x="398" y="248" width="4" height="4" /> <rect x="498" y="248" width="4" height="4" /> <rect x="598" y="248" width="4" height="4" /> <rect x="698" y="248" width="4" height="4" /> <rect x="798" y="248" width="4" height="4" /> <rect x="898" y="248" width="4" height="4" />
+       <!-- Row 3 -->
+       <rect x="298" y="348" width="4" height="4" /> <rect x="398" y="348" width="4" height="4" /> <rect x="498" y="348" width="4" height="4" /> <rect x="598" y="348" width="4" height="4" /> <rect x="698" y="348" width="4" height="4" /> <rect x="798" y="348" width="4" height="4" /> <rect x="898" y="348" width="4" height="4" />
+       <!-- Row 4 -->
+       <rect x="298" y="448" width="4" height="4" /> <rect x="398" y="448" width="4" height="4" /> <rect x="498" y="448" width="4" height="4" /> <rect x="598" y="448" width="4" height="4" /> <rect x="698" y="448" width="4" height="4" /> <rect x="798" y="448" width="4" height="4" /> <rect x="898" y="448" width="4" height="4" />
+       <!-- Row 5 -->
+       <rect x="298" y="548" width="4" height="4" /> <rect x="398" y="548" width="4" height="4" /> <rect x="498" y="548" width="4" height="4" /> <rect x="598" y="548" width="4" height="4" /> <rect x="698" y="548" width="4" height="4" /> <rect x="798" y="548" width="4" height="4" /> <rect x="898" y="548" width="4" height="4" />
     </g>
+
+    <!-- Active Notes (Filled Rects) -->
+    <rect x="310" y="260" width="80" height="80" fill="#FF5C24" opacity="0.9"/>
+    <rect x="510" y="360" width="80" height="80" fill="#FF5C24" opacity="0.9"/>
+    <rect x="710" y="460" width="80" height="80" fill="#FF5C24" opacity="0.9"/>
+    <rect x="410" y="160" width="80" height="80" stroke="#FF5C24" stroke-width="2.5"/>
+    <rect x="610" y="560" width="80" height="80" stroke="#FF5C24" stroke-width="2.5"/>
+
+    <!-- Architectural Dimensions (Patent Style) -->
+    <g stroke="#FF5C24" stroke-width="1.5" opacity="0.9">
+        <!-- Vertical dimension for grid height -->
+        <line x1="180" y1="150" x2="180" y2="650" />
+        <line x1="170" y1="150" x2="190" y2="150" /> <!-- Top tick -->
+        <line x1="170" y1="650" x2="190" y2="650" /> <!-- Bottom tick -->
+        <text x="160" y="400" font-family="monospace" font-size="14" fill="#FF5C24" text-anchor="middle" transform="rotate(-90 160 400)">500px</text>
+
+        <!-- Horizontal dimension for a section width -->
+        <line x1="310" y1="240" x2="390" y2="240" />
+        <line x1="310" y1="235" x2="310" y2="245" /> <!-- Left tick -->
+        <line x1="390" y1="235" x2="390" y2="245" /> <!-- Right tick -->
+        <text x="350" y="230" font-family="monospace" font-size="12" fill="#FF5C24" text-anchor="middle">80px</text>
+
+        <!-- Small gap dimension -->
+        <line x1="390" y1="240" x2="410" y2="240" />
+        <line x1="410" y1="235" x2="410" y2="245" /> 
+        <text x="400" y="230" font-family="monospace" font-size="10" fill="#FF5C24" text-anchor="middle">20</text>
+
+        <!-- Vertical dimension for active note -->
+        <line x1="800" y1="460" x2="800" y2="540" />
+        <line x1="795" y1="460" x2="805" y2="460" /> <!-- Top tick -->
+        <line x1="795" y1="540" x2="805" y2="540" /> <!-- Bottom tick -->
+        <text x="820" y="500" font-family="monospace" font-size="12" fill="#FF5C24" text-anchor="middle" transform="rotate(90 820 500)">80px</text>
+        
+        <!-- Detailed corner dimension -->
+        <line x1="1010" y1="150" x2="1010" y2="190" />
+        <line x1="1005" y1="150" x2="1015" y2="150" />
+        <line x1="1005" y1="190" x2="1015" y2="190" />
+        <text x="1030" y="170" font-family="monospace" font-size="12" fill="#FF5C24" text-anchor="middle" transform="rotate(90 1030 170)">40px</text>
+    </g>
+
+    <!-- Circuit Traces (Scribbles) -->
+    <path d="M1020 200 H1050 L1070 220 V300 L1100 330 H1150" stroke="#FF5C24" stroke-width="2.5" fill="none"/>
+    <rect x="1150" y="320" width="20" height="20" fill="#FF5C24"/>
     
-    <!-- Active sequencer blocks (patent style) -->
-    <rect x="260" y="160" width="40" height="40" stroke="#FF5C24" stroke-width="2" fill="none" opacity="0.6"/>
-    <rect x="360" y="210" width="40" height="40" stroke="#FF5C24" stroke-width="2" fill="none" opacity="0.6"/>
-    <rect x="460" y="260" width="40" height="40" stroke="#FF5C24" stroke-width="2" fill="none" opacity="0.6"/>
-    <rect x="560" y="310" width="40" height="40" stroke="#FF5C24" stroke-width="2" fill="none" opacity="0.6"/>
-    <rect x="660" y="360" width="40" height="40" stroke="#FF5C24" stroke-width="2" fill="none" opacity="0.6"/>
-    <rect x="760" y="410" width="40" height="40" stroke="#FF5C24" stroke-width="2" fill="none" opacity="0.6"/>
-    <rect x="310" y="460" width="40" height="40" stroke="#FF5C24" stroke-width="2" fill="none" opacity="0.6"/>
-    <rect x="510" y="510" width="40" height="40" stroke="#FF5C24" stroke-width="2" fill="none" opacity="0.6"/>
-    <rect x="710" y="560" width="40" height="40" stroke="#FF5C24" stroke-width="2" fill="none" opacity="0.6"/>
+    <path d="M150 500 H120 L100 480 V400" stroke="#FF5C24" stroke-width="2.5" fill="none"/>
+    <circle cx="100" cy="390" r="5" stroke="#FF5C24" stroke-width="2.5"/>
+
+    <!-- Technical Markings -->
+    <g stroke="#FF5C24" stroke-width="0.6">
+        <line x1="200" y1="130" x2="200" y2="140"/>
+        <line x1="300" y1="130" x2="300" y2="140"/>
+        <line x1="400" y1="130" x2="400" y2="140"/>
+        <line x1="500" y1="130" x2="500" y2="140"/>
+        <line x1="600" y1="130" x2="600" y2="140"/>
+        <line x1="700" y1="130" x2="700" y2="140"/>
+        <line x1="800" y1="130" x2="800" y2="140"/>
+        <line x1="900" y1="130" x2="900" y2="140"/>
+        <line x1="1000" y1="130" x2="1000" y2="140"/>
+    </g>
+
+    <!-- Rotating Elements -->
+    <rect x="1100" y="500" width="40" height="40" stroke="#FF5C24" stroke-width="2" transform="rotate(45 1120 520)"/>
+    <rect x="1115" y="515" width="10" height="10" fill="#FF5C24" transform="rotate(45 1120 520)"/>
     
-    <!-- Playback indicator line -->
-    <line x1="600" y1="100" x2="600" y2="700" stroke="#FF5C24" stroke-width="2" stroke-dasharray="4 4" opacity="0.5"/>
-  </g>
-  
-  <!-- Musical Note Elements -->
-  <g opacity="0.75">
-    <!-- Note labels (left side of grid) -->
-    <text x="180" y="175" font-family="monospace" font-size="14" fill="#FF5C24" text-anchor="end">C</text>
-    <text x="180" y="225" font-family="monospace" font-size="14" fill="#FF5C24" text-anchor="end">D</text>
-    <text x="180" y="275" font-family="monospace" font-size="14" fill="#FF5C24" text-anchor="end">E</text>
-    <text x="180" y="325" font-family="monospace" font-size="14" fill="#FF5C24" text-anchor="end">F</text>
-    <text x="180" y="375" font-family="monospace" font-size="14" fill="#FF5C24" text-anchor="end">G</text>
-    <text x="180" y="425" font-family="monospace" font-size="14" fill="#FF5C24" text-anchor="end">A</text>
-    <text x="180" y="475" font-family="monospace" font-size="14" fill="#FF5C24" text-anchor="end">B</text>
-    <text x="180" y="525" font-family="monospace" font-size="14" fill="#FF5C24" text-anchor="end">C</text>
-    <text x="180" y="575" font-family="monospace" font-size="14" fill="#FF5C24" text-anchor="end">D</text>
+    <!-- Radius/Diameter Dimension -->
+    <g stroke="#FF5C24" stroke-width="1.5">
+        <line x1="1100" y1="500" x2="1080" y2="480" />
+        <line x1="1100" y1="500" x2="1105" y2="495" /> <!-- Arrowhead part 1 -->
+        <line x1="1100" y1="500" x2="1095" y2="505" /> <!-- Arrowhead part 2 -->
+        <text x="1070" y="470" font-family="monospace" font-size="12" fill="#FF5C24">R20</text>
+    </g>
+
+    <!-- Scribble Details -->
+    <path d="M1200 600 L1210 600 L1210 610 L1220 610 V620 H1230" stroke="#FF5C24" stroke-width="1.5" fill="none"/>
+    <rect x="1230" y="615" width="5" height="5" fill="#FF5C24"/>
+
+    <path d="M150 700 L160 710 H200 V720 L220 740" stroke="#FF5C24" stroke-width="1.5" fill="none"/>
     
-    <!-- Musical note symbols -->
-    <circle cx="1100" cy="200" r="8" fill="#FF5C24" opacity="0.6"/>
-    <line x1="1100" y1="200" x2="1100" y2="250" stroke="#FF5C24" stroke-width="2" opacity="0.6"/>
-    
-    <circle cx="1200" cy="300" r="8" fill="#FF5C24" opacity="0.6"/>
-    <line x1="1200" y1="300" x2="1200" y2="350" stroke="#FF5C24" stroke-width="2" opacity="0.6"/>
-    
-    <circle cx="1150" cy="450" r="8" fill="#FF5C24" opacity="0.6"/>
-    <line x1="1150" y1="450" x2="1150" y2="500" stroke="#FF5C24" stroke-width="2" opacity="0.6"/>
-  </g>
-  
-  <!-- Circuit Connection Lines -->
-  <g opacity="0.5">
-    <!-- Connecting paths between grid elements -->
-    <path d="M 300 200 Q 400 250 500 300 T 700 400" stroke="#FF5C24" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <path d="M 500 300 Q 550 350 600 400 T 700 500" stroke="#FF5C24" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <path d="M 700 400 Q 750 450 800 500 T 900 600" stroke="#FF5C24" stroke-width="2" fill="none" stroke-linecap="round"/>
-    
-    <!-- Connection nodes -->
-    <circle cx="500" cy="300" r="5" fill="#FF5C24"/>
-    <circle cx="700" cy="400" r="5" fill="#FF5C24"/>
-    <circle cx="800" cy="500" r="5" fill="#FF5C24"/>
-    <circle cx="600" cy="400" r="5" fill="#FF5C24"/>
-  </g>
-  
-  <!-- Control Elements (Play, Record, etc.) -->
-  <g opacity="0.75">
-    <!-- Play button -->
-    <circle cx="1100" cy="700" r="30" stroke="#FF5C24" stroke-width="2" fill="none"/>
-    <path d="M 1090 690 L 1090 710 L 1110 700 Z" fill="#FF5C24" opacity="0.6"/>
-    
-    <!-- Record button -->
-    <circle cx="1200" cy="700" r="30" stroke="#FF5C24" stroke-width="2" fill="none"/>
-    <circle cx="1200" cy="700" r="15" fill="#FF5C24" opacity="0.6"/>
-    
-    <!-- Settings gear -->
-    <circle cx="1300" cy="700" r="25" stroke="#FF5C24" stroke-width="2" fill="none"/>
-    <circle cx="1300" cy="700" r="3" fill="#FF5C24" opacity="0.6"/>
-    <line x1="1300" y1="675" x2="1300" y2="685" stroke="#FF5C24" stroke-width="2"/>
-    <line x1="1300" y1="715" x2="1300" y2="725" stroke="#FF5C24" stroke-width="2"/>
-    <line x1="1275" y1="700" x2="1285" y2="700" stroke="#FF5C24" stroke-width="2"/>
-    <line x1="1315" y1="700" x2="1325" y2="700" stroke="#FF5C24" stroke-width="2"/>
-  </g>
-  
-  <!-- Section Labels (Playgrounds style) -->
-  <g opacity="0.75">
-    <!-- Section headers -->
-    <rect x="1050" y="800" width="120" height="40" rx="4" stroke="#FF5C24" stroke-width="2" fill="none"/>
-    <text x="1110" y="825" font-family="monospace" font-size="16" fill="#FF5C24" text-anchor="middle" font-weight="bold">SECTION 1</text>
-    
-    <rect x="1200" y="800" width="120" height="40" rx="4" stroke="#FF5C24" stroke-width="2" fill="none"/>
-    <text x="1260" y="825" font-family="monospace" font-size="16" fill="#FF5C24" text-anchor="middle" font-weight="bold">SECTION 2</text>
-    
-    <!-- Track labels -->
-    <rect x="200" y="750" width="60" height="60" rx="4" stroke="#FF5C24" stroke-width="2" fill="none"/>
-    <circle cx="230" cy="780" r="12" fill="#FF5C24" opacity="0.3"/>
-    
-    <rect x="280" y="750" width="60" height="60" rx="4" stroke="#FF5C24" stroke-width="2" fill="none"/>
-    <circle cx="310" cy="780" r="12" fill="#FF5C24" opacity="0.3"/>
-  </g>
-  
-  <!-- App Icon "M" Reference -->
-  <g opacity="0.4">
-    <!-- Stylized "M" shape -->
-    <path d="M 50 200 L 50 300 L 80 250 L 110 300 L 110 200" stroke="#FF5C24" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <!-- Shadow effect -->
-    <path d="M 52 202 L 52 302 L 82 252 L 112 302 L 112 202" stroke="#FF5C24" stroke-width="2" fill="none" opacity="0.3" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
-  
-  <!-- Technical Annotations (Patent Drawing Style) -->
-  <g opacity="0.3">
-    <!-- Dimension lines -->
-    <line x1="200" y1="50" x2="1000" y2="50" stroke="#FF5C24" stroke-width="1"/>
-    <line x1="200" y1="45" x2="200" y2="55" stroke="#FF5C24" stroke-width="1"/>
-    <line x1="1000" y1="45" x2="1000" y2="55" stroke="#FF5C24" stroke-width="1"/>
-    
-    <!-- Reference numbers -->
-    <circle cx="600" cy="30" r="12" stroke="#FF5C24" stroke-width="1" fill="none"/>
-    <text x="600" y="35" font-family="monospace" font-size="10" fill="#FF5C24" text-anchor="middle">1</text>
-    
-    <circle cx="1100" cy="650" r="12" stroke="#FF5C24" stroke-width="1" fill="none"/>
-    <text x="1100" y="655" font-family="monospace" font-size="10" fill="#FF5C24" text-anchor="middle">2</text>
-  </g>
-  
-  <!-- Abstract Circuit Patterns -->
-  <g opacity="0.2">
-    <!-- Decorative circuit paths -->
-    <path d="M 100 400 Q 150 350 200 300 T 300 200" stroke="#FF5C24" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-    <path d="M 1100 100 Q 1150 150 1200 200 T 1300 300" stroke="#FF5C24" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-    <path d="M 50 800 Q 200 750 350 700 T 600 600" stroke="#FF5C24" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-    
-    <!-- Circuit nodes -->
-    <circle cx="200" cy="300" r="4" fill="#FF5C24"/>
-    <circle cx="1200" cy="200" r="4" fill="#FF5C24"/>
-    <circle cx="350" cy="700" r="4" fill="#FF5C24"/>
-    <circle cx="600" cy="600" r="4" fill="#FF5C24"/>
-  </g>
-  
-  <!-- Navigation Elements -->
-  <g opacity="0.4">
-    <!-- Bottom navigation bar representation -->
-    <rect x="400" y="900" width="640" height="80" rx="6" stroke="#FF5C24" stroke-width="2" fill="none"/>
-    
-    <!-- Tab indicators -->
-    <circle cx="450" cy="940" r="10" fill="#FF5C24" opacity="0.4"/>
-    <circle cx="550" cy="940" r="10" stroke="#FF5C24" stroke-width="1.5" fill="none"/>
-    <circle cx="650" cy="940" r="10" stroke="#FF5C24" stroke-width="1.5" fill="none"/>
-    <circle cx="750" cy="940" r="10" stroke="#FF5C24" stroke-width="1.5" fill="none"/>
-    
-    <!-- Tab labels -->
-    <line x1="430" y1="970" x2="470" y2="970" stroke="#FF5C24" stroke-width="1.5" opacity="0.5"/>
-    <line x1="530" y1="970" x2="570" y2="970" stroke="#FF5C24" stroke-width="1.5" opacity="0.3"/>
-    <line x1="630" y1="970" x2="670" y2="970" stroke="#FF5C24" stroke-width="1.5" opacity="0.3"/>
-    <line x1="730" y1="970" x2="770" y2="970" stroke="#FF5C24" stroke-width="1.5" opacity="0.3"/>
+    <!-- Phone Mockup Outline (Abstract) -->
+    <rect x="1100" y="100" width="200" height="400" rx="20" stroke="#FF5C24" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.5"/>
+    <circle cx="1200" cy="450" r="15" stroke="#FF5C24" stroke-width="1.5" opacity="0.5"/>
+
+    <!-- Background textural elements -->
+    <rect x="50" y="50" width="20" height="2" fill="#FF5C24" opacity="0.5"/>
+    <rect x="50" y="60" width="20" height="2" fill="#FF5C24" opacity="0.5"/>
+    <rect x="50" y="70" width="10" height="2" fill="#FF5C24" opacity="0.5"/>
+
+    <!-- Crosshairs -->
+    <path d="M1300 800 M1290 800 H1310 M1300 790 V810" stroke="#FF5C24" stroke-width="1"/>
+    <circle cx="1300" cy="800" r="15" stroke="#FF5C24" stroke-width="1" fill="none"/>
   </g>
 </svg>

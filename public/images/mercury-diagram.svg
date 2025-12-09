@@ -1,142 +1,101 @@
-<svg width="1136" height="1523" viewBox="0 0 1136 1523" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Patent Drawing Style: App Interface Elements -->
-  
-  <!-- Camera Viewfinder (Invisible Camera) - Top Left -->
-  <g id="camera-viewfinder" opacity="0.25">
-    <!-- Viewfinder frame -->
-    <rect x="150" y="200" width="320" height="480" rx="16" stroke="#F8FAFC" stroke-width="2.5" fill="none"/>
-    <!-- Viewfinder grid lines (rule of thirds) -->
-    <line x1="237" y1="200" x2="237" y2="680" stroke="#F8FAFC" stroke-width="1" opacity="0.5"/>
-    <line x1="383" y1="200" x2="383" y2="680" stroke="#F8FAFC" stroke-width="1" opacity="0.5"/>
-    <line x1="150" y1="360" x2="470" y2="360" stroke="#F8FAFC" stroke-width="1" opacity="0.5"/>
-    <line x1="150" y1="520" x2="470" y2="520" stroke="#F8FAFC" stroke-width="1" opacity="0.5"/>
-    <!-- Shutter button -->
-    <circle cx="310" cy="750" r="24" stroke="#F8FAFC" stroke-width="2" fill="none"/>
-    <circle cx="310" cy="750" r="16" stroke="#F8FAFC" stroke-width="2" fill="none"/>
-  </g>
-  
-  <!-- Sequencer Grid (MIDICIRCUIT) - Top Right -->
-  <g id="sequencer-grid" opacity="0.25">
-    <!-- Grid container -->
-    <rect x="600" y="200" width="400" height="480" stroke="#F8FAFC" stroke-width="2.5" fill="none"/>
-    <!-- Grid cells (8x8 pattern) -->
-    <g opacity="0.4">
-      <!-- Horizontal lines -->
-      <line x1="600" y1="260" x2="1000" y2="260" stroke="#F8FAFC" stroke-width="1"/>
-      <line x1="600" y1="320" x2="1000" y2="320" stroke="#F8FAFC" stroke-width="1"/>
-      <line x1="600" y1="380" x2="1000" y2="380" stroke="#F8FAFC" stroke-width="1"/>
-      <line x1="600" y1="440" x2="1000" y2="440" stroke="#F8FAFC" stroke-width="1"/>
-      <line x1="600" y1="500" x2="1000" y2="500" stroke="#F8FAFC" stroke-width="1"/>
-      <line x1="600" y1="560" x2="1000" y2="560" stroke="#F8FAFC" stroke-width="1"/>
-      <line x1="600" y1="620" x2="1000" y2="620" stroke="#F8FAFC" stroke-width="1"/>
-      <!-- Vertical lines -->
-      <line x1="650" y1="200" x2="650" y2="680" stroke="#F8FAFC" stroke-width="1"/>
-      <line x1="700" y1="200" x2="700" y2="680" stroke="#F8FAFC" stroke-width="1"/>
-      <line x1="750" y1="200" x2="750" y2="680" stroke="#F8FAFC" stroke-width="1"/>
-      <line x1="800" y1="200" x2="800" y2="680" stroke="#F8FAFC" stroke-width="1"/>
-      <line x1="850" y1="200" x2="850" y2="680" stroke="#F8FAFC" stroke-width="1"/>
-      <line x1="900" y1="200" x2="900" y2="680" stroke="#F8FAFC" stroke-width="1"/>
-      <line x1="950" y1="200" x2="950" y2="680" stroke="#F8FAFC" stroke-width="1"/>
+<svg width="1440" height="1024" viewBox="0 0 1440 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.4">
+    <!-- Center Construction Lines (Planet/Orbital) -->
+    <circle cx="720" cy="512" r="300" stroke="#F8FAFC" stroke-width="1" stroke-dasharray="10 5" opacity="0.5"/>
+    <circle cx="720" cy="512" r="400" stroke="#F8FAFC" stroke-width="1" stroke-dasharray="20 10" opacity="0.3"/>
+    
+    <!-- Camera Lens Schematic (Left) -->
+    <g transform="translate(100, 200)">
+        <circle cx="200" cy="200" r="100" stroke="#F8FAFC" stroke-width="2"/>
+        <circle cx="200" cy="200" r="80" stroke="#F8FAFC" stroke-width="1" stroke-dasharray="4 4"/>
+        <path d="M200 100 V300 M100 200 H300" stroke="#F8FAFC" stroke-width="1" opacity="0.5"/>
+        
+        <!-- Architectural Dimensions for Lens -->
+        <g stroke="#F8FAFC" stroke-width="1">
+            <!-- Diameter -->
+            <line x1="100" y1="320" x2="300" y2="320" />
+            <line x1="100" y1="315" x2="100" y2="325" />
+            <line x1="300" y1="315" x2="300" y2="325" />
+            <text x="200" y="340" font-family="monospace" font-size="12" fill="#F8FAFC" text-anchor="middle">200px</text>
+            
+            <!-- Radius callout -->
+            <line x1="200" y1="200" x2="280" y2="120" />
+            <line x1="275" y1="125" x2="280" y2="120" /> <!-- Arrow part 1 -->
+            <line x1="280" y1="125" x2="280" y2="120" /> <!-- Arrow part 2 -->
+            <text x="290" y="115" font-family="monospace" font-size="12" fill="#F8FAFC">R100</text>
+        </g>
+
+        <!-- Lens elements -->
+        <path d="M160 200 Q200 150 240 200" stroke="#F8FAFC" stroke-width="1.5" fill="none"/>
+        <path d="M160 200 Q200 250 240 200" stroke="#F8FAFC" stroke-width="1.5" fill="none"/>
+        <rect x="180" y="180" width="40" height="40" stroke="#FF5C24" stroke-width="2" fill="none" transform="rotate(45 200 200)"/>
     </g>
-    <!-- Active cells (patent style - highlighted) -->
-    <rect x="610" y="270" width="30" height="30" stroke="#FF5C24" stroke-width="2" fill="none" opacity="0.6"/>
-    <rect x="710" y="330" width="30" height="30" stroke="#FF5C24" stroke-width="2" fill="none" opacity="0.6"/>
-    <rect x="810" y="390" width="30" height="30" stroke="#FF5C24" stroke-width="2" fill="none" opacity="0.6"/>
-    <rect x="660" y="450" width="30" height="30" stroke="#FF5C24" stroke-width="2" fill="none" opacity="0.6"/>
-    <rect x="910" y="510" width="30" height="30" stroke="#FF5C24" stroke-width="2" fill="none" opacity="0.6"/>
-    <rect x="760" y="570" width="30" height="30" stroke="#FF5C24" stroke-width="2" fill="none" opacity="0.6"/>
-    <!-- Playback indicator (vertical line) -->
-    <line x1="825" y1="200" x2="825" y2="680" stroke="#FF5C24" stroke-width="2" stroke-dasharray="3 3" opacity="0.5"/>
-  </g>
-  
-  <!-- UI Cards (Playgrounds/Lessons) - Bottom -->
-  <g id="ui-cards" opacity="0.25">
-    <!-- Card 1 -->
-    <rect x="150" y="900" width="380" height="220" rx="10" stroke="#F8FAFC" stroke-width="2.5" fill="none"/>
-    <!-- Card content lines (text representation) -->
-    <line x1="180" y1="940" x2="480" y2="940" stroke="#F8FAFC" stroke-width="2" opacity="0.6"/>
-    <line x1="180" y1="980" x2="450" y2="980" stroke="#F8FAFC" stroke-width="1.5" opacity="0.4"/>
-    <line x1="180" y1="1010" x2="420" y2="1010" stroke="#F8FAFC" stroke-width="1.5" opacity="0.4"/>
-    <!-- Progress bar -->
-    <rect x="180" y="1050" width="280" height="12" rx="6" stroke="#F8FAFC" stroke-width="1.5" fill="none" opacity="0.4"/>
-    <rect x="180" y="1050" width="200" height="12" rx="6" fill="#FF5C24" opacity="0.4"/>
-    <!-- Completion indicator -->
-    <circle cx="500" cy="940" r="12" stroke="#F8FAFC" stroke-width="2" fill="none" opacity="0.4"/>
-    <line x1="495" y1="940" x2="500" y2="945" stroke="#F8FAFC" stroke-width="2" opacity="0.4"/>
-    <line x1="500" y1="945" x2="505" y2="935" stroke="#F8FAFC" stroke-width="2" opacity="0.4"/>
+
+    <!-- Sequencer Schematic (Right) -->
+    <g transform="translate(900, 200)">
+        <rect x="0" y="0" width="300" height="300" stroke="#F8FAFC" stroke-width="2"/>
+        <!-- Grid lines -->
+        <path d="M0 75 H300 M0 150 H300 M0 225 H300" stroke="#F8FAFC" stroke-width="1" opacity="0.5"/>
+        <path d="M75 0 V300 M150 0 V300 M225 0 V300" stroke="#F8FAFC" stroke-width="1" opacity="0.5"/>
+        
+        <!-- Architectural Dimensions for Grid -->
+        <g stroke="#F8FAFC" stroke-width="1">
+            <!-- Vertical Height -->
+            <line x1="320" y1="0" x2="320" y2="300" />
+            <line x1="315" y1="0" x2="325" y2="0" />
+            <line x1="315" y1="300" x2="325" y2="300" />
+            <text x="340" y="150" font-family="monospace" font-size="12" fill="#F8FAFC" text-anchor="middle" transform="rotate(90 340 150)">300px</text>
+            
+            <!-- Cell Width -->
+            <line x1="0" y1="-20" x2="75" y2="-20" />
+            <line x1="0" y1="-25" x2="0" y2="-15" />
+            <line x1="75" y1="-25" x2="75" y2="-15" />
+            <text x="37.5" y="-30" font-family="monospace" font-size="12" fill="#F8FAFC" text-anchor="middle">75px</text>
+        </g>
+
+        <!-- Active notes -->
+        <rect x="80" y="80" width="65" height="65" fill="#FF5C24" opacity="0.8"/>
+        <rect x="155" y="155" width="65" height="65" stroke="#FF5C24" stroke-width="2"/>
+    </g>
+
+    <!-- Connecting Lines -->
+    <path d="M400 400 H500 L550 450 H850 L900 400 H1000" stroke="#F8FAFC" stroke-width="1.5" stroke-dasharray="5 5" fill="none"/>
     
-    <!-- Card 2 -->
-    <rect x="600" y="900" width="380" height="220" rx="10" stroke="#F8FAFC" stroke-width="2.5" fill="none"/>
-    <!-- Card content lines -->
-    <line x1="630" y1="940" x2="930" y2="940" stroke="#F8FAFC" stroke-width="2" opacity="0.6"/>
-    <line x1="630" y1="980" x2="900" y2="980" stroke="#F8FAFC" stroke-width="1.5" opacity="0.4"/>
-    <line x1="630" y1="1010" x2="870" y2="1010" stroke="#F8FAFC" stroke-width="1.5" opacity="0.4"/>
-    <!-- Progress bar -->
-    <rect x="630" y="1050" width="280" height="12" rx="6" stroke="#F8FAFC" stroke-width="1.5" fill="none" opacity="0.4"/>
-    <rect x="630" y="1050" width="140" height="12" rx="6" fill="#FF5C24" opacity="0.4"/>
-  </g>
-  
-  <!-- Circuit/Connection Lines (MIDICIRCUIT abstraction) -->
-  <g id="circuit-lines" opacity="0.15">
-    <!-- Connecting paths between UI elements -->
-    <path d="M 310 680 Q 400 750 500 850 T 690 900" stroke="#F8FAFC" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <path d="M 800 680 Q 750 750 700 850 T 600 900" stroke="#F8FAFC" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <!-- Connection nodes -->
-    <circle cx="500" cy="850" r="5" fill="#F8FAFC"/>
-    <circle cx="700" cy="850" r="5" fill="#F8FAFC"/>
-    <circle cx="690" cy="900" r="5" fill="#F8FAFC"/>
-    <circle cx="600" cy="900" r="5" fill="#F8FAFC"/>
-  </g>
-  
-  <!-- Technical Annotations (Patent Drawing Style) -->
-  <g id="annotations" opacity="0.1">
-    <!-- Dimension lines with arrows -->
-    <line x1="150" y1="120" x2="470" y2="120" stroke="#F8FAFC" stroke-width="1"/>
-    <line x1="150" y1="115" x2="150" y2="125" stroke="#F8FAFC" stroke-width="1"/>
-    <line x1="470" y1="115" x2="470" y2="125" stroke="#F8FAFC" stroke-width="1"/>
+    <!-- Floating UI Elements -->
+    <rect x="600" y="700" width="240" height="120" rx="10" stroke="#F8FAFC" stroke-width="2"/>
     
-    <line x1="600" y1="120" x2="1000" y2="120" stroke="#F8FAFC" stroke-width="1"/>
-    <line x1="600" y1="115" x2="600" y2="125" stroke="#F8FAFC" stroke-width="1"/>
-    <line x1="1000" y1="115" x2="1000" y2="125" stroke="#F8FAFC" stroke-width="1"/>
+    <!-- UI Element Dimensions -->
+    <g stroke="#F8FAFC" stroke-width="1">
+        <line x1="580" y1="700" x2="580" y2="820" />
+        <line x1="575" y1="700" x2="585" y2="700" />
+        <line x1="575" y1="820" x2="585" y2="820" />
+        <text x="560" y="760" font-family="monospace" font-size="12" fill="#F8FAFC" text-anchor="middle" transform="rotate(-90 560 760)">120px</text>
+        
+        <line x1="600" y1="840" x2="840" y2="840" />
+        <line x1="600" y1="835" x2="600" y2="845" />
+        <line x1="840" y1="835" x2="840" y2="845" />
+        <text x="720" y="860" font-family="monospace" font-size="12" fill="#F8FAFC" text-anchor="middle">240px</text>
+    </g>
+
+    <line x1="620" y1="730" x2="820" y2="730" stroke="#F8FAFC" stroke-width="1"/>
+    <line x1="620" y1="760" x2="780" y2="760" stroke="#F8FAFC" stroke-width="1"/>
     
-    <!-- Reference numbers (patent drawing style) -->
-    <circle cx="310" cy="160" r="12" stroke="#F8FAFC" stroke-width="1" fill="none"/>
-    <text x="310" y="165" font-family="monospace" font-size="10" fill="#F8FAFC" text-anchor="middle">1</text>
+    <!-- Technical Annotations -->
+    <g stroke="#FF5C24" stroke-width="1">
+        <line x1="600" y1="680" x2="600" y2="690"/>
+        <line x1="840" y1="680" x2="840" y2="690"/>
+        <line x1="600" y1="685" x2="840" y2="685"/>
+        <text x="720" y="675" fill="#FF5C24" font-family="monospace" font-size="12" text-anchor="middle">INTERFACE</text>
+    </g>
+
+    <!-- Decorative scribbles -->
+    <path d="M100 800 L150 850 L200 850" stroke="#F8FAFC" stroke-width="1.5" fill="none"/>
+    <circle cx="200" cy="850" r="5" fill="#F8FAFC"/>
     
-    <circle cx="800" cy="160" r="12" stroke="#F8FAFC" stroke-width="1" fill="none"/>
-    <text x="800" y="165" font-family="monospace" font-size="10" fill="#F8FAFC" text-anchor="middle">2</text>
-    
-    <circle cx="340" cy="1020" r="12" stroke="#F8FAFC" stroke-width="1" fill="none"/>
-    <text x="340" y="1025" font-family="monospace" font-size="10" fill="#F8FAFC" text-anchor="middle">3</text>
-    
-    <circle cx="790" cy="1020" r="12" stroke="#F8FAFC" stroke-width="1" fill="none"/>
-    <text x="790" y="1025" font-family="monospace" font-size="10" fill="#F8FAFC" text-anchor="middle">4</text>
-  </g>
-  
-  <!-- Navigation Elements (Bottom) -->
-  <g id="navigation" opacity="0.15">
-    <!-- Navigation bar -->
-    <rect x="150" y="1200" width="836" height="70" rx="6" stroke="#F8FAFC" stroke-width="2" fill="none"/>
-    <!-- Tab indicators -->
-    <circle cx="220" cy="1235" r="10" fill="#FF5C24" opacity="0.4"/>
-    <circle cx="320" cy="1235" r="10" stroke="#F8FAFC" stroke-width="1.5" fill="none"/>
-    <circle cx="420" cy="1235" r="10" stroke="#F8FAFC" stroke-width="1.5" fill="none"/>
-    <circle cx="520" cy="1235" r="10" stroke="#F8FAFC" stroke-width="1.5" fill="none"/>
-    <!-- Tab labels (simplified) -->
-    <line x1="200" y1="1260" x2="240" y2="1260" stroke="#F8FAFC" stroke-width="1.5" opacity="0.5"/>
-    <line x1="300" y1="1260" x2="340" y2="1260" stroke="#F8FAFC" stroke-width="1.5" opacity="0.3"/>
-    <line x1="400" y1="1260" x2="440" y2="1260" stroke="#F8FAFC" stroke-width="1.5" opacity="0.3"/>
-    <line x1="500" y1="1260" x2="540" y2="1260" stroke="#F8FAFC" stroke-width="1.5" opacity="0.3"/>
-  </g>
-  
-  <!-- Abstract Geometric Shapes (Background elements) -->
-  <g id="abstract-shapes" opacity="0.08">
-    <!-- Decorative circles -->
-    <circle cx="100" cy="400" r="40" stroke="#F8FAFC" stroke-width="1.5" fill="none"/>
-    <circle cx="1036" cy="500" r="50" stroke="#F8FAFC" stroke-width="1.5" fill="none"/>
-    <circle cx="50" cy="1200" r="35" stroke="#F8FAFC" stroke-width="1.5" fill="none"/>
-    <!-- Decorative lines -->
-    <line x1="50" y1="800" x2="100" y2="750" stroke="#F8FAFC" stroke-width="1" stroke-linecap="round"/>
-    <line x1="1036" y1="900" x2="1086" y2="850" stroke="#F8FAFC" stroke-width="1" stroke-linecap="round"/>
+    <path d="M1300 800 L1250 850 L1200 850" stroke="#F8FAFC" stroke-width="1.5" fill="none"/>
+    <rect x="1190" y="845" width="10" height="10" stroke="#F8FAFC" stroke-width="1"/>
+
+    <!-- "Level" Steps -->
+    <path d="M1200 100 V120 H1220 V140 H1240 V160" stroke="#FF5C24" stroke-width="2" fill="none"/>
   </g>
 </svg>
