@@ -54,29 +54,29 @@ const ProductHeroSection: React.FC<ProductHeroSectionProps> = ({
           </motion.video>
         ) : heroImage ? (
           <>
-          <motion.img
-            src={heroImage}
-            alt='Hero background'
-            className='w-full h-full object-cover'
-            initial={{
+            <motion.img
+              src={heroImage}
+              alt='Hero background'
+              className='w-full h-full object-cover'
+              initial={{
                 filter: 'contrast(1.3) saturate(1.2) brightness(0.9)',
-              scale: 1.1,
-            }}
-            animate={{
+                scale: 1.1,
+              }}
+              animate={{
                 filter: imageLoaded
                   ? 'contrast(1.15) saturate(1.1) brightness(0.98)'
                   : 'contrast(1.3) saturate(1.2) brightness(0.9)',
-              scale: imageLoaded ? 1.05 : 1.1,
-            }}
-            transition={{
-              duration: 2,
-              ease: 'easeOut',
-            }}
-            style={{
-              imageRendering: 'pixelated',
-            }}
-            onLoad={() => setImageLoaded(true)}
-          />
+                scale: imageLoaded ? 1.05 : 1.1,
+              }}
+              transition={{
+                duration: 2,
+                ease: 'easeOut',
+              }}
+              style={{
+                imageRendering: 'pixelated',
+              }}
+              onLoad={() => setImageLoaded(true)}
+            />
             {/* Classic halftone/stippled dithering pattern */}
             <div
               className='absolute inset-0 opacity-60 mix-blend-mode-multiply'
@@ -118,26 +118,31 @@ const ProductHeroSection: React.FC<ProductHeroSectionProps> = ({
 
       {/* Patent-style technical overlay */}
       <div className='absolute inset-0 z-5 pointer-events-none opacity-20'>
-        <svg className='w-full h-full' viewBox='0 0 1440 800' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <svg
+          className='w-full h-full'
+          viewBox='0 0 1440 800'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
           {/* Corner reference marks */}
           <g stroke='white' strokeWidth='2' opacity='0.6'>
             {/* Top left */}
             <line x1='40' y1='40' x2='80' y2='40' />
             <line x1='40' y1='40' x2='40' y2='80' />
-            
+
             {/* Top right */}
             <line x1='1360' y1='40' x2='1400' y2='40' />
             <line x1='1400' y1='40' x2='1400' y2='80' />
-            
+
             {/* Bottom left */}
             <line x1='40' y1='720' x2='40' y2='760' />
             <line x1='40' y1='760' x2='80' y2='760' />
-            
+
             {/* Bottom right */}
             <line x1='1400' y1='720' x2='1400' y2='760' />
             <line x1='1360' y1='760' x2='1400' y2='760' />
           </g>
-          
+
           {/* Center crosshair */}
           <g stroke='white' strokeWidth='1.5' opacity='0.3'>
             <line x1='720' y1='380' x2='720' y2='420' strokeDasharray='4 4' />

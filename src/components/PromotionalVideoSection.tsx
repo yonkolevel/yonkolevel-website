@@ -156,7 +156,7 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
                   >
                     <Link
                       href={learnMoreLink}
-                      className='inline-flex items-center font-pixel text-white text-base sm:text-lg md:text-xl lg:text-2xl opacity-90 hover:opacity-100 transition-opacity border-2 border-white/30 px-8 py-4 sm:px-10 sm:py-5 md:px-12 md:py-6 rounded-full hover:border-white/60 transition-colors'
+                      className='inline-flex items-center font-pixel text-white text-base sm:text-lg md:text-xl lg:text-2xl opacity-90 hover:opacity-100 transition-opacity border-2 border-white/30 px-8 py-4 sm:px-10 sm:py-5 md:px-12 md:py-5 rounded-full hover:border-white/60 transition-colors'
                     >
                       Learn more →
                     </Link>

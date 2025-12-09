@@ -54,18 +54,36 @@ const ProductDescriptionSection: React.FC<ProductDescriptionSectionProps> = ({
           className='z-0'
         />
       )}
-      
+
       {/* Patent-style technical pattern overlay */}
       <div className='absolute inset-0 z-5 pointer-events-none opacity-10'>
-        <svg className='w-full h-full' viewBox='0 0 1440 600' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <svg
+          className='w-full h-full'
+          viewBox='0 0 1440 600'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
           {/* Technical grid pattern */}
           <defs>
-            <pattern id='tech-grid' x='0' y='0' width='80' height='80' patternUnits='userSpaceOnUse'>
-              <path d='M 80 0 L 0 0 0 80' fill='none' stroke={patternColor} strokeWidth='0.5' opacity='0.3' />
+            <pattern
+              id='tech-grid'
+              x='0'
+              y='0'
+              width='80'
+              height='80'
+              patternUnits='userSpaceOnUse'
+            >
+              <path
+                d='M 80 0 L 0 0 0 80'
+                fill='none'
+                stroke={patternColor}
+                strokeWidth='0.5'
+                opacity='0.3'
+              />
             </pattern>
           </defs>
           <rect width='100%' height='100%' fill='url(#tech-grid)' />
-          
+
           {/* Dimension-style lines */}
           <g stroke={patternColor} strokeWidth='1' opacity='0.4'>
             <line x1='100' y1='100' x2='1340' y2='100' strokeDasharray='10 5' />

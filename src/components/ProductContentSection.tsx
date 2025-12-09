@@ -66,10 +66,15 @@ const ProductContentSection: React.FC<ProductContentSectionProps> = ({
           className='z-0'
         />
       )}
-      
+
       {/* Subtle patent-style scribbles */}
       <div className='absolute inset-0 z-5 pointer-events-none opacity-10'>
-        <svg className='w-full h-full' viewBox='0 0 1440 800' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <svg
+          className='w-full h-full'
+          viewBox='0 0 1440 800'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
           {/* Corner brackets */}
           <g stroke={patternColor} strokeWidth='2' opacity='0.3'>
             {reverse ? (
@@ -86,11 +91,17 @@ const ProductContentSection: React.FC<ProductContentSectionProps> = ({
               </>
             )}
           </g>
-          
+
           {/* Subtle dimension lines */}
           <g stroke={patternColor} strokeWidth='0.5' opacity='0.2'>
             <line x1='200' y1='150' x2='1240' y2='150' strokeDasharray='5 5' />
-            <circle cx={reverse ? '1100' : '340'} cy='400' r='100' fill='none' strokeDasharray='8 4' />
+            <circle
+              cx={reverse ? '1100' : '340'}
+              cy='400'
+              r='100'
+              fill='none'
+              strokeDasharray='8 4'
+            />
           </g>
         </svg>
       </div>
