@@ -32,6 +32,7 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
           description="What you see is what you get. A camera app designed for capturing life's spontaneous moments without the complexity of endless menus and settings. Simply point, shoot, and let the magic happen."
           backgroundColor='#FBBF2A'
           textColor='text-black'
+          patternColor='#F3B23F'
           showPixelEffect
         />
       </div>
@@ -50,6 +51,7 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
         imageAlt='App interface showing simple camera view'
         backgroundColor='bg-white'
         textColor='text-black'
+        patternColor='#F3B23F'
         showPixelEffect
       />
 
@@ -60,6 +62,7 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
         imageAlt='Privacy features interface'
         backgroundColor='bg-gray-50'
         textColor='text-black'
+        patternColor='#F3B23F'
         showPixelEffect
         reverse
       />

@@ -32,7 +32,8 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
           title='Learn, Create, Share'
           description='Midicircuit takes you on a musical journey with our Circuits, offering engaging lessons and challenges. Plus, our Playgrounds give you the space to express your creativity and share your music with the world.'
           backgroundColor='#FF5C24'
-          textColor='text-black'
+          textColor='text-white'
+          patternColor='#FFFFFF'
           showPixelEffect
         />
       </div>
@@ -55,6 +56,7 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
         imageAlt='MidiCircuit Playgrounds creative DAW'
         backgroundColor='bg-gray-50'
         textColor='text-black'
+        patternColor='#FF5C24'
         showPixelEffect
         reverse
       />
@@ -66,6 +68,7 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
         imageAlt='MidiCircuit on iOS and macOS devices'
         backgroundColor='bg-white'
         textColor='text-black'
+        patternColor='#FF5C24'
         showPixelEffect
       />
 
@@ -76,6 +79,7 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
         imageAlt='Apple Entrepreneur Camp recognition'
         backgroundColor='bg-gray-50'
         textColor='text-black'
+        patternColor='#FF5C24'
         showPixelEffect
         reverse
       />

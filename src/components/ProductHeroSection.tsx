@@ -116,6 +116,37 @@ const ProductHeroSection: React.FC<ProductHeroSectionProps> = ({
         <div className='absolute inset-0 bg-black/20' />
       </div>
 
+      {/* Patent-style technical overlay */}
+      <div className='absolute inset-0 z-5 pointer-events-none opacity-20'>
+        <svg className='w-full h-full' viewBox='0 0 1440 800' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          {/* Corner reference marks */}
+          <g stroke='white' strokeWidth='2' opacity='0.6'>
+            {/* Top left */}
+            <line x1='40' y1='40' x2='80' y2='40' />
+            <line x1='40' y1='40' x2='40' y2='80' />
+            
+            {/* Top right */}
+            <line x1='1360' y1='40' x2='1400' y2='40' />
+            <line x1='1400' y1='40' x2='1400' y2='80' />
+            
+            {/* Bottom left */}
+            <line x1='40' y1='720' x2='40' y2='760' />
+            <line x1='40' y1='760' x2='80' y2='760' />
+            
+            {/* Bottom right */}
+            <line x1='1400' y1='720' x2='1400' y2='760' />
+            <line x1='1360' y1='760' x2='1400' y2='760' />
+          </g>
+          
+          {/* Center crosshair */}
+          <g stroke='white' strokeWidth='1.5' opacity='0.3'>
+            <line x1='720' y1='380' x2='720' y2='420' strokeDasharray='4 4' />
+            <line x1='700' y1='400' x2='740' y2='400' strokeDasharray='4 4' />
+            <circle cx='720' cy='400' r='30' fill='none' />
+          </g>
+        </svg>
+      </div>
+
       {/* Content */}
       <div className='relative z-10 min-h-[60vh] flex items-center justify-center'>
         <Container>

@@ -14,6 +14,7 @@ interface ProductContentSectionProps {
   imageClassName?: string;
   showPixelEffect?: boolean;
   reverse?: boolean;
+  patternColor?: string;
 }
 
 const ProductContentSection: React.FC<ProductContentSectionProps> = ({
@@ -27,16 +28,18 @@ const ProductContentSection: React.FC<ProductContentSectionProps> = ({
   imageClassName = '',
   showPixelEffect = true,
   reverse = false,
+  patternColor = '#000000',
 }) => {
   // Pixel displacement pattern for varied corners and edges
   const pixelDisplacements = [
     // Top left corner
     { row: 0, col: 0, displaceX: -1, displaceY: -1 },
     { row: 1, col: 1, displaceX: -2, displaceY: 0 },
+    { row: 0, col: 2, displaceX: -1, displaceY: -1 },
 
     // Bottom right scattered pixels
-    { row: -2, col: -1, displaceX: 2, displaceY: 1 },
-    { row: -1, col: -3, displaceX: 1, displaceY: 2 },
+    { row: 11, col: 13, displaceX: 2, displaceY: 1 },
+    { row: 12, col: 12, displaceX: 1, displaceY: 2 },
   ];
 
   return (
@@ -63,6 +66,34 @@ const ProductContentSection: React.FC<ProductContentSectionProps> = ({
           className='z-0'
         />
       )}
+      
+      {/* Subtle patent-style scribbles */}
+      <div className='absolute inset-0 z-5 pointer-events-none opacity-10'>
+        <svg className='w-full h-full' viewBox='0 0 1440 800' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          {/* Corner brackets */}
+          <g stroke={patternColor} strokeWidth='2' opacity='0.3'>
+            {reverse ? (
+              <>
+                {/* Right side brackets for reversed layout */}
+                <path d='M 1300 200 L 1320 200 L 1320 220' />
+                <path d='M 1300 600 L 1320 600 L 1320 580' />
+              </>
+            ) : (
+              <>
+                {/* Left side brackets for normal layout */}
+                <path d='M 120 200 L 100 200 L 100 220' />
+                <path d='M 120 600 L 100 600 L 100 580' />
+              </>
+            )}
+          </g>
+          
+          {/* Subtle dimension lines */}
+          <g stroke={patternColor} strokeWidth='0.5' opacity='0.2'>
+            <line x1='200' y1='150' x2='1240' y2='150' strokeDasharray='5 5' />
+            <circle cx={reverse ? '1100' : '340'} cy='400' r='100' fill='none' strokeDasharray='8 4' />
+          </g>
+        </svg>
+      </div>
 
       <div className='relative z-10'>
         <Container>
