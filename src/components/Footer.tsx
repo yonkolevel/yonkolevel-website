@@ -9,14 +9,22 @@ const PRODUCTS = [
   {
     href: '/products/invisible-camera',
     label: 'INVISIBLE CAMERA',
+    mobileLabel: 'INVISIBLE CAMERA',
   },
   {
     href: '/products/midicircuit',
     label: 'MIDICIRCUIT',
+    mobileLabel: 'MIDICIRCUIT',
   },
   {
     href: '/products/midi-scout',
     label: 'MIDI SCOUT',
+    mobileLabel: 'MIDI SCOUT',
+  },
+  {
+    href: '/blog',
+    label: 'BLOG',
+    mobileLabel: 'BLOG',
   },
 ] as const;
 
@@ -45,7 +53,7 @@ const Footer: React.FunctionComponent<IFooterProps> = (props) => {
                   color={isActive ? ACTIVE_COLOR : INACTIVE_COLOR}
                 >
                   {product.label}
-            </NavLink>
+                </NavLink>
               );
             })}
           </nav>
@@ -56,7 +64,7 @@ const Footer: React.FunctionComponent<IFooterProps> = (props) => {
           </div>
         </div>
       </Container>
-        </footer>
+    </footer>
   );
 };
 

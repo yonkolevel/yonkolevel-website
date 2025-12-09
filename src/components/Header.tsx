@@ -27,6 +27,11 @@ const PRODUCTS = [
     label: 'MIDI SCOUT',
     mobileLabel: 'MIDI SCOUT',
   },
+  {
+    href: '/blog',
+    label: 'BLOG',
+    mobileLabel: 'BLOG',
+  },
 ] as const;
 
 // Shared constants
