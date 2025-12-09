@@ -73,11 +73,11 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
 
   return (
     <section
-      className='relative w-full overflow-hidden'
+      className='relative w-full overflow-hidden py-8 sm:py-12 md:py-16 lg:py-20'
       style={{ backgroundColor }}
     >
       {/* Video Container */}
-      <div className='relative w-full h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-screen'>
+      <div className='relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[85vh]'>
         <video
           ref={videoRef}
           className='w-full h-full object-cover'
@@ -123,7 +123,7 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4, duration: 0.8 }}
-                  className='font-pixel text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-4 sm:mb-6'
+                  className='font-pixel text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-6 sm:mb-8 md:mb-10 lg:mb-12'
                 >
                   {appName}
                 </motion.h2>
@@ -135,7 +135,7 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.5, duration: 0.8 }}
-                  className='font-body text-sm sm:text-base md:text-lg lg:text-xl text-white/90 mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0'
+                  className='font-body text-sm sm:text-base md:text-lg lg:text-xl text-white/90 mb-8 sm:mb-10 md:mb-12 lg:mb-14 leading-relaxed px-2 sm:px-0'
                 >
                   {appDescription}
                 </motion.p>
