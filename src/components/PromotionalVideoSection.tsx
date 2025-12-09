@@ -117,35 +117,35 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
               >
-              {appName && (
-                <div className='mb-6 sm:mb-8 md:mb-10 lg:mb-12'>
-                  <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4, duration: 0.8 }}
-                  >
-                    <span className='font-pixel text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-white'>
-                      {appName}
-                    </span>
-                  </motion.h2>
-                </div>
-              )}
+                {appName && (
+                  <div className='mb-6 sm:mb-8 md:mb-10 lg:mb-12'>
+                    <motion.h2
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.4, duration: 0.8 }}
+                    >
+                      <span className='font-pixel text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-white'>
+                        {appName}
+                      </span>
+                    </motion.h2>
+                  </div>
+                )}
 
-              {appDescription && (
-                <div className='mb-8 sm:mb-10 md:mb-12 lg:mb-14'>
-                  <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.5, duration: 0.8 }}
-                  >
-                    <span className='font-body text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-relaxed px-2 sm:px-0 block'>
-                      {appDescription}
-                    </span>
-                  </motion.p>
-                </div>
-              )}
+                {appDescription && (
+                  <div className='mb-8 sm:mb-10 md:mb-12 lg:mb-14'>
+                    <motion.p
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5, duration: 0.8 }}
+                    >
+                      <span className='font-body text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-relaxed px-2 sm:px-0 block'>
+                        {appDescription}
+                      </span>
+                    </motion.p>
+                  </div>
+                )}
 
                 {learnMoreLink && (
                   <motion.div
@@ -156,7 +156,7 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
                   >
                     <Link
                       href={learnMoreLink}
-                      className='inline-flex items-center font-pixel text-white text-base sm:text-lg md:text-xl lg:text-2xl opacity-90 hover:opacity-100 transition-opacity border-2 border-white/30 px-6 py-3 sm:px-8 sm:py-4 rounded-full hover:border-white/60 transition-colors'
+                      className='inline-flex items-center font-pixel text-white text-base sm:text-lg md:text-xl lg:text-2xl opacity-90 hover:opacity-100 transition-opacity border-2 border-white/30 px-8 py-4 sm:px-10 sm:py-5 md:px-12 md:py-6 rounded-full hover:border-white/60 transition-colors'
                     >
                       Learn more →
                     </Link>
