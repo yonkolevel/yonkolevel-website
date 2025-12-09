@@ -73,11 +73,11 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
 
   return (
     <section
-      className='relative w-full overflow-hidden py-8 sm:py-12 md:py-16 lg:py-20'
+      className='relative w-full overflow-hidden'
       style={{ backgroundColor }}
     >
       {/* Video Container */}
-      <div className='relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[85vh]'>
+      <div className='relative w-full h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-screen'>
         <video
           ref={videoRef}
           className='w-full h-full object-cover'
@@ -110,53 +110,54 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
         {/* Content Overlay */}
         {(appName || appDescription || learnMoreLink) && (
           <div className='absolute inset-0 flex items-center justify-center z-10'>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className='text-center px-4 sm:px-6 md:px-12 max-w-4xl'
-            >
-              {appName && (
-                <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4, duration: 0.8 }}
-                  className='font-pixel text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-6 sm:mb-8 md:mb-10 lg:mb-12'
-                >
-                  {appName}
-                </motion.h2>
-              )}
-
-              {appDescription && (
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5, duration: 0.8 }}
-                  className='font-body text-sm sm:text-base md:text-lg lg:text-xl text-white/90 mb-8 sm:mb-10 md:mb-12 lg:mb-14 leading-relaxed px-2 sm:px-0'
-                >
-                  {appDescription}
-                </motion.p>
-              )}
-
-              {learnMoreLink && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.6, duration: 0.8 }}
-                >
-                  <Link
-                    href={learnMoreLink}
-                    className='inline-flex items-center font-pixel text-white text-base sm:text-lg md:text-xl lg:text-2xl opacity-90 hover:opacity-100 transition-opacity border-2 border-white/30 px-6 py-3 sm:px-8 sm:py-4 rounded-full hover:border-white/60 transition-colors'
+            <div className='text-center px-4 sm:px-6 md:px-12 max-w-4xl'>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+              >
+                {appName && (
+                  <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4, duration: 0.8 }}
+                    className='font-pixel text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-6 sm:mb-8 md:mb-10 lg:mb-12'
                   >
-                    Learn more →
-                  </Link>
-                </motion.div>
-              )}
-            </motion.div>
+                    {appName}
+                  </motion.h2>
+                )}
+
+                {appDescription && (
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
+                    className='font-body text-sm sm:text-base md:text-lg lg:text-xl text-white/90 mb-8 sm:mb-10 md:mb-12 lg:mb-14 leading-relaxed px-2 sm:px-0'
+                  >
+                    {appDescription}
+                  </motion.p>
+                )}
+
+                {learnMoreLink && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.6, duration: 0.8 }}
+                  >
+                    <Link
+                      href={learnMoreLink}
+                      className='inline-flex items-center font-pixel text-white text-base sm:text-lg md:text-xl lg:text-2xl opacity-90 hover:opacity-100 transition-opacity border-2 border-white/30 px-6 py-3 sm:px-8 sm:py-4 rounded-full hover:border-white/60 transition-colors'
+                    >
+                      Learn more →
+                    </Link>
+                  </motion.div>
+                )}
+              </motion.div>
+            </div>
           </div>
         )}
 
