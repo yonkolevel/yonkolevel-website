@@ -9,6 +9,7 @@ import MenuButton from './MenuButton';
 import MobileOnly from './MobileOnly';
 import NavLink from './NavLink/NavLink';
 import TabletAndAbove from './TabletAndAbove';
+import { usePostHog } from 'posthog-js/react';
 
 // Product navigation configuration
 const PRODUCTS = [
@@ -79,8 +80,14 @@ const MenuList: React.FunctionComponent<MenuListProps> = ({
   isMobile = false,
 }) => {
   const pathname = usePathname();
+  const posthog = usePostHog();
 
-  const handleClick = () => {
+  const handleClick = (productLabel: string, productHref: string) => {
+    posthog?.capture('navigation_link_clicked', {
+      label: productLabel,
+      href: productHref,
+      device: isMobile ? 'mobile' : 'desktop',
+    });
     onItemClick?.();
   };
 
@@ -89,7 +96,10 @@ const MenuList: React.FunctionComponent<MenuListProps> = ({
       {PRODUCTS.map((product) => {
         const isActive = pathname === product.href;
         return (
-          <li key={product.href} onClick={handleClick}>
+          <li
+            key={product.href}
+            onClick={() => handleClick(product.label, product.href)}
+          >
             <NavLink
               href={product.href}
               active={isActive}
@@ -108,10 +118,23 @@ const MenuList: React.FunctionComponent<MenuListProps> = ({
 const Header: React.FunctionComponent<IHeaderProps> = (props) => {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const posthog = usePostHog();
 
   const handleToggleMenu = React.useCallback(() => {
-    setMenuOpen((v) => !v);
-  }, []);
+    setMenuOpen((v) => {
+      const newValue = !v;
+      posthog?.capture('mobile_menu_toggled', {
+        action: newValue ? 'opened' : 'closed',
+      });
+      return newValue;
+    });
+  }, [posthog]);
+
+  const handleLogoClick = () => {
+    posthog?.capture('logo_clicked', {
+      from_page: pathname,
+    });
+  };
 
   return (
     <header className='relative z-50 bg-black/80 backdrop-blur-sm border-b border-white/5'>
@@ -124,7 +147,7 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
             transition={{ duration: 0.5 }}
             className='flex items-center'
           >
-            <NextLink href='/' className='group'>
+            <NextLink href='/' className='group' onClick={handleLogoClick}>
               <div className='flex items-center gap-2'>
                 <img
                   src='/images/logo.svg'
@@ -151,6 +174,13 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.1 * (index + 1), duration: 0.5 }}
+                      onClick={() => {
+                        posthog?.capture('navigation_link_clicked', {
+                          label: product.label,
+                          href: product.href,
+                          device: 'desktop',
+                        });
+                      }}
                     >
                       <NavLink
                         active={isActive}

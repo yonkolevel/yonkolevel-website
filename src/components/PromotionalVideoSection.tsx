@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { usePostHog } from 'posthog-js/react';
 
 interface PromotionalVideoSectionProps {
   videoSource: string;
@@ -25,6 +26,7 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
   const [isPlaying, setIsPlaying] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const posthog = usePostHog();
 
   useEffect(() => {
     const video = videoRef.current;
@@ -64,8 +66,16 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
     if (video) {
       if (isPlaying) {
         video.pause();
+        posthog?.capture('video_paused', {
+          video_source: videoSource,
+          app_name: appName,
+        });
       } else {
         video.play();
+        posthog?.capture('video_played', {
+          video_source: videoSource,
+          app_name: appName,
+        });
       }
       setIsPlaying(!isPlaying);
     }
@@ -157,6 +167,12 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
                     <Link
                       href={learnMoreLink}
                       className='inline-flex items-center font-pixel text-white text-base sm:text-lg md:text-xl lg:text-2xl opacity-90 hover:opacity-100 transition-opacity border-2 border-white/30 px-8 py-4 sm:px-10 sm:py-5 md:px-12 md:py-5 rounded-full hover:border-white/60 transition-colors'
+                      onClick={() => {
+                        posthog?.capture('video_learn_more_clicked', {
+                          app_name: appName,
+                          destination: learnMoreLink,
+                        });
+                      }}
                     >
                       Learn more →
                     </Link>

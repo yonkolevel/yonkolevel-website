@@ -1,7 +1,46 @@
 /* eslint-disable @next/next/no-img-element */
+import { Metadata } from 'next';
 import Container from '@/components/Container';
 import RicardoIdle from '@/components/placeholders/RicardoIdle';
 import * as React from 'react';
+
+export const metadata: Metadata = {
+  title: 'About Us - Designers & Developers',
+  description:
+    'Building delightful apps and digital experiences with my friends.',
+  keywords: [
+    'app development',
+    'iOS apps',
+    'audio apps',
+    'native apps',
+    'creative studio',
+    'Midicircuit',
+    'Invisible Camera',
+    'Yonko Level',
+  ],
+  openGraph: {
+    title: 'About Yonko Level - Designers & Developers',
+    description:
+      'Building delightful apps and digital experiences with my friends.',
+    url: 'https://yonkolevel.com/about',
+    type: 'website',
+    images: [
+      {
+        url: '/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Yonko Level Team',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Yonko Level - Designers & Developers',
+    description:
+      'Meet the Yonko Level team. Your remote friendly tech and design team.',
+    images: ['/images/og-image.jpg'],
+  },
+};
 
 interface IAboutUsPageProps {}
 
@@ -34,7 +73,6 @@ const AboutUsPage: React.FunctionComponent<IAboutUsPageProps> = (props) => {
                   className='w-[270px]'
                   src='/images/illustrations/digital_pen.png'
                   alt="A designer's digital pen"
-                  
                 />
               </div>
             </div>

@@ -4,8 +4,38 @@ import { getAllPosts } from '@/lib/mdx';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Blog - Yonko Level',
-  description: 'Thoughts on design, technology, and building invisible tools.',
+  title: 'Blog - Thoughts on Design & Technology',
+  description:
+    'Thoughts on design, technology, and building invisible tools. Stories from building apps like MidiCircuit and Invisible Camera.',
+  keywords: [
+    'tech blog',
+    'design blog',
+    'app development',
+    'product stories',
+    'startup journey',
+  ],
+  openGraph: {
+    title: 'Blog - Yonko Level',
+    description:
+      'Thoughts on design, technology, and building invisible tools. Stories from building apps like MidiCircuit and Invisible Camera.',
+    url: 'https://yonkolevel.com/blog',
+    type: 'website',
+    images: [
+      {
+        url: '/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Yonko Level Blog',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog - Yonko Level',
+    description:
+      'Thoughts on design, technology, and building invisible tools.',
+    images: ['/images/og-image.jpg'],
+  },
 };
 
 export default async function BlogPage() {

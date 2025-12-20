@@ -20,9 +20,34 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
+
+  const ogImage = post.frontMatter.coverImage || '/images/og-image.jpg';
+
   return {
-    title: `${post.frontMatter.title} - Yonko Level`,
+    title: post.frontMatter.title,
     description: post.frontMatter.excerpt,
+    authors: [{ name: 'Yonko Level' }],
+    openGraph: {
+      title: post.frontMatter.title,
+      description: post.frontMatter.excerpt,
+      type: 'article',
+      publishedTime: post.frontMatter.date,
+      url: `https://yonkolevel.com/blog/${slug}`,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: post.frontMatter.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.frontMatter.title,
+      description: post.frontMatter.excerpt,
+      images: [ogImage],
+    },
   };
 }
 

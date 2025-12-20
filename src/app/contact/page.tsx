@@ -1,27 +1,41 @@
+import { Metadata } from 'next';
+import ContactClient from './ContactClient';
 
-'use client'
-import Container from '@/components/Container';
-import * as React from 'react';
-import { Widget } from '@typeform/embed-react';
-
-interface IContactPageProps {
-}
-
-const ContactPage: React.FunctionComponent<IContactPageProps> = (props) => {
-  return (
-    <Container>
-      <div className='grid grid-cols-2 gap-10'>
-        <div className='col-span-2 md:col-span-1'>
-          <h1 className='font-pixel text-2xl text-blue2'>
-            What can we do for you?
-          </h1>
-        </div>
-        <div className='col-span-2 md:col-span-1'>
-          <Widget id='JpaDXdWY' height={400} />
-        </div>
-      </div>
-    </Container>
-  );
+export const metadata: Metadata = {
+  title: "Contact Us - Let's Work Together",
+  description:
+    "Get in touch with Yonko Level. Whether you need help building an app, improving your product, or just want to say hello, we'd love to hear from you.",
+  keywords: [
+    'contact',
+    'hire developers',
+    'hire designers',
+    'app development',
+    'product design',
+  ],
+  openGraph: {
+    title: "Contact Yonko Level - Let's Work Together",
+    description:
+      "Get in touch with Yonko Level. We'd love to help you build something amazing.",
+    url: 'https://yonkolevel.com/contact',
+    type: 'website',
+    images: [
+      {
+        url: '/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Contact Yonko Level',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Yonko Level',
+    description:
+      "Get in touch with Yonko Level. We'd love to help you build something amazing.",
+    images: ['/images/og-image.jpg'],
+  },
 };
 
-export default ContactPage;
+export default function ContactPage() {
+  return <ContactClient />;
+}

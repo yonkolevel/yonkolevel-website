@@ -4,6 +4,8 @@ import localFont from 'next/font/local';
 import './globals.css';
 import Layout from '@/components/Layout';
 import Header from '@/components/Header';
+import { PHProvider } from '@/providers/posthog';
+import PostHogPageView from '@/components/PostHogPageView';
 
 const notoSans = Noto_Sans({
   subsets: ['latin'],
@@ -18,36 +20,63 @@ const departureMono = Doto({
 });
 
 export const metadata: Metadata = {
-  title: 'Yonko Level',
-  description: 'Your remote friendly tech and design team.',
+  title: {
+    default: 'Yonko Level - Apps that make you smile',
+    template: '%s | Yonko Level',
+  },
+  description:
+    'Creating delightful apps and digital experiences.',
+  keywords: [
+    'app development',
+    'iOS apps',
+    'music apps',
+    'camera apps',
+    'tech studio',
+    'design team',
+    'Midicircuit',
+    'Invisible Camera',
+  ],
+  authors: [{ name: 'Yonko Level' }],
+  creator: 'Yonko Level',
+  publisher: 'Yonko Level',
   openGraph: {
     type: 'website',
     locale: 'en_GB',
     siteName: 'Yonko Level',
     url: 'https://yonkolevel.com',
-    title: 'Yonko Level',
-    description: 'Your remote friendly tech and design team.',
+    title: 'Yonko Level - Apps that make you smile',
+    description:
+      'Creating delightful apps and digital experiences.',
     images: [
       {
-        url: 'https://yonkolevel.com/images/og_800_x_600.jpg',
-        width: 800,
-        height: 600,
-        alt: 'Yonko Level logo',
-      },
-      {
-        url: 'https://yonkolevel.com/images/og_900_x_800.jpg',
-        width: 900,
-        height: 800,
-        alt: 'Yonko Level logo',
+        url: '/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Yonko Level - Apps that make you smile',
       },
     ],
   },
   twitter: {
-    creatorId: '@yonkolevel',
-    site: '@yonkolevel',
     card: 'summary_large_image',
+    site: '@yonkolevel',
+    creator: '@yonkolevel',
+    title: 'Yonko Level - Apps that make you smile',
+    description:
+      'Creating delightful apps and digital experiences.',
+    images: ['/images/og-image.jpg'],
   },
   metadataBase: new URL('https://yonkolevel.com'),
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -58,7 +87,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${notoSans.variable} ${departureMono.variable}`}>
-        <Layout>{children}</Layout>
+        <PHProvider>
+          <PostHogPageView />
+          <Layout>{children}</Layout>
+        </PHProvider>
       </body>
     </html>
   );
