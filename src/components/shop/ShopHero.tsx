@@ -142,7 +142,7 @@ export default function ShopHero({ product }: ShopHeroProps) {
                 </span>
                 {product.series ? (
                   <span className='text-[10px] font-pixel uppercase px-2 py-1 border border-white/20 text-white/50 tracking-widest'>
-                    VOL {product.series}
+                    COLLECTION {product.series}
                   </span>
                 ) : null}
               </motion.div>
