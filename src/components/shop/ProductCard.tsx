@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { usePostHog } from 'posthog-js/react';
-import Button from '@/components/Button';
 import { formatPrice } from '@/lib/shop/utils';
 import type { ClientProduct } from '@/lib/shop/types';
 
@@ -48,13 +47,14 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <motion.div
-      className='bg-white/5 border border-white/10 rounded-2xl overflow-hidden flex flex-col'
+      className='group bg-white/5 border-2 border-dashed border-white/20 rounded-lg overflow-hidden flex flex-col hover:border-[#FCC552]/50 transition-colors duration-300'
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      <div className='relative aspect-[3/4]'>
+      {/* Image with scanline overlay */}
+      <div className='relative aspect-[3/4] overflow-hidden'>
         <Image
           src={product.image}
           alt={product.name}
@@ -62,16 +62,24 @@ export default function ProductCard({ product }: ProductCardProps) {
           className='object-cover'
           sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
         />
+        {/* CRT scanline effect */}
+        <div
+          className='absolute inset-0 pointer-events-none opacity-[0.03]'
+          style={{
+            backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.8) 2px, rgba(0,0,0,0.8) 4px)',
+          }}
+        />
       </div>
 
       <div className='p-5 flex flex-col flex-1 gap-3'>
+        {/* Retro badges */}
         <div className='flex items-center gap-2'>
-          <span className='text-xs font-pixel uppercase px-2 py-1 rounded-full bg-white/10 text-white/70'>
-            {product.type === 'physical' ? 'Physical' : 'Digital'}
+          <span className='text-[10px] font-pixel uppercase px-2 py-1 border border-[#FCC552]/40 text-[#FCC552] tracking-widest'>
+            {product.type === 'physical' ? '◆ ITEM' : '◆ DLC'}
           </span>
           {product.series ? (
-            <span className='text-xs font-pixel uppercase px-2 py-1 rounded-full bg-white/10 text-white/70'>
-              Series {product.series}
+            <span className='text-[10px] font-pixel uppercase px-2 py-1 border border-white/20 text-white/50 tracking-widest'>
+              VOL {product.series}
             </span>
           ) : null}
         </div>
@@ -86,21 +94,27 @@ export default function ProductCard({ product }: ProductCardProps) {
 
         <div className='flex items-center justify-between mt-2'>
           <div>
-            <span className='font-pixel text-white text-xl'>
+            <span className='font-pixel text-[#FCC552] text-xl'>
               {formatPrice(product.price)}
             </span>
             {product.type === 'physical' ? (
-              <span className='text-white/40 text-xs block'>+ shipping</span>
+              <span className='text-white/40 text-xs block font-pixel'>+ shipping</span>
             ) : null}
           </div>
 
-          <Button
-            onClick={handleBuy}
-            disabled={loading}
-            className='!btn-sm !w-auto !min-w-0 px-6'
-          >
-            {loading ? 'LOADING...' : 'BUY'}
-          </Button>
+          {product.soldOut ? (
+            <span className='font-pixel text-sm px-6 py-2 border-2 border-white/20 text-white/30 tracking-wider cursor-not-allowed'>
+              SOLD OUT
+            </span>
+          ) : (
+            <button
+              onClick={handleBuy}
+              disabled={loading}
+              className='font-pixel text-sm px-6 py-2 bg-[#FCC552] text-black border-2 border-[#FCC552] hover:bg-transparent hover:text-[#FCC552] active:translate-y-[2px] transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed tracking-wider'
+            >
+              {loading ? '...' : '► BUY'}
+            </button>
+          )}
         </div>
       </div>
     </motion.div>

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { getStripe } from '@/lib/stripe';
-import { getProductById } from '@/lib/shop/products';
+import { fetchShopProducts } from '@/lib/shop/products';
 
 const SHIPPING_COUNTRIES: Stripe.Checkout.SessionCreateParams.ShippingAddressCollection.AllowedCountry[] = [
   'GB', 'US',
@@ -19,12 +19,25 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Invalid product ID' }, { status: 400 });
     }
 
-    const product = getProductById(productId);
+    const products = await fetchShopProducts();
+    const product = products.find((p) => p.id === productId);
+
     if (!product) {
       return NextResponse.json({ error: 'Product not found' }, { status: 404 });
     }
 
-    if (!product.stripePriceId) {
+    if (product.soldOut) {
+      return NextResponse.json({ error: 'Product is sold out' }, { status: 400 });
+    }
+
+    // Look up the Stripe product to get the default price
+    const stripe = getStripe();
+    const stripeProduct = await stripe.products.retrieve(product.stripeProductId, {
+      expand: ['default_price'],
+    });
+
+    const defaultPrice = stripeProduct.default_price;
+    if (!defaultPrice || typeof defaultPrice === 'string') {
       return NextResponse.json({ error: 'Product not available for purchase' }, { status: 400 });
     }
 
@@ -34,7 +47,7 @@ export async function POST(request: Request) {
       mode: 'payment',
       line_items: [
         {
-          price: product.stripePriceId,
+          price: defaultPrice.id,
           quantity: 1,
         },
       ],
@@ -64,7 +77,7 @@ export async function POST(request: Request) {
       ];
     }
 
-    const session = await getStripe().checkout.sessions.create(params);
+    const session = await stripe.checkout.sessions.create(params);
 
     return NextResponse.json({ url: session.url });
   } catch (error) {
