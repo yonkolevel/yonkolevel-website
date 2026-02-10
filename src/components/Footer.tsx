@@ -22,6 +22,11 @@ const PRODUCTS = [
     mobileLabel: 'MIDI SCOUT',
   },
   {
+    href: '/shop',
+    label: 'SHOP',
+    mobileLabel: 'SHOP',
+  },
+  {
     href: '/blog',
     label: 'BLOG',
     mobileLabel: 'BLOG',
