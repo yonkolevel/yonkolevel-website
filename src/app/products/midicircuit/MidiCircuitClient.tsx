@@ -36,7 +36,7 @@ export default function MidiCircuitClient() {
 
         <ProductDescriptionSection
           title='Learn, Create, Share'
-          description='Midicircuit takes you on a musical journey with our Circuits, offering engaging lessons and challenges. Plus, our Playgrounds give you the space to express your creativity and share your music with the world.'
+          description='A simple and approachable DAW in your pocket. Create beats, share songs with friends, and learn music — no experience needed. Circuits coming soon.'
           backgroundColor='#FF5C24'
           textColor='text-white'
           patternColor='#FFFFFF'
@@ -57,7 +57,7 @@ export default function MidiCircuitClient() {
 
       <ProductContentSection
         title='Playgrounds'
-        description='Discover the potential of your creativity in Playgrounds, where you can unleash your imagination and give birth to new sounds and melodies. Our DAW experience is designed to be intuitive, making it easy for you to explore, create, and share your sonic masterpieces with your nnds.'
+        description='A simple and approachable DAW that makes it easy to start creating. Record audio, lay down MIDI in real-time, mix your tracks, and export when you are ready. Comes loaded with sound packs from artists like 7th Wonder.'
         image='/products/midicircuit/app-store-6.png'
         imageAlt='MidiCircuit Playgrounds creative DAW'
         backgroundColor='bg-gray-50'
@@ -69,7 +69,7 @@ export default function MidiCircuitClient() {
 
       <ProductContentSection
         title='Whenever, Wherever'
-        description='Midicircuit is your trusty sidekick, ready to groove on any iOS and macOS device. Learn and create your beats and harmonies whenever and wherever the creativity strikes.'
+        description='Works on iPhone, iPad and Mac. Your projects sync across devices via iCloud — pick up exactly where you left off.'
         image='/products/midicircuit/midicircuit-multi-platform.png'
         imageAlt='MidiCircuit on iOS and macOS devices'
         backgroundColor='bg-white'

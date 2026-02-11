@@ -150,7 +150,7 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
                       viewport={{ once: true }}
                       transition={{ delay: 0.5, duration: 0.8 }}
                     >
-                      <span className='font-body text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-relaxed px-2 sm:px-0 block'>
+                      <span className='font-body text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-loose px-2 sm:px-0 block'>
                         {appDescription}
                       </span>
                     </motion.p>

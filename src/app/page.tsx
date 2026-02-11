@@ -23,7 +23,7 @@ const Home = () => {
       />
       <AppShowcaseSection
         appName='INVISIBLE CAMERA'
-        appDescription="A super simple, easy-to-use mobile camera app that lets you capture moments instantly. With a clean, clutter-free design, it opens fast and takes great photos without any fuss. Just tap and shoot—it's that delightful."
+        appDescription="Tired of over-processed iPhone photos? Invisible Camera bypasses Deep Fusion and Smart HDR. See your shot in real-time. What you see is what you get."
         appScreenshot='/products/invisible-camera/ic-app-store-preview.png'
         mediaType='image'
         learnMoreLink='/products/invisible-camera'
@@ -52,7 +52,7 @@ const Home = () => {
       <PromotionalVideoSection
         videoSource='/products/midicircuit/videos/promo-video.mov'
         appName='MIDICIRCUIT'
-        appDescription='Experience the future of music creation with our innovative MIDI circuit builder. Design, connect, and play with virtual circuits that respond to your creativity in real-time.'
+        appDescription='A simple and approachable DAW. Create beats and share them with friends — no experience needed.'
         learnMoreLink='/products/midicircuit'
         backgroundColor='#000000'
         overlayOpacity={0.4}
@@ -61,7 +61,7 @@ const Home = () => {
 
       <AppShowcaseSection
         appName='MIDICIRCUIT'
-        appDescription='Experience the future of music creation with our innovative MIDI circuit builder. Design, connect, and play with virtual circuits that respond to your creativity in real-time.'
+        appDescription='A simple and approachable DAW that makes it easy to start creating music. Record audio, lay down MIDI, mix your tracks, and share with friends. Available on iOS, iPad and macOS.'
         appScreenshot='/products/midicircuit/midicircuit-preview-1.png'
         mediaType='image'
         learnMoreLink='/products/midicircuit'

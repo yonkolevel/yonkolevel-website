@@ -36,7 +36,7 @@ export default function InvisibleCameraClient() {
 
         <ProductDescriptionSection
           title='For Moments, Not Menus'
-          description="What you see is what you get. A camera app designed for capturing life's spontaneous moments without the complexity of endless menus and settings. Simply point, shoot, and let the magic happen."
+          description="Bypass Apple's Deep Fusion and Smart HDR for authentic, film-like photos. See exactly what you'll capture in real-time — no surprises, no post-processing. What you see is what you get."
           backgroundColor='#FBBF2A'
           textColor='text-black'
           patternColor='#F3B23F'
@@ -53,7 +53,7 @@ export default function InvisibleCameraClient() {
 
       <ProductContentSection
         title='Capture Life Instantly'
-        description='No complex settings, no overwhelming options. Just open the app and start capturing. Invisible Camera strips away the clutter to give you the purest photography experience possible.'
+        description='Real-time preview with curated film looks inspired by classic film stocks. Apply filters before you shoot and get predictable results — same shot, same result, every time.'
         image='/products/invisible-camera/app-store-1.png'
         imageAlt='App interface showing simple camera view'
         backgroundColor='bg-white'
@@ -64,7 +64,7 @@ export default function InvisibleCameraClient() {
 
       <ProductContentSection
         title='Privacy First Design'
-        description='Your photos stay yours. Built with privacy at its core, Invisible Camera ensures your memories remain secure while delivering an exceptional user experience.'
+        description='Your photos never leave your device. No accounts, no cloud uploads. We collect anonymous usage analytics to improve the app — nothing more.'
         image='/products/invisible-camera/app-store-3.png'
         imageAlt='Privacy features interface'
         backgroundColor='bg-gray-50'

@@ -5,7 +5,7 @@ import MidiCircuitClient from './MidiCircuitClient';
 export const metadata: Metadata = {
   title: 'MidiCircuit - Learn, Create, Share',
   description:
-    'Experience the future of music creation with our innovative MIDI circuit builder. Design, connect, and play with virtual circuits that respond to your creativity in real-time. Learn music production through engaging lessons and challenges.',
+    'A simple and approachable DAW for creating and sharing music. No experience needed. Available on iOS, iPad and macOS.',
   keywords: [
     'music app',
     'MIDI',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'MidiCircuit - Learn, Create, Share',
     description:
-      'Experience the future of music creation. Learn music production through engaging lessons and challenges, then create your own music in Playgrounds.',
+      'A simple and approachable DAW for creating and sharing music. No experience needed.',
     url: 'https://yonkolevel.com/products/midicircuit',
     type: 'website',
     images: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'MidiCircuit - Learn, Create, Share',
     description:
-      'Experience the future of music creation. Learn music production through engaging lessons and challenges.',
+      'A simple and approachable DAW. Create beats, share songs — no experience needed.',
     images: ['/products/midicircuit/cover-photo-full-pixelated.jpg'],
   },
 };
