@@ -25,19 +25,17 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
               <div>
                 <img
                   width={120}
-                  src='/images/products/invisible-camera/app-icon.png'
-                  alt='Invisible Camera app icon'
+                  src='/products/midicircuit/app-icon.png'
+                  alt='MidiCircuit app icon'
                 />
               </div>
             </div>
-            <div className='pb-10'>
-              <h1 className='font-body font-bold text-3xl text-black text-center'>
-                Privacy Policy
-              </h1>
-            </div>
             <div className='max-w-4xl mx-auto'>
-              <div className='prose prose-lg text-gray-700 space-y-6'>
-                <p className='text-sm text-gray-500 text-center mb-8'>
+              <div className='pb-10 text-center'>
+                <h1 className='font-body font-bold text-3xl text-black'>
+                  Privacy Policy
+                </h1>
+                <p className='text-sm text-gray-500 mt-4'>
                   Last updated:{' '}
                   {new Date().toLocaleDateString('en-US', {
                     year: 'numeric',
@@ -45,15 +43,16 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
                     day: 'numeric',
                   })}
                 </p>
-
+              </div>
+              <div className='prose prose-lg text-gray-700 space-y-6'>
                 <section>
                   <h2 className='font-bold text-xl text-black mb-4'>
                     Overview
                   </h2>
                   <p>
-                    This Privacy Policy describes how Yonko Level ("we," "our,"
-                    or "us") collects, uses, and protects your information when
-                    you use our mobile application.
+                    This Privacy Policy describes how Yonko Level (&ldquo;we,&rdquo;
+                    &ldquo;our,&rdquo; or &ldquo;us&rdquo;) collects, uses, and
+                    protects your information when you use MidiCircuit.
                   </p>
                 </section>
 
@@ -63,13 +62,14 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
                   </h2>
 
                   <h3 className='font-semibold text-lg text-black mb-2'>
-                    Camera and Photos
+                    Music Projects and MIDI Data
                   </h3>
                   <p>
-                    Our app requires access to your device's camera to function.
-                    All photos and videos you take remain stored locally on your
-                    device. We do not access, collect, or transmit your photos
-                    or videos to our servers.
+                    Your music projects, MIDI data, and audio creations are
+                    stored on your device and synced to your iCloud account by
+                    default. This sync is handled entirely by Apple's iCloud
+                    infrastructure. We do not access, collect, or transmit your
+                    music creations to our servers.
                   </p>
 
                   <h3 className='font-semibold text-lg text-black mb-2'>
@@ -103,12 +103,10 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
                       Personal identification information (name, email, phone
                       number)
                     </li>
-                    <li>Your photos, videos, or camera content</li>
+                    <li>Your music projects, MIDI data, or audio creations</li>
                     <li>Precise location data</li>
                     <li>Contact information or address book data</li>
-                    <li>
-                      Account credentials (the app has no sign-in features)
-                    </li>
+                    <li>Account passwords (stored securely by our authentication provider)</li>
                   </ul>
                 </section>
 
@@ -149,7 +147,8 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
                     Data Security
                   </h2>
                   <p>
-                    Your photos and videos remain entirely on your device and
+                    Your music projects and creations remain on your device and
+                    your iCloud account, and
                     are protected by your device's built-in security measures.
                     The limited analytics data we collect is transmitted
                     securely and stored by PostHog in accordance with their
@@ -183,9 +182,10 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
                   </h2>
                   <p>
                     Our app does not knowingly collect personal information from
-                    children under 13. Since we don't collect personal
-                    information and have no account system, the app can be
-                    safely used by users of all ages under parental supervision.
+                    children under 13. If you are a parent or guardian and
+                    believe your child has provided us with personal
+                    information, please contact us so we can take appropriate
+                    action.
                   </p>
                 </section>
 
@@ -208,7 +208,7 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
                   <p>
                     We may update this Privacy Policy from time to time. We will
                     notify you of any changes by posting the new Privacy Policy
-                    on this page and updating the "Last updated" date.
+                    on this page and updating the &ldquo;Last updated&rdquo; date.
                   </p>
                 </section>
 

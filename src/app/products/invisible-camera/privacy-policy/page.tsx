@@ -25,19 +25,17 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
               <div>
                 <img
                   width={120}
-                  src='/images/products/invisible-camera/app-icon.png'
+                  src='/products/invisible-camera/app-icon.png'
                   alt='Invisible Camera app icon'
                 />
               </div>
             </div>
-            <div className='pb-10'>
-              <h1 className='font-body font-bold text-3xl text-black text-center'>
-                Privacy Policy
-              </h1>
-            </div>
             <div className='max-w-4xl mx-auto'>
-              <div className='prose prose-lg text-gray-700 space-y-6'>
-                <p className='text-sm text-gray-500 text-center mb-8'>
+              <div className='pb-10 text-center'>
+                <h1 className='font-body font-bold text-3xl text-black'>
+                  Privacy Policy
+                </h1>
+                <p className='text-sm text-gray-500 mt-4'>
                   Last updated:{' '}
                   {new Date().toLocaleDateString('en-US', {
                     year: 'numeric',
@@ -45,15 +43,16 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
                     day: 'numeric',
                   })}
                 </p>
-
+              </div>
+              <div className='prose prose-lg text-gray-700 space-y-6'>
                 <section>
                   <h2 className='font-bold text-xl text-black mb-4'>
                     Overview
                   </h2>
                   <p>
-                    This Privacy Policy describes how Yonko Level ("we," "our,"
-                    or "us") collects, uses, and protects your information when
-                    you use our mobile application.
+                    This Privacy Policy describes how Yonko Level (&ldquo;we,&rdquo;
+                    &ldquo;our,&rdquo; or &ldquo;us&rdquo;) collects, uses, and
+                    protects your information when you use Invisible Camera.
                   </p>
                 </section>
 
@@ -208,7 +207,7 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
                   <p>
                     We may update this Privacy Policy from time to time. We will
                     notify you of any changes by posting the new Privacy Policy
-                    on this page and updating the "Last updated" date.
+                    on this page and updating the &ldquo;Last updated&rdquo; date.
                   </p>
                 </section>
 
