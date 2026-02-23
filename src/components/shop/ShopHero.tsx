@@ -78,7 +78,7 @@ export default function ShopHero({ product }: ShopHeroProps) {
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              <div className='relative w-full h-full rounded-lg overflow-hidden border-2 border-dashed border-white/20'>
+              <div className='relative w-full h-full rounded-lg overflow-hidden'>
                 <Image
                   src={product.image}
                   alt={product.name}
@@ -86,13 +86,6 @@ export default function ShopHero({ product }: ShopHeroProps) {
                   className='object-cover'
                   sizes='(max-width: 768px) 100vw, 50vw'
                   priority
-                />
-                {/* CRT scanline effect */}
-                <div
-                  className='absolute inset-0 pointer-events-none opacity-[0.03]'
-                  style={{
-                    backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.8) 2px, rgba(0,0,0,0.8) 4px)',
-                  }}
                 />
               </div>
             </motion.div>

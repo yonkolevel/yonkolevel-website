@@ -31,6 +31,11 @@ const PRODUCTS = [
     label: 'BLOG',
     mobileLabel: 'BLOG',
   },
+  {
+    href: '/support',
+    label: 'SUPPORT',
+    mobileLabel: 'SUPPORT',
+  },
 ] as const;
 
 // Shared constants

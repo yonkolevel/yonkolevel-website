@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Blog - Thoughts on Design & Technology',
   description:
-    'Thoughts on design, technology, and building invisible tools. Stories from building apps like MidiCircuit and Invisible Camera.',
+    'Thoughts on design, technology, and building invisible tools. Stories from building apps like Midicircuit and Invisible Camera.',
   keywords: [
     'tech blog',
     'design blog',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blog - Yonko Level',
     description:
-      'Thoughts on design, technology, and building invisible tools. Stories from building apps like MidiCircuit and Invisible Camera.',
+      'Thoughts on design, technology, and building invisible tools. Stories from building apps like Midicircuit and Invisible Camera.',
     url: 'https://yonkolevel.com/blog',
     type: 'website',
     images: [

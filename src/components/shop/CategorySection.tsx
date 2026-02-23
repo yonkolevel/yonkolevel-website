@@ -27,9 +27,6 @@ export default function CategorySection({ name, description, products }: Categor
             {name}
           </h2>
         </div>
-        <p className='text-white/60 text-sm md:text-base pl-7'>
-          {description}
-        </p>
       </motion.div>
 
       {products.length > 0 ? (

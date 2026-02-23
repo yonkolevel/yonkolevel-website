@@ -30,7 +30,7 @@ export default function MidiCircuitClient() {
         <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10'>
           <ProductAppIcon
             appIcon='/products/midicircuit/app-icon.png'
-            appIconAlt='MidiCircuit app icon'
+            appIconAlt='Midicircuit app icon'
           />
         </div>
 
@@ -58,8 +58,8 @@ export default function MidiCircuitClient() {
       <ProductContentSection
         title='Playgrounds'
         description='A simple and approachable DAW that makes it easy to start creating. Record audio, lay down MIDI in real-time, mix your tracks, and export when you are ready. Comes loaded with sound packs from artists like 7th Wonder.'
-        image='/products/midicircuit/app-store-6.png'
-        imageAlt='MidiCircuit Playgrounds creative DAW'
+        image='/products/midicircuit/press/screenshot-ios-3.jpg'
+        imageAlt='Midicircuit iOS grid view with tracks and sections'
         backgroundColor='bg-gray-50'
         textColor='text-black'
         patternColor='#FF5C24'
@@ -70,8 +70,8 @@ export default function MidiCircuitClient() {
       <ProductContentSection
         title='Whenever, Wherever'
         description='Works on iPhone, iPad and Mac. Your projects sync across devices via iCloud — pick up exactly where you left off.'
-        image='/products/midicircuit/midicircuit-multi-platform.png'
-        imageAlt='MidiCircuit on iOS and macOS devices'
+        image='/products/midicircuit/press/screenshot-macos-2.jpg'
+        imageAlt='Midicircuit Playgrounds on macOS'
         backgroundColor='bg-white'
         textColor='text-black'
         patternColor='#FF5C24'
@@ -81,8 +81,9 @@ export default function MidiCircuitClient() {
       <ProductContentSection
         title='Apple Entrepreneur Camp Alumni'
         description={`We are honoured to have been selected as a mentee company at the Apple Entrepreneur Camp. We've learned so much from the best minds in tech, and are ready to take our app to the next level.`}
-        image='/images/other/apple-logo.svg'
-        imageAlt='Apple Entrepreneur Camp recognition'
+        image='/products/midicircuit/press/photo-team-1.jpg'
+        imageAlt='Ricardo and Delcio at Apple Entrepreneur Camp'
+        imageClassName='rounded-lg'
         backgroundColor='bg-gray-50'
         textColor='text-black'
         patternColor='#FF5C24'

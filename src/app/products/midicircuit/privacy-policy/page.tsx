@@ -4,9 +4,9 @@ import Container from '@/components/Container';
 import * as React from 'react';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy - MidiCircuit',
+  title: 'Privacy Policy - Midicircuit',
   description:
-    'Privacy Policy for MidiCircuit app. Learn about how we protect your privacy and handle your data.',
+    'Privacy Policy for Midicircuit app. Learn about how we protect your privacy and handle your data.',
   robots: {
     index: true,
     follow: true,
@@ -26,7 +26,7 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
                 <img
                   width={120}
                   src='/products/midicircuit/app-icon.png'
-                  alt='MidiCircuit app icon'
+                  alt='Midicircuit app icon'
                 />
               </div>
             </div>
@@ -52,7 +52,7 @@ const Page: React.FunctionComponent<PageProps> = (props) => {
                   <p>
                     This Privacy Policy describes how Yonko Level (&ldquo;we,&rdquo;
                     &ldquo;our,&rdquo; or &ldquo;us&rdquo;) collects, uses, and
-                    protects your information when you use MidiCircuit.
+                    protects your information when you use Midicircuit.
                   </p>
                 </section>
 

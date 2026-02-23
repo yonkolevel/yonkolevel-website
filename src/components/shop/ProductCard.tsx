@@ -47,7 +47,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <motion.div
-      className='group bg-white/5 border-2 border-dashed border-white/20 rounded-lg overflow-hidden flex flex-col hover:border-[#FCC552]/50 transition-colors duration-300'
+      className='group bg-white/5 rounded-lg overflow-hidden flex flex-col transition-colors duration-300'
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -61,13 +61,6 @@ export default function ProductCard({ product }: ProductCardProps) {
           fill
           className='object-cover'
           sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
-        />
-        {/* CRT scanline effect */}
-        <div
-          className='absolute inset-0 pointer-events-none opacity-[0.03]'
-          style={{
-            backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.8) 2px, rgba(0,0,0,0.8) 4px)',
-          }}
         />
       </div>
 

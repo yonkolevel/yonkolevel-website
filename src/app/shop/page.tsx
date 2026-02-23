@@ -36,7 +36,6 @@ export default async function ShopPage() {
 
   return (
     <div className='bg-black min-h-screen'>
-      {featuredProduct ? <ShopHero product={featuredProduct} /> : null}
 
       <Container>
         <div className='py-16 md:py-24'>

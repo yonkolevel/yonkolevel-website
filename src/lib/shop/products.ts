@@ -18,12 +18,12 @@ export const categories: Category[] = [
 // Keys must match the `shop_id` metadata on your Stripe products.
 const localProductConfig: Record<string, LocalProductConfig> = {
   'adam-meets-music-pin': {
-    image: '/shop/adam-meets-music-pin.jpeg',
+    image: '/shop/adam-meets-music-pin.png',
     category: 'collectibles',
     displayOrder: 1,
   },
   'more-beats-please-pin': {
-    image: '/shop/more-beats-please-pin.jpeg',
+    image: '/shop/more-beats-please-pin.png',
     category: 'collectibles',
     displayOrder: 2,
   },
