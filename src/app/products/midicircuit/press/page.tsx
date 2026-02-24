@@ -131,6 +131,23 @@ export default function MidicircuitPressPage() {
                   </p>
                 </section>
 
+                {/* Logos */}
+                <section>
+                  <h2 className='font-bold text-xl text-black mb-4'>Logos</h2>
+                  <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
+                    <img
+                      src='/products/midicircuit/press/logo-color.svg'
+                      alt='Yonko Level logo (color)'
+                      className='h-16'
+                    />
+                    <img
+                      src='/products/midicircuit/press/logo-black.svg'
+                      alt='Yonko Level logo (black)'
+                      className='h-16'
+                    />
+                  </div>
+                </section>
+
                 {/* Screenshots - iOS */}
                 <section>
                   <h2 className='font-bold text-xl text-black mb-4'>
