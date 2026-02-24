@@ -13,7 +13,7 @@ export default function CategorySection({ name, description, products }: Categor
   return (
     <section className='mb-16 md:mb-24'>
       <motion.div
-        className='mb-8 md:mb-12'
+        className='mb-10 md:mb-12'
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

@@ -113,6 +113,24 @@ export default function MidicircuitPressPage() {
                   </ul>
                 </section>
 
+                {/* About Yonko Level */}
+                <section>
+                  <h2 className='font-bold text-xl text-black mb-4'>
+                    About Yonko Level
+                  </h2>
+                  <p className='text-gray-700 italic mb-4'>
+                    Apps that make you smile.
+                  </p>
+                  <p className='text-gray-700'>
+                    Founded in 2020 by Ricardo Abreu, Yonko Level is an
+                    independent studio building delightful apps and digital
+                    experiences. We are designers and developers who work as
+                    friends — nakama — combining trust, communication, and a
+                    shared love for making creative tools that are simple and
+                    accessible. We are proud Apple Entrepreneur Camp alumni.
+                  </p>
+                </section>
+
                 {/* Screenshots - iOS */}
                 <section>
                   <h2 className='font-bold text-xl text-black mb-4'>
