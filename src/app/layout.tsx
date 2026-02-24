@@ -15,7 +15,7 @@ const notoSans = Noto_Sans({
 
 const departureMono = Doto({
   subsets: ['latin'],
-  weight: ['400', '500', '700', '900'],
+  weight: ['900'],
   variable: '--font-pixel',
 });
 

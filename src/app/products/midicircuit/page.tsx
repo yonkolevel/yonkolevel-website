@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import MidiCircuitClient from './MidiCircuitClient';
 
 export const metadata: Metadata = {
-  title: 'MidiCircuit - Learn, Create, Share',
+  title: 'Midicircuit - Learn, Create, Share',
   description:
     'A simple and approachable DAW for creating and sharing music. No experience needed. Available on iOS, iPad and macOS.',
   keywords: [
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     'macOS music',
   ],
   openGraph: {
-    title: 'MidiCircuit - Learn, Create, Share',
+    title: 'Midicircuit - Learn, Create, Share',
     description:
       'A simple and approachable DAW for creating and sharing music. No experience needed.',
     url: 'https://yonkolevel.com/products/midicircuit',
@@ -28,13 +28,13 @@ export const metadata: Metadata = {
         url: '/products/midicircuit/cover-photo-full-pixelated.jpg',
         width: 1200,
         height: 630,
-        alt: 'MidiCircuit app preview',
+        alt: 'Midicircuit app preview',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MidiCircuit - Learn, Create, Share',
+    title: 'Midicircuit - Learn, Create, Share',
     description:
       'A simple and approachable DAW. Create beats, share songs — no experience needed.',
     images: ['/products/midicircuit/cover-photo-full-pixelated.jpg'],
