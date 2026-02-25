@@ -17,11 +17,6 @@ const PRODUCTS = [
     mobileLabel: 'MIDICIRCUIT',
   },
   {
-    href: '/products/midi-scout',
-    label: 'MIDI SCOUT',
-    mobileLabel: 'MIDI SCOUT',
-  },
-  {
     href: '/shop',
     label: 'SHOP',
     mobileLabel: 'SHOP',

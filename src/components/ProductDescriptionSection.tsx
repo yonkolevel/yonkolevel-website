@@ -11,6 +11,8 @@ interface ProductDescriptionSectionProps {
   className?: string;
   showPixelEffect?: boolean;
   patternColor?: string;
+  ctaLink?: string;
+  ctaLabel?: string;
 }
 
 const ProductDescriptionSection: React.FC<ProductDescriptionSectionProps> = ({
@@ -21,6 +23,8 @@ const ProductDescriptionSection: React.FC<ProductDescriptionSectionProps> = ({
   className = '',
   showPixelEffect = true,
   patternColor = '#000000',
+  ctaLink,
+  ctaLabel,
 }) => {
   // Pixel displacement pattern for the corners
   const pixelDisplacements = [
@@ -120,6 +124,31 @@ const ProductDescriptionSection: React.FC<ProductDescriptionSectionProps> = ({
               >
                 {description}
               </motion.div>
+
+              {ctaLink && ctaLabel && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.4,
+                  }}
+                  className='mt-8'
+                >
+                  <a
+                    href={ctaLink}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='inline-block'
+                  >
+                    <img
+                      className='h-[48px] transition-opacity hover:opacity-80'
+                      src={ctaLabel}
+                      alt='Download on the App Store'
+                    />
+                  </a>
+                </motion.div>
+              )}
             </motion.div>
           </div>
         </Container>

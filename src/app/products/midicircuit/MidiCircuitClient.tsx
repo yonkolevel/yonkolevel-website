@@ -41,6 +41,8 @@ export default function MidiCircuitClient() {
           textColor='text-white'
           patternColor='#FFFFFF'
           showPixelEffect
+          ctaLink='https://apps.apple.com/us/app/midicircuit/id1558844679'
+          ctaLabel='/images/common/download-on-the-app-store.svg'
         />
       </div>
 
@@ -173,14 +175,14 @@ export default function MidiCircuitClient() {
               >
                 <a
                   target='_blank'
-                  href=''
+                  href='https://apps.apple.com/us/app/midicircuit/id1558844679'
                   className='inline-block'
                   onClick={handleAppStoreClick}
                 >
                   <img
                     className='inline-block transition-opacity hover:opacity-80'
-                    src='/images/common/badge-pre-order-on-the-app-store.svg'
-                    alt='Apple pre-order badge'
+                    src='/images/common/download-on-the-app-store.svg'
+                    alt='Download on the App Store'
                   />
                 </a>
               </motion.div>
