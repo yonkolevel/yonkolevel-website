@@ -42,6 +42,7 @@ const factSheet = [
   { label: 'Platforms', value: 'iOS, iPad, macOS' },
   { label: 'Developer', value: 'Yonko Level' },
   { label: 'Website', value: 'yonkolevel.com/products/midicircuit', href: 'https://yonkolevel.com/products/midicircuit' },
+  { label: 'App Store', value: 'Download on the App Store', href: 'https://apps.apple.com/gb/app/midicircuit/id1558844679' },
 ];
 
 const features = [
@@ -177,6 +178,27 @@ export default function MidicircuitPressPage() {
                         className='rounded-lg w-full'
                       />
                     ))}
+                  </div>
+                </section>
+
+                {/* Videos */}
+                <section>
+                  <h2 className='font-bold text-xl text-black mb-4'>Videos</h2>
+                  <div className='grid grid-cols-1 gap-4'>
+                    <iframe
+                      className='aspect-video w-full rounded-lg'
+                      src='https://www.youtube.com/embed/sFPUNKcgCl4'
+                      title='Midicircuit video 1'
+                      allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                      allowFullScreen
+                    />
+                    <iframe
+                      className='aspect-video w-full rounded-lg'
+                      src='https://www.youtube.com/embed/HXc_QDArIMU'
+                      title='Midicircuit video 2'
+                      allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                      allowFullScreen
+                    />
                   </div>
                 </section>
 
