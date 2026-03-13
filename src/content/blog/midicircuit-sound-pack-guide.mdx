@@ -1,0 +1,214 @@
+---
+title: "Sound Pack Creation Guide for Midicircuit"
+date: '2026-03-13'
+excerpt: "A guide for producers, musicians, and contributors who want to create sound packs for Midicircuit — covering audio specs, quality standards, and how to deliver your pack."
+coverImage: '/products/midicircuit/app-icon.png'
+---
+
+Since launching Midicircuit v2, a few of my musician friends — [7th Wonder](https://www.instagram.com/7thwondermusic/) and [Luke Elliot](https://www.instagram.com/lukeelliotmusic/) — along with myself have been contributing sound packs to the app. Through that process and experimentation, we put together this guide for anyone who wants to create and submit their own sound packs for Midicircuit.
+
+## What Is a Sound Pack?
+
+A sound pack is a collection of audio samples that users play on Midicircuit. There are three types:
+
+| Type | What It Is | Pad Behavior | Examples |
+|------|-----------|--------------|----------|
+| **Drum** | Collection of one-shot hits | Each pad plays a different sample | 808 Kit, Boom Bap Kit, Lo-fi Kit |
+| **Melodic** | A single pitched instrument | Each pad plays the same sample at a different pitch | Piano, Synth Lead, Rhodes |
+| **Bass** | A single bass instrument | Same as melodic, tuned for lower range | Analog Bass, Sub Bass |
+
+## Audio Specifications
+
+All samples must meet these specs:
+
+| Spec | Requirement |
+|------|-------------|
+| **Format** | WAV |
+| **Sample Rate** | 44.1 kHz |
+| **Bit Depth** | 24-bit |
+| **Peak Level** | -1 to -3 dB (normalize if quieter) |
+| **Channels** | Mono or Stereo |
+
+### Checking Your Levels
+
+```bash
+ffmpeg -i sample.wav -af "volumedetect" -f null /dev/null 2>&1 | grep -E "max_volume|mean_volume"
+```
+
+If your samples are too quiet, normalize them:
+
+```bash
+ffmpeg -i quiet.wav -af "loudnorm=I=-14:TP=-1:LRA=11" normalized.wav -y
+```
+
+## Quality Checklist
+
+Every sound pack should pass these six criteria:
+
+1. **Punch** — Does it hit hard and feel immediate? Transients should be crisp.
+2. **Body** — Does it have weight and fullness? Samples shouldn't sound thin or hollow.
+3. **Character** — Does it have a distinctive sonic identity? Avoid generic, stock sounds.
+4. **Consistency** — Do all samples in the pack feel like they belong together? Matched in tone, processing, and vibe.
+5. **Dynamics** — Does it respond well to velocity? Samples should sound musical across the volume range.
+6. **Tail** — Is the decay/release clean? No clicks, pops, or abrupt cuts at the end.
+
+## Creating a Drum Kit
+
+Drum kits contain **up to 16 individual samples**, each mapped to a pad on the grid.
+
+Drum packs don't have to be strictly drums. Hip-hop producers often include melodic chops, chord stabs, vocal samples, vinyl loops, or instrument one-shots alongside kicks and snares. Think of it as a sample pad — anything you'd want to finger-drum or chop with works here.
+
+### Sample Count and Layout
+
+The pad grid is 4x4 (16 pads). For a traditional drum kit, aim for a balanced layout:
+
+| Sound Type | Suggested Count | Grid Position |
+|------------|----------------|---------------|
+| Kick | 2 | Pads 1-2 |
+| Snare | 2 | Pads 3-4 |
+| Rim / Side Stick | 2 | Pads 5-6 |
+| Clap | 2 | Pads 7-8 |
+| Hi-Hat | 2 | Pads 9-10 |
+| Shaker / Tambourine | 3 | Pads 11-13 |
+| Percussion / FX | 3 | Pads 14-16 |
+
+You can use fewer pads — not every kit needs 16 samples. The existing "Analog Rytm 808 Drums" kit uses 12.
+
+### Naming Your Drum Samples
+
+Name samples descriptively. If you want automatic GM-standard ordering (recommended), include the sound type in the filename:
+
+```
+KICK_01.wav
+KICK_02.wav
+SNARE_01.wav
+SNARE_02.wav
+RIM_01.wav
+CLAP_01.wav
+HIHAT_CLOSED.wav
+HIHAT_OPEN.wav
+SHAKER_01.wav
+PERC_01.wav
+```
+
+We recommend ordering them in this order:
+**KICK → SNARE → RIM → CLAP → HIHAT → SHAKER → PERC**
+
+### Tips for Drum Samples
+
+- Keep kicks punchy: 100-300ms is usually enough
+- Snares and claps: leave a natural tail, but no longer than ~500ms
+- Hi-hats: closed hats should be tight (50-150ms), open hats can be longer
+- Avoid reverb tails — the app adds its own FX. Dry is better.
+- Remove any silence at the start of each sample (zero-latency trigger)
+
+## Creating a Melodic Instrument
+
+Melodic packs use **a single sample** that the app pitch-shifts across the pad grid to create a playable instrument. The quality of that one sample matters a lot.
+
+- Record or render a **single sustained note at middle C (C4)**
+- Length: 2-7 seconds. Trim longer samples and add a fade-out.
+- Clean, dry samples pitch-shift better than heavily processed ones
+- Avoid heavy vibrato — it sounds unnatural when pitch-shifted
+- Slight detuning or chorus is fine and can add warmth
+- Export with a medium-long release for a natural decay
+
+## Creating a Bass Instrument
+
+Same as melodic — a single sample, pitch-shifted — but tuned lower.
+
+- Record at **C2 or C3**
+- Keep it punchy: 1-3 seconds is usually plenty
+- Balance sub and harmonics — sub-heavy samples lose definition when pitched up
+- A slight attack transient helps the note cut through in a mix
+
+## How to Create Your Sounds
+
+You don't need expensive gear. Here are several approaches:
+
+### Option 1: Software Synths (Free)
+
+Use free VST/AU synths in any DAW:
+- **Vital** (vital.audio) — Modern wavetable synth, excellent for pads, leads, bass
+- **Surge XT** (surge-synth-team.org) — Powerful hybrid synth
+- **Dexed** (asb2m10.github.io/dexed) — DX7 FM synth for electric pianos and bells
+
+Workflow:
+1. Design your sound in the synth
+2. For drums: render each hit as a separate WAV
+3. For melodic/bass: render a single sustained note as WAV
+4. Normalize and export at 44.1kHz / 24-bit
+
+### Option 2: Hardware Recording
+
+Record hardware synths, drum machines, or acoustic instruments:
+1. Record direct (line-in) or with a microphone
+2. Export each sample as an individual WAV
+3. Trim silence from the start, clean up the tail
+4. Normalize levels
+
+### Option 3: Sample Processing
+
+Start with existing royalty-free samples and process them:
+1. Layer, pitch, filter, or resample to create something new
+2. Make sure the result is original enough to avoid licensing issues
+3. Export as WAV at the correct specs
+
+### Option 4: Field Recording
+
+Capture real-world sounds for experimental/lo-fi kits:
+1. Record with a portable recorder or phone
+2. Edit and process in a DAW
+3. Trim, normalize, and export as WAV
+
+## Delivering Your Sound Pack
+
+### What to Provide
+
+Organize your files in a folder:
+
+```
+My Sound Pack/
+├── KICK_01.wav          # For drums: individual samples
+├── KICK_02.wav
+├── SNARE_01.wav
+├── ...
+```
+
+Or for melodic/bass:
+
+```
+My Sound Pack/
+├── SYNTH_C3.wav         # Single sample
+```
+
+Include with your submission:
+- **Pack name** — A descriptive, creative name
+- **Category** — drum, melodic, or bass
+
+## What Happens After Submission
+
+1. **Quality review** — We check against the quality checklist above
+2. **Technical validation** — Verify specs and app compatibility
+3. **Integration** — Sound pack is added to the app
+4. **App testing** — Verified on both iOS and macOS
+
+## FAQ
+
+**How many samples should a drum kit have?**
+Between 8 and 16. The grid is 4x4 but not every pad needs a sound. 12 is a solid number.
+
+**Can I use samples from sample packs I've purchased?**
+Check the license. Most commercial sample packs allow use in music production but not redistribution as a sample library. Since Midicircuit ships the raw WAVs, you need a license that permits redistribution or embedding in apps.
+
+**What if my sample is in MP3 or AIFF format?**
+Convert to WAV first:
+```bash
+ffmpeg -i sample.mp3 -acodec pcm_s24le -ar 44100 sample.wav
+```
+
+**Can I include velocity layers?**
+Not currently. The app uses single-layer samples with velocity controlling volume. This may be supported in the future.
+
+**What's the maximum file size?**
+Keep individual samples under 5MB and total pack size under 20MB. Shorter, well-trimmed samples sound better and load faster.
