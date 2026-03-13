@@ -1,5 +1,6 @@
 import { getPostBySlug, getAllPosts } from '@/lib/mdx';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 import Container from '@/components/Container';
 import Link from 'next/link';
 import { Metadata } from 'next';
@@ -87,7 +88,7 @@ export default async function BlogPost({ params }: Props) {
             prose-blockquote:border-l-orange prose-blockquote:text-white/60
             prose-table:border-collapse prose-th:border prose-th:border-white/20 prose-th:px-4 prose-th:py-2 prose-th:bg-white/5 prose-td:border prose-td:border-white/20 prose-td:px-4 prose-td:py-2'
           >
-            <MDXRemote source={post.content} />
+            <MDXRemote source={post.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
           </div>
         </article>
       </Container>
