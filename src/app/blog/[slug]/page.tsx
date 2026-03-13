@@ -78,12 +78,14 @@ export default async function BlogPost({ params }: Props) {
           </header>
 
           <div
-            className='prose prose-invert prose-lg max-w-none 
-            prose-headings:font-pixel 
-            prose-p:text-white/80 
+            className='prose prose-invert prose-lg max-w-none
+            prose-headings:font-pixel
+            prose-p:text-white/80
             prose-a:text-orange prose-a:no-underline hover:prose-a:underline
-            prose-code:text-orange prose-code:bg-white/10 prose-code:px-1 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
-            prose-blockquote:border-l-orange prose-blockquote:text-white/60'
+            prose-code:text-white/90 prose-code:bg-white/10 prose-code:px-1 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+            prose-pre:bg-white/5 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-lg
+            prose-blockquote:border-l-orange prose-blockquote:text-white/60
+            prose-table:border-collapse prose-th:border prose-th:border-white/20 prose-th:px-4 prose-th:py-2 prose-th:bg-white/5 prose-td:border prose-td:border-white/20 prose-td:px-4 prose-td:py-2'
           >
             <MDXRemote source={post.content} />
           </div>
