@@ -1,0 +1,84 @@
+---
+title: "Music as Markdown"
+date: '2026-03-19'
+excerpt: "What if fenced code blocks could play music? We built an open-source toolkit that turns markdown into interactive instruments — drum pads, keyboards, sequencers — all running in the browser."
+coverImage: '/images/blog/obsidian-elementary-audio/og-cover.png'
+---
+
+What if your documents could play music?
+
+Not embedded audio files — actual interactive instruments. Drum pads you can tap, piano keys you can hold, a sequencer with a playhead scrolling through your patterns. All described in plain text, rendered as playable UI.
+
+We built an open-source toolkit that makes this real. Write a fenced code block, get a musical instrument.
+
+## The syntax
+
+A drum machine:
+
+<BlogDrumPads />
+
+A piano keyboard:
+
+<BlogPianoKeys />
+
+A sequence — here's a C major chord:
+
+<BlogPianoRoll />
+
+These are live. Tap them. Enable keyboard mode. Hit play. Everything runs in the browser with synthesized audio — no samples to download, no plugins to install.
+
+## How it works
+
+The rendering pipeline has two layers:
+
+**elementary-audio-kit** handles the audio DSP and the UI components. It's a React library built on [Elementary Audio](https://www.elementary.audio/) — a functional approach to audio where you describe your signal graph declaratively:
+
+```javascript
+const output = masterOutput(
+  mixTracks([
+    { trackId: 'drums', signal: drumSampler(pads), volume: 0.8 },
+    { trackId: 'keys', signal: melodicVoices, volume: 0.7 },
+  ])
+);
+renderer.render(output.left, output.right);
+```
+
+One persistent graph, re-rendered on every state change. Elementary's diffing engine only recomputes what changed — toggling a single drum gate is cheap even with dozens of active nodes.
+
+The kit provides the building blocks:
+
+- **Instruments** — drum sampler, melodic sampler with polyphonic voice allocation
+- **Timing** — beat clocks, transport, quantization, swing
+- **Sequencing** — step patterns, Euclidean rhythms, clip-to-pattern conversion
+- **Mixer** — channel strips with equal-power panning, tanh soft limiter
+- **UI** — DrumPads, PianoKeys, PianoRoll, Transport, Knob, StepGrid
+
+The components are headless-friendly React with inline styles and built-in computer keyboard mapping. No CSS framework needed. Drop them into any React app.
+
+**The markdown layer** maps fenced code blocks to these components. In Obsidian, that's a plugin. On a website, it's MDX components (like this blog post). The same kit, different hosts.
+
+## One library, every surface
+
+The same `elementary-audio-kit` runs everywhere:
+
+- **iOS/macOS** — native apps via swift-elementary-audio (C++ interop)
+- **Obsidian** — plugin for writing interactive music content
+- **Web** — any website, any React framework
+
+Write the DSP once, render it anywhere. The kit is [on npm](https://www.npmjs.com/package/elementary-audio-kit):
+
+```bash
+npm install elementary-audio-kit
+```
+
+## What's next
+
+The fenced-code-block syntax shown above is where this is heading — a simple, self-contained way to describe musical content in any markdown document. A `drums` block renders a pad grid. A `piano` block renders a keyboard. A `sequence` block renders a playable pattern with notes described inline.
+
+No app required. No DAW. Just text that plays music.
+
+If you're building something at the intersection of music and the web, take a look at [elementary-audio-kit](https://github.com/txbrown/elementary-audio-kit). The audio engine handles the hard parts. The UI components handle the interaction. You wire them together.
+
+---
+
+*elementary-audio-kit is open source — [npm](https://www.npmjs.com/package/elementary-audio-kit) / [github](https://github.com/txbrown/elementary-audio-kit)*

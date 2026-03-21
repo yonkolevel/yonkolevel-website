@@ -4,6 +4,13 @@ import remarkGfm from 'remark-gfm';
 import Container from '@/components/Container';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { BlogDrumPads, BlogPianoKeys, BlogPianoRoll } from '@/components/blog/MusicBlocks';
+
+const mdxComponents = {
+  BlogDrumPads,
+  BlogPianoKeys,
+  BlogPianoRoll,
+};
 
 interface Props {
   params: Promise<{
@@ -88,7 +95,7 @@ export default async function BlogPost({ params }: Props) {
             prose-blockquote:border-l-orange prose-blockquote:text-white/60
             prose-table:border-collapse prose-th:border prose-th:border-white/20 prose-th:px-4 prose-th:py-2 prose-th:bg-white/5 prose-td:border prose-td:border-white/20 prose-td:px-4 prose-td:py-2'
           >
-            <MDXRemote source={post.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
+            <MDXRemote source={post.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} components={mdxComponents} />
           </div>
         </article>
       </Container>
