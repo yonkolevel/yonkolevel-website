@@ -3,7 +3,8 @@ import { NextResponse } from 'next/server';
 import * as React from 'react';
 import NewsletterEmail, { type Theme } from '@/emails/NewsletterEmail';
 
-const BASE = 'http://localhost:3000';
+const BASE = process.env.NEXT_PUBLIC_SITE_URL
+  ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
 
 const sampleData = {
   issueNumber: '#001',
@@ -81,7 +82,12 @@ const sampleData = {
 };
 
 export async function GET(request: Request) {
+  const secret = process.env.INTERNAL_SECRET;
   const { searchParams } = new URL(request.url);
+  if (!secret || searchParams.get('secret') !== secret) {
+    return new NextResponse('Unauthorized', { status: 401 });
+  }
+
   const theme = (searchParams.get('theme') ?? 'light') as Theme;
   const html = await render(React.createElement(NewsletterEmail, { ...sampleData, theme }));
   return new NextResponse(html, {

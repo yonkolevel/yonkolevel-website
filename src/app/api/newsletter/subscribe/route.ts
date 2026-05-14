@@ -17,11 +17,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
   }
 
+  const firstName = typeof body.firstName === 'string' ? body.firstName.trim().slice(0, 100) : undefined;
+  const lastName = typeof body.lastName === 'string' ? body.lastName.trim().slice(0, 100) : undefined;
+
   const { error } = await resend.contacts.create({
     audienceId,
     email,
-    firstName: body.firstName ?? undefined,
-    lastName: body.lastName ?? undefined,
+    firstName,
+    lastName,
     unsubscribed: false,
   });
 

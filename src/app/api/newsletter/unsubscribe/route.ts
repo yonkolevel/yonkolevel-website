@@ -13,31 +13,13 @@ export async function POST(request: Request) {
 
   const email = body.email.toLowerCase().trim();
 
-  // Find the contact in the audience by email
-  const { data: listData, error: listError } = await resend.contacts.list({ audienceId });
-
-  if (listError) {
-    console.error('Resend list contacts error:', listError.message);
-    return NextResponse.json({ error: 'Failed to process request' }, { status: 500 });
-  }
-
-  const contact = listData?.data?.find((c) => c.email === email);
-
-  if (!contact) {
-    // Return success to avoid leaking whether the email is in the list
-    return NextResponse.json({ success: true });
-  }
-
-  const { error } = await resend.contacts.update({
-    audienceId,
-    id: contact.id,
-    unsubscribed: true,
-  });
+  const { error } = await resend.contacts.remove({ audienceId, email });
 
   if (error) {
     console.error('Resend unsubscribe error:', error.message);
     return NextResponse.json({ error: 'Failed to process request' }, { status: 500 });
   }
 
+  // Always return success — never confirm whether the email was in the list
   return NextResponse.json({ success: true });
 }

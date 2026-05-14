@@ -6,7 +6,8 @@ import NewsletterEmail, { type Theme } from '@/emails/NewsletterEmail';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const BASE = 'http://localhost:3000';
+const BASE = process.env.NEXT_PUBLIC_SITE_URL
+  ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
 
 const sampleData = {
   issueNumber: '#001',
@@ -84,6 +85,11 @@ const sampleData = {
 };
 
 export async function POST(request: Request) {
+  const secret = process.env.INTERNAL_SECRET;
+  if (!secret || request.headers.get('x-internal-secret') !== secret) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
   const body = await request.json().catch(() => ({}));
   const to: string = body.to ?? 'ricardo@yonkolevel.com';
   const theme: Theme = body.theme ?? 'light';
