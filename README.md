@@ -215,6 +215,61 @@ You normally **don't need to edit these** — they're already tailored to this p
 
 ---
 
+## Git & lazygit Quick Reference
+
+### Sync to latest (throw away local changes)
+
+When you've messed things up locally and just want a clean copy of what's on GitHub:
+
+```bash
+git fetch origin
+git reset --hard origin/main
+```
+
+That's it — your local repo now matches remote exactly. Any uncommitted edits are gone.
+
+**With a safety net** (tuck local edits away first, in case you want them back):
+
+```bash
+git stash                # save local edits
+git fetch origin
+git reset --hard origin/main   # sync clean
+# If you want your edits back: git stash pop
+# If you're sure: git stash drop
+```
+
+### Same thing in lazygit
+
+1. Press `f` — fetch latest from remote
+2. Press `]` a few times to move focus to the **Branches** panel
+3. Arrow down to `origin/main` (it will say `up 1` if remote is ahead)
+4. Press `g` — choose **hard reset** when prompted
+5. Done ✅ — status panel shows nothing to commit
+
+If lazygit won't let you reset because you have dirty files:
+
+1. Press `S` (shift+s) to stage all files
+2. Press `c`, type `wip`, press Enter to commit them
+3. Now do the reset (steps 1–4 above) — your throwaway commit gets wiped
+
+### lazygit cheat sheet
+
+| Key | Action |
+|---|---|
+| `f` | Fetch from remote |
+| `]` / `[` | Switch between panels (files, branches, commits, etc.) |
+| `↑` `↓` | Navigate items in current panel |
+| `Enter` | Expand file diffs / commit details |
+| `s` | Stage one file |
+| `S` | Stage all files |
+| `c` | Commit staged changes |
+| `g` | Reset to selected branch or commit |
+| `P` (shift+p) | Push to remote |
+| `p` | Pull from remote |
+| `?` | Full keybinding reference |
+
+---
+
 ## Deployment
 
 Push to the main branch and [Vercel](https://vercel.com) auto-deploys. See [Next.js deployment docs](https://nextjs.org/docs/deployment) for advanced setup.
