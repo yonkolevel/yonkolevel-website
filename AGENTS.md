@@ -8,7 +8,8 @@ Next.js App Router site using React 19, TypeScript, Tailwind CSS, DaisyUI, and M
 - `src/components/` contains reusable React components grouped by feature, such as `shop/`, `home/`, `blog/`, `icons/`, and `shapes/`.
 - `src/content/blog/` contains MDX blog posts.
 - `src/lib/` contains utilities for analytics, Stripe, MDX, hooks, and shop data.
-- `src/emails/` contains React Email templates.
+- `src/emails/` contains React Email templates and preview data (see Email Preview section below).
+- `emails/` contains thin preview entry points consumed by the `react-email` CLI dev server.
 - `public/` contains static assets, product media, fonts, and scripts.
 
 ## Architecture Notes
@@ -27,8 +28,20 @@ Use Node `22.x`, as declared in `package.json`.
 - `npm run build` creates a production build and catches type/build issues.
 - `npm run start` serves the production build after `npm run build`.
 - `npm run lint` runs the Next.js ESLint rules.
+- `npm run email:dev` starts the React Email hot-reload preview server at `http://localhost:3100`. Sidebar shows all newsletter variants; edits to `src/emails/NewsletterEmail.tsx` appear instantly.
+- `npm run email:build` exports minified HTML for all email templates to `.email-output/`.
+- `npm run email:export` exports pretty-printed HTML for all email templates to `.email-output/`.
 
 Both `package-lock.json` and `yarn.lock` exist. Avoid churn.
+
+## Email Preview Architecture
+
+- **Template**: `src/emails/NewsletterEmail.tsx` — the main `NewsletterEmail` component with typed props supporting three S1 variants (feature, changelog, multi-app), optional adjacent news, blog/vlog, education, cultural picks, and light/dark themes.
+- **Preview data**: `src/emails/NewsletterEmail.preview.tsx` — named exports (`lightFeatureProps`, `darkFeatureProps`, `lightChangelogProps`, `darkChangelogProps`, `lightMultiAppProps`, `darkMultiAppProps`, `minimalProps`) with fully populated sample props. Edit these to change what the preview server renders.
+- **CLI entry points**: `emails/*.tsx` — one file per preview variant. Each imports `NewsletterEmail` from `@/emails/NewsletterEmail` and spreads the corresponding preview props from `@/emails/NewsletterEmail.preview`. The `react-email` CLI auto-discovers these files.
+- **Dev server**: `yarn email:dev` → React Email 6.x UI at `localhost:3100` with hot reload, dark mode toggle, viewport switcher, source view, and send-test functionality.
+
+When adding a new email template, create it in `src/emails/`, add sample props to its `.preview.tsx` companion, then add a thin wrapper in `emails/` for the CLI to discover.
 
 ## Coding Style & Naming Conventions
 
