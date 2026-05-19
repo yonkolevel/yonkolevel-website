@@ -31,6 +31,11 @@ const PRODUCTS = [
     label: 'SUPPORT',
     mobileLabel: 'SUPPORT',
   },
+  {
+    href: '/newsletter/preview',
+    label: 'NEWSLETTER',
+    mobileLabel: 'NEWSLETTER',
+  },
 ] as const;
 
 // Shared constants

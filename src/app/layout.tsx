@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Noto_Sans, Press_Start_2P, Doto } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
-import Layout from '@/components/Layout';
+import ConditionalLayout from '@/components/ConditionalLayout';
 import Header from '@/components/Header';
 import { PHProvider } from '@/providers/posthog';
 import PostHogPageView from '@/components/PostHogPageView';
@@ -86,10 +86,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={`${notoSans.variable} ${departureMono.variable}`}>
+      <body className={`${notoSans.variable} ${departureMono.variable}`} suppressHydrationWarning>
         <PHProvider>
           <PostHogPageView />
-          <Layout>{children}</Layout>
+          <ConditionalLayout>{children}</ConditionalLayout>
         </PHProvider>
       </body>
     </html>
