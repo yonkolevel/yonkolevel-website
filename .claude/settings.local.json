@@ -2,7 +2,18 @@
   "permissions": {
     "allow": [
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git add *)",
+      "Bash(npm install *)",
+      "Bash(yarn add *)",
+      "Bash(open *)",
+      "Bash(curl -s -o /dev/null -w \"light: %{http_code}  dark: \" http://localhost:3000/api/newsletter/preview)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" \"http://localhost:3000/api/newsletter/preview?theme=dark\")",
+      "Bash(curl -s -X GET https://api.resend.com/audiences/25f2101b-f3be-48fd-bd6c-6721217bb93d/contacts -H 'Authorization: Bearer re_Yq6Pqjv3_7zu3Lh9GGK2WmtKQiqkc89pz')",
+      "Bash(python3 -m json.tool)",
+      "Bash(curl -s -X POST http://localhost:3000/api/newsletter/send-test -H 'Content-Type: application/json' -d '{\"to\":\"ricardo@yonkolevel.com\",\"theme\":\"light\"}')",
+      "Bash(openssl rand *)",
+      "Bash(npx tsc *)"
     ]
   }
 }
