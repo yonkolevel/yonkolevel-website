@@ -1,50 +1,31 @@
 ---
 title: "Making Beats with React Native"
 date: '2026-06-03'
-excerpt: "I gave a talk at ADC Japan about building cross-platform audio apps with Elementary Audio and React Native. Here are all the links and resources from the talk."
+excerpt: "Links and resources from my ADC Japan talk about cross-platform audio with Elementary Audio and React Native."
 coverImage: '/images/og-image.jpg'
 ---
 
-Earlier today I gave a talk at [ADC Japan](https://adcjapan.com/) called **Making Beats with React Native**. The recording isn't available yet, but I wanted to put all the links in one place for anyone who attended — or anyone curious about cross-platform audio.
+[ADC Japan](https://adcjapan.com/) — June 3, 2026. Here's everything you might want after the talk.
 
-If you were there: thank you for coming. If you weren't: here's what you missed and where to learn more.
+## Apps
 
-## The short version
+- **[Midicircuit — iOS (App Store)](https://apps.apple.com/gb/app/midicircuit/id1558844679)** — also on **[TestFlight beta](https://testflight.apple.com/join/pNyAUEac)**
+- **[Midicircuit — Android beta](https://play.google.com/apps/internaltest/4700859722726235549)**
 
-I build an app called [Midicircuit](https://apps.apple.com/gb/app/midicircuit/id1558844679) — a music-learning app where people can play with beats, instruments, and interactive lessons. The hardest part was never the UI. It was the audio layer underneath everything.
+## Open source
 
-The talk walked through how [Elementary Audio](https://www.elementary.audio/) — a functional approach where you describe audio graphs in JavaScript and let native runtimes render them as real-time sound — plus React Native made cross-platform mobile audio practical. MidiCircuit for Android is now in beta as a direct result of that shift.
+- **[elementary-audio-kit](https://github.com/txbrown/elementary-audio-kit)** — React components for musical ideas ([npm](https://www.npmjs.com/package/elementary-audio-kit))
+- **[obsidian-elementary-audio](https://github.com/yonkolevel/obsidian-elementary-audio)** — Playable instruments in markdown
 
-## Links from the talk
+## Socials
 
-### Open source
+- [@its_txbrown](https://x.com/its_txbrown) on X
+- [@txbrown__](https://www.instagram.com/txbrown__/) on Instagram
+- [Ricardo Abreu](https://www.linkedin.com/in/rjabreu/) on LinkedIn
+- [@txbrown](https://github.com/txbrown) on GitHub
+- [@yonkolevel](https://github.com/yonkolevel) on GitHub
 
-- **[elementary-audio-kit](https://github.com/txbrown/elementary-audio-kit)** — A React component library for musical ideas. Instruments, sequencers, transports, drum pads — reusable building blocks on top of Elementary Audio. Available on [npm](https://www.npmjs.com/package/elementary-audio-kit).
+## More
 
-- **[obsidian-elementary-audio](https://github.com/yonkolevel/obsidian-elementary-audio)** — An Obsidian plugin that turns markdown into playable instruments. Write a fenced code block, get a drum machine or piano. I [wrote about it here](/blog/obsidian-elementary-audio) if you want the deeper story.
-
-### Apps
-
-- **[Midicircuit on the App Store](https://apps.apple.com/gb/app/midicircuit/id1558844679)** — Build beats, play patterns, and learn music through interactive lessons. **[Join the iOS beta on TestFlight](https://testflight.apple.com/join/pNyAUEac).**
-- **[Midicircuit for Android — Beta](https://play.google.com/apps/internaltest/4700859722726235549)** — The Android version, built on the same portable audio stack. Join the beta and try it out.
-
-### Socials
-
-- [X / Twitter — @its_txbrown](https://x.com/its_txbrown)
-- [LinkedIn — Ricardo Abreu](https://www.linkedin.com/in/rjabreu/)
-- [Instagram — @txbrown__](https://www.instagram.com/txbrown__/)
-- [GitHub — @txbrown](https://github.com/txbrown)
-- [GitHub — @yonkolevel](https://github.com/yonkolevel)
-
-### More
-
-- [Yonko Level](https://yonkolevel.com) — Indie app studio. Apps that make people smile.
-- [Elementary Audio](https://www.elementary.audio/) — The audio runtime that makes all of this possible.
-
-## The thesis
-
-> Elementary Audio + React Native makes expressive cross-platform mobile audio practical today.
-
-Not magic. Not "all audio problems are solved." But the center of gravity changes: the musical idea is no longer trapped in one platform's audio engine. You describe an audio graph in JavaScript. A web or native runtime renders it as real-time sound. React Native gives you a practical path to bring that graph to mobile.
-
-If you're building anything in this space — especially with JavaScript and app frameworks — I think this ecosystem needs you. Reach out. I'd love to talk.
+- [Elementary Audio](https://www.elementary.audio/)
+- [Yonko Level](https://yonkolevel.com)
