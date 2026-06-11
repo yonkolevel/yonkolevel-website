@@ -1,23 +1,27 @@
 ---
-title: "Making Beats with React Native"
+title: "ADC Japan 2026"
 date: '2026-06-03'
-excerpt: "Links and resources from my ADC Japan talk about cross-platform audio with Elementary Audio and React Native."
-coverImage: '/images/og-image.jpg'
+excerpt: "My notes from ADC Japan 2026: the hackathon, GlidePath, building music apps with Elementary Audio and React Native, and the people who made it special."
+coverImage: '/images/blog/adc-japan-2026/og-cover.jpg'
 ---
 
-[ADC Japan](https://audio.dev/adc-japan-26/) — June 3, 2026. Here's everything you might want after the talk.
+If you came here from my ADC Japan talk or you are watching the recording later, here are the links I mentioned.
 
-## Apps
+## Talk links and resources
+
+[ADC Japan](https://audio.dev/adc-japan-26/) — June 3, 2026.
+
+### Apps
 
 - **[Midicircuit — iOS (App Store)](https://apps.apple.com/gb/app/midicircuit/id1558844679)** — also on **[TestFlight beta](https://testflight.apple.com/join/pNyAUEac)**
 - **[Midicircuit — Android beta](https://play.google.com/apps/internaltest/4700859722726235549)**
 
-## Open source
+### Open source
 
 - **[elementary-audio-kit](https://github.com/txbrown/elementary-audio-kit)** — React components for musical ideas ([npm](https://www.npmjs.com/package/elementary-audio-kit))
-- **[obsidian-elementary-audio](https://github.com/yonkolevel/obsidian-elementary-audio)** — Playable instruments in markdown
+- **[obsidian-elementary-audio](https://github.com/yonkolevel/obsidian-elementary-audio)** — playable instruments in markdown
 
-## Socials
+### Socials
 
 - [@its_txbrown](https://x.com/its_txbrown) on X
 - [@txbrown__](https://www.instagram.com/txbrown__/) on Instagram
@@ -25,8 +29,64 @@ coverImage: '/images/og-image.jpg'
 - [@txbrown](https://github.com/txbrown) on GitHub
 - [@yonkolevel](https://github.com/yonkolevel) on GitHub
 
-## More
+### More
 
 - [Elementary Audio](https://www.elementary.audio/)
 - [React Native](https://www.npmjs.com/package/react-native)
 - [Yonko Level](https://yonkolevel.com)
+
+---
+
+Earlier this year, I found out that the [Audio Developer Conference](https://audio.dev/adc-japan-26/) would be held in Japan for the first time. I applied to speak and got a place. I was already planning to go to Japan — for the third time — so this felt like a very justified reason to make the trip. I decided to talk about something I had been delving into and that had been working really well for me: building interactive music apps with [elementary-audio](https://www.elementary.audio/) across different platforms, using technologies such as [React](https://react.dev/) and [React Native](https://reactnative.dev/).
+
+<div className="my-8">
+  <img src="/images/blog/adc-japan-2026/conference-room.webp" alt="ADC Japan 2026 conference room" className="rounded-lg w-full max-w-xl mx-auto" loading="lazy" />
+</div>
+
+## The Hackathon
+
+The first day was dedicated to a hackathon. We started by meeting in one room and socialising. After a while, the organisers ran a brainstorming session so we could draft ideas for things to hack on. I joined [Ted Barram](https://github.com/tbarram) — an engineer with 20+ years at [Avid](https://www.avid.com/), where he worked on [Pro Tools](https://www.avid.com/pro-tools), and now at [PACE](https://paceap.com/) — to build a synthesis-based instrument on top of an old project he had started called [GlidePath](https://github.com/tbarram/GlidePath).
+
+We decided to build on what I had learned about how quickly [elementary-audio](https://www.elementary.audio/) lets you create audio apps, combining that with LLMs like [Claude](https://claude.ai/) and [Codex](https://openai.com/codex/).
+
+<div className="my-8">
+  <p className="font-mono text-sm text-white/50 mb-3">This is how GlidePath looked before we started hacking on it.</p>
+  <video src="/images/blog/adc-japan-2026/glidepath-before.mp4" controls playsInline muted loop className="rounded-lg w-full border border-white/10" />
+</div>
+
+<div className="my-8">
+  <p className="font-mono text-sm text-white/50 mb-3">This is how GlidePath looked after.</p>
+  <video src="/images/blog/adc-japan-2026/glidepath-after.mp4" controls playsInline muted loop className="rounded-lg w-full border border-white/10" />
+</div>
+
+The first version had something magical about it. I think the project could be improved by simplifying the controls and bringing back more of the original gravitational animations.
+
+It was really cool to see what everyone built by the end of the day.
+
+One thing I noticed during the hackathon was how much AI enabled everyone to get started building faster.
+
+<div className="my-8">
+  <img src="/images/blog/adc-japan-2026/hackathon.webp" alt="ADC Japan 2026 hackathon" className="rounded-lg w-full max-w-xl mx-auto" loading="lazy" />
+</div>
+
+## The People
+
+The key highlight of ADC — and perhaps of any conference — is the people, and ADC delivered.
+
+The first interaction I had on arrival was Amu letting me know he had been following my work for the last six years or so. Back then, he wasn't an audio engineer; now he is one, and living in Japan. I truly live for these moments. I was so happy to meet Amu and hope we can connect more in the future, as he's also doing community and education work with audio.
+
+I was once a noob in the audio engineering space too — attending the [Audio Programmer meetups](https://www.theaudioprogrammer.com/meetups) in London, watching ADC talks online, getting through countless hours of YouTube videos, and building, building, building. So it feels great to meet people on the same journey years later. My peers.
+
+Another highlight was meeting [Marek Bereza](https://www.mazbox.com/), the creator of [Koala Sampler](https://www.koalasampler.com/). If you're a beatmaker, there's no way you haven't heard of Koala. It's a famous non-linear sampling app with a workflow similar to the legendary SP-404, and it has deep integration with the latest model, the [SP-404MKII](https://www.roland.com/global/products/sp-404mk2/). It turns out Marek and I live not far from each other — what a surprise! So we exchanged contacts and will meet sometime this summer to talk all things audio and building successful apps in this day and age. I have tonnes of questions for my new sensei.
+
+<div className="my-8">
+  <img src="/images/blog/adc-japan-2026/people.webp" alt="People at ADC Japan 2026" className="rounded-lg w-full" loading="lazy" />
+</div>
+
+## What's Next
+
+ADC Japan 2026 was the best conference I've been to. Being surrounded by like-minded people — some familiar faces, some people I'd been wanting to meet for a long time — making new friends, and learning just how vast audio engineering knowledge is, and how strong the community is, made it an amazing and inspiring experience.
+
+I'm now planning to attend [ADC Bristol](https://audio.dev/adc-bristol-26/) — the main conference — and share more of what we do at [Yonko Level](https://yonkolevel.com/) to elevate music making and music education.
+
+See you soon! またね | Mata ne!
