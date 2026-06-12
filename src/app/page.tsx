@@ -4,6 +4,7 @@ import HeroSection from '@/components/home/HeroSection';
 import AppShowcaseSection from '@/components/AppShowcaseSection';
 import HeroWithPixels from '@/components/HeroWithPixels';
 import PromotionalVideoSection from '@/components/PromotionalVideoSection';
+import NewsletterSignup from '@/components/NewsletterSignup';
 
 const Home = () => {
   return (
@@ -82,6 +83,8 @@ const Home = () => {
           { startRow: 10, endRow: 11, startCol: 0, endCol: 2 }, // Custom button area
         ]}
       />
+
+      <NewsletterSignup />
     </div>
   );
 };
