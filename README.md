@@ -140,6 +140,8 @@ Copy `.env.example` (if it exists) or create a `.env.local` file in the project 
 # Newsletter sending
 RESEND_API_KEY=re_xxxx
 RESEND_AUDIENCE_ID=aud_xxxx
+NEWSLETTER_FROM_EMAIL="Yonko Level <newsletter@yonkolevel.com>"
+INTERNAL_SECRET=generate_with_openssl_rand_hex_32
 
 # Analytics
 NEXT_PUBLIC_POSTHOG_KEY=phc_xxxx
