@@ -12,7 +12,7 @@ const Menu: React.FunctionComponent<IMenuProps> = (props) => {
       viewBox='0 0 36 36'
     >
       <path
-        stroke='#0C5DA8'
+        stroke='currentColor'
         strokeLinecap='square'
         strokeMiterlimit='10'
         strokeWidth='2'

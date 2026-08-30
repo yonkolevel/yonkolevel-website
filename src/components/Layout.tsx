@@ -29,12 +29,20 @@ const Layout: React.FunctionComponent<ILayoutProps> = ({ children }) => {
       <Head>
         <meta
           name='viewport'
-          content='width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0'
+          content='width=device-width, initial-scale=1.0'
         />
       </Head>
       <div className='relative min-h-screen bg-black'>
+        <a
+          href='#main-content'
+          className='sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[10000] focus:not-sr-only focus:bg-white focus:px-4 focus:py-3 focus:font-pixel focus:text-xs focus:text-black focus:outline-none focus:ring-2 focus:ring-orange'
+        >
+          Skip to content
+        </a>
         <Header />
-        <main className='relative'>{children}</main>
+        <main id='main-content' tabIndex={-1} className='relative'>
+          {children}
+        </main>
         <Footer />
       </div>
     </>

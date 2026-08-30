@@ -1,12 +1,16 @@
 'use client';
 import Head from 'next/head';
-import HeroSection from '@/components/home/HeroSection';
+import Link from 'next/link';
+import { usePostHog } from 'posthog-js/react';
 import AppShowcaseSection from '@/components/AppShowcaseSection';
+import Container from '@/components/Container';
 import HeroWithPixels from '@/components/HeroWithPixels';
 import PromotionalVideoSection from '@/components/PromotionalVideoSection';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 const Home = () => {
+  const posthog = usePostHog();
+
   return (
     <div>
       <Head>
@@ -80,6 +84,48 @@ const Home = () => {
           { startRow: 10, endRow: 11, startCol: 0, endCol: 2 }, // Custom button area
         ]}
       />
+
+      <section className='bg-black py-20 md:py-28' aria-labelledby='home-studio-title'>
+        <Container>
+          <div className='grid grid-cols-1 gap-10 border-t border-white/10 pt-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:pt-20'>
+            <div>
+              <p className='mb-5 font-pixel text-xs uppercase tracking-[0.22em] text-orange'>
+                {'// STUDIO'}
+              </p>
+              <h2
+                id='home-studio-title'
+                className='font-pixel text-2xl leading-tight tracking-tight text-white md:text-4xl'
+              >
+                WE BUILD OUR OWN PRODUCTS.
+                <br />
+                WE ALSO HELP SELECTED TEAMS BUILD THEIRS.
+              </h2>
+            </div>
+
+            <div className='max-w-2xl lg:pt-10'>
+              <p className='text-base leading-8 text-white/70 md:text-lg'>
+                Founder-led product engineering for ambitious mobile software—especially products
+                involving audio, cameras, connected hardware, payments, location, or complex
+                real-world systems.
+              </p>
+              <p className='mt-5 font-pixel text-xs uppercase tracking-[0.16em] text-white/50'>
+                One principal partnership at a time.
+              </p>
+              <Link
+                href='/studio'
+                onClick={() =>
+                  posthog?.capture('homepage_studio_cta_clicked', {
+                    destination: '/studio',
+                  })
+                }
+                className='mt-8 inline-flex items-center border-b border-orange pb-2 font-pixel text-sm uppercase tracking-[0.12em] text-white transition-colors hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-4 focus-visible:ring-offset-black'
+              >
+                Visit the Studio →
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
 
       <NewsletterSignup />
     </div>
