@@ -12,6 +12,8 @@ const mdxComponents = {
   BlogPianoRoll,
 };
 
+export const dynamicParams = false;
+
 interface Props {
   params: Promise<{
     slug: string;
