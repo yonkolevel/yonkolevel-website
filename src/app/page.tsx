@@ -52,9 +52,6 @@ const Home = () => {
       {/* Promotional Video Section */}
       <PromotionalVideoSection
         videoSource='/products/midicircuit/videos/promo-video.mov'
-        appName='MIDICIRCUIT'
-        appDescription='A simple and approachable DAW. Create beats and share them with friends — no experience needed.'
-        learnMoreLink='/products/midicircuit'
         backgroundColor='#000000'
         overlayOpacity={0.4}
         showControls={true}
