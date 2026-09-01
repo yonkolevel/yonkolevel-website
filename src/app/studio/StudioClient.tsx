@@ -3,22 +3,32 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Widget } from '@typeform/embed-react';
 import { usePostHog } from 'posthog-js/react';
 import Container from '@/components/Container';
+import PixelDisplacementGrid from '@/components/PixelDisplacementGrid';
+import {
+  ConnectSpot,
+  CreateSpot,
+  StrengthenSpot,
+} from '@/components/studio/StudioSpots';
 
 const expertise = [
   {
+    Spot: CreateSpot,
     title: 'CREATE',
     description:
       'New mobile products, technical prototypes, major features and architecture for ideas that need to become real.',
   },
   {
+    Spot: StrengthenSpot,
     title: 'STRENGTHEN',
     description:
       'Performance, production reliability, analytics, release processes, CI/CD and difficult technical modernisation.',
   },
   {
+    Spot: ConnectSpot,
     title: 'CONNECT',
     description:
       'Audio, MIDI, camera systems, hardware integrations, payments, location services and products that interact with the physical world.',
@@ -27,7 +37,7 @@ const expertise = [
 
 const products = [
   {
-    name: 'Midicircuit',
+    name: 'MIDICIRCUIT',
     description:
       'A simple and approachable DAW for creating and sharing music. Record audio, lay down MIDI in real time, mix your tracks and export when you are ready. Works on iPhone, iPad and Mac.',
     href: '/products/midicircuit',
@@ -36,7 +46,7 @@ const products = [
     background: '#FF5C24',
   },
   {
-    name: 'Invisible Camera',
+    name: 'INVISIBLE CAMERA',
     description:
       'Bypass Apple’s Deep Fusion and Smart HDR for authentic, film-like photos. See exactly what you will capture in real time—no surprises, no post-processing.',
     href: '/products/invisible-camera',
@@ -54,27 +64,146 @@ const experience = [
 
 const engagements = [
   {
+    step: '01',
     title: 'Mobile Product Health Sprint',
     description:
       'A focused assessment of architecture, crashes, performance, reliability, analytics, observability, testing, release processes and technical risk. The outcome is a written assessment and prioritised plan.',
-    label: 'START HERE',
   },
   {
+    step: '02',
     title: 'Focused Build Partnership',
     description:
       'A bounded engagement organised around one meaningful outcome: shipping a major feature, stabilising a product, building a technical prototype, modernising a critical flow, or preparing an application for launch or scale.',
-    label: 'BUILD',
   },
   {
+    step: '03',
     title: 'Fractional Product Engineering Lead',
     description:
       'Ongoing technical direction, architecture, mentoring, production ownership and selective implementation for teams that need senior mobile leadership without a full-time hire.',
-    label: 'LEAD',
   },
 ] as const;
 
+const heroPixelDisplacements = [
+  { row: 0, col: 0, displaceX: 2, displaceY: -1 },
+  { row: 1, col: 1, displaceX: 2, displaceY: 1 },
+  { row: 2, col: 0, displaceX: 1, displaceY: 2 },
+  { row: 11, col: 12, displaceX: 3, displaceY: 2 },
+];
+
 const studioEmail =
   'mailto:team@yonkolevel.com?subject=Yonko%20Level%20Studio%20enquiry';
+
+/** Section head using the same rhythm as the homepage sections. */
+function SectionHeading({
+  id,
+  eyebrow,
+  title,
+  intro,
+}: {
+  id: string;
+  eyebrow: string;
+  title: string;
+  intro: string;
+}) {
+  return (
+    <div className='grid grid-cols-1 gap-10 border-t border-white/10 pt-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:pt-20'>
+      <div>
+        <p className='mb-5 font-pixel text-xs uppercase tracking-[0.22em] text-orange'>
+          {eyebrow}
+        </p>
+        <h2
+          id={id}
+          className='font-pixel text-2xl uppercase leading-tight tracking-tight text-white md:text-4xl'
+        >
+          {title}
+        </h2>
+      </div>
+      <p className='max-w-2xl text-base leading-8 text-white/70 md:text-lg lg:pt-10'>
+        {intro}
+      </p>
+    </div>
+  );
+}
+
+const SPRITE_WALKING = '/images/illustrations/dev_walking.gif';
+const SPRITE_IDLE = '/images/illustrations/dev_idle.gif';
+const SPRITE_STILL = '/images/illustrations/dev_idle-static.png';
+
+/**
+ * The pre-rebrand pixel sprite of the founder. With `walkIn` it repeats the old
+ * homepage hero sequence: walk in from the left, then settle into the idle loop.
+ * The sprite faces right, so it has to travel rightwards to read correctly.
+ * Visitors who prefer reduced motion get a single still frame.
+ */
+function FounderSprite({
+  className,
+  walkIn = false,
+}: {
+  className: string;
+  walkIn?: boolean;
+}) {
+  const prefersReducedMotion = useReducedMotion();
+  const [mounted, setMounted] = React.useState(false);
+  const [arrived, setArrived] = React.useState(!walkIn);
+
+  React.useEffect(() => setMounted(true), []);
+
+  // Decorative only, so it is fine to skip it until after hydration.
+  if (!mounted) return null;
+
+  const still = prefersReducedMotion === true;
+  const source = still ? SPRITE_STILL : arrived ? SPRITE_IDLE : SPRITE_WALKING;
+  const image = (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={source} alt='' className='block w-full' />
+  );
+
+  if (!walkIn || still) {
+    return (
+      <div aria-hidden='true' className={className}>
+        {image}
+      </div>
+    );
+  }
+
+  return (
+    <motion.div
+      aria-hidden='true'
+      className={className}
+      initial={{ x: '-34vw', opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{
+        x: { duration: 2.8, ease: 'linear' },
+        opacity: { duration: 0.4 },
+      }}
+      onAnimationComplete={() => setArrived(true)}
+    >
+      {image}
+    </motion.div>
+  );
+}
+
+/**
+ * A slim band of the hero's pixel grid, used once as a section transition:
+ * a few pixels pop out of the field and the rest is negative space.
+ */
+function PixelBand() {
+  return (
+    <div aria-hidden='true' className='relative h-24 overflow-hidden md:h-32'>
+      <PixelDisplacementGrid
+        backgroundColor='#121212'
+        holeColor='#000000'
+        displacedPixelColor='#FE6A5A'
+        pixelSize={24}
+        displacements={[
+          { row: 1, col: 4, displaceX: 3, displaceY: 1 },
+          { row: 2, col: 11, displaceX: -4, displaceY: -1 },
+          { row: 3, col: 21, displaceX: 5, displaceY: -2 },
+        ]}
+      />
+    </div>
+  );
+}
 
 export default function StudioClient() {
   const posthog = usePostHog();
@@ -89,94 +218,80 @@ export default function StudioClient() {
 
   return (
     <div className='bg-black text-white'>
+      {/* ---------------------------------------------------------------- HERO */}
       <section
-        className='relative overflow-hidden border-b border-white/10 bg-black py-24 sm:py-32 lg:py-40'
+        className='relative flex min-h-screen items-center overflow-hidden bg-black py-28'
         aria-labelledby='studio-hero-title'
       >
-        <div
-          aria-hidden='true'
-          className='absolute inset-y-0 right-0 hidden w-1/2 opacity-20 md:block'
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px)',
-            backgroundSize: '80px 80px',
-          }}
-        />
-        <div
-          aria-hidden='true'
-          className='absolute right-[8%] top-16 hidden h-12 w-12 bg-orange sm:block sm:h-16 sm:w-16'
-        />
+        <div className='absolute inset-0'>
+          <PixelDisplacementGrid
+            backgroundColor='#121212'
+            holeColor='#000000'
+            displacedPixelColor='#FE6A5A'
+            pixelSize={40}
+            displacements={heroPixelDisplacements}
+          />
+        </div>
 
         <Container>
-          <div className='relative z-10 max-w-5xl'>
-            <p className='mb-7 font-pixel text-xs uppercase tracking-[0.22em] text-orange'>
-              Yonko Level Studio
-            </p>
-            <h1
-              id='studio-hero-title'
-              className='max-w-5xl font-pixel text-2xl leading-tight tracking-tight text-white sm:text-3xl md:text-5xl'
-            >
-              SOME PRODUCTS ARE HARD TO MAKE WELL.
-              <br />
-              <span className='text-orange'>THOSE ARE OUR FAVOURITE.</span>
-            </h1>
+          <div className='relative'>
+            <div className='relative z-40 lg:pr-56'>
+              <h1 id='studio-hero-title' className='font-pixel uppercase'>
+                <span className='block text-xs tracking-[0.22em] text-white/50 md:text-sm'>
+                  Yonko Level
+                </span>
+                <span
+                  className='mt-4 block text-[clamp(4rem,19vw,15rem)] leading-[0.85] tracking-tight text-orange'
+                  style={{ textShadow: '0 0 40px rgba(254,106,90,0.25)' }}
+                >
+                  Studio
+                </span>
+              </h1>
 
-            <div className='mt-10 max-w-3xl space-y-5 text-lg leading-8 text-white/70 sm:text-xl sm:leading-9'>
-              <p>
-                Yonko Level is an independent product company and a selective
-                product-engineering studio.
-              </p>
-              <p>
-                We partner with teams to shape, build and improve ambitious mobile
-                software—particularly where craft, reliability and unusual technical
-                constraints matter.
-              </p>
+              <div className='mt-12 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-10'>
+                <a
+                  href='#enquiry'
+                  onClick={() => posthog?.capture('studio_enquiry_cta_clicked')}
+                  className='inline-flex min-h-12 items-center rounded-full bg-orange px-7 font-pixel text-xs uppercase tracking-[0.12em] text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-4 focus-visible:ring-offset-black'
+                >
+                  Tell us what you are building →
+                </a>
+                <p className='font-pixel text-xs uppercase tracking-[0.14em] text-white/50'>
+                  Limited partnerships. Founder-led.
+                </p>
+              </div>
             </div>
 
-            <div className='mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8'>
-              <a
-                href='#enquiry'
-                onClick={() => posthog?.capture('studio_enquiry_cta_clicked')}
-                className='inline-flex min-h-14 items-center bg-orange px-6 font-pixel text-xs uppercase tracking-[0.12em] text-black transition-colors hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-black'
-              >
-                Tell us what you are building →
-              </a>
-              <p className='font-pixel text-xs uppercase tracking-[0.14em] text-white/50'>
-                Limited partnerships. Founder-led.
-              </p>
-            </div>
+            <FounderSprite
+              walkIn
+              className='pointer-events-none absolute bottom-0 right-6 z-30 hidden w-[180px] lg:block xl:right-12 xl:w-[220px]'
+            />
           </div>
         </Container>
       </section>
 
-      <section className='bg-[#121212] py-20 md:py-28' aria-labelledby='expertise-title'>
+      {/* ----------------------------------------------------------- EXPERTISE */}
+      <section
+        className='bg-black py-24 md:py-36'
+        aria-labelledby='expertise-title'
+      >
         <Container>
-          <div className='max-w-3xl'>
-            <p className='mb-4 font-pixel text-xs uppercase tracking-[0.22em] text-orange'>
-              Where we help
-            </p>
-            <h2
-              id='expertise-title'
-              className='font-pixel text-2xl uppercase tracking-tight text-white md:text-4xl'
-            >
-              Areas of expertise
-            </h2>
-          </div>
+          <SectionHeading
+            id='expertise-title'
+            eyebrow='// WHERE WE HELP'
+            title='Areas of expertise'
+            intro='Yonko Level is an independent product company and a selective product-engineering studio. We partner with teams to shape, build and improve ambitious mobile software—particularly where craft, reliability and unusual technical constraints matter.'
+          />
 
-          <div className='mt-12 grid grid-cols-1 gap-5 lg:grid-cols-3'>
-            {expertise.map((area, index) => (
-              <article
-                key={area.title}
-                className='border border-white/10 border-t-orange bg-white/[0.03] p-7 sm:p-9'
-              >
-                <p className='font-pixel text-xs tracking-[0.18em] text-white/60'>
-                  0{index + 1}
-                </p>
-                <h3 className='mt-10 font-pixel text-xl text-white sm:text-2xl'>
-                  {area.title}
+          <div className='mt-20 grid grid-cols-1 gap-16 md:grid-cols-3 md:gap-12'>
+            {expertise.map(({ Spot, title, description }) => (
+              <article key={title}>
+                <Spot className='h-14 w-14 md:h-16 md:w-16' />
+                <h3 className='mt-8 font-pixel text-lg uppercase text-white md:text-xl'>
+                  {title}
                 </h3>
-                <p className='mt-5 text-base leading-8 text-white/65'>
-                  {area.description}
+                <p className='mt-5 max-w-sm text-base leading-8 text-white/70'>
+                  {description}
                 </p>
               </article>
             ))}
@@ -184,29 +299,22 @@ export default function StudioClient() {
         </Container>
       </section>
 
-      <section className='bg-white py-20 text-black md:py-28' aria-labelledby='products-title'>
+      {/* ------------------------------------------------------------ PRODUCTS */}
+      <section
+        className='bg-black py-24 md:py-36'
+        aria-labelledby='products-title'
+      >
         <Container>
-          <div className='grid grid-cols-1 gap-6 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16'>
-            <div>
-              <p className='mb-4 font-pixel text-xs uppercase tracking-[0.22em] text-[#A33118]'>
-                Product company first
-              </p>
-              <h2
-                id='products-title'
-                className='font-pixel text-2xl uppercase tracking-tight md:text-4xl'
-              >
-                Products we have built
-              </h2>
-            </div>
-            <p className='max-w-2xl text-lg leading-8 text-black/65 lg:pt-9'>
-              We build and ship our own products. That first-hand experience is the
-              foundation of every Studio partnership.
-            </p>
-          </div>
+          <SectionHeading
+            id='products-title'
+            eyebrow='// PRODUCT COMPANY FIRST'
+            title='Products we have built'
+            intro='We build and ship our own products. That first-hand experience is the foundation of every Studio partnership.'
+          />
 
-          <div className='mt-14 grid grid-cols-1 gap-8 lg:grid-cols-2'>
+          <div className='mt-20 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16'>
             {products.map((product) => (
-              <article key={product.name} className='border border-black/10 bg-white'>
+              <article key={product.name}>
                 <div
                   className='relative aspect-[4/3] overflow-hidden'
                   style={{ backgroundColor: product.background }}
@@ -219,199 +327,162 @@ export default function StudioClient() {
                     className='object-contain p-8 sm:p-12'
                   />
                 </div>
-                <div className='p-7 sm:p-9'>
-                  <h3 className='font-pixel text-2xl uppercase sm:text-3xl'>
-                    {product.name}
-                  </h3>
-                  <p className='mt-5 text-base leading-8 text-black/65'>
-                    {product.description}
-                  </p>
-                  <Link
-                    href={product.href}
-                    className='mt-8 inline-flex border-b border-orange pb-2 font-pixel text-xs uppercase tracking-[0.14em] text-black transition-colors hover:text-[#A33118] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 focus-visible:ring-offset-white'
-                  >
-                    Explore {product.name} →
-                  </Link>
-                </div>
+                <h3 className='mt-8 font-pixel text-lg uppercase text-white md:text-xl'>
+                  {product.name}
+                </h3>
+                <p className='mt-5 max-w-xl text-base leading-8 text-white/70'>
+                  {product.description}
+                </p>
+                <Link
+                  href={product.href}
+                  className='mt-7 inline-flex items-center border-b border-orange pb-2 font-pixel text-xs uppercase tracking-[0.14em] text-white transition-colors hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-4 focus-visible:ring-offset-black'
+                >
+                  Explore {product.name} →
+                </Link>
               </article>
             ))}
           </div>
         </Container>
       </section>
 
+      <PixelBand />
+
+      {/* ---------------------------------------------------------- EXPERIENCE */}
       <section
-        className='bg-originalYellow py-20 text-black md:py-28'
+        className='bg-black py-24 md:py-36'
         aria-labelledby='experience-title'
       >
         <Container>
-          <div className='grid grid-cols-1 gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20'>
-            <div>
-              <p className='mb-4 font-pixel text-xs uppercase tracking-[0.22em] text-black/70'>
-                Founder experience, not a client list
-              </p>
-              <h2
-                id='experience-title'
-                className='font-pixel text-2xl uppercase tracking-tight md:text-4xl'
-              >
-                Selected experience
-              </h2>
-              <p className='mt-6 max-w-lg text-base leading-8 text-black/65'>
-                These are selected highlights from Ricardo’s wider product-engineering
-                experience, not claims about previous employers being Yonko Level Studio
-                clients.
-              </p>
-            </div>
+          <SectionHeading
+            id='experience-title'
+            eyebrow='// FOUNDER EXPERIENCE, NOT A CLIENT LIST'
+            title='Selected experience'
+            intro='Selected highlights from Ricardo’s wider product-engineering career. These are not claims that previous employers were Yonko Level Studio clients.'
+          />
 
-            <ol className='border-t border-black/20'>
-              {experience.map((item, index) => (
-                <li
-                  key={item}
-                  className='grid grid-cols-[2.5rem_1fr] gap-4 border-b border-black/20 py-7 sm:grid-cols-[4rem_1fr] sm:py-9'
-                >
-                  <span className='font-pixel text-xs tracking-[0.16em] text-black/65'>
-                    0{index + 1}
-                  </span>
-                  <p className='text-lg font-medium leading-8 sm:text-xl'>{item}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
+          <ul className='mt-20 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10'>
+            {experience.map((item) => (
+              <li
+                key={item}
+                className='text-lg leading-8 text-white md:text-xl md:leading-9'
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
         </Container>
       </section>
 
-      <section className='bg-black py-20 md:py-28' aria-labelledby='work-title'>
+      {/* -------------------------------------------------------- HOW WE WORK */}
+      <section className='bg-black py-24 md:py-36' aria-labelledby='work-title'>
         <Container>
-          <div className='max-w-3xl'>
-            <p className='mb-4 font-pixel text-xs uppercase tracking-[0.22em] text-orange'>
-              Engagements
-            </p>
-            <h2
-              id='work-title'
-              className='font-pixel text-2xl uppercase tracking-tight text-white md:text-4xl'
-            >
-              How we work
-            </h2>
-          </div>
+          <SectionHeading
+            id='work-title'
+            eyebrow='// ENGAGEMENTS'
+            title='How we work'
+            intro='Most partnerships start small and grow only when the work warrants it.'
+          />
 
-          <div className='mt-12 grid grid-cols-1 gap-px bg-white/10 lg:grid-cols-3'>
+          <ol className='mt-20 grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-10'>
             {engagements.map((engagement) => (
-              <article key={engagement.title} className='bg-black p-7 sm:p-9'>
-                <p className='font-pixel text-xs uppercase tracking-[0.18em] text-orange'>
-                  {engagement.label}
+              <li key={engagement.title}>
+                <p className='font-pixel text-xs tracking-[0.2em] text-orange'>
+                  {engagement.step}
                 </p>
-                <h3 className='mt-8 font-pixel text-xl leading-snug text-white sm:text-2xl'>
+                <h3 className='mt-6 font-pixel text-base leading-snug text-white md:text-lg'>
                   {engagement.title}
                 </h3>
-                <p className='mt-5 text-base leading-8 text-white/65'>
+                <p className='mt-5 text-base leading-8 text-white/70'>
                   {engagement.description}
                 </p>
-              </article>
+              </li>
             ))}
-          </div>
+          </ol>
 
-          <div className='mt-12 max-w-4xl border-l-4 border-orange pl-6 sm:pl-8'>
-            <p className='text-lg leading-8 text-white/75 sm:text-xl'>
-              Start with a focused product health sprint. Continue with a bounded build
-              partnership or ongoing fractional technical leadership where the work
-              warrants it.
+          <div className='mt-20 max-w-2xl'>
+            <p className='text-lg leading-9 text-white/80 md:text-xl'>
+              Start with a focused product health sprint. Continue with a
+              bounded build partnership or ongoing fractional technical
+              leadership where the work warrants it.
             </p>
-            <p className='mt-5 font-pixel text-xs uppercase tracking-[0.16em] text-white'>
-              We take on one principal partnership at a time.
+            <p className='mt-5 font-pixel text-xs uppercase tracking-[0.16em] text-white/50'>
+              One principal partnership at a time.
             </p>
           </div>
         </Container>
       </section>
 
-      <section className='bg-white py-20 text-black md:py-28' aria-labelledby='founder-title'>
+      {/* ------------------------------------------------------------- FOUNDER */}
+      <section
+        className='bg-black py-24 md:py-36'
+        aria-labelledby='founder-title'
+      >
         <Container>
-          <div className='grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20'>
-            <div className='relative aspect-[4/5] overflow-hidden bg-originalYellow'>
-              <Image
-                src='/products/midicircuit/press/photo-ricardo.jpg'
-                alt='Ricardo Abreu, founder of Yonko Level'
-                fill
-                sizes='(min-width: 1025px) 50vw, 100vw'
-                className='object-cover'
-              />
-            </div>
-
+          <div className='grid grid-cols-1 gap-12 border-t border-white/10 pt-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:pt-20'>
             <div>
-              <p className='mb-4 font-pixel text-xs uppercase tracking-[0.22em] text-[#A33118]'>
-                Founder-led
+              <p className='mb-5 font-pixel text-xs uppercase tracking-[0.22em] text-orange'>
+                {'// FOUNDER-LED'}
               </p>
               <h2
                 id='founder-title'
-                className='font-pixel text-2xl uppercase tracking-tight md:text-4xl'
+                className='font-pixel text-2xl uppercase leading-tight tracking-tight text-white md:text-4xl'
               >
                 Who you work with
               </h2>
-              <div className='mt-8 space-y-6 text-lg leading-9 text-black/65'>
-                <p>
-                  Yonko Level is led by Ricardo Abreu, a mobile product engineer with
-                  experience shipping consumer software across creative technology,
-                  transport, payments and high-reliability systems.
-                </p>
-                <p>
-                  Ricardo works directly on every engagement. When a project benefits
-                  from additional expertise, Yonko Level works with a small network of
-                  trusted independent collaborators.
-                </p>
+              <div className='relative mt-10 aspect-[4/5] max-w-sm overflow-hidden'>
+                <Image
+                  src='/products/midicircuit/press/photo-ricardo.jpg'
+                  alt='Ricardo Abreu, founder of Yonko Level'
+                  fill
+                  sizes='(min-width: 1025px) 33vw, 100vw'
+                  className='object-cover'
+                />
               </div>
+            </div>
+
+            <div className='max-w-2xl space-y-6 text-base leading-8 text-white/70 md:text-lg lg:pt-10'>
+              <p>
+                Yonko Level is led by Ricardo Abreu, a mobile product engineer
+                with experience shipping consumer software across creative
+                technology, transport, payments and high-reliability systems.
+              </p>
+              <p>
+                Ricardo works directly on every engagement. When a project
+                benefits from additional expertise, Yonko Level works with a
+                small network of trusted independent collaborators.
+              </p>
             </div>
           </div>
         </Container>
       </section>
 
+      {/* ------------------------------------------------------------- ENQUIRY */}
       <section
         id='enquiry'
-        className='scroll-mt-8 bg-black py-20 md:py-28'
+        className='scroll-mt-8 bg-black py-24 md:py-36'
         aria-labelledby='enquiry-title'
       >
         <Container>
-          <div className='grid grid-cols-1 gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20'>
+          <div className='grid grid-cols-1 gap-12 border-t border-white/10 pt-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:pt-20'>
             <div>
-              <p className='mb-4 font-pixel text-xs uppercase tracking-[0.22em] text-orange'>
-                Start a conversation
+              <p className='mb-5 font-pixel text-xs uppercase tracking-[0.22em] text-orange'>
+                {'// START A CONVERSATION'}
               </p>
               <h2
                 id='enquiry-title'
-                className='font-pixel text-2xl uppercase tracking-tight text-white md:text-4xl'
+                className='font-pixel text-2xl uppercase leading-tight tracking-tight text-white md:text-4xl'
               >
                 Tell us what you are building
               </h2>
-              <p className='mt-7 text-base leading-8 text-white/65'>
-                The existing project form requires your name, email and a project
-                description. In that description, include any useful context about your
-                company, product or website, desired start date, expected investment and
+              <p className='mt-8 text-base leading-8 text-white/70 md:text-lg'>
+                The form asks for your name, email and a project description. In
+                that description, include any useful context about your company,
+                product or website, desired start date, expected investment and
                 what a successful outcome would look like.
               </p>
-              <p className='mt-5 text-sm leading-7 text-white/65'>
-                Expected investment: Under £10k · £10k–£25k · £25k–£50k · £50k+ ·
-                Not sure yet
-              </p>
-            </div>
-
-            <div>
-              <div className='min-h-[660px] overflow-hidden bg-white'>
-                <Widget
-                  id='JpaDXdWY'
-                  height={660}
-                  lazy
-                  iframeProps={{ title: 'Yonko Level Studio project enquiry' }}
-                  onReady={() => posthog?.capture('studio_enquiry_form_loaded')}
-                  onStarted={handleEnquiryStarted}
-                  onSubmit={() =>
-                    posthog?.capture('studio_enquiry_submitted', {
-                      method: 'typeform',
-                    })
-                  }
-                />
-              </div>
-              <p className='mt-5 text-sm leading-7 text-white/65'>
-                We will only use these details to discuss your enquiry.
-              </p>
-              <p className='mt-3 text-sm leading-7 text-white/65'>
-                If the form is unavailable, email{' '}
+              <p className='mt-6 text-sm leading-7 text-white/50'>
+                We will only use these details to discuss your enquiry. Prefer
+                email? Write to{' '}
                 <a
                   href={studioEmail}
                   onClick={() =>
@@ -425,6 +496,24 @@ export default function StudioClient() {
                 </a>
                 .
               </p>
+
+              <FounderSprite className='pointer-events-none mt-14 hidden w-[150px] lg:block' />
+            </div>
+
+            <div className='min-h-[660px] overflow-hidden bg-white lg:mt-2'>
+              <Widget
+                id='JpaDXdWY'
+                height={660}
+                lazy
+                iframeProps={{ title: 'Yonko Level Studio project enquiry' }}
+                onReady={() => posthog?.capture('studio_enquiry_form_loaded')}
+                onStarted={handleEnquiryStarted}
+                onSubmit={() =>
+                  posthog?.capture('studio_enquiry_submitted', {
+                    method: 'typeform',
+                  })
+                }
+              />
             </div>
           </div>
         </Container>

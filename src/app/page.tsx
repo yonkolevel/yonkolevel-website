@@ -118,7 +118,7 @@ const Home = () => {
                     destination: '/studio',
                   })
                 }
-                className='mt-8 inline-flex items-center border-b border-orange pb-2 font-pixel text-sm uppercase tracking-[0.12em] text-white transition-colors hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-4 focus-visible:ring-offset-black'
+                className='mt-10 inline-flex min-h-12 items-center rounded-full border-2 border-orange px-7 font-pixel text-xs uppercase tracking-[0.12em] text-white transition-colors hover:bg-orange hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-4 focus-visible:ring-offset-black'
               >
                 Visit the Studio →
               </Link>
