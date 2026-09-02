@@ -6,19 +6,20 @@ import Container from '@/components/Container';
  * one person. Same compact band as the trusted-by strip: a label and a row,
  * not a section. Add to the list only with the person's agreement.
  */
-const friends = [
+type Friend = { name: string; role: string; href?: string };
+
+const friends: Friend[] = [
   {
     name: 'Délcio Baptista',
     role: 'Design',
     href: 'https://www.linkedin.com/in/delciobaptista/',
   },
-  { name: 'Tiago', role: 'Engineering' },
   {
     name: 'Anthony Cossins',
     role: 'Web & interactive',
     href: 'https://anthonycossins.com/',
   },
-] as const;
+];
 
 export default function Friends() {
   return (
@@ -38,7 +39,7 @@ export default function Friends() {
             {friends.map((friend) => (
               <li key={friend.name} className='flex flex-col gap-[0.35rem]'>
                 <span className='font-pixel text-sm uppercase tracking-[0.08em] text-white'>
-                  {'href' in friend ? (
+                  {friend.href ? (
                     <a
                       href={friend.href}
                       target='_blank'
