@@ -181,6 +181,13 @@ const friends = [
     detail:
       'Software engineer and music producer, with a master’s thesis on turning audio into MIDI. Wrote the backend tests and set up the observability and CI that let Midicircuit v1 ship with confidence.',
   },
+  {
+    role: 'WEB & INTERACTIVE',
+    name: 'Anthony Cossins',
+    href: 'https://anthonycossins.com/',
+    detail:
+      'Senior software engineer who specialises in user-facing features for web applications and interactive experiences, with time at Framer, the BBC and Signal-Noise behind him.',
+  },
 ] as const;
 
 const STUDIO_ADDRESS = 'team@yonkolevel.com';
@@ -745,15 +752,28 @@ export default function StudioClient() {
             </div>
 
             <ul role='list' className='contents'>
-              {friends.map(({ role, name, detail }) => (
-                <li key={name}>
+              {friends.map((friend) => (
+                <li key={friend.name}>
                   <CellMarker>
-                    <p className={`${MARKER} text-orange`}>{role}</p>
+                    <p className={`${MARKER} text-orange`}>{friend.role}</p>
                   </CellMarker>
                   <h3 className={`mt-[2rem] ${CELL_TITLE} text-white`}>
-                    {name}
+                    {'href' in friend ? (
+                      <a
+                        href={friend.href}
+                        target='_blank'
+                        rel='noreferrer'
+                        className='border-b border-orange pb-1 transition-colors hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-4 focus-visible:ring-offset-black'
+                      >
+                        {friend.name}
+                      </a>
+                    ) : (
+                      friend.name
+                    )}
                   </h3>
-                  <p className={`mt-5 ${BODY} text-white/70`}>{detail}</p>
+                  <p className={`mt-5 ${BODY} text-white/70`}>
+                    {friend.detail}
+                  </p>
                 </li>
               ))}
             </ul>
