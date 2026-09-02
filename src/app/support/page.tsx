@@ -42,7 +42,7 @@ export default function SupportPage() {
           {/* Get Help */}
           <section className='mb-16'>
             <h2 className='font-pixel text-sm text-[#FCC552]/60 tracking-widest mb-6'>
-              // GET HELP
+              {'// GET HELP'}
             </h2>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
               <a
@@ -75,7 +75,7 @@ export default function SupportPage() {
           {/* Apps */}
           <section>
             <h2 className='font-pixel text-sm text-[#FCC552]/60 tracking-widest mb-6'>
-              // APPS
+              {'// APPS'}
             </h2>
             <div className='grid grid-cols-1 gap-4'>
               {APPS.map((app) => (

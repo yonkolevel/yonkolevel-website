@@ -27,7 +27,8 @@ Use Node `22.x`, as declared in `package.json`.
 - `npm run dev` starts the local Next.js development server.
 - `npm run build` creates a production build and catches type/build issues.
 - `npm run start` serves the production build after `npm run build`.
-- `npm run lint` runs the Next.js ESLint rules.
+- `npm run lint` runs ESLint over `src` (`eslint . --ext .ts,.tsx`). Next 16 removed `next lint`, so the script calls ESLint directly.
+- `npm run typecheck` runs `tsc --noEmit`. Run it alongside lint and build: a type error does not always fail `npm run build`.
 - `npm run email:dev` starts the React Email hot-reload preview server at `http://localhost:3100`. Sidebar shows all newsletter variants; edits to `src/emails/NewsletterEmail.tsx` appear instantly.
 - `npm run email:build` exports minified HTML for all email templates to `.email-output/`.
 - `npm run email:export` exports pretty-printed HTML for all email templates to `.email-output/`.
