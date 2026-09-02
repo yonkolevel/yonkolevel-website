@@ -240,7 +240,7 @@ function CellMarker({ children }: { children?: React.ReactNode }) {
 }
 
 const SPRITE_WALKING = '/images/pixel/characters/ricardo-walk.gif';
-const SPRITE_IDLE = '/images/pixel/characters/ricardo-idle.gif';
+const SPRITE_IDLE = '/images/pixel/characters/ricardo-idle.webp';
 const SPRITE_STILL = '/images/pixel/characters/ricardo-idle.png';
 
 /**
@@ -298,23 +298,44 @@ function FounderSprite({
   );
 }
 
-/** The original fist-bump animation from the old About page, still frame under reduced motion. */
+/**
+ * The original fist-bump animation from the old About page. The file plays
+ * once, so it is mounted only when it scrolls into view — otherwise the bump
+ * would be over long before anyone reached it. Reduced motion gets the still.
+ */
 function FistBump() {
   const prefersReducedMotion = useReducedMotion();
-  const [mounted, setMounted] = React.useState(false);
-  React.useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+  const ref = React.useRef<HTMLDivElement>(null);
+  const [seen, setSeen] = React.useState(false);
+
+  React.useEffect(() => {
+    const node = ref.current;
+    if (!node || seen) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) setSeen(true);
+      },
+      { threshold: 0.6 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [seen]);
+
   return (
-    <PixelSprite
-      src={
-        prefersReducedMotion
-          ? '/images/pixel/scenes/fist-pump.png'
-          : '/images/pixel/scenes/fist-pump.gif'
-      }
-      width={160}
-      height={144}
-      scale={2}
-    />
+    <div ref={ref} className='h-[288px] w-[320px]'>
+      {seen && (
+        <PixelSprite
+          src={
+            prefersReducedMotion
+              ? '/images/pixel/scenes/fist-pump.png'
+              : '/images/pixel/scenes/fist-pump.webp'
+          }
+          width={160}
+          height={144}
+          scale={2}
+        />
+      )}
+    </div>
   );
 }
 

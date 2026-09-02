@@ -64,12 +64,12 @@ export default function Friends() {
             className='hidden items-end gap-[0.5rem] lg:ml-auto lg:flex'
           >
             <PixelSprite
-              src='/images/pixel/characters/ricardo-idle.gif'
+              src='/images/pixel/characters/ricardo-idle.webp'
               width={128}
               height={128}
             />
             <PixelSprite
-              src='/images/pixel/characters/delcio-idle.gif'
+              src='/images/pixel/characters/delcio-idle.webp'
               width={128}
               height={128}
             />
