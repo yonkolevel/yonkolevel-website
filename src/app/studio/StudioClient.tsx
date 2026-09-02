@@ -301,7 +301,7 @@ function FounderSprite({
 /**
  * The original fist-bump animation from the old About page. It rests on its
  * first frame (fists apart) and plays once each time `play` increments —
- * the enquiry button bumps it. Reduced motion keeps the still.
+ * hovering or focusing the enquiry button bumps it. Reduced motion keeps the still.
  */
 function FistBump({ play }: { play: number }) {
   const prefersReducedMotion = useReducedMotion();
@@ -329,9 +329,11 @@ export default function StudioClient() {
   const enquiryStarted = React.useRef(false);
   const [bumps, setBumps] = React.useState(0);
 
+  // the bump replays on every hover (and keyboard focus); the analytics
+  // event fires once, on the first press
+  const bump = () => setBumps((n) => n + 1);
+
   const handleEnquiryStarted = () => {
-    // the bump replays on every press; the analytics event fires once
-    setBumps((n) => n + 1);
     if (enquiryStarted.current) return;
 
     enquiryStarted.current = true;
@@ -768,6 +770,8 @@ export default function StudioClient() {
               <a
                 href={studioEmail}
                 onClick={handleEnquiryStarted}
+                onMouseEnter={bump}
+                onFocus={bump}
                 className={`mt-10 inline-flex min-h-12 items-center rounded-full bg-black px-7 ${EYEBROW} tracking-[0.12em] text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-originalYellow`}
               >
                 Start an email →
