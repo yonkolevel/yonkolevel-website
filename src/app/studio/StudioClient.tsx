@@ -22,20 +22,23 @@ const expertise = [
   {
     Mark: CreateMark,
     title: 'CREATE',
+    promise: 'Ideas that need to become real.',
     description:
-      'New mobile products, technical prototypes, major features and architecture for ideas that need to become real.',
+      'New mobile products, technical prototypes, major features and architecture—from a sketch to something in the store.',
   },
   {
     Mark: StrengthenMark,
     title: 'STRENGTHEN',
+    promise: 'Make what you have hold up.',
     description:
-      'Performance, production reliability, analytics, release processes, CI/CD and difficult technical modernisation.',
+      'Performance, production reliability, analytics, release processes, CI/CD and the technical modernisation everyone has been putting off.',
   },
   {
     Mark: ConnectMark,
     title: 'CONNECT',
+    promise: 'Software that touches the real world.',
     description:
-      'Audio, MIDI, camera systems, hardware integrations, payments, location services, health data and HealthKit—products that interact with the physical world.',
+      'Audio, MIDI, cameras, connected hardware, payments, location and health data—the parts of a product that meet something physical.',
   },
 ] as const;
 
@@ -64,61 +67,57 @@ const products = [
   },
 ] as const;
 
-/** The three surfaces a partnership can call on, framed by what they buy. */
+/** The three surfaces a partnership can call on, led by the promise. */
 const surfaces = [
   {
-    title: 'MOBILE',
+    label: 'MOBILE',
+    promise: 'One codebase, both stores, no drama.',
     description:
-      'Cross-platform React Native on codebases that have outgrown their first design: feature-driven architecture that lets several teams ship at once, release trains across both stores, and the performance work that keeps a large app fast.',
+      'We take apps that have outgrown their first architecture and make them modular, fast and releasable again—so several teams can ship in the same week without standing on each other.',
   },
   {
-    title: 'NATIVE',
+    label: 'NATIVE',
+    promise: 'When the platform is the product.',
     description:
-      'Swift, SwiftUI, Kotlin and Objective-C when the platform is the product—audio engines, camera pipelines, HealthKit—plus native modules bridged into JavaScript for the things a cross-platform layer cannot reach, like card scanning.',
+      'Audio engines, camera pipelines, health data and hardware integrations: the work a cross-platform layer cannot reach, written natively and bridged in cleanly.',
   },
   {
-    title: 'WEB',
+    label: 'WEB',
+    promise: 'The service behind the app.',
     description:
-      'React, Next.js, Node and Go behind the app: GraphQL and REST services, booking and scheduling systems, shared component libraries, and front-end performance on data-heavy screens and very long lists.',
+      'APIs, dashboards, booking flows and sites that hold up under real traffic, so the product does not stop at the app icon.',
   },
 ] as const;
 
 /**
- * Roles and product work from before Yonko Level Studio, written as what the
- * work produced. Named deliberately as past employers — never as Studio
- * clients.
+ * Outcomes from the founder's product-engineering career and Yonko Level's own
+ * releases. Stated as results rather than roles — no employer is a client.
  */
-const experience = [
+const trackRecord = [
   {
-    domain: 'SCALE · TRAINLINE',
-    name: 'Large-scale rail, shipped',
+    label: 'REACH',
+    headline: 'Hundreds of thousands of users',
     detail:
-      'Staff Engineer on Europe’s leading train and coach app: Digital PAYG delivered across multiple train operators, coordinating releases and production deployments for a product hundreds of thousands of people rely on.',
+      'Mobile products shipped for national-scale audiences, with the release and deployment discipline that keeps them steady.',
   },
   {
-    domain: 'RELIABILITY · TRAINLINE',
-    name: '70% fewer critical incidents',
+    label: 'RELIABILITY',
+    headline: '70% fewer critical incidents',
     detail:
-      'Crash resolution, monitoring, observability and proactive alerting, with calm technical leadership during live incidents—then the analytics and data infrastructure to make the next decision with evidence.',
+      'Crash resolution, monitoring, observability and proactive alerting on products people depend on every day.',
   },
   {
-    domain: 'HEALTH · BABYLON HEALTH',
-    name: 'Apple Health, end to end',
+    label: 'RANGE',
+    headline: 'Nearly a decade of shipping',
     detail:
-      'Nearly two years in digital-first healthcare: assessing the existing solution, mapping the roadmap and shipping a new library into the app, alongside a real-time health score built on key datapoints.',
+      'Travel, health, fintech, retail and consumer apps—including regulated domains where a mistake is expensive.',
   },
   {
-    domain: 'FINTECH · OVALX · CAPITAL ON TAP',
-    name: 'Money, moved carefully',
+    label: 'RECOGNITION',
+    headline: 'Apple Entrepreneur Camp alumni',
     detail:
-      'Trading and banking platforms, payment gateways, fraud detection and card scanning—plus the front-end architecture and component libraries other teams built on.',
+      'Midicircuit has been praised by Ableton and Abbey Road Red, and our audio engineering was presented at ADC Japan 2026.',
   },
-] as const;
-
-/** Outcomes worth stating plainly, without attaching them to one employer. */
-const experienceProof = [
-  'Mobile products used by hundreds of thousands of people.',
-  'Nearly a decade across travel, health, fintech, retail and consumer apps.',
 ] as const;
 
 const engagements = [
@@ -452,12 +451,17 @@ export default function StudioClient() {
               </p>
             </div>
 
-            {expertise.map(({ Mark, title, description }) => (
+            {expertise.map(({ Mark, title, promise, description }) => (
               <article key={title}>
                 <CellMarker>
-                  <Mark className='h-14 w-14 md:h-16 md:w-16' />
+                  <div className='flex items-center gap-4'>
+                    <Mark className='h-14 w-14 md:h-16 md:w-16' />
+                    <p className={`${MARKER} text-orange`}>{title}</p>
+                  </div>
                 </CellMarker>
-                <h3 className={`mt-8 ${CELL_TITLE} text-white`}>{title}</h3>
+                <h3 className='mt-8 font-pixel text-base leading-snug text-white md:text-lg'>
+                  {promise}
+                </h3>
                 <p className={`mt-5 ${BODY} text-white/70`}>{description}</p>
               </article>
             ))}
@@ -487,12 +491,14 @@ export default function StudioClient() {
               </p>
             </div>
 
-            {surfaces.map(({ title, description }, index) => (
-              <article key={title}>
+            {surfaces.map(({ label, promise, description }) => (
+              <article key={label}>
                 <CellMarker>
-                  <p className={`${MARKER} text-white/40`}>0{index + 1}</p>
+                  <p className={`${MARKER} text-orange`}>{label}</p>
                 </CellMarker>
-                <h3 className={`mt-8 ${CELL_TITLE} text-white`}>{title}</h3>
+                <h3 className='mt-8 font-pixel text-base leading-snug text-white md:text-lg'>
+                  {promise}
+                </h3>
                 <p className={`mt-5 ${BODY} text-white/70`}>{description}</p>
               </article>
             ))}
@@ -577,7 +583,7 @@ export default function StudioClient() {
       {/* ---------------------------------------------------------- EXPERIENCE */}
       <section
         className='bg-black py-24 md:py-32'
-        aria-labelledby='experience-title'
+        aria-labelledby='record-title'
       >
         <Container>
           <SectionGrid>
@@ -591,37 +597,25 @@ export default function StudioClient() {
               ]}
             >
               <p className={`mb-5 ${EYEBROW} text-black/70`}>
-                {'// SELECTED EXPERIENCE, NOT A CLIENT LIST'}
+                {'// TRACK RECORD'}
               </p>
-              <h2 id='experience-title' className={`${HEADING} text-black`}>
-                Selected experience
+              <h2 id='record-title' className={`${HEADING} text-black`}>
+                Proven in production
               </h2>
               <p className={`mt-10 ${BODY} text-black/80`}>
-                Roles and product work from Ricardo’s career before Yonko Level
-                Studio. These are past employers and projects, not Studio
-                clients.
+                Results from our own releases and from a decade of building
+                inside product teams. Numbers first—names on request.
               </p>
-
-              <ul role='list' className='mt-10 border-t border-black/20'>
-                {experienceProof.map((item) => (
-                  <li
-                    key={item}
-                    className='border-b border-black/20 py-5 text-base font-medium leading-7 text-black'
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
             </PixelPanel>
 
             <ul role='list' className='contents'>
-              {experience.map(({ domain, name, detail }) => (
-                <li key={name}>
+              {trackRecord.map(({ label, headline, detail }) => (
+                <li key={headline}>
                   <CellMarker>
-                    <p className={`${MARKER} text-orange`}>{domain}</p>
+                    <p className={`${MARKER} text-orange`}>{label}</p>
                   </CellMarker>
                   <h3 className='mt-8 font-pixel text-base leading-snug text-white md:text-lg'>
-                    {name}
+                    {headline}
                   </h3>
                   <p className={`mt-5 ${BODY} text-white/70`}>{detail}</p>
                 </li>
