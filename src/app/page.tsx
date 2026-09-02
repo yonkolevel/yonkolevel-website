@@ -28,7 +28,7 @@ const Home = () => {
       />
       <AppShowcaseSection
         appName='INVISIBLE CAMERA'
-        appDescription="Tired of over-processed iPhone photos? Invisible Camera bypasses Deep Fusion and Smart HDR. See your shot in real-time. What you see is what you get."
+        appDescription='Tired of over-processed iPhone photos? Invisible Camera bypasses Deep Fusion and Smart HDR. See your shot in real-time. What you see is what you get.'
         appScreenshot='/products/invisible-camera/marketing/ic-viewfinder.webp'
         mediaType='image'
         learnMoreLink='/products/invisible-camera'
@@ -85,7 +85,10 @@ const Home = () => {
         ]}
       />
 
-      <section className='bg-black py-20 md:py-28' aria-labelledby='home-studio-title'>
+      <section
+        className='bg-black py-20 md:py-28'
+        aria-labelledby='home-studio-title'
+      >
         <Container>
           <div className='grid grid-cols-1 gap-10 border-t border-white/10 pt-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:pt-20'>
             <div>
@@ -104,9 +107,9 @@ const Home = () => {
 
             <div className='max-w-2xl lg:pt-10'>
               <p className='text-base leading-8 text-white/70 md:text-lg'>
-                Founder-led mobile product engineering for selected teams and brands, especially
-                products involving audio, cameras, connected hardware, payments, location or
-                complex real-world systems.
+                We make our own apps, and we help a few teams and brands make
+                theirs, especially the awkward ones: audio, cameras, hardware,
+                payments, anything that touches the real world.
               </p>
               <p className='mt-5 font-pixel text-xs uppercase tracking-[0.16em] text-white/50'>
                 One principal partnership at a time.

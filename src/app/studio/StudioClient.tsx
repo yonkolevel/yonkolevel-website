@@ -344,9 +344,9 @@ export default function StudioClient() {
               </h1>
 
               <p className='mt-10 max-w-2xl text-lg leading-9 text-black md:text-xl'>
-                Founder-led product engineering for founders and teams building
-                ambitious mobile products. We take on one principal partnership
-                at a time.
+                We build mobile products for a living, and we help a few other
+                teams build theirs. One partnership at a time, with the founder
+                doing the work.
               </p>
 
               <div className='mt-12 flex flex-col items-start'>
@@ -397,10 +397,11 @@ export default function StudioClient() {
                 Where good products get unstuck
               </h2>
               <p className={`mt-10 ${BODY} text-white/70`}>
-                Yonko Level is an independent product company and a selective
-                product-engineering studio. We partner with teams to shape,
-                build and improve ambitious mobile software, particularly where
-                craft, reliability and unusual technical constraints matter.
+                Yonko Level is where we make our own apps. The Studio is the
+                part where we work on other people’s. We like the problems that
+                are awkward on purpose: audio, cameras, hardware, the places
+                where a normal app framework runs out. If yours is one of those,
+                we’ll get on.
               </p>
             </div>
 
@@ -437,10 +438,10 @@ export default function StudioClient() {
                 The whole product, not one layer
               </h2>
               <p className={`mt-10 ${BODY} text-white/70`}>
-                Studio work covers the whole product, not one layer of it. The
-                same person does the architecture, the awkward native work and
-                the release, so decisions hold together from the app icon down
-                to the service behind it.
+                We don’t hand things off. The architecture, the native work
+                nobody wants to touch, and the release itself: same pair of
+                hands. Fewer things fall through the gaps, because there aren’t
+                many gaps.
               </p>
             </div>
 
@@ -474,8 +475,10 @@ export default function StudioClient() {
                 We ship our own products
               </h2>
               <p className={`mt-10 ${BODY} text-white/70`}>
-                We build and ship our own products. That first-hand experience
-                is the foundation of every Studio partnership.
+                We’ve been shipping Midicircuit for five years, through a pivot,
+                an Apple Entrepreneur Camp and a lot of App Store reviews.
+                Invisible Camera came after. Everything we bring to a
+                partnership, we learned the hard way on our own products first.
               </p>
             </div>
 
@@ -570,8 +573,9 @@ export default function StudioClient() {
                 Proven in production
               </h2>
               <p className={`mt-10 ${BODY} text-black/80`}>
-                Results from our own releases and from earlier product-team
-                work. Numbers first. The work is what matters.
+                Some of this is from our own releases, some from years inside
+                other people’s product teams. We’d rather show numbers than
+                adjectives. Ask us about any of them.
               </p>
             </PixelPanel>
 
@@ -617,9 +621,10 @@ export default function StudioClient() {
                 A clear path to shipping
               </h2>
               <p className='mt-10 text-lg leading-9 text-white md:text-xl'>
-                Start with a focused product health sprint. Continue with a
-                bounded build partnership or ongoing fractional technical
-                leadership where the work warrants it.
+                We start small, on purpose. A short health sprint tells us both
+                whether this is worth doing. If it is, we carry on: a bounded
+                build, or a fractional lead on your team. If it isn’t, you still
+                leave with a written plan.
               </p>
             </PixelPanel>
 
@@ -669,15 +674,17 @@ export default function StudioClient() {
               </h2>
               <div className={`mt-10 space-y-6 ${BODY} text-white`}>
                 <p>
-                  Yonko Level is led by Ricardo Abreu, a mobile product engineer
-                  with experience shipping consumer software across creative
-                  technology, transport, health, payments and high-reliability
-                  systems.
+                  Yonko Level is led by Ricardo Abreu. He has spent a decade
+                  shipping consumer apps in travel, health, payments and
+                  creative tech, and the last five building our own. He loves
+                  understanding problems, solving them, making new things, and
+                  teaching people to do the same.
                 </p>
                 <p>
-                  Ricardo works directly on every engagement. When a project
-                  benefits from additional expertise, Yonko Level works with a
-                  small network of trusted independent collaborators.
+                  Ricardo does the work himself. When a project needs more than
+                  one person, we bring in friends we’ve worked with for years,
+                  on design and on code. Never a bench, never a handover to
+                  someone you haven’t met.
                 </p>
               </div>
             </PixelPanel>
@@ -721,8 +728,9 @@ export default function StudioClient() {
                 Tell us what you are building
               </h2>
               <p className={`mt-10 ${BODY} text-black/80`}>
-                Start with an email. The link fills in a few useful questions.
-                Answer what you can and leave the rest.
+                Just email us. The link fills in the questions we’d ask anyway;
+                answer the ones you can and skip the rest. Ricardo reads
+                everything himself.
               </p>
 
               <a
