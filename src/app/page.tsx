@@ -104,9 +104,9 @@ const Home = () => {
 
             <div className='max-w-2xl lg:pt-10'>
               <p className='text-base leading-8 text-white/70 md:text-lg'>
-                Founder-led product engineering for ambitious mobile software—especially products
-                involving audio, cameras, connected hardware, payments, location, or complex
-                real-world systems.
+                Founder-led mobile product engineering for selected product teams—especially
+                products involving audio, cameras, connected hardware, payments, location or
+                complex real-world systems.
               </p>
               <p className='mt-5 font-pixel text-xs uppercase tracking-[0.16em] text-white/50'>
                 One principal partnership at a time.

@@ -2,11 +2,11 @@ import type { Metadata } from 'next';
 import StudioClient from './StudioClient';
 
 const description =
-  'Founder-led product engineering for ambitious mobile software, including audio, camera, connected hardware, payments, location and high-reliability systems.';
+  'Founder-led mobile product engineering for ambitious product teams—from new apps and architecture to native systems and reliable releases.';
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Yonko Level Studio — Mobile Product Engineering',
+    absolute: 'Yonko Level Studio — Founder-led Mobile Product Engineering',
   },
   description,
   keywords: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     'fractional engineering lead',
   ],
   openGraph: {
-    title: 'Yonko Level Studio — Mobile Product Engineering',
+    title: 'Yonko Level Studio — Founder-led Mobile Product Engineering',
     description,
     url: 'https://yonkolevel.com/studio',
     type: 'website',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Yonko Level Studio — Mobile Product Engineering',
+    title: 'Yonko Level Studio — Founder-led Mobile Product Engineering',
     description,
     images: ['/images/og-image.jpg'],
   },

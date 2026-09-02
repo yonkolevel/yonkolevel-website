@@ -73,7 +73,7 @@ const products = [
 const surfaces = [
   {
     label: 'MOBILE',
-    promise: 'One codebase, both stores, no drama.',
+    promise: 'One codebase. Both app stores. Easier releases.',
     description:
       'We take apps that have outgrown their first architecture and make them modular, fast and releasable again—so several teams can ship in the same week without standing on each other.',
   },
@@ -81,11 +81,11 @@ const surfaces = [
     label: 'NATIVE',
     promise: 'When the platform is the product.',
     description:
-      'Audio engines, camera pipelines, health data and hardware integrations: the work a cross-platform layer cannot reach, written natively and bridged in cleanly.',
+      'Audio engines, camera pipelines, health data and hardware integrations: where a cross-platform layer is not enough, written natively and bridged into the app cleanly.',
   },
   {
     label: 'WEB',
-    promise: 'The service behind the app.',
+    promise: 'APIs and web flows that hold up.',
     description:
       'APIs, dashboards, booking flows and sites that hold up under real traffic, so the product does not stop at the app icon.',
   },
@@ -100,25 +100,25 @@ const trackRecord = [
     label: 'REACH',
     headline: 'Hundreds of thousands of users',
     detail:
-      'Mobile products shipped to national and international audiences, with the release and deployment discipline that keeps them steady.',
+      'A past product-team outcome: mobile releases built for national and international audiences in the hundreds of thousands.',
   },
   {
     label: 'RELIABILITY',
     headline: '70% fewer critical incidents',
     detail:
-      'Crash resolution, monitoring, observability and proactive alerting on products people depend on every day.',
+      'A measured result from earlier product-team work: crash resolution, monitoring, observability and proactive alerting.',
   },
   {
     label: 'RANGE',
-    headline: 'Nearly a decade of shipping',
+    headline: 'Nearly a decade in product teams',
     detail:
-      'Travel, health, fintech, retail and consumer apps—including regulated domains where a mistake is expensive.',
+      'Work across travel, health, fintech, retail and consumer apps—including regulated products where reliability matters.',
   },
   {
     label: 'RECOGNITION',
     headline: 'Apple Entrepreneur Camp alumni',
     detail:
-      'Midicircuit has been praised by Ableton and Abbey Road Red, and our audio engineering was presented at ADC Japan 2026.',
+      'Selected for Apple’s Entrepreneur Camp with Midicircuit, and our audio engineering was presented at ADC Japan 2026.',
   },
 ] as const;
 
@@ -155,7 +155,7 @@ const enquiryPrompts = [
   'What are you trying to ship, fix or understand?',
   'What would a successful outcome look like?',
   'Desired start date',
-  'Expected investment — under £10k · £10k–£25k · £25k–£50k · £50k+ · not sure yet',
+  'Constraints, dependencies or decisions already made',
 ] as const;
 
 /**
@@ -401,8 +401,9 @@ export default function StudioClient() {
               </h1>
 
               <p className='mt-10 max-w-2xl text-lg leading-9 text-black md:text-xl'>
-                Founder-led product engineering for ambitious mobile software.
-                We take on one principal partnership at a time.
+                Founder-led product engineering for founders and teams building
+                ambitious mobile products. We take on one principal partnership
+                at a time.
               </p>
 
               <div className='mt-12 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-[2rem]'>
@@ -414,7 +415,7 @@ export default function StudioClient() {
                   Tell us what you are building →
                 </a>
                 <p className={`${EYEBROW} tracking-[0.14em] text-black/60`}>
-                  Limited partnerships. Founder-led.
+                  For founders and product teams.
                 </p>
               </div>
 
@@ -443,7 +444,7 @@ export default function StudioClient() {
                 {'// WHERE WE HELP'}
               </p>
               <h2 id='expertise-title' className={`${HEADING} text-white`}>
-                Areas of expertise
+                Where good products get unstuck
               </h2>
               <p className={`mt-10 ${BODY} text-white/70`}>
                 Yonko Level is an independent product company and a selective
@@ -483,7 +484,7 @@ export default function StudioClient() {
                 {'// WHAT WE BRING'}
               </p>
               <h2 id='surfaces-title' className={`${HEADING} text-white`}>
-                Depth where it counts
+                The whole product, not one layer
               </h2>
               <p className={`mt-10 ${BODY} text-white/70`}>
                 Studio work covers the whole product, not one layer of it. The
@@ -520,7 +521,7 @@ export default function StudioClient() {
                 {'// PRODUCT COMPANY FIRST'}
               </p>
               <h2 id='products-title' className={`${HEADING} text-white`}>
-                Products we have built
+                We ship our own products
               </h2>
               <p className={`mt-10 ${BODY} text-white/70`}>
                 We build and ship our own products. That first-hand experience
@@ -605,8 +606,8 @@ export default function StudioClient() {
                 Proven in production
               </h2>
               <p className={`mt-10 ${BODY} text-black/80`}>
-                Results from our own releases and from a decade of building
-                inside product teams. Numbers first—names on request.
+                Results from our own releases and from earlier product-team
+                work. Numbers first. The work is what matters.
               </p>
             </PixelPanel>
 
@@ -647,7 +648,7 @@ export default function StudioClient() {
                 {'// ENGAGEMENTS'}
               </p>
               <h2 id='work-title' className={`${HEADING} text-white`}>
-                How we work
+                A clear path to shipping
               </h2>
               <p className='mt-10 text-lg leading-9 text-white md:text-xl'>
                 Start with a focused product health sprint. Continue with a
@@ -696,7 +697,7 @@ export default function StudioClient() {
                 {'// FOUNDER-LED'}
               </p>
               <h2 id='founder-title' className={`${HEADING} text-white`}>
-                Who you work with
+                The founder stays in the work
               </h2>
               <div className={`mt-10 space-y-6 ${BODY} text-white`}>
                 <p>
@@ -750,8 +751,8 @@ export default function StudioClient() {
                 Tell us what you are building
               </h2>
               <p className={`mt-10 ${BODY} text-black/80`}>
-                Send us an email. The link opens a message with the useful
-                questions already in it—answer what you can and leave the rest.
+                Start with an email. The link fills in a few useful
+                questions—answer what you can and leave the rest.
               </p>
 
               <a
