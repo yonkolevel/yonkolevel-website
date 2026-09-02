@@ -100,7 +100,7 @@ const trackRecord = [
     label: 'REACH',
     headline: 'Hundreds of thousands of users',
     detail:
-      'Mobile products shipped for national-scale audiences, with the release and deployment discipline that keeps them steady.',
+      'Mobile products shipped to national and international audiences, with the release and deployment discipline that keeps them steady.',
   },
   {
     label: 'RELIABILITY',
