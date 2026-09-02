@@ -37,7 +37,8 @@ export default function ProductHero({
   color: string;
   render: string;
   renderAlt: string;
-  renderFit?: 'tall' | 'wide';
+  /** tall: rises out of the panel's bottom edge; full: the whole render, contained; wide: a landscape render, contained */
+  renderFit?: 'tall' | 'full' | 'wide';
   backdrop?: string;
   appStoreUrl?: string;
   googlePlayUrl?: string;
@@ -155,7 +156,9 @@ export default function ProductHero({
               className={
                 renderFit === 'wide'
                   ? 'absolute inset-5 sm:inset-8'
-                  : 'absolute inset-x-0 -bottom-[18%] top-[2.5rem] sm:top-12'
+                  : renderFit === 'full'
+                    ? 'absolute inset-x-0 bottom-[3rem] top-[3rem]' // clear of the 40px perimeter cells that shed
+                    : 'absolute inset-x-0 -bottom-[18%] top-[2.5rem] sm:top-12'
               }
             >
               <Image
@@ -165,9 +168,9 @@ export default function ProductHero({
                 priority
                 sizes='(min-width: 720px) 50vw, 100vw'
                 className={
-                  renderFit === 'wide'
-                    ? 'object-contain object-center'
-                    : 'object-contain object-top'
+                  renderFit === 'tall'
+                    ? 'object-contain object-top'
+                    : 'object-contain object-center'
                 }
               />
             </div>

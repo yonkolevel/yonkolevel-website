@@ -28,6 +28,7 @@ export default function InvisibleCameraClient() {
         color='#F3B23F'
         render='/products/invisible-camera/marketing/ic-viewfinder.webp'
         renderAlt='Invisible Camera viewfinder with the AMY film look, framing a street scene in Tokyo'
+        renderFit='full'
         backdrop='/products/invisible-camera/cover-photo-full-pixelated.jpg'
         appStoreUrl='https://apps.apple.com/gb/app/invisible-camera/id6477348664'
       />
