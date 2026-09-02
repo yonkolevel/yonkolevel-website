@@ -25,7 +25,7 @@ export default function TrustedBy() {
   return (
     <section className='bg-black' aria-labelledby='trusted-by-title'>
       <Container>
-        <div className='flex flex-col gap-[1.75rem] border-t border-white/10 pb-[5rem] pt-[2.5rem] md:pb-[7rem] lg:flex-row lg:items-center lg:gap-[4rem] lg:pb-[10rem] lg:pt-[3rem]'>
+        <div className='flex flex-col items-center gap-[1.75rem] border-t border-white/10 py-[2.5rem] text-center lg:py-[3rem]'>
           <h2
             id='trusted-by-title'
             className='shrink-0 font-pixel text-xs uppercase tracking-[0.22em] text-orange'
@@ -34,7 +34,7 @@ export default function TrustedBy() {
           </h2>
           <ul
             role='list'
-            className='flex flex-wrap items-center gap-x-[2.75rem] gap-y-[1.25rem] text-white/55'
+            className='flex flex-wrap items-center justify-center gap-x-[2.75rem] gap-y-[1.25rem] text-white/55'
           >
             {companies.map(({ name, src, width, height }) => (
               <li key={name} className='flex items-center'>
