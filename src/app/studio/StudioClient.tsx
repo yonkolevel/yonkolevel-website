@@ -61,8 +61,9 @@ const products = [
       'Bypass Apple’s Deep Fusion and Smart HDR for authentic, film-like photos. See exactly what you will capture in real time—no surprises, no post-processing.',
     href: '/products/invisible-camera',
     icon: '/products/invisible-camera/app-icon.png',
-    render: '/products/invisible-camera/ic-app-store-preview.png',
-    renderAlt: 'Invisible Camera viewfinder on iPhone',
+    render: '/products/invisible-camera/marketing/ic-viewfinder.webp',
+    renderAlt:
+      'Invisible Camera viewfinder on iPhone, framing a street scene in Tokyo',
     plate: '#F3B23F',
   },
 ] as const;
