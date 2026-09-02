@@ -299,43 +299,26 @@ function FounderSprite({
 }
 
 /**
- * The original fist-bump animation from the old About page. The file plays
- * once, so it is mounted only when it scrolls into view — otherwise the bump
- * would be over long before anyone reached it. Reduced motion gets the still.
+ * The original fist-bump animation from the old About page. It rests on its
+ * first frame (fists apart) and plays once each time `play` increments —
+ * the enquiry button bumps it. Reduced motion keeps the still.
  */
-function FistBump() {
+function FistBump({ play }: { play: number }) {
   const prefersReducedMotion = useReducedMotion();
-  const ref = React.useRef<HTMLDivElement>(null);
-  const [seen, setSeen] = React.useState(false);
-
-  React.useEffect(() => {
-    const node = ref.current;
-    if (!node || seen) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) setSeen(true);
-      },
-      { threshold: 0.6 },
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, [seen]);
+  const animate = play > 0 && !prefersReducedMotion;
 
   return (
-    <div ref={ref} className='h-[288px] w-[320px]'>
-      {seen && (
-        <PixelSprite
-          src={
-            prefersReducedMotion
-              ? '/images/pixel/scenes/fist-pump.png'
-              : '/images/pixel/scenes/fist-pump.webp'
-          }
-          width={160}
-          height={144}
-          scale={2}
-        />
-      )}
-    </div>
+    <PixelSprite
+      key={animate ? play : 'still'}
+      src={
+        animate
+          ? '/images/pixel/scenes/fist-pump.webp'
+          : '/images/pixel/scenes/fist-pump.png'
+      }
+      width={160}
+      height={144}
+      scale={2}
+    />
   );
 }
 
@@ -344,8 +327,11 @@ function FistBump() {
 export default function StudioClient() {
   const posthog = usePostHog();
   const enquiryStarted = React.useRef(false);
+  const [bumps, setBumps] = React.useState(0);
 
   const handleEnquiryStarted = () => {
+    // the bump replays on every press; the analytics event fires once
+    setBumps((n) => n + 1);
     if (enquiryStarted.current) return;
 
     enquiryStarted.current = true;
@@ -801,7 +787,7 @@ export default function StudioClient() {
               </p>
 
               <div className='pointer-events-none mt-12 hidden lg:block'>
-                <FistBump />
+                <FistBump play={bumps} />
               </div>
             </PixelPanel>
 
