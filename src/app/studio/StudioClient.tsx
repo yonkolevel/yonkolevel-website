@@ -8,6 +8,7 @@ import { usePostHog } from 'posthog-js/react';
 import Container from '@/components/Container';
 import PixelPanel from '@/components/PixelPanel';
 import TrustedBy from '@/components/studio/TrustedBy';
+import Friends from '@/components/studio/Friends';
 import {
   AssessMark,
   BuildMark,
@@ -160,33 +161,6 @@ const engagements = [
     title: 'Fractional Product Engineering Lead',
     description:
       'Ongoing technical direction, architecture, mentoring, production ownership and selective implementation for teams that need senior mobile leadership without a full-time hire.',
-  },
-] as const;
-
-/**
- * Independent collaborators Yonko Level brings in when a project needs more
- * than one person. Both are named, with these roles, in the founder's own
- * blog posts; add to this list only with the person's agreement.
- */
-const friends = [
-  {
-    role: 'DESIGN',
-    name: 'Délcio Baptista',
-    detail:
-      'Designed Midicircuit from the first wireframes through v2, and the limited-edition pins we launched it with. A long-time friend, and the first person we call.',
-  },
-  {
-    role: 'ENGINEERING',
-    name: 'Tiago',
-    detail:
-      'Software engineer and music producer, with a master’s thesis on turning audio into MIDI. Wrote the backend tests and set up the observability and CI that let Midicircuit v1 ship with confidence.',
-  },
-  {
-    role: 'WEB & INTERACTIVE',
-    name: 'Anthony Cossins',
-    href: 'https://anthonycossins.com/',
-    detail:
-      'Senior software engineer who specialises in user-facing features for web applications and interactive experiences, with time at Framer, the BBC and Signal-Noise behind him.',
   },
 ] as const;
 
@@ -729,57 +703,7 @@ export default function StudioClient() {
         </Container>
       </section>
 
-      {/* ------------------------------------------------------------- FRIENDS */}
-      <section
-        className='overflow-hidden bg-black py-[5rem] md:py-[7rem] lg:py-[10rem]'
-        aria-labelledby='friends-title'
-      >
-        <Container>
-          <SectionGrid>
-            <div>
-              <p className={`mb-5 ${EYEBROW} text-orange`}>
-                {'// YONKO LEVEL FRIENDS'}
-              </p>
-              <h2 id='friends-title' className={`${HEADING} text-white`}>
-                The friends we bring in
-              </h2>
-              <p className={`mt-10 ${BODY} text-white/70`}>
-                Yonko Level is one person most days. On the days it isn’t, it’s
-                these people: independent, brilliant at one thing, and around
-                long enough that we don’t need a kickoff meeting. They’re not
-                employees, and we don’t pretend otherwise.
-              </p>
-            </div>
-
-            <ul role='list' className='contents'>
-              {friends.map((friend) => (
-                <li key={friend.name}>
-                  <CellMarker>
-                    <p className={`${MARKER} text-orange`}>{friend.role}</p>
-                  </CellMarker>
-                  <h3 className={`mt-[2rem] ${CELL_TITLE} text-white`}>
-                    {'href' in friend ? (
-                      <a
-                        href={friend.href}
-                        target='_blank'
-                        rel='noreferrer'
-                        className='border-b border-orange pb-1 transition-colors hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-4 focus-visible:ring-offset-black'
-                      >
-                        {friend.name}
-                      </a>
-                    ) : (
-                      friend.name
-                    )}
-                  </h3>
-                  <p className={`mt-5 ${BODY} text-white/70`}>
-                    {friend.detail}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </SectionGrid>
-        </Container>
-      </section>
+      <Friends />
 
       {/* ------------------------------------------------------------- ENQUIRY */}
       <section
