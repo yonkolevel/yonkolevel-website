@@ -349,6 +349,17 @@ export default function StudioClient() {
                 original prop set, composed into one scene and shown at 2x. */}
             <div
               aria-hidden='true'
+              className='pointer-events-none absolute bottom-0 right-6 z-50 hidden md:block xl:hidden'
+            >
+              <PixelSprite
+                src='/images/pixel/scenes/studio-desk.png'
+                width={172}
+                height={154}
+                scale={1}
+              />
+            </div>
+            <div
+              aria-hidden='true'
               className='pointer-events-none absolute bottom-0 right-0 z-50 hidden translate-x-1/2 xl:block'
             >
               <PixelSprite
