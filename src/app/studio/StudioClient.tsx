@@ -17,21 +17,23 @@ import {
   StrengthenMark,
 } from '@/components/studio/PixelMarks';
 
+/* ----------------------------------------------------------------- content */
+
 const expertise = [
   {
-    Spot: CreateMark,
+    Mark: CreateMark,
     title: 'CREATE',
     description:
       'New mobile products, technical prototypes, major features and architecture for ideas that need to become real.',
   },
   {
-    Spot: StrengthenMark,
+    Mark: StrengthenMark,
     title: 'STRENGTHEN',
     description:
       'Performance, production reliability, analytics, release processes, CI/CD and difficult technical modernisation.',
   },
   {
-    Spot: ConnectMark,
+    Mark: ConnectMark,
     title: 'CONNECT',
     description:
       'Audio, MIDI, camera systems, hardware integrations, payments, location services and products that interact with the physical world.',
@@ -41,8 +43,9 @@ const expertise = [
 const products = [
   {
     name: 'MIDICIRCUIT',
+    platforms: 'iPhone · iPad · Mac',
     description:
-      'A simple and approachable DAW for creating and sharing music. Record audio, lay down MIDI in real time, mix your tracks and export when you are ready. Works on iPhone, iPad and Mac.',
+      'A simple and approachable DAW for creating and sharing music. Record audio, lay down MIDI in real time, mix your tracks and export when you are ready.',
     href: '/products/midicircuit',
     image: '/products/midicircuit/midicircuit-multi-platform.png',
     imageAlt: 'Midicircuit running across Apple devices',
@@ -50,6 +53,7 @@ const products = [
   },
   {
     name: 'INVISIBLE CAMERA',
+    platforms: 'iPhone',
     description:
       'Bypass Apple’s Deep Fusion and Smart HDR for authentic, film-like photos. See exactly what you will capture in real time—no surprises, no post-processing.',
     href: '/products/invisible-camera',
@@ -89,69 +93,37 @@ const engagements = [
   },
 ] as const;
 
-/** Pixels that break loose from the STUDIO block. Negative columns are
- * measured from its right edge, so they hold wherever the panel ends. */
-const heroPixels = [
-  { row: 0, col: 0, displaceX: -2, displaceY: -2 },
-  { row: 0, col: 6, displaceX: 1, displaceY: -4 },
-  { row: 3, col: 0, displaceX: -4, displaceY: 1 },
-  { row: 6, col: 1, displaceX: -5, displaceY: -2 },
-  { row: 8, col: 0, displaceX: -1, displaceY: 3 },
-  { row: 8, col: 4, displaceX: 2, displaceY: 4 },
-  { row: 1, col: -1, displaceX: 3, displaceY: -2 },
-  { row: 4, col: -2, displaceX: 5, displaceY: 1 },
-  { row: 7, col: -1, displaceX: 2, displaceY: 3 },
-];
-
 const studioEmail =
   'mailto:team@yonkolevel.com?subject=Yonko%20Level%20Studio%20enquiry';
 
-/** Section head using the same rhythm as the homepage sections. */
-/** Section header: eyebrow and title, above the grid and never inside it. */
-function SectionHeader({
-  id,
-  eyebrow,
-  title,
-}: {
-  id: string;
-  eyebrow: string;
-  title: string;
-}) {
-  return (
-    <div className='border-t border-white/10 pt-14 lg:pt-20'>
-      <p className='mb-5 font-pixel text-xs uppercase tracking-[0.22em] text-orange'>
-        {eyebrow}
-      </p>
-      <h2
-        id={id}
-        className='font-pixel text-2xl uppercase leading-tight tracking-tight text-white md:text-4xl'
-      >
-        {title}
-      </h2>
-    </div>
-  );
-}
+/* ------------------------------------------------------------- type tokens */
 
-/** The marker slot every grid cell opens with, so titles line up across a row. */
-function CellMarker({ children }: { children?: React.ReactNode }) {
-  return <div className='flex h-16 items-center'>{children}</div>;
-}
+const EYEBROW = 'font-pixel text-xs uppercase tracking-[0.22em]';
+const HEADING =
+  'font-pixel text-2xl uppercase leading-tight tracking-tight md:text-4xl';
+const CELL_TITLE = 'font-pixel text-lg uppercase md:text-xl';
+const MARKER = 'font-pixel text-xs tracking-[0.2em]';
+const BODY = 'text-base leading-8 md:text-lg';
 
-/** The 2x2 content grid. Short sections simply leave a quadrant empty. */
-function SectionGrid({
-  children,
-  spacing = 'mt-16 lg:mt-24',
-}: {
-  children: React.ReactNode;
-  spacing?: string;
-}) {
+/* -------------------------------------------------------------- primitives */
+
+/**
+ * The 2x2 content grid every section uses: the section's own eyebrow and title
+ * live in the leading cell, so a section reads as one group of four blocks
+ * rather than a heading with a list under it. Short sections leave a quadrant
+ * empty instead of stretching to fill it.
+ */
+function SectionGrid({ children }: { children: React.ReactNode }) {
   return (
-    <div
-      className={`${spacing} grid grid-cols-1 gap-x-12 gap-y-16 md:grid-cols-2 lg:gap-x-20 lg:gap-y-24`}
-    >
+    <div className='grid grid-cols-1 gap-x-12 gap-y-16 border-t border-white/10 pt-14 md:grid-cols-2 lg:gap-x-20 lg:gap-y-24 lg:pt-20'>
       {children}
     </div>
   );
+}
+
+/** The slot each cell opens with, so titles line up across a row. */
+function CellMarker({ children }: { children?: React.ReactNode }) {
+  return <div className='flex h-16 items-center'>{children}</div>;
 }
 
 const SPRITE_WALKING = '/images/illustrations/dev_walking.gif';
@@ -160,9 +132,9 @@ const SPRITE_STILL = '/images/illustrations/dev_idle-static.png';
 
 /**
  * The pre-rebrand pixel sprite of the founder. With `walkIn` it repeats the old
- * homepage hero sequence: walk in from the left, then settle into the idle loop.
- * The sprite faces right, so it has to travel rightwards to read correctly.
- * Visitors who prefer reduced motion get a single still frame.
+ * homepage hero sequence: walk in from the left, then settle into the idle
+ * loop. The sprite faces right, so it has to travel rightwards to read
+ * correctly. Reduced motion gets a single still frame.
  */
 function FounderSprite({
   className,
@@ -212,10 +184,21 @@ function FounderSprite({
   );
 }
 
+type Displacement = {
+  row: number;
+  col: number;
+  displaceX: number;
+  displaceY: number;
+};
+
 /**
- * A block of content sitting on a solid pixel panel, the way the homepage
- * showcase sections do it: the panel is built from the grid, so a few pixels
- * break off its edge and fly into the surrounding space.
+ * Content on a solid colour panel built from the displacement grid, the way the
+ * homepage showcase sections do it: a few pixels come loose from the panel's
+ * edges and fly into the dark around it, leaving holes where they were.
+ *
+ * A negative column counts back from the panel's right edge — the grid derives
+ * its column count from the measured width, so a fixed index near the right
+ * edge would otherwise be dropped or wrap onto the next row.
  */
 function PixelPanel({
   color,
@@ -226,22 +209,16 @@ function PixelPanel({
   children,
 }: {
   color: string;
-  displacements: {
-    row: number;
-    col: number;
-    displaceX: number;
-    displaceY: number;
-  }[];
+  displacements: Displacement[];
   className?: string;
   pad?: string;
   pixelSize?: number;
   children: React.ReactNode;
 }) {
+  const prefersReducedMotion = useReducedMotion();
   const ref = React.useRef<HTMLDivElement>(null);
   const [cols, setCols] = React.useState(0);
 
-  // The grid derives its columns from the panel width, so a column index only
-  // means what we think it means once the panel has been measured.
   React.useEffect(() => {
     const node = ref.current;
     if (!node) return;
@@ -255,7 +232,6 @@ function PixelPanel({
     return () => observer.disconnect();
   }, [pixelSize]);
 
-  // A negative column counts back from the panel's right edge.
   const resolved = React.useMemo(
     () =>
       cols === 0
@@ -274,35 +250,15 @@ function PixelPanel({
         displacedPixelColor={color}
         pixelSize={pixelSize}
         displacements={resolved}
-        animationDelay={0.15}
-        animationDuration={0.5}
+        animationDelay={prefersReducedMotion ? 0 : 0.15}
+        animationDuration={prefersReducedMotion ? 0 : 0.5}
       />
       <div className={`relative z-40 ${pad}`}>{children}</div>
     </div>
   );
 }
 
-/**
- * A slim band of the hero's pixel grid, used once as a section transition:
- * a few pixels pop out of the field and the rest is negative space.
- */
-function PixelBand() {
-  return (
-    <div aria-hidden='true' className='relative h-24 overflow-hidden md:h-32'>
-      <PixelDisplacementGrid
-        backgroundColor='#121212'
-        holeColor='#000000'
-        displacedPixelColor='#FE6A5A'
-        pixelSize={24}
-        displacements={[
-          { row: 1, col: 4, displaceX: 3, displaceY: 1 },
-          { row: 2, col: 11, displaceX: -4, displaceY: -1 },
-          { row: 3, col: 21, displaceX: 5, displaceY: -2 },
-        ]}
-      />
-    </div>
-  );
-}
+/* ------------------------------------------------------------------- page */
 
 export default function StudioClient() {
   const posthog = usePostHog();
@@ -329,10 +285,20 @@ export default function StudioClient() {
               className='relative z-40 max-w-[900px] lg:mr-48'
               pad='p-8 sm:p-10 md:p-14'
               pixelSize={32}
-              displacements={heroPixels}
+              displacements={[
+                { row: 0, col: 0, displaceX: -2, displaceY: -2 },
+                { row: 0, col: 6, displaceX: 1, displaceY: -4 },
+                { row: 3, col: 0, displaceX: -4, displaceY: 1 },
+                { row: 6, col: 1, displaceX: -5, displaceY: -2 },
+                { row: 8, col: 0, displaceX: -1, displaceY: 3 },
+                { row: 8, col: 4, displaceX: 2, displaceY: 4 },
+                { row: 1, col: -1, displaceX: 3, displaceY: -2 },
+                { row: 4, col: -2, displaceX: 5, displaceY: 1 },
+                { row: 7, col: -1, displaceX: 2, displaceY: 3 },
+              ]}
             >
               <h1 id='studio-hero-title' className='font-pixel uppercase'>
-                <span className='block text-xs tracking-[0.22em] text-black/60 md:text-sm'>
+                <span className={`block ${EYEBROW} text-black/60 md:text-sm`}>
                   Yonko Level
                 </span>
                 <span className='mt-4 block text-[clamp(3.5rem,15vw,12rem)] leading-[0.85] tracking-tight text-black'>
@@ -340,18 +306,27 @@ export default function StudioClient() {
                 </span>
               </h1>
 
-              <div className='mt-12 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-10'>
+              <p className='mt-10 max-w-2xl text-lg leading-9 text-black md:text-xl'>
+                Founder-led product engineering for ambitious mobile software.
+                We take on one principal partnership at a time.
+              </p>
+
+              <div className='mt-12 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-8'>
                 <a
                   href='#enquiry'
                   onClick={() => posthog?.capture('studio_enquiry_cta_clicked')}
-                  className='inline-flex min-h-12 items-center rounded-full bg-black px-7 font-pixel text-xs uppercase tracking-[0.12em] text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-orange'
+                  className={`inline-flex min-h-12 items-center rounded-full bg-black px-7 ${EYEBROW} tracking-[0.12em] text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-orange`}
                 >
                   Tell us what you are building →
                 </a>
-                <p className='font-pixel text-xs uppercase tracking-[0.14em] text-black/60'>
+                <p className={`${EYEBROW} tracking-[0.14em] text-black/60`}>
                   Limited partnerships. Founder-led.
                 </p>
               </div>
+
+              <span className='mt-14 block font-pixel text-xs tracking-[0.08em] text-black/40'>
+                ヨンコ・レベル・スタジオ
+              </span>
             </PixelPanel>
 
             <FounderSprite
@@ -364,20 +339,19 @@ export default function StudioClient() {
 
       {/* ----------------------------------------------------------- EXPERTISE */}
       <section
-        className='bg-black py-24 md:py-36'
+        className='bg-black py-24 md:py-32'
         aria-labelledby='expertise-title'
       >
         <Container>
-          <SectionHeader
-            id='expertise-title'
-            eyebrow='// WHERE WE HELP'
-            title='Areas of expertise'
-          />
-
           <SectionGrid>
             <div>
-              <CellMarker />
-              <p className='mt-8 text-lg leading-9 text-white/80 md:text-xl'>
+              <p className={`mb-5 ${EYEBROW} text-orange`}>
+                {'// WHERE WE HELP'}
+              </p>
+              <h2 id='expertise-title' className={`${HEADING} text-white`}>
+                Areas of expertise
+              </h2>
+              <p className={`mt-10 ${BODY} text-white/70`}>
                 Yonko Level is an independent product company and a selective
                 product-engineering studio. We partner with teams to shape,
                 build and improve ambitious mobile software—particularly where
@@ -385,17 +359,13 @@ export default function StudioClient() {
               </p>
             </div>
 
-            {expertise.map(({ Spot, title, description }) => (
+            {expertise.map(({ Mark, title, description }) => (
               <article key={title}>
                 <CellMarker>
-                  <Spot className='h-14 w-14 md:h-16 md:w-16' />
+                  <Mark className='h-14 w-14 md:h-16 md:w-16' />
                 </CellMarker>
-                <h3 className='mt-8 font-pixel text-lg uppercase text-white md:text-xl'>
-                  {title}
-                </h3>
-                <p className='mt-5 text-base leading-8 text-white/70'>
-                  {description}
-                </p>
+                <h3 className={`mt-8 ${CELL_TITLE} text-white`}>{title}</h3>
+                <p className={`mt-5 ${BODY} text-white/70`}>{description}</p>
               </article>
             ))}
           </SectionGrid>
@@ -404,25 +374,25 @@ export default function StudioClient() {
 
       {/* ------------------------------------------------------------ PRODUCTS */}
       <section
-        className='bg-black py-24 md:py-36'
+        className='bg-black py-24 md:py-32'
         aria-labelledby='products-title'
       >
         <Container>
-          <SectionHeader
-            id='products-title'
-            eyebrow='// PRODUCT COMPANY FIRST'
-            title='Products we have built'
-          />
-
           <SectionGrid>
             <div>
-              <p className='text-lg leading-9 text-white/80 md:text-xl'>
+              <p className={`mb-5 ${EYEBROW} text-orange`}>
+                {'// PRODUCT COMPANY FIRST'}
+              </p>
+              <h2 id='products-title' className={`${HEADING} text-white`}>
+                Products we have built
+              </h2>
+              <p className={`mt-10 ${BODY} text-white/70`}>
                 We build and ship our own products. That first-hand experience
                 is the foundation of every Studio partnership.
               </p>
             </div>
 
-            {/* Left empty so the two products stay side by side on one row. */}
+            {/* Left empty so the two products sit side by side on one row. */}
             <div aria-hidden='true' className='hidden md:block' />
 
             {products.map((product) => (
@@ -439,15 +409,18 @@ export default function StudioClient() {
                     className='object-contain p-8 sm:p-12'
                   />
                 </div>
-                <h3 className='mt-8 font-pixel text-lg uppercase text-white md:text-xl'>
-                  {product.name}
-                </h3>
-                <p className='mt-5 text-base leading-8 text-white/70'>
+                <div className='mt-8 flex flex-wrap items-baseline gap-x-5 gap-y-2'>
+                  <h3 className={`${CELL_TITLE} text-white`}>{product.name}</h3>
+                  <p className={`${MARKER} text-white/40`}>
+                    {product.platforms}
+                  </p>
+                </div>
+                <p className={`mt-5 ${BODY} text-white/70`}>
                   {product.description}
                 </p>
                 <Link
                   href={product.href}
-                  className='mt-7 inline-flex items-center border-b border-orange pb-2 font-pixel text-xs uppercase tracking-[0.14em] text-white transition-colors hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-4 focus-visible:ring-offset-black'
+                  className={`mt-7 inline-flex items-center border-b border-orange pb-2 ${EYEBROW} tracking-[0.14em] text-white transition-colors hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-4 focus-visible:ring-offset-black`}
                 >
                   Explore {product.name} →
                 </Link>
@@ -457,34 +430,29 @@ export default function StudioClient() {
         </Container>
       </section>
 
-      <PixelBand />
-
       {/* ---------------------------------------------------------- EXPERIENCE */}
       <section
-        className='bg-black py-24 md:py-36'
+        className='bg-black py-24 md:py-32'
         aria-labelledby='experience-title'
       >
         <Container>
-          <SectionGrid spacing='border-t border-white/10 pt-14 lg:pt-20'>
+          <SectionGrid>
             <PixelPanel
               color='#FCC552'
               className='min-h-[320px] md:min-h-[420px]'
               displacements={[
-                { row: 0, col: 10, displaceX: 3, displaceY: -2 },
+                { row: 0, col: -1, displaceX: 3, displaceY: -2 },
                 { row: 4, col: 0, displaceX: -3, displaceY: 1 },
-                { row: 8, col: 8, displaceX: 2, displaceY: 3 },
+                { row: 7, col: -2, displaceX: 2, displaceY: 3 },
               ]}
             >
-              <p className='mb-5 font-pixel text-xs uppercase tracking-[0.22em] text-black/70'>
+              <p className={`mb-5 ${EYEBROW} text-black/70`}>
                 {'// FOUNDER EXPERIENCE, NOT A CLIENT LIST'}
               </p>
-              <h2
-                id='experience-title'
-                className='font-pixel text-2xl uppercase leading-tight tracking-tight text-black md:text-4xl'
-              >
+              <h2 id='experience-title' className={`${HEADING} text-black`}>
                 Selected experience
               </h2>
-              <p className='mt-10 text-base leading-8 text-black/80 md:text-lg'>
+              <p className={`mt-10 ${BODY} text-black/80`}>
                 Selected highlights from Ricardo’s wider product-engineering
                 career. These are not claims that previous employers were Yonko
                 Level Studio clients.
@@ -495,9 +463,7 @@ export default function StudioClient() {
               {experience.map((item, index) => (
                 <li key={item}>
                   <CellMarker>
-                    <p className='font-pixel text-xs tracking-[0.2em] text-white/40'>
-                      0{index + 1}
-                    </p>
+                    <p className={`${MARKER} text-white/40`}>0{index + 1}</p>
                   </CellMarker>
                   <p className='mt-8 text-lg leading-8 text-white md:text-xl md:leading-9'>
                     {item}
@@ -510,35 +476,28 @@ export default function StudioClient() {
       </section>
 
       {/* -------------------------------------------------------- HOW WE WORK */}
-      <section className='bg-black py-24 md:py-36' aria-labelledby='work-title'>
+      <section className='bg-black py-24 md:py-32' aria-labelledby='work-title'>
         <Container>
-          <SectionGrid spacing='border-t border-white/10 pt-14 lg:pt-20'>
+          <SectionGrid>
             <PixelPanel
               color='#007AFF'
               className='min-h-[320px] md:col-start-2 md:row-start-1 md:min-h-[420px]'
               displacements={[
-                { row: 0, col: 0, displaceX: -2, displaceY: -1 },
-                { row: 1, col: 1, displaceX: -3, displaceY: 1 },
-                { row: 5, col: 9, displaceX: 3, displaceY: 2 },
+                { row: 0, col: 1, displaceX: -2, displaceY: -3 },
+                { row: 3, col: -1, displaceX: 4, displaceY: 1 },
+                { row: 8, col: 2, displaceX: -1, displaceY: 4 },
               ]}
             >
-              <p className='mb-5 font-pixel text-xs uppercase tracking-[0.22em] text-white/70'>
+              <p className={`mb-5 ${EYEBROW} text-white/70`}>
                 {'// ENGAGEMENTS'}
               </p>
-              <h2
-                id='work-title'
-                className='font-pixel text-2xl uppercase leading-tight tracking-tight text-white md:text-4xl'
-              >
+              <h2 id='work-title' className={`${HEADING} text-white`}>
                 How we work
               </h2>
-
               <p className='mt-10 text-lg leading-9 text-white md:text-xl'>
                 Start with a focused product health sprint. Continue with a
                 bounded build partnership or ongoing fractional technical
                 leadership where the work warrants it.
-              </p>
-              <p className='mt-6 font-pixel text-xs uppercase tracking-[0.16em] text-white/80'>
-                One principal partnership at a time.
               </p>
             </PixelPanel>
 
@@ -548,17 +507,13 @@ export default function StudioClient() {
                   <CellMarker>
                     <div className='flex items-center gap-4'>
                       <Mark className='h-12 w-12' />
-                      <p className='font-pixel text-xs tracking-[0.2em] text-white/40'>
-                        {step}
-                      </p>
+                      <p className={`${MARKER} text-white/40`}>{step}</p>
                     </div>
                   </CellMarker>
                   <h3 className='mt-8 font-pixel text-base leading-snug text-white md:text-lg'>
                     {title}
                   </h3>
-                  <p className='mt-5 text-base leading-8 text-white/70'>
-                    {description}
-                  </p>
+                  <p className={`mt-5 ${BODY} text-white/70`}>{description}</p>
                 </li>
               ))}
             </ol>
@@ -568,31 +523,27 @@ export default function StudioClient() {
 
       {/* ------------------------------------------------------------- FOUNDER */}
       <section
-        className='bg-black py-24 md:py-36'
+        className='bg-black py-24 md:py-32'
         aria-labelledby='founder-title'
       >
         <Container>
-          <SectionGrid spacing='border-t border-white/10 pt-14 lg:pt-20'>
+          <SectionGrid>
             <PixelPanel
               color='#FE6A5A'
-              className='min-h-[320px] md:min-h-[420px]'
+              className='min-h-[320px] md:min-h-[460px]'
               displacements={[
                 { row: 0, col: 0, displaceX: -2, displaceY: -2 },
-                { row: 3, col: 9, displaceX: 3, displaceY: 1 },
-                { row: 7, col: 1, displaceX: -3, displaceY: 2 },
+                { row: 5, col: -1, displaceX: 3, displaceY: 1 },
+                { row: 9, col: 1, displaceX: -3, displaceY: 3 },
               ]}
             >
-              <p className='mb-5 font-pixel text-xs uppercase tracking-[0.22em] text-white/70'>
+              <p className={`mb-5 ${EYEBROW} text-white/70`}>
                 {'// FOUNDER-LED'}
               </p>
-              <h2
-                id='founder-title'
-                className='font-pixel text-2xl uppercase leading-tight tracking-tight text-white md:text-4xl'
-              >
+              <h2 id='founder-title' className={`${HEADING} text-white`}>
                 Who you work with
               </h2>
-
-              <div className='mt-10 space-y-6 text-base leading-8 text-white md:text-lg'>
+              <div className={`mt-10 space-y-6 ${BODY} text-white`}>
                 <p>
                   Yonko Level is led by Ricardo Abreu, a mobile product engineer
                   with experience shipping consumer software across creative
@@ -606,7 +557,7 @@ export default function StudioClient() {
               </div>
             </PixelPanel>
 
-            <div className='relative min-h-[320px] w-full overflow-hidden md:min-h-[420px]'>
+            <div className='relative min-h-[320px] w-full overflow-hidden md:min-h-[460px]'>
               <Image
                 src='/products/midicircuit/press/photo-ricardo.jpg'
                 alt='Ricardo Abreu, founder of Yonko Level'
@@ -622,33 +573,33 @@ export default function StudioClient() {
       {/* ------------------------------------------------------------- ENQUIRY */}
       <section
         id='enquiry'
-        className='scroll-mt-8 bg-black py-24 md:py-36'
+        className='scroll-mt-8 bg-black py-24 md:py-32'
         aria-labelledby='enquiry-title'
       >
         <Container>
-          <SectionHeader
-            id='enquiry-title'
-            eyebrow='// START A CONVERSATION'
-            title='Tell us what you are building'
-          />
-
           <SectionGrid>
             <PixelPanel
-              color='#007AFF'
+              color='#FCC552'
               className='md:col-start-2 md:row-start-1'
               displacements={[
-                { row: 0, col: 8, displaceX: 2, displaceY: -2 },
-                { row: 2, col: 0, displaceX: -3, displaceY: 1 },
-                { row: 8, col: 9, displaceX: 3, displaceY: 1 },
+                { row: 0, col: -2, displaceX: 2, displaceY: -3 },
+                { row: 3, col: 0, displaceX: -4, displaceY: 1 },
+                { row: 9, col: -1, displaceX: 3, displaceY: 2 },
               ]}
             >
-              <p className='text-base leading-8 text-white md:text-lg'>
+              <p className={`mb-5 ${EYEBROW} text-black/70`}>
+                {'// START A CONVERSATION'}
+              </p>
+              <h2 id='enquiry-title' className={`${HEADING} text-black`}>
+                Tell us what you are building
+              </h2>
+              <p className={`mt-10 ${BODY} text-black/80`}>
                 The form asks for your name, email and a project description. In
                 that description, include any useful context about your company,
                 product or website, desired start date, expected investment and
                 what a successful outcome would look like.
               </p>
-              <p className='mt-6 text-sm leading-7 text-white/80'>
+              <p className='mt-6 text-sm leading-7 text-black/70'>
                 We will only use these details to discuss your enquiry. Prefer
                 email? Write to{' '}
                 <a
@@ -658,14 +609,14 @@ export default function StudioClient() {
                       method: 'email',
                     })
                   }
-                  className='font-medium text-white underline decoration-2 underline-offset-4 transition-colors hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue1'
+                  className='font-medium text-black underline decoration-2 underline-offset-4 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-originalYellow'
                 >
                   team@yonkolevel.com
                 </a>
                 .
               </p>
 
-              <FounderSprite className='pointer-events-none mt-14 hidden w-[150px] lg:block' />
+              <FounderSprite className='pointer-events-none mt-12 hidden w-[140px] lg:block' />
             </PixelPanel>
 
             <div className='min-h-[660px] overflow-hidden bg-white'>
