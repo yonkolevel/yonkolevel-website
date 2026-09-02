@@ -60,7 +60,7 @@ const ProductImageSection: React.FC<ProductImageSectionProps> = ({
 
       <div className='relative z-10 h-full'>
         <Container>
-          <div className='py-16 lg:py-24 h-full flex items-center justify-center'>
+          <div className='py-[5rem] lg:py-[7rem] h-full flex items-center justify-center'>
             <motion.div
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}

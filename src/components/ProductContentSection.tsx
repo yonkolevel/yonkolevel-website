@@ -108,7 +108,7 @@ const ProductContentSection: React.FC<ProductContentSectionProps> = ({
 
       <div className='relative z-10'>
         <Container>
-          <div className='py-16 lg:py-24'>
+          <div className='py-[5rem] lg:py-[7rem]'>
             <div
               className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center ${
                 reverse ? 'lg:grid-flow-col-dense' : ''
