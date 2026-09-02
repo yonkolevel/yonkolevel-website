@@ -293,7 +293,7 @@ export default function StudioClient() {
             <PixelPanel
               color='#FE6A5A'
               side='full'
-              className='relative z-40 max-w-[900px] lg:mr-48'
+              className='relative z-40 mx-auto max-w-[900px]'
               pad='p-[2rem] sm:p-10 md:p-14'
               pixelSize={32}
               displacements={[
