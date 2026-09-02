@@ -416,7 +416,7 @@ export default function StudioClient() {
 
       {/* ----------------------------------------------------------- EXPERTISE */}
       <section
-        className='overflow-hidden bg-black py-[5rem] md:py-[7rem] lg:py-[10rem]'
+        className='overflow-hidden bg-black pb-[5rem] pt-[2rem] md:pb-[7rem] md:pt-[3rem] lg:pb-[10rem] lg:pt-[4rem]'
         aria-labelledby='expertise-title'
       >
         <Container>
@@ -739,7 +739,7 @@ export default function StudioClient() {
       {/* ------------------------------------------------------------- ENQUIRY */}
       <section
         id='enquiry'
-        className='scroll-mt-8 overflow-hidden bg-black py-[5rem] md:py-[7rem] lg:py-[10rem]'
+        className='scroll-mt-8 overflow-hidden bg-black pb-[5rem] pt-[2rem] md:pb-[7rem] md:pt-[3rem] lg:pb-[10rem] lg:pt-[4rem]'
         aria-labelledby='enquiry-title'
       >
         <Container>
