@@ -347,15 +347,18 @@ export default function StudioClient() {
 
             {/* The studio: desk, monitor, bonsai, chair and plant from the
                 original prop set, composed into one scene and shown at 2x. */}
+            {/* Tablet: full 2x scene in flow below the panel, overlapping its
+                bottom edge so it stands in front of the orange without
+                covering the copy. */}
             <div
               aria-hidden='true'
-              className='pointer-events-none absolute bottom-0 right-6 z-50 hidden md:block xl:hidden'
+              className='pointer-events-none relative z-50 -mt-[6rem] hidden justify-end pr-6 md:flex xl:hidden'
             >
               <PixelSprite
                 src='/images/pixel/scenes/studio-desk.png'
                 width={172}
                 height={154}
-                scale={1}
+                scale={2}
               />
             </div>
             <div
