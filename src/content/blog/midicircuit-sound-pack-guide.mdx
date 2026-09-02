@@ -1,11 +1,11 @@
 ---
 title: "Sound Pack Creation Guide for Midicircuit"
 date: '2026-03-13'
-excerpt: "A guide for producers, musicians, and contributors who want to create sound packs for Midicircuit — covering audio specs, quality standards, and how to deliver your pack."
+excerpt: "A guide for producers, musicians, and contributors who want to create sound packs for Midicircuit, covering audio specs, quality standards, and how to deliver your pack."
 coverImage: '/products/midicircuit/app-icon.png'
 ---
 
-Since launching Midicircuit v2, a few of my musician friends — [7th Wonder](https://www.instagram.com/7thwondermusic/) and [Luke Elliot](https://www.instagram.com/lukeelliotmusic/) — along with myself have been contributing sound packs to the app. Through that process and experimentation, we put together this guide for anyone who wants to create and submit their own sound packs for Midicircuit.
+Since launching Midicircuit v2, a few of my musician friends, [7th Wonder](https://www.instagram.com/7thwondermusic/) and [Luke Elliot](https://www.instagram.com/lukeelliotmusic/), along with myself have been contributing sound packs to the app. Through that process and experimentation, we put together this guide for anyone who wants to create and submit their own sound packs for Midicircuit.
 
 ## What Is a Sound Pack?
 
@@ -45,18 +45,18 @@ ffmpeg -i quiet.wav -af "loudnorm=I=-14:TP=-1:LRA=11" normalized.wav -y
 
 Every sound pack should pass these six criteria:
 
-1. **Punch** — Does it hit hard and feel immediate? Transients should be crisp.
-2. **Body** — Does it have weight and fullness? Samples shouldn't sound thin or hollow.
-3. **Character** — Does it have a distinctive sonic identity? Avoid generic, stock sounds.
-4. **Consistency** — Do all samples in the pack feel like they belong together? Matched in tone, processing, and vibe.
-5. **Dynamics** — Does it respond well to velocity? Samples should sound musical across the volume range.
-6. **Tail** — Is the decay/release clean? No clicks, pops, or abrupt cuts at the end.
+1. **Punch:** Does it hit hard and feel immediate? Transients should be crisp.
+2. **Body:** Does it have weight and fullness? Samples shouldn't sound thin or hollow.
+3. **Character:** Does it have a distinctive sonic identity? Avoid generic, stock sounds.
+4. **Consistency:** Do all samples in the pack feel like they belong together? Matched in tone, processing, and vibe.
+5. **Dynamics:** Does it respond well to velocity? Samples should sound musical across the volume range.
+6. **Tail:** Is the decay/release clean? No clicks, pops, or abrupt cuts at the end.
 
 ## Creating a Drum Kit
 
 Drum kits contain **up to 16 individual samples**, each mapped to a pad on the grid.
 
-Drum packs don't have to be strictly drums. Hip-hop producers often include melodic chops, chord stabs, vocal samples, vinyl loops, or instrument one-shots alongside kicks and snares. Think of it as a sample pad — anything you'd want to finger-drum or chop with works here.
+Drum packs don't have to be strictly drums. Hip-hop producers often include melodic chops, chord stabs, vocal samples, vinyl loops, or instrument one-shots alongside kicks and snares. Think of it as a sample pad: anything you'd want to finger-drum or chop with works here.
 
 ### Sample Count and Layout
 
@@ -72,7 +72,7 @@ The pad grid is 4x4 (16 pads). For a traditional drum kit, aim for a balanced la
 | Shaker / Tambourine | 3 | Pads 11-13 |
 | Percussion / FX | 3 | Pads 14-16 |
 
-You can use fewer pads — not every kit needs 16 samples. The existing "Analog Rytm 808 Drums" kit uses 12.
+You can use fewer pads. Not every kit needs 16 samples. The existing "Analog Rytm 808 Drums" kit uses 12.
 
 ### Naming Your Drum Samples
 
@@ -99,7 +99,7 @@ We recommend ordering them in this order:
 - Keep kicks punchy: 100-300ms is usually enough
 - Snares and claps: leave a natural tail, but no longer than ~500ms
 - Hi-hats: closed hats should be tight (50-150ms), open hats can be longer
-- Avoid reverb tails — the app adds its own FX. Dry is better.
+- Avoid reverb tails. The app adds its own FX. Dry is better.
 - Remove any silence at the start of each sample (zero-latency trigger)
 
 ## Creating a Melodic Instrument
@@ -109,17 +109,17 @@ Melodic packs use **a single sample** that the app pitch-shifts across the pad g
 - Record or render a **single sustained note at middle C (C4)**
 - Length: 2-7 seconds. Trim longer samples and add a fade-out.
 - Clean, dry samples pitch-shift better than heavily processed ones
-- Avoid heavy vibrato — it sounds unnatural when pitch-shifted
+- Avoid heavy vibrato; it sounds unnatural when pitch-shifted
 - Slight detuning or chorus is fine and can add warmth
 - Export with a medium-long release for a natural decay
 
 ## Creating a Bass Instrument
 
-Same as melodic — a single sample, pitch-shifted — but tuned lower.
+Same as melodic, with a single sample pitch-shifted and tuned lower.
 
 - Record at **C2 or C3**
 - Keep it punchy: 1-3 seconds is usually plenty
-- Balance sub and harmonics — sub-heavy samples lose definition when pitched up
+- Balance sub and harmonics: sub-heavy samples lose definition when pitched up
 - A slight attack transient helps the note cut through in a mix
 
 ## How to Create Your Sounds
@@ -129,9 +129,9 @@ You don't need expensive gear. Here are several approaches:
 ### Option 1: Software Synths (Free)
 
 Use free VST/AU synths in any DAW:
-- **Vital** (vital.audio) — Modern wavetable synth, excellent for pads, leads, bass
-- **Surge XT** (surge-synth-team.org) — Powerful hybrid synth
-- **Dexed** (asb2m10.github.io/dexed) — DX7 FM synth for electric pianos and bells
+- **Vital** (vital.audio): Modern wavetable synth, excellent for pads, leads, bass
+- **Surge XT** (surge-synth-team.org): Powerful hybrid synth
+- **Dexed** (asb2m10.github.io/dexed): DX7 FM synth for electric pianos and bells
 
 Workflow:
 1. Design your sound in the synth
@@ -183,15 +183,15 @@ My Sound Pack/
 ```
 
 Include with your submission:
-- **Pack name** — A descriptive, creative name
-- **Category** — drum, melodic, or bass
+- **Pack name:** A descriptive, creative name
+- **Category:** drum, melodic, or bass
 
 ## What Happens After Submission
 
-1. **Quality review** — We check against the quality checklist above
-2. **Technical validation** — Verify specs and app compatibility
-3. **Integration** — Sound pack is added to the app
-4. **App testing** — Verified on both iOS and macOS
+1. **Quality review:** We check against the quality checklist above
+2. **Technical validation:** Verify specs and app compatibility
+3. **Integration:** Sound pack is added to the app
+4. **App testing:** Verified on both iOS and macOS
 
 ## FAQ
 

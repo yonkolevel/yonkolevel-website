@@ -104,7 +104,7 @@ const Home = () => {
 
             <div className='max-w-2xl lg:pt-10'>
               <p className='text-base leading-8 text-white/70 md:text-lg'>
-                Founder-led mobile product engineering for selected teams and brands—especially
+                Founder-led mobile product engineering for selected teams and brands, especially
                 products involving audio, cameras, connected hardware, payments, location or
                 complex real-world systems.
               </p>

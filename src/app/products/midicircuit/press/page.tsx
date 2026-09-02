@@ -37,7 +37,7 @@ const factSheet = [
   {
     label: 'Description',
     value:
-      'A simple and approachable DAW in your pocket. Create beats, share songs with friends, and learn music — no experience needed.',
+      'A simple and approachable DAW in your pocket. Create beats, share songs with friends, and learn music. No experience needed.',
   },
   { label: 'Platforms', value: 'iOS, iPad, macOS' },
   { label: 'Developer', value: 'Yonko Level' },
@@ -126,7 +126,7 @@ export default function MidicircuitPressPage() {
                     Founded in 2020 by Ricardo Abreu, Yonko Level is an
                     independent studio building delightful apps and digital
                     experiences. We are designers and developers who work as
-                    friends — nakama — combining trust, communication, and a
+                    friends (nakama), combining trust, communication, and a
                     shared love for making creative tools that are simple and
                     accessible. We are proud Apple Entrepreneur Camp alumni.
                   </p>

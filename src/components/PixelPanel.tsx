@@ -46,7 +46,7 @@ export default function PixelPanel({
   className?: string;
   pad?: string;
   pixelSize?: number;
-  /** Replaces the padded, in-flow content wrapper — e.g. `absolute inset-0` to fill the panel. */
+  /** Replaces the padded, in-flow content wrapper, e.g. `absolute inset-0` to fill the panel. */
   contentClassName?: string;
   children: React.ReactNode;
 }) {

@@ -23,7 +23,7 @@ export default function MidiCircuitClient() {
         product='midicircuit'
         name='Midicircuit'
         tagline='Learn, Create, Share'
-        description='A simple and approachable DAW in your pocket. Create beats, share songs with friends, and learn music — no experience needed. Circuits coming soon.'
+        description='A simple and approachable DAW in your pocket. Create beats, share songs with friends, and learn music. No experience needed. Circuits coming soon.'
         platforms='iPhone · iPad · Mac · Android'
         icon='/products/midicircuit/app-icon.png'
         color='#FF5C24'
@@ -60,7 +60,7 @@ export default function MidiCircuitClient() {
 
       <ProductContentSection
         title='Whenever, Wherever'
-        description='Works on iPhone, iPad and Mac. Your projects sync across devices via iCloud — pick up exactly where you left off.'
+        description='Works on iPhone, iPad and Mac. Your projects sync across devices via iCloud. Pick up exactly where you left off.'
         image='/products/midicircuit/marketing/mc-appstore-anywhere.jpg'
         imageAlt='Midicircuit playgrounds on Mac: play freely, anywhere, anytime'
         backgroundColor='bg-white'

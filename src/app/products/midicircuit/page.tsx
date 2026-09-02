@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Midicircuit - Learn, Create, Share',
     description:
-      'A simple and approachable DAW. Create beats, share songs — no experience needed.',
+      'A simple and approachable DAW. Create beats, share songs. No experience needed.',
     images: ['/products/midicircuit/cover-photo-full-pixelated.jpg'],
   },
 };

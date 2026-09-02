@@ -5,7 +5,7 @@ import * as React from 'react';
 /**
  * Pixel marks for the Studio page.
  *
- * Each mark is a character map on a 24x24 grid — one character per pixel —
+ * Each mark is a character map on a 24x24 grid, with one character per pixel,
  * rendered as hard-edged squares, so they sit in the same 8-bit language as the
  * hero grid and the founder sprite. The grid is deliberately finer than the
  * type: strokes are two cells wide, shapes keep a cell of padding, and every

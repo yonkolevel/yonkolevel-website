@@ -25,7 +25,7 @@ const expertise = [
     title: 'CREATE',
     promise: 'Ideas that need to become real.',
     description:
-      'New mobile products, technical prototypes, major features and architecture—from a sketch to something in the store.',
+      'New mobile products, technical prototypes, major features and architecture, from a sketch to something in the store.',
   },
   {
     Mark: StrengthenMark,
@@ -39,7 +39,7 @@ const expertise = [
     title: 'CONNECT',
     promise: 'Software that touches the real world.',
     description:
-      'Audio, MIDI, cameras, connected hardware, payments, location and health data—the parts of a product that meet something physical.',
+      'Audio, MIDI, cameras, connected hardware, payments, location and health data, the parts of a product that meet something physical.',
   },
 ] as const;
 
@@ -75,7 +75,7 @@ const products: Product[] = [
     name: 'INVISIBLE CAMERA',
     platforms: 'iPhone',
     description:
-      'Bypass Apple’s Deep Fusion and Smart HDR for authentic, film-like photos. See exactly what you will capture in real time—no surprises, no post-processing.',
+      'Bypass Apple’s Deep Fusion and Smart HDR for authentic, film-like photos. See exactly what you will capture in real time. No surprises, no post-processing.',
     href: '/products/invisible-camera',
     icon: '/products/invisible-camera/app-icon.png',
     render: '/products/invisible-camera/marketing/ic-viewfinder.webp',
@@ -92,7 +92,7 @@ const surfaces = [
     label: 'MOBILE',
     promise: 'One codebase. Both app stores. Easier releases.',
     description:
-      'We take apps that have outgrown their first architecture and make them modular, fast and releasable again—so several teams can ship in the same week without standing on each other.',
+      'We take apps that have outgrown their first architecture and make them modular, fast and releasable again, so several teams can ship in the same week without standing on each other.',
   },
   {
     label: 'NATIVE',
@@ -110,7 +110,7 @@ const surfaces = [
 
 /**
  * Outcomes from the founder's product-engineering career and Yonko Level's own
- * releases. Stated as results rather than roles — no employer is a client.
+ * releases. Stated as results rather than roles, no employer is a client.
  */
 const trackRecord = [
   {
@@ -129,7 +129,7 @@ const trackRecord = [
     label: 'RANGE',
     headline: 'Nearly a decade in product teams',
     detail:
-      'Work across travel, health, fintech, retail and consumer apps—including regulated products where reliability matters.',
+      'Work across travel, health, fintech, retail and consumer apps, including regulated products where reliability matters.',
   },
   {
     label: 'RECOGNITION',
@@ -365,7 +365,7 @@ export default function StudioClient() {
               </div>
 
               {/* The pixel face carries no CJK glyphs, so this renders in the
-                  body face with a normal line box — in font-pixel the metric
+                  body face with a normal line box, in font-pixel the metric
                   overrides on the fallback clip katakana. */}
               <span className='mt-14 block font-body text-sm leading-normal tracking-[0.08em] text-black/40'>
                 ヨンコ・レベル・スタジオ
@@ -399,7 +399,7 @@ export default function StudioClient() {
               <p className={`mt-10 ${BODY} text-white/70`}>
                 Yonko Level is an independent product company and a selective
                 product-engineering studio. We partner with teams to shape,
-                build and improve ambitious mobile software—particularly where
+                build and improve ambitious mobile software, particularly where
                 craft, reliability and unusual technical constraints matter.
               </p>
             </div>
@@ -439,8 +439,8 @@ export default function StudioClient() {
               <p className={`mt-10 ${BODY} text-white/70`}>
                 Studio work covers the whole product, not one layer of it. The
                 same person does the architecture, the awkward native work and
-                the release—so decisions hold together from the app icon down to
-                the service behind it.
+                the release, so decisions hold together from the app icon down
+                to the service behind it.
               </p>
             </div>
 
@@ -721,8 +721,8 @@ export default function StudioClient() {
                 Tell us what you are building
               </h2>
               <p className={`mt-10 ${BODY} text-black/80`}>
-                Start with an email. The link fills in a few useful
-                questions—answer what you can and leave the rest.
+                Start with an email. The link fills in a few useful questions.
+                Answer what you can and leave the rest.
               </p>
 
               <a

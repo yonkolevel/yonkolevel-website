@@ -22,7 +22,7 @@ export default function InvisibleCameraClient() {
         product='invisible-camera'
         name='Invisible Camera'
         tagline='For Moments, Not Menus'
-        description="Bypass Apple's Deep Fusion and Smart HDR for authentic, film-like photos. See exactly what you'll capture in real-time — no surprises, no post-processing. What you see is what you get."
+        description="Bypass Apple's Deep Fusion and Smart HDR for authentic, film-like photos. See exactly what you'll capture in real-time. No surprises, no post-processing. What you see is what you get."
         platforms='iPhone'
         icon='/products/invisible-camera/app-icon.png'
         color='#F3B23F'
@@ -35,7 +35,7 @@ export default function InvisibleCameraClient() {
 
       <ProductContentSection
         title='Capture Life Instantly'
-        description='Real-time preview with curated film looks inspired by classic film stocks. Apply filters before you shoot and get predictable results — same shot, same result, every time.'
+        description='Real-time preview with curated film looks inspired by classic film stocks. Apply filters before you shoot and get predictable results: same shot, same result, every time.'
         image='/products/invisible-camera/marketing/ic-mockup-2.webp'
         imageAlt='Invisible Camera viewfinder with the AMY film look, framing a studio session'
         backgroundColor='bg-white'
@@ -46,7 +46,7 @@ export default function InvisibleCameraClient() {
 
       <ProductContentSection
         title='Privacy First Design'
-        description='Your photos never leave your device. No accounts, no cloud uploads. We collect anonymous usage analytics to improve the app — nothing more.'
+        description='Your photos never leave your device. No accounts, no cloud uploads. We collect anonymous usage analytics to improve the app. Nothing more.'
         image='/products/invisible-camera/marketing/ic-blue-frame.webp'
         imageAlt='Invisible Camera on iPhone with the viewfinder open'
         backgroundColor='bg-gray-50'
