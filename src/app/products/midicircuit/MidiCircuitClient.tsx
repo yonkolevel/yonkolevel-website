@@ -177,7 +177,7 @@ export default function MidiCircuitClient() {
       <section className='bg-black'>
         <Container>
           <div className='py-16 lg:py-24'>
-            <div className='flex w-full flex-col items-center gap-8'>
+            <div className='flex w-full flex-col items-center gap-[2rem]'>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}

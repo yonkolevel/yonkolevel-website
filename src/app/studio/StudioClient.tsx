@@ -208,7 +208,7 @@ const BODY = 'text-base leading-8 md:text-lg';
  */
 function SectionGrid({ children }: { children: React.ReactNode }) {
   return (
-    <div className='grid grid-cols-1 gap-x-12 gap-y-16 border-t border-white/10 pt-14 md:grid-cols-2 lg:gap-x-20 lg:gap-y-24 lg:pt-20'>
+    <div className='grid grid-cols-1 gap-x-[3rem] gap-y-[5rem] border-t border-white/10 pt-[4rem] md:grid-cols-2 lg:gap-x-[5rem] lg:gap-y-[7.5rem] lg:pt-[6rem]'>
       {children}
     </div>
   );
@@ -297,7 +297,7 @@ function PixelPanel({
   color,
   displacements,
   className = '',
-  pad = 'p-8 sm:p-10 md:p-12',
+  pad = 'p-[2rem] sm:p-10 md:p-12',
   pixelSize = 40,
   children,
 }: {
@@ -368,7 +368,7 @@ export default function StudioClient() {
     <div className='bg-black text-white'>
       {/* ---------------------------------------------------------------- HERO */}
       <section
-        className='relative flex min-h-screen items-center overflow-hidden bg-black py-28'
+        className='relative flex min-h-screen items-center overflow-hidden bg-black py-[7rem]'
         aria-labelledby='studio-hero-title'
       >
         <Container>
@@ -376,7 +376,7 @@ export default function StudioClient() {
             <PixelPanel
               color='#FE6A5A'
               className='relative z-40 max-w-[900px] lg:mr-48'
-              pad='p-8 sm:p-10 md:p-14'
+              pad='p-[2rem] sm:p-10 md:p-14'
               pixelSize={32}
               displacements={[
                 { row: 0, col: 0, displaceX: -2, displaceY: -2 },
@@ -385,8 +385,8 @@ export default function StudioClient() {
                 { row: 6, col: 1, displaceX: -5, displaceY: -2 },
                 { row: 8, col: 0, displaceX: -1, displaceY: 3 },
                 { row: 8, col: 4, displaceX: 2, displaceY: 4 },
-                { row: 1, col: -1, displaceX: 3, displaceY: -2 },
-                { row: 4, col: -2, displaceX: 5, displaceY: 1 },
+                { row: 1, col: -1, displaceX: 2, displaceY: -2 },
+                { row: 4, col: -2, displaceX: 2, displaceY: 1 },
                 { row: 7, col: -1, displaceX: 2, displaceY: 3 },
               ]}
             >
@@ -394,7 +394,7 @@ export default function StudioClient() {
                 <span className={`block ${EYEBROW} text-black/60 md:text-sm`}>
                   Yonko Level
                 </span>
-                <span className='mt-4 block text-[clamp(3.5rem,15vw,12rem)] leading-[0.85] tracking-tight text-black'>
+                <span className='mt-[1rem] block text-[clamp(3.5rem,15vw,12rem)] leading-[0.85] tracking-tight text-black'>
                   Studio
                 </span>
               </h1>
@@ -404,7 +404,7 @@ export default function StudioClient() {
                 We take on one principal partnership at a time.
               </p>
 
-              <div className='mt-12 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-8'>
+              <div className='mt-12 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-[2rem]'>
                 <a
                   href='#enquiry'
                   onClick={() => posthog?.capture('studio_enquiry_cta_clicked')}
@@ -432,7 +432,7 @@ export default function StudioClient() {
 
       {/* ----------------------------------------------------------- EXPERTISE */}
       <section
-        className='bg-black py-24 md:py-32'
+        className='overflow-hidden bg-black py-[6rem] md:py-[10rem]'
         aria-labelledby='expertise-title'
       >
         <Container>
@@ -455,12 +455,12 @@ export default function StudioClient() {
             {expertise.map(({ Mark, title, promise, description }) => (
               <article key={title}>
                 <CellMarker>
-                  <div className='flex items-center gap-4'>
+                  <div className='flex items-center gap-[1rem]'>
                     <Mark className='h-14 w-14 md:h-16 md:w-16' />
                     <p className={`${MARKER} text-orange`}>{title}</p>
                   </div>
                 </CellMarker>
-                <h3 className='mt-8 font-pixel text-base leading-snug text-white md:text-lg'>
+                <h3 className='mt-[2rem] font-pixel text-base leading-snug text-white md:text-lg'>
                   {promise}
                 </h3>
                 <p className={`mt-5 ${BODY} text-white/70`}>{description}</p>
@@ -472,7 +472,7 @@ export default function StudioClient() {
 
       {/* ------------------------------------------------------------ SURFACES */}
       <section
-        className='bg-black py-24 md:py-32'
+        className='overflow-hidden bg-black py-[6rem] md:py-[10rem]'
         aria-labelledby='surfaces-title'
       >
         <Container>
@@ -497,7 +497,7 @@ export default function StudioClient() {
                 <CellMarker>
                   <p className={`${MARKER} text-orange`}>{label}</p>
                 </CellMarker>
-                <h3 className='mt-8 font-pixel text-base leading-snug text-white md:text-lg'>
+                <h3 className='mt-[2rem] font-pixel text-base leading-snug text-white md:text-lg'>
                   {promise}
                 </h3>
                 <p className={`mt-5 ${BODY} text-white/70`}>{description}</p>
@@ -509,7 +509,7 @@ export default function StudioClient() {
 
       {/* ------------------------------------------------------------ PRODUCTS */}
       <section
-        className='bg-black py-24 md:py-32'
+        className='overflow-hidden bg-black py-[6rem] md:py-[10rem]'
         aria-labelledby='products-title'
       >
         <Container>
@@ -548,7 +548,7 @@ export default function StudioClient() {
                     />
                   </div>
                 </div>
-                <div className='mt-8 flex items-center gap-4'>
+                <div className='mt-[2rem] flex items-center gap-[1rem]'>
                   <Image
                     src={product.icon}
                     alt=''
@@ -583,7 +583,7 @@ export default function StudioClient() {
 
       {/* ---------------------------------------------------------- EXPERIENCE */}
       <section
-        className='bg-black py-24 md:py-32'
+        className='overflow-hidden bg-black py-[6rem] md:py-[10rem]'
         aria-labelledby='record-title'
       >
         <Container>
@@ -592,7 +592,7 @@ export default function StudioClient() {
               color='#FCC552'
               className='min-h-[320px] md:min-h-[420px]'
               displacements={[
-                { row: 0, col: -1, displaceX: 3, displaceY: -2 },
+                { row: 0, col: -1, displaceX: 2, displaceY: -2 },
                 { row: 4, col: 0, displaceX: -3, displaceY: 1 },
                 { row: 7, col: -2, displaceX: 2, displaceY: 3 },
               ]}
@@ -615,7 +615,7 @@ export default function StudioClient() {
                   <CellMarker>
                     <p className={`${MARKER} text-orange`}>{label}</p>
                   </CellMarker>
-                  <h3 className='mt-8 font-pixel text-base leading-snug text-white md:text-lg'>
+                  <h3 className='mt-[2rem] font-pixel text-base leading-snug text-white md:text-lg'>
                     {headline}
                   </h3>
                   <p className={`mt-5 ${BODY} text-white/70`}>{detail}</p>
@@ -627,7 +627,10 @@ export default function StudioClient() {
       </section>
 
       {/* -------------------------------------------------------- HOW WE WORK */}
-      <section className='bg-black py-24 md:py-32' aria-labelledby='work-title'>
+      <section
+        className='overflow-hidden bg-black py-[6rem] md:py-[10rem]'
+        aria-labelledby='work-title'
+      >
         <Container>
           <SectionGrid>
             <PixelPanel
@@ -635,7 +638,7 @@ export default function StudioClient() {
               className='min-h-[320px] md:col-start-2 md:row-start-1 md:min-h-[420px]'
               displacements={[
                 { row: 0, col: 1, displaceX: -2, displaceY: -3 },
-                { row: 3, col: -1, displaceX: 4, displaceY: 1 },
+                { row: 3, col: -1, displaceX: 2, displaceY: 1 },
                 { row: 8, col: 2, displaceX: -1, displaceY: 4 },
               ]}
             >
@@ -656,12 +659,12 @@ export default function StudioClient() {
               {engagements.map(({ Mark, step, title, description }) => (
                 <li key={title}>
                   <CellMarker>
-                    <div className='flex items-center gap-4'>
+                    <div className='flex items-center gap-[1rem]'>
                       <Mark className='h-12 w-12' />
                       <p className={`${MARKER} text-white/40`}>{step}</p>
                     </div>
                   </CellMarker>
-                  <h3 className='mt-8 font-pixel text-base leading-snug text-white md:text-lg'>
+                  <h3 className='mt-[2rem] font-pixel text-base leading-snug text-white md:text-lg'>
                     {title}
                   </h3>
                   <p className={`mt-5 ${BODY} text-white/70`}>{description}</p>
@@ -674,7 +677,7 @@ export default function StudioClient() {
 
       {/* ------------------------------------------------------------- FOUNDER */}
       <section
-        className='bg-black py-24 md:py-32'
+        className='overflow-hidden bg-black py-[6rem] md:py-[10rem]'
         aria-labelledby='founder-title'
       >
         <Container>
@@ -684,7 +687,7 @@ export default function StudioClient() {
               className='min-h-[320px] md:min-h-[460px]'
               displacements={[
                 { row: 0, col: 0, displaceX: -2, displaceY: -2 },
-                { row: 5, col: -1, displaceX: 3, displaceY: 1 },
+                { row: 5, col: -1, displaceX: 2, displaceY: 1 },
                 { row: 9, col: 1, displaceX: -3, displaceY: 3 },
               ]}
             >
@@ -725,7 +728,7 @@ export default function StudioClient() {
       {/* ------------------------------------------------------------- ENQUIRY */}
       <section
         id='enquiry'
-        className='scroll-mt-8 bg-black py-24 md:py-32'
+        className='scroll-mt-8 overflow-hidden bg-black py-[6rem] md:py-[10rem]'
         aria-labelledby='enquiry-title'
       >
         <Container>
@@ -736,7 +739,7 @@ export default function StudioClient() {
               displacements={[
                 { row: 0, col: -2, displaceX: 2, displaceY: -3 },
                 { row: 3, col: 0, displaceX: -4, displaceY: 1 },
-                { row: 9, col: -1, displaceX: 3, displaceY: 2 },
+                { row: 9, col: -1, displaceX: 2, displaceY: 2 },
               ]}
             >
               <p className={`mb-5 ${EYEBROW} text-black/70`}>
@@ -758,7 +761,7 @@ export default function StudioClient() {
                 Start an email →
               </a>
 
-              <p className='mt-8 text-sm leading-7 text-black/70'>
+              <p className='mt-[2rem] text-sm leading-7 text-black/70'>
                 Or write to{' '}
                 <a
                   href={`mailto:${STUDIO_ADDRESS}`}
@@ -780,7 +783,7 @@ export default function StudioClient() {
                   {'// WHAT TO INCLUDE'}
                 </p>
               </CellMarker>
-              <ul role='list' className='mt-8 border-t border-white/10'>
+              <ul role='list' className='mt-[2rem] border-t border-white/10'>
                 {enquiryPrompts.map((prompt) => (
                   <li
                     key={prompt}
@@ -790,7 +793,7 @@ export default function StudioClient() {
                   </li>
                 ))}
               </ul>
-              <p className='mt-8 text-sm leading-7 text-white/40'>
+              <p className='mt-[2rem] text-sm leading-7 text-white/40'>
                 Name and email come with the message. Everything else is
                 optional.
               </p>
