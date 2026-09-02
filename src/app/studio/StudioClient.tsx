@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Widget } from '@typeform/embed-react';
 import { usePostHog } from 'posthog-js/react';
 import Container from '@/components/Container';
 import PixelDisplacementGrid from '@/components/PixelDisplacementGrid';
@@ -93,8 +92,49 @@ const engagements = [
   },
 ] as const;
 
-const studioEmail =
-  'mailto:team@yonkolevel.com?subject=Yonko%20Level%20Studio%20enquiry';
+const STUDIO_ADDRESS = 'team@yonkolevel.com';
+
+/** The questions a useful first email answers. */
+const enquiryPrompts = [
+  'Company',
+  'Product or website',
+  'What are you trying to ship, fix or understand?',
+  'What would a successful outcome look like?',
+  'Desired start date',
+  'Expected investment — under £10k · £10k–£25k · £25k–£50k · £50k+ · not sure yet',
+] as const;
+
+/**
+ * Opens the visitor's mail client with the enquiry already laid out, so the
+ * page asks the same questions a form would without shipping a form that could
+ * quietly drop a message. CRLF keeps the line breaks intact across clients.
+ */
+const studioEmail = (() => {
+  const subject = 'Yonko Level Studio enquiry';
+  const body = [
+    'Hello Yonko Level,',
+    '',
+    'Name:',
+    'Company:',
+    'Product or website:',
+    '',
+    'What we are trying to ship, fix or understand:',
+    '',
+    '',
+    'What a successful outcome looks like:',
+    '',
+    '',
+    'Desired start date:',
+    'Expected investment (under £10k / £10k–£25k / £25k–£50k / £50k+ / not sure yet):',
+    '',
+    'Anything else worth knowing:',
+    '',
+  ].join('\r\n');
+
+  return `mailto:${STUDIO_ADDRESS}?subject=${encodeURIComponent(
+    subject,
+  )}&body=${encodeURIComponent(body)}`;
+})();
 
 /* ------------------------------------------------------------- type tokens */
 
@@ -268,7 +308,7 @@ export default function StudioClient() {
     if (enquiryStarted.current) return;
 
     enquiryStarted.current = true;
-    posthog?.capture('studio_enquiry_started', { method: 'typeform' });
+    posthog?.capture('studio_enquiry_started', { method: 'email' });
   };
 
   return (
@@ -594,45 +634,54 @@ export default function StudioClient() {
                 Tell us what you are building
               </h2>
               <p className={`mt-10 ${BODY} text-black/80`}>
-                The form asks for your name, email and a project description. In
-                that description, include any useful context about your company,
-                product or website, desired start date, expected investment and
-                what a successful outcome would look like.
+                Send us an email. The link opens a message with the useful
+                questions already in it—answer what you can and leave the rest.
               </p>
-              <p className='mt-6 text-sm leading-7 text-black/70'>
-                We will only use these details to discuss your enquiry. Prefer
-                email? Write to{' '}
+
+              <a
+                href={studioEmail}
+                onClick={handleEnquiryStarted}
+                className={`mt-10 inline-flex min-h-12 items-center rounded-full bg-black px-7 ${EYEBROW} tracking-[0.12em] text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-originalYellow`}
+              >
+                Start an email →
+              </a>
+
+              <p className='mt-8 text-sm leading-7 text-black/70'>
+                Or write to{' '}
                 <a
-                  href={studioEmail}
-                  onClick={() =>
-                    posthog?.capture('studio_enquiry_started', {
-                      method: 'email',
-                    })
-                  }
+                  href={`mailto:${STUDIO_ADDRESS}`}
+                  onClick={handleEnquiryStarted}
                   className='font-medium text-black underline decoration-2 underline-offset-4 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-originalYellow'
                 >
-                  team@yonkolevel.com
-                </a>
-                .
+                  {STUDIO_ADDRESS}
+                </a>{' '}
+                directly. We will only use these details to discuss your
+                enquiry.
               </p>
 
               <FounderSprite className='pointer-events-none mt-12 hidden w-[140px] lg:block' />
             </PixelPanel>
 
-            <div className='min-h-[660px] overflow-hidden bg-white'>
-              <Widget
-                id='JpaDXdWY'
-                height={660}
-                lazy
-                iframeProps={{ title: 'Yonko Level Studio project enquiry' }}
-                onReady={() => posthog?.capture('studio_enquiry_form_loaded')}
-                onStarted={handleEnquiryStarted}
-                onSubmit={() =>
-                  posthog?.capture('studio_enquiry_submitted', {
-                    method: 'typeform',
-                  })
-                }
-              />
+            <div>
+              <CellMarker>
+                <p className={`${MARKER} text-white/40`}>
+                  {'// WHAT TO INCLUDE'}
+                </p>
+              </CellMarker>
+              <ul role='list' className='mt-8 border-t border-white/10'>
+                {enquiryPrompts.map((prompt) => (
+                  <li
+                    key={prompt}
+                    className='border-b border-white/10 py-5 text-base leading-8 text-white/70'
+                  >
+                    {prompt}
+                  </li>
+                ))}
+              </ul>
+              <p className='mt-8 text-sm leading-7 text-white/40'>
+                Name and email come with the message. Everything else is
+                optional.
+              </p>
             </div>
           </SectionGrid>
         </Container>
