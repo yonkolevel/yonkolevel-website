@@ -29,7 +29,7 @@ const Home = () => {
       <AppShowcaseSection
         appName='INVISIBLE CAMERA'
         appDescription="Tired of over-processed iPhone photos? Invisible Camera bypasses Deep Fusion and Smart HDR. See your shot in real-time. What you see is what you get."
-        appScreenshot='/products/invisible-camera/ic-app-store-preview.png'
+        appScreenshot='/products/invisible-camera/marketing/ic-viewfinder.webp'
         mediaType='image'
         learnMoreLink='/products/invisible-camera'
         sectionBackgroundColor='#1a1a1a'
@@ -64,7 +64,7 @@ const Home = () => {
       <AppShowcaseSection
         appName='MIDICIRCUIT'
         appDescription='A simple and approachable DAW that makes it easy to start creating music. Record audio, lay down MIDI, mix your tracks, and share with friends. Available on iPhone, iPad, Mac and Android.'
-        appScreenshot='/products/midicircuit/midicircuit-preview-1.png'
+        appScreenshot='/products/midicircuit/marketing/mc-song.webp'
         mediaType='image'
         learnMoreLink='/products/midicircuit'
         sectionBackgroundColor='#121212'

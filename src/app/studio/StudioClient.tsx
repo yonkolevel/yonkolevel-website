@@ -194,7 +194,7 @@ const studioEmail = (() => {
 
 const EYEBROW = 'font-pixel text-xs uppercase tracking-[0.22em]';
 const HEADING =
-  'font-pixel text-2xl uppercase leading-tight tracking-tight md:text-4xl';
+  'font-pixel text-2xl uppercase leading-tight tracking-tight lg:text-3xl xl:text-4xl';
 const CELL_TITLE = 'font-pixel text-lg uppercase md:text-xl';
 const MARKER = 'font-pixel text-xs tracking-[0.2em]';
 const BODY = 'text-base leading-8 md:text-lg';
@@ -209,7 +209,7 @@ const BODY = 'text-base leading-8 md:text-lg';
  */
 function SectionGrid({ children }: { children: React.ReactNode }) {
   return (
-    <div className='grid grid-cols-1 gap-x-[3rem] gap-y-[5rem] border-t border-white/10 pt-[4rem] md:grid-cols-2 lg:gap-x-[5rem] lg:gap-y-[7.5rem] lg:pt-[6rem]'>
+    <div className='grid grid-cols-1 gap-x-[3rem] gap-y-[4rem] border-t border-white/10 pt-[3.5rem] md:grid-cols-2 lg:gap-x-[5rem] lg:gap-y-[7.5rem] lg:pt-[6rem]'>
       {children}
     </div>
   );
@@ -285,25 +285,37 @@ type Displacement = {
   displaceY: number;
 };
 
+type PanelSide = 'left' | 'right' | 'full';
+
 /**
  * Content on a solid colour panel built from the displacement grid, the way the
  * homepage showcase sections do it: a few pixels come loose from the panel's
  * edges and fly into the dark around it, leaving holes where they were.
  *
- * A negative column counts back from the panel's right edge — the grid derives
- * its column count from the measured width, so a fixed index near the right
- * edge would otherwise be dropped or wrap onto the next row.
+ * The panel measures itself and then disciplines every displacement so the
+ * decoration can never damage the layout:
+ *
+ * - negative rows and columns count back from the bottom and right edges, so
+ *   an entry holds wherever the panel ends instead of being dropped or
+ *   wrapping onto the next row
+ * - only perimeter cells may move, and only outwards, so a hole is always in
+ *   the panel's padding rather than under its text
+ * - throws are capped: one cell upwards (under the section rule), one cell
+ *   towards the neighbouring column (inside the gutter), two cells towards the
+ *   page edge, three downwards into the section's own padding
  */
 function PixelPanel({
   color,
   displacements,
+  side = 'left',
   className = '',
-  pad = 'p-[2rem] sm:p-10 md:p-12',
+  pad = 'p-[2.5rem] md:p-12',
   pixelSize = 40,
   children,
 }: {
   color: string;
   displacements: Displacement[];
+  side?: PanelSide;
   className?: string;
   pad?: string;
   pixelSize?: number;
@@ -311,14 +323,19 @@ function PixelPanel({
 }) {
   const prefersReducedMotion = useReducedMotion();
   const ref = React.useRef<HTMLDivElement>(null);
-  const [cols, setCols] = React.useState(0);
+  const [size, setSize] = React.useState({ cols: 0, rows: 0 });
 
   React.useEffect(() => {
     const node = ref.current;
     if (!node) return;
 
-    const measure = () =>
-      setCols(Math.floor(node.getBoundingClientRect().width / pixelSize));
+    const measure = () => {
+      const rect = node.getBoundingClientRect();
+      setSize({
+        cols: Math.floor(rect.width / pixelSize),
+        rows: Math.floor(rect.height / pixelSize),
+      });
+    };
 
     measure();
     const observer = new ResizeObserver(measure);
@@ -326,15 +343,42 @@ function PixelPanel({
     return () => observer.disconnect();
   }, [pixelSize]);
 
-  const resolved = React.useMemo(
-    () =>
-      cols === 0
-        ? []
-        : displacements
-            .map((d) => (d.col < 0 ? { ...d, col: cols + d.col } : d))
-            .filter((d) => d.col >= 0 && d.col < cols),
-    [displacements, cols],
-  );
+  const resolved = React.useMemo(() => {
+    const { cols, rows } = size;
+    if (cols === 0 || rows === 0) return [];
+
+    const inwardX = side === 'left' ? 1 : side === 'right' ? -1 : 0;
+
+    return displacements.flatMap((d) => {
+      const col = d.col < 0 ? cols + d.col : d.col;
+      const row = d.row < 0 ? rows + d.row : d.row;
+      if (col < 0 || col >= cols || row < 0 || row >= rows) return [];
+
+      const onLeft = col === 0;
+      const onRight = col === cols - 1;
+      const onTop = row === 0;
+      const onBottom = row === rows - 1;
+      if (!onLeft && !onRight && !onTop && !onBottom) return [];
+
+      let dx = d.displaceX;
+      let dy = d.displaceY;
+
+      // only outwards from the edge the pixel sits on
+      if (onLeft && !onRight && dx > 0) dx = 0;
+      if (onRight && !onLeft && dx < 0) dx = 0;
+      if (onTop && !onBottom && dy > 0) dy = 0;
+      if (onBottom && !onTop && dy < 0) dy = 0;
+
+      // capped throws
+      dy = Math.max(-1, Math.min(3, dy));
+      const towardsNeighbour = inwardX !== 0 && Math.sign(dx) === inwardX;
+      const limit = towardsNeighbour ? 1 : 2;
+      dx = Math.max(-limit, Math.min(limit, dx));
+
+      if (dx === 0 && dy === 0) return [];
+      return [{ row, col, displaceX: dx, displaceY: dy }];
+    });
+  }, [displacements, size, side]);
 
   return (
     <div ref={ref} className={`relative ${className}`}>
@@ -369,26 +413,26 @@ export default function StudioClient() {
     <div className='bg-black text-white'>
       {/* ---------------------------------------------------------------- HERO */}
       <section
-        className='relative flex min-h-screen items-center overflow-hidden bg-black py-[7rem]'
+        className='relative flex items-center overflow-hidden bg-black py-[5rem] md:py-[7rem] lg:min-h-screen'
         aria-labelledby='studio-hero-title'
       >
         <Container>
           <div className='relative'>
             <PixelPanel
               color='#FE6A5A'
+              side='full'
               className='relative z-40 max-w-[900px] lg:mr-48'
               pad='p-[2rem] sm:p-10 md:p-14'
               pixelSize={32}
               displacements={[
-                { row: 0, col: 0, displaceX: -2, displaceY: -2 },
-                { row: 0, col: 6, displaceX: 1, displaceY: -4 },
-                { row: 3, col: 0, displaceX: -4, displaceY: 1 },
-                { row: 6, col: 1, displaceX: -5, displaceY: -2 },
-                { row: 8, col: 0, displaceX: -1, displaceY: 3 },
-                { row: 8, col: 4, displaceX: 2, displaceY: 4 },
-                { row: 1, col: -1, displaceX: 2, displaceY: -2 },
-                { row: 4, col: -2, displaceX: 2, displaceY: 1 },
-                { row: 7, col: -1, displaceX: 2, displaceY: 3 },
+                { row: 0, col: 0, displaceX: -2, displaceY: -1 },
+                { row: 0, col: 6, displaceX: 0, displaceY: -1 },
+                { row: 0, col: -3, displaceX: 1, displaceY: -1 },
+                { row: -1, col: 0, displaceX: -1, displaceY: 1 },
+                { row: -1, col: 4, displaceX: 0, displaceY: 2 },
+                { row: -1, col: 9, displaceX: 1, displaceY: 3 },
+                { row: -1, col: -1, displaceX: 2, displaceY: 1 },
+                { row: 0, col: -1, displaceX: 2, displaceY: 0 },
               ]}
             >
               <h1 id='studio-hero-title' className='font-pixel uppercase'>
@@ -439,7 +483,7 @@ export default function StudioClient() {
 
       {/* ----------------------------------------------------------- EXPERTISE */}
       <section
-        className='overflow-hidden bg-black py-[6rem] md:py-[10rem]'
+        className='overflow-hidden bg-black py-[5rem] md:py-[7rem] lg:py-[10rem]'
         aria-labelledby='expertise-title'
       >
         <Container>
@@ -479,7 +523,7 @@ export default function StudioClient() {
 
       {/* ------------------------------------------------------------ SURFACES */}
       <section
-        className='overflow-hidden bg-black py-[6rem] md:py-[10rem]'
+        className='overflow-hidden bg-black py-[5rem] md:py-[7rem] lg:py-[10rem]'
         aria-labelledby='surfaces-title'
       >
         <Container>
@@ -516,7 +560,7 @@ export default function StudioClient() {
 
       {/* ------------------------------------------------------------ PRODUCTS */}
       <section
-        className='overflow-hidden bg-black py-[6rem] md:py-[10rem]'
+        className='overflow-hidden bg-black py-[5rem] md:py-[7rem] lg:py-[10rem]'
         aria-labelledby='products-title'
       >
         <Container>
@@ -545,7 +589,7 @@ export default function StudioClient() {
                   className='relative aspect-[4/3] overflow-hidden'
                   style={{ backgroundColor: product.plate }}
                 >
-                  <div className='absolute inset-x-0 bottom-0 top-10 sm:top-12'>
+                  <div className='absolute inset-x-0 -bottom-[18%] top-[2.5rem] sm:top-12'>
                     <Image
                       src={product.render}
                       alt={product.renderAlt}
@@ -590,18 +634,20 @@ export default function StudioClient() {
 
       {/* ---------------------------------------------------------- EXPERIENCE */}
       <section
-        className='overflow-hidden bg-black py-[6rem] md:py-[10rem]'
+        className='overflow-hidden bg-black py-[5rem] md:py-[7rem] lg:py-[10rem]'
         aria-labelledby='record-title'
       >
         <Container>
           <SectionGrid>
             <PixelPanel
               color='#FCC552'
-              className='min-h-[320px] md:min-h-[420px]'
+              side='left'
+              className='lg:min-h-[420px]'
               displacements={[
-                { row: 0, col: -1, displaceX: 2, displaceY: -2 },
-                { row: 4, col: 0, displaceX: -3, displaceY: 1 },
-                { row: 7, col: -2, displaceX: 2, displaceY: 3 },
+                { row: 0, col: 0, displaceX: -1, displaceY: -1 },
+                { row: 0, col: 3, displaceX: 0, displaceY: -1 },
+                { row: -1, col: 2, displaceX: 0, displaceY: 2 },
+                { row: -1, col: -1, displaceX: 1, displaceY: 1 },
               ]}
             >
               <p className={`mb-5 ${EYEBROW} text-black/70`}>
@@ -635,18 +681,20 @@ export default function StudioClient() {
 
       {/* -------------------------------------------------------- HOW WE WORK */}
       <section
-        className='overflow-hidden bg-black py-[6rem] md:py-[10rem]'
+        className='overflow-hidden bg-black py-[5rem] md:py-[7rem] lg:py-[10rem]'
         aria-labelledby='work-title'
       >
         <Container>
           <SectionGrid>
             <PixelPanel
               color='#007AFF'
-              className='min-h-[320px] md:col-start-2 md:row-start-1 md:min-h-[420px]'
+              side='right'
+              className='md:col-start-2 md:row-start-1 lg:min-h-[420px]'
               displacements={[
-                { row: 0, col: 1, displaceX: -2, displaceY: -3 },
-                { row: 3, col: -1, displaceX: 2, displaceY: 1 },
-                { row: 8, col: 2, displaceX: -1, displaceY: 4 },
+                { row: 0, col: 1, displaceX: 0, displaceY: -1 },
+                { row: 0, col: -1, displaceX: 2, displaceY: 0 },
+                { row: -1, col: -1, displaceX: 1, displaceY: 2 },
+                { row: -1, col: 3, displaceX: 0, displaceY: 3 },
               ]}
             >
               <p className={`mb-5 ${EYEBROW} text-white/70`}>
@@ -684,18 +732,20 @@ export default function StudioClient() {
 
       {/* ------------------------------------------------------------- FOUNDER */}
       <section
-        className='overflow-hidden bg-black py-[6rem] md:py-[10rem]'
+        className='overflow-hidden bg-black py-[5rem] md:py-[7rem] lg:py-[10rem]'
         aria-labelledby='founder-title'
       >
         <Container>
           <SectionGrid>
             <PixelPanel
               color='#FE6A5A'
-              className='min-h-[320px] md:min-h-[460px]'
+              side='left'
+              className='lg:min-h-[460px]'
               displacements={[
-                { row: 0, col: 0, displaceX: -2, displaceY: -2 },
-                { row: 5, col: -1, displaceX: 2, displaceY: 1 },
-                { row: 9, col: 1, displaceX: -3, displaceY: 3 },
+                { row: 0, col: 0, displaceX: -2, displaceY: -1 },
+                { row: 0, col: -2, displaceX: 0, displaceY: -1 },
+                { row: -1, col: 1, displaceX: -1, displaceY: 2 },
+                { row: -1, col: -2, displaceX: 0, displaceY: 3 },
               ]}
             >
               <p className={`mb-5 ${EYEBROW} text-white/70`}>
@@ -735,18 +785,20 @@ export default function StudioClient() {
       {/* ------------------------------------------------------------- ENQUIRY */}
       <section
         id='enquiry'
-        className='scroll-mt-8 overflow-hidden bg-black py-[6rem] md:py-[10rem]'
+        className='scroll-mt-8 overflow-hidden bg-black py-[5rem] md:py-[7rem] lg:py-[10rem]'
         aria-labelledby='enquiry-title'
       >
         <Container>
           <SectionGrid>
             <PixelPanel
               color='#FCC552'
+              side='right'
               className='md:col-start-2 md:row-start-1'
               displacements={[
-                { row: 0, col: -2, displaceX: 2, displaceY: -3 },
-                { row: 3, col: 0, displaceX: -4, displaceY: 1 },
-                { row: 9, col: -1, displaceX: 2, displaceY: 2 },
+                { row: 0, col: -2, displaceX: 1, displaceY: -1 },
+                { row: 0, col: 2, displaceX: 0, displaceY: -1 },
+                { row: -1, col: -1, displaceX: 2, displaceY: 2 },
+                { row: -1, col: 1, displaceX: 0, displaceY: 3 },
               ]}
             >
               <p className={`mb-5 ${EYEBROW} text-black/70`}>
