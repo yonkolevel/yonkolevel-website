@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { useReducedMotion } from 'framer-motion';
 import { usePostHog } from 'posthog-js/react';
 import Container from '@/components/Container';
 import PixelPanel from '@/components/PixelPanel';
@@ -239,65 +239,6 @@ function CellMarker({ children }: { children?: React.ReactNode }) {
   return <div className='flex h-16 items-center'>{children}</div>;
 }
 
-const SPRITE_WALKING = '/images/pixel/characters/ricardo-walk.gif';
-const SPRITE_IDLE = '/images/pixel/characters/ricardo-idle.webp';
-const SPRITE_STILL = '/images/pixel/characters/ricardo-idle.png';
-
-/**
- * The pre-rebrand pixel sprite of the founder. With `walkIn` it repeats the old
- * homepage hero sequence: walk in from the left, then settle into the idle
- * loop. The sprite faces right, so it has to travel rightwards to read
- * correctly. Reduced motion gets a single still frame.
- */
-function FounderSprite({
-  className,
-  walkIn = false,
-}: {
-  className: string;
-  walkIn?: boolean;
-}) {
-  const prefersReducedMotion = useReducedMotion();
-  const [mounted, setMounted] = React.useState(false);
-  const [arrived, setArrived] = React.useState(!walkIn);
-
-  React.useEffect(() => setMounted(true), []);
-
-  // Decorative only, so it is fine to skip it until after hydration.
-  if (!mounted) return null;
-
-  const still = prefersReducedMotion === true;
-  const source = still ? SPRITE_STILL : arrived ? SPRITE_IDLE : SPRITE_WALKING;
-  // native frames are 128px (idle) and 125px (walk); shown at 2x, crisp
-  const native = source === SPRITE_WALKING ? 125 : 128;
-  const image = (
-    <PixelSprite src={source} width={native} height={native} scale={2} />
-  );
-
-  if (!walkIn || still) {
-    return (
-      <div aria-hidden='true' className={className}>
-        {image}
-      </div>
-    );
-  }
-
-  return (
-    <motion.div
-      aria-hidden='true'
-      className={className}
-      initial={{ x: '-34vw', opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{
-        x: { duration: 2.8, ease: 'linear' },
-        opacity: { duration: 0.4 },
-      }}
-      onAnimationComplete={() => setArrived(true)}
-    >
-      {image}
-    </motion.div>
-  );
-}
-
 /**
  * The original fist-bump animation from the old About page. It rests on its
  * first frame (fists apart) and plays once each time `play` increments —
@@ -404,10 +345,19 @@ export default function StudioClient() {
               </span>
             </PixelPanel>
 
-            <FounderSprite
-              walkIn
-              className='pointer-events-none absolute bottom-0 right-6 z-30 hidden lg:block xl:right-12'
-            />
+            {/* The studio: desk, monitor, bonsai, chair and plant from the
+                original prop set, composed into one scene and shown at 2x. */}
+            <div
+              aria-hidden='true'
+              className='pointer-events-none absolute bottom-0 right-0 z-30 hidden xl:block'
+            >
+              <PixelSprite
+                src='/images/pixel/scenes/studio-desk.png'
+                width={172}
+                height={154}
+                scale={2}
+              />
+            </div>
           </div>
         </Container>
       </section>
