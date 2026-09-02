@@ -285,7 +285,7 @@ export default function StudioClient() {
     <div className='bg-black text-white'>
       {/* ---------------------------------------------------------------- HERO */}
       <section
-        className='relative flex items-center overflow-hidden bg-black py-[5rem] md:py-[7rem] lg:min-h-screen'
+        className='relative flex items-center overflow-hidden bg-black pb-[5rem] pt-[5rem] md:pb-[13rem] md:pt-[7rem] lg:min-h-screen xl:pb-[7rem]'
         aria-labelledby='studio-hero-title'
       >
         <Container>
@@ -347,23 +347,12 @@ export default function StudioClient() {
 
             {/* The studio: desk, monitor, bonsai, chair and plant from the
                 original prop set, composed into one scene and shown at 2x. */}
-            {/* Tablet: full 2x scene in flow below the panel, overlapping its
-                bottom edge so it stands in front of the orange without
-                covering the copy. */}
+            {/* The studio scene, absolutely placed so the hero keeps its
+                height: bottom-right of the panel from md, and from xl shifted
+                half its width past the panel's edge. */}
             <div
               aria-hidden='true'
-              className='pointer-events-none relative z-50 -mt-[6rem] hidden justify-end pr-6 md:flex xl:hidden'
-            >
-              <PixelSprite
-                src='/images/pixel/scenes/studio-desk.png'
-                width={172}
-                height={154}
-                scale={2}
-              />
-            </div>
-            <div
-              aria-hidden='true'
-              className='pointer-events-none absolute bottom-0 right-0 z-50 hidden translate-x-1/2 xl:block'
+              className='pointer-events-none absolute bottom-0 right-6 z-50 hidden translate-x-1/2 translate-y-1/2 md:block xl:right-0 xl:translate-y-0'
             >
               <PixelSprite
                 src='/images/pixel/scenes/studio-desk.png'
