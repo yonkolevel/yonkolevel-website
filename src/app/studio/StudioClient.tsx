@@ -291,7 +291,7 @@ export default function StudioClient() {
         <Container>
           <div className='relative'>
             <PixelPanel
-              color='#FE6A5A'
+              color='#007AFF'
               side='full'
               className='relative z-40 mx-auto max-w-[900px]'
               pad='p-[2rem] sm:p-10 md:p-14'
@@ -308,29 +308,18 @@ export default function StudioClient() {
               ]}
             >
               <h1 id='studio-hero-title' className='font-pixel uppercase'>
-                {/* The header wordmark, masked so it takes the panel's ink:
-                    its own orange would vanish against this background. */}
-                <span
-                  role='img'
-                  aria-label='Yonko Level'
-                  className='mb-[0.5rem] block h-[3.5rem] w-[9.5rem] bg-black md:h-[4.25rem] md:w-[11.5rem]'
-                  style={{
-                    WebkitMaskImage: 'url(/images/logo.svg)',
-                    maskImage: 'url(/images/logo.svg)',
-                    WebkitMaskRepeat: 'no-repeat',
-                    maskRepeat: 'no-repeat',
-                    WebkitMaskSize: 'contain',
-                    maskSize: 'contain',
-                    WebkitMaskPosition: 'left center',
-                    maskPosition: 'left center',
-                  }}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src='/images/logo.svg'
+                  alt='Yonko Level'
+                  className='mb-[1rem] block w-[9.5rem] md:w-[11.5rem]'
                 />
-                <span className='mt-[1rem] block text-[clamp(3.5rem,15vw,12rem)] leading-[0.85] tracking-tight text-black'>
+                <span className='mt-[1rem] block text-[clamp(3.5rem,15vw,12rem)] leading-[0.85] tracking-tight text-white'>
                   Studio
                 </span>
               </h1>
 
-              <p className='mt-10 max-w-2xl text-lg leading-9 text-black md:text-xl'>
+              <p className='mt-10 max-w-2xl text-lg leading-9 text-white md:text-xl'>
                 We build mobile products for a living, and we help a few other
                 teams build theirs. One partnership at a time, with the founder
                 doing the work.
@@ -340,12 +329,12 @@ export default function StudioClient() {
                 <a
                   href='#enquiry'
                   onClick={() => posthog?.capture('studio_enquiry_cta_clicked')}
-                  className={`inline-flex min-h-12 items-center rounded-full bg-black px-7 ${EYEBROW} tracking-[0.12em] text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-orange`}
+                  className={`inline-flex min-h-12 items-center rounded-full bg-black px-7 ${EYEBROW} tracking-[0.12em] text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue1`}
                 >
                   Tell us what you are building →
                 </a>
                 <p
-                  className={`mt-6 ${EYEBROW} tracking-[0.14em] text-black/60`}
+                  className={`mt-6 ${EYEBROW} tracking-[0.14em] text-white/70`}
                 >
                   For founders, product teams and brands.
                 </p>
@@ -354,7 +343,7 @@ export default function StudioClient() {
               {/* The pixel face carries no CJK glyphs, so this renders in the
                   body face with a normal line box, in font-pixel the metric
                   overrides on the fallback clip katakana. */}
-              <span className='mt-14 block font-body text-sm leading-normal tracking-[0.08em] text-black/40'>
+              <span className='mt-14 block font-body text-sm leading-normal tracking-[0.08em] text-white/50'>
                 ヨンコ・レベル・スタジオ
               </span>
             </PixelPanel>
