@@ -50,8 +50,9 @@ const products = [
       'A simple and approachable DAW for creating and sharing music. Record audio, lay down MIDI in real time, mix your tracks and export when you are ready.',
     href: '/products/midicircuit',
     icon: '/products/midicircuit/app-icon.png',
-    render: '/products/midicircuit/marketing/android-playgrounds.png',
-    renderAlt: 'Midicircuit playgrounds on a phone',
+    render: '/products/midicircuit/marketing/mc-song.webp',
+    renderAlt:
+      'Midicircuit song view on a phone, with drum, melodic and bass tracks',
     plate: '#FF5C24',
   },
   {

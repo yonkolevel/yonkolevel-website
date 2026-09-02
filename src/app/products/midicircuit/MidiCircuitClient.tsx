@@ -83,8 +83,8 @@ export default function MidiCircuitClient() {
       <ProductContentSection
         title='Now on Android'
         description='Midicircuit is on Google Play too, with the same Playgrounds, tracks and mixer. Start an idea on a phone and carry on wherever you make music.'
-        image='/products/midicircuit/marketing/android-tracks.png'
-        imageAlt='Midicircuit tracks and sections running on an Android phone'
+        image='/products/midicircuit/marketing/mc-song.webp'
+        imageAlt='Midicircuit song view with drum, melodic and bass tracks on an Android phone'
         backgroundColor='bg-black'
         textColor='text-white'
         patternColor='#FF5C24'
