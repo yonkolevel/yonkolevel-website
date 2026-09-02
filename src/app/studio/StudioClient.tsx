@@ -308,9 +308,23 @@ export default function StudioClient() {
               ]}
             >
               <h1 id='studio-hero-title' className='font-pixel uppercase'>
-                <span className={`block ${EYEBROW} text-black/60 md:text-sm`}>
-                  Yonko Level
-                </span>
+                {/* The header wordmark, masked so it takes the panel's ink:
+                    its own orange would vanish against this background. */}
+                <span
+                  role='img'
+                  aria-label='Yonko Level'
+                  className='mb-[0.5rem] block h-[3.5rem] w-[9.5rem] bg-black md:h-[4.25rem] md:w-[11.5rem]'
+                  style={{
+                    WebkitMaskImage: 'url(/images/logo.svg)',
+                    maskImage: 'url(/images/logo.svg)',
+                    WebkitMaskRepeat: 'no-repeat',
+                    maskRepeat: 'no-repeat',
+                    WebkitMaskSize: 'contain',
+                    maskSize: 'contain',
+                    WebkitMaskPosition: 'left center',
+                    maskPosition: 'left center',
+                  }}
+                />
                 <span className='mt-[1rem] block text-[clamp(3.5rem,15vw,12rem)] leading-[0.85] tracking-tight text-black'>
                   Studio
                 </span>
