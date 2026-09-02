@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Container from '@/components/Container';
+import PixelSprite from '@/components/PixelSprite';
 
 /**
  * The independent people Yonko Level brings in when a project needs more than
@@ -58,6 +59,21 @@ export default function Friends() {
               </li>
             ))}
           </ul>
+          <div
+            aria-hidden='true'
+            className='hidden items-end gap-[0.5rem] lg:ml-auto lg:flex'
+          >
+            <PixelSprite
+              src='/images/pixel/characters/ricardo-idle.gif'
+              width={128}
+              height={128}
+            />
+            <PixelSprite
+              src='/images/pixel/characters/delcio-idle.gif'
+              width={128}
+              height={128}
+            />
+          </div>
         </div>
       </Container>
     </section>

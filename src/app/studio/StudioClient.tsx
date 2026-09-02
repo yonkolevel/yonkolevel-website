@@ -7,6 +7,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { usePostHog } from 'posthog-js/react';
 import Container from '@/components/Container';
 import PixelPanel from '@/components/PixelPanel';
+import PixelSprite from '@/components/PixelSprite';
 import TrustedBy from '@/components/studio/TrustedBy';
 import Friends from '@/components/studio/Friends';
 import {
@@ -238,9 +239,9 @@ function CellMarker({ children }: { children?: React.ReactNode }) {
   return <div className='flex h-16 items-center'>{children}</div>;
 }
 
-const SPRITE_WALKING = '/images/illustrations/dev_walking.gif';
-const SPRITE_IDLE = '/images/illustrations/dev_idle.gif';
-const SPRITE_STILL = '/images/illustrations/dev_idle-static.png';
+const SPRITE_WALKING = '/images/pixel/characters/ricardo-walk.gif';
+const SPRITE_IDLE = '/images/pixel/characters/ricardo-idle.gif';
+const SPRITE_STILL = '/images/pixel/characters/ricardo-idle.png';
 
 /**
  * The pre-rebrand pixel sprite of the founder. With `walkIn` it repeats the old
@@ -266,9 +267,10 @@ function FounderSprite({
 
   const still = prefersReducedMotion === true;
   const source = still ? SPRITE_STILL : arrived ? SPRITE_IDLE : SPRITE_WALKING;
+  // native frames are 128px (idle) and 125px (walk); shown at 2x, crisp
+  const native = source === SPRITE_WALKING ? 125 : 128;
   const image = (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img src={source} alt='' className='block w-full' />
+    <PixelSprite src={source} width={native} height={native} scale={2} />
   );
 
   if (!walkIn || still) {
@@ -293,6 +295,26 @@ function FounderSprite({
     >
       {image}
     </motion.div>
+  );
+}
+
+/** The original fist-bump animation from the old About page, still frame under reduced motion. */
+function FistBump() {
+  const prefersReducedMotion = useReducedMotion();
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+  return (
+    <PixelSprite
+      src={
+        prefersReducedMotion
+          ? '/images/pixel/scenes/fist-pump.png'
+          : '/images/pixel/scenes/fist-pump.gif'
+      }
+      width={160}
+      height={144}
+      scale={2}
+    />
   );
 }
 
@@ -375,7 +397,7 @@ export default function StudioClient() {
 
             <FounderSprite
               walkIn
-              className='pointer-events-none absolute bottom-0 right-6 z-30 hidden w-[180px] lg:block xl:right-12 xl:w-[220px]'
+              className='pointer-events-none absolute bottom-0 right-6 z-30 hidden lg:block xl:right-12'
             />
           </div>
         </Container>
@@ -757,7 +779,9 @@ export default function StudioClient() {
                 enquiry.
               </p>
 
-              <FounderSprite className='pointer-events-none mt-12 hidden w-[140px] lg:block' />
+              <div className='pointer-events-none mt-12 hidden lg:block'>
+                <FistBump />
+              </div>
             </PixelPanel>
 
             <div>
