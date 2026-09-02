@@ -110,7 +110,7 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className='font-pixel text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.08em] text-white/50 block text-center'
+            className='font-body text-sm sm:text-base md:text-lg lg:text-xl leading-normal tracking-[0.08em] text-white/50 block text-center'
           >
             ヨンコ・レベル
           </motion.span>

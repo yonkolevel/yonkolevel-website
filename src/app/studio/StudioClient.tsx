@@ -421,7 +421,10 @@ export default function StudioClient() {
                 </p>
               </div>
 
-              <span className='mt-14 block font-pixel text-xs tracking-[0.08em] text-black/40'>
+              {/* The pixel face carries no CJK glyphs, so this renders in the
+                  body face with a normal line box — in font-pixel the metric
+                  overrides on the fallback clip katakana. */}
+              <span className='mt-14 block font-body text-sm leading-normal tracking-[0.08em] text-black/40'>
                 ヨンコ・レベル・スタジオ
               </span>
             </PixelPanel>
