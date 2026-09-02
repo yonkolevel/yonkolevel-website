@@ -46,11 +46,10 @@ const products = [
     description:
       'A simple and approachable DAW for creating and sharing music. Record audio, lay down MIDI in real time, mix your tracks and export when you are ready.',
     href: '/products/midicircuit',
-    shots: [
-      '/products/midicircuit/app-store/1.png',
-      '/products/midicircuit/app-store/2.png',
-    ],
-    shotAlt: 'Midicircuit playgrounds and piano roll on iPhone',
+    icon: '/products/midicircuit/app-icon.png',
+    render: '/products/midicircuit/marketing/android-playgrounds.png',
+    renderAlt: 'Midicircuit playgrounds on a phone',
+    plate: '#FF5C24',
   },
   {
     name: 'INVISIBLE CAMERA',
@@ -58,47 +57,68 @@ const products = [
     description:
       'Bypass Apple’s Deep Fusion and Smart HDR for authentic, film-like photos. See exactly what you will capture in real time—no surprises, no post-processing.',
     href: '/products/invisible-camera',
-    shots: [
-      '/products/invisible-camera/app-store/1.png',
-      '/products/invisible-camera/app-store/2.png',
-    ],
-    shotAlt: 'Invisible Camera viewfinder on iPhone',
+    icon: '/products/invisible-camera/app-icon.png',
+    render: '/products/invisible-camera/ic-app-store-preview.png',
+    renderAlt: 'Invisible Camera viewfinder on iPhone',
+    plate: '#F3B23F',
+  },
+] as const;
+
+/** The three surfaces a partnership can call on, framed by what they buy. */
+const surfaces = [
+  {
+    title: 'MOBILE',
+    description:
+      'Cross-platform React Native on codebases that have outgrown their first design: feature-driven architecture that lets several teams ship at once, release trains across both stores, and the performance work that keeps a large app fast.',
+  },
+  {
+    title: 'NATIVE',
+    description:
+      'Swift, SwiftUI, Kotlin and Objective-C when the platform is the product—audio engines, camera pipelines, HealthKit—plus native modules bridged into JavaScript for the things a cross-platform layer cannot reach, like card scanning.',
+  },
+  {
+    title: 'WEB',
+    description:
+      'React, Next.js, Node and Go behind the app: GraphQL and REST services, booking and scheduling systems, shared component libraries, and front-end performance on data-heavy screens and very long lists.',
   },
 ] as const;
 
 /**
- * Roles and product work from before Yonko Level Studio. Named deliberately as
- * past employers and projects — never as Studio clients.
+ * Roles and product work from before Yonko Level Studio, written as what the
+ * work produced. Named deliberately as past employers — never as Studio
+ * clients.
  */
 const experience = [
   {
-    domain: 'HEALTH',
-    name: 'Babylon Health / eMed',
+    domain: 'SCALE · TRAINLINE',
+    name: 'Large-scale rail, shipped',
     detail:
-      'Two years building consumer health products, including Apple HealthKit integration.',
+      'Staff Engineer on Europe’s leading train and coach app: Digital PAYG delivered across multiple train operators, coordinating releases and production deployments for a product hundreds of thousands of people rely on.',
   },
   {
-    domain: 'FINTECH',
-    name: 'Collectable',
-    detail: 'Fractional investing in sports memorabilia, across iOS and web.',
-  },
-  {
-    domain: 'AUCTIONS',
-    name: 'Christie’s',
-    detail: 'Mobile product work for the auction house.',
-  },
-  {
-    domain: 'SYSTEMS',
-    name: 'Across those teams',
+    domain: 'RELIABILITY · TRAINLINE',
+    name: '70% fewer critical incidents',
     detail:
-      'Payments, fraud detection, location systems, analytics infrastructure, release management and large-scale React Native architecture.',
+      'Crash resolution, monitoring, observability and proactive alerting, with calm technical leadership during live incidents—then the analytics and data infrastructure to make the next decision with evidence.',
+  },
+  {
+    domain: 'HEALTH · BABYLON HEALTH',
+    name: 'Apple Health, end to end',
+    detail:
+      'Nearly two years in digital-first healthcare: assessing the existing solution, mapping the roadmap and shipping a new library into the app, alongside a real-time health score built on key datapoints.',
+  },
+  {
+    domain: 'FINTECH · OVALX · CAPITAL ON TAP',
+    name: 'Money, moved carefully',
+    detail:
+      'Trading and banking platforms, payment gateways, fraud detection and card scanning—plus the front-end architecture and component libraries other teams built on.',
   },
 ] as const;
 
 /** Outcomes worth stating plainly, without attaching them to one employer. */
 const experienceProof = [
   'Mobile products used by hundreds of thousands of people.',
-  'Critical production incidents reduced by 70%.',
+  'Nearly a decade across travel, health, fintech, retail and consumer apps.',
 ] as const;
 
 const engagements = [
@@ -445,6 +465,41 @@ export default function StudioClient() {
         </Container>
       </section>
 
+      {/* ------------------------------------------------------------ SURFACES */}
+      <section
+        className='bg-black py-24 md:py-32'
+        aria-labelledby='surfaces-title'
+      >
+        <Container>
+          <SectionGrid>
+            <div>
+              <p className={`mb-5 ${EYEBROW} text-orange`}>
+                {'// WHAT WE BRING'}
+              </p>
+              <h2 id='surfaces-title' className={`${HEADING} text-white`}>
+                Depth where it counts
+              </h2>
+              <p className={`mt-10 ${BODY} text-white/70`}>
+                Studio work covers the whole product, not one layer of it. The
+                same person does the architecture, the awkward native work and
+                the release—so decisions hold together from the app icon down to
+                the service behind it.
+              </p>
+            </div>
+
+            {surfaces.map(({ title, description }, index) => (
+              <article key={title}>
+                <CellMarker>
+                  <p className={`${MARKER} text-white/40`}>0{index + 1}</p>
+                </CellMarker>
+                <h3 className={`mt-8 ${CELL_TITLE} text-white`}>{title}</h3>
+                <p className={`mt-5 ${BODY} text-white/70`}>{description}</p>
+              </article>
+            ))}
+          </SectionGrid>
+        </Container>
+      </section>
+
       {/* ------------------------------------------------------------ PRODUCTS */}
       <section
         className='bg-black py-24 md:py-32'
@@ -470,26 +525,39 @@ export default function StudioClient() {
 
             {products.map((product) => (
               <article key={product.name}>
-                {/* Live App Store screenshots: each already carries its own
-                    colour field, so the cell stays neutral behind them. */}
-                <div className='flex aspect-[4/3] items-center justify-center gap-4 overflow-hidden bg-[#1a1a1a] p-6 sm:gap-6 sm:p-8'>
-                  {product.shots.map((shot, index) => (
-                    <div key={shot} className='relative h-full w-[44%]'>
-                      <Image
-                        src={shot}
-                        alt={index === 0 ? product.shotAlt : ''}
-                        fill
-                        sizes='(min-width: 720px) 22vw, 44vw'
-                        className='object-contain'
-                      />
-                    </div>
-                  ))}
+                {/* Transparent device render on a solid plate, cropped by the
+                    plate's bottom edge so it fills rather than floats. */}
+                <div
+                  className='relative aspect-[4/3] overflow-hidden'
+                  style={{ backgroundColor: product.plate }}
+                >
+                  <div className='absolute inset-x-0 bottom-0 top-10 sm:top-12'>
+                    <Image
+                      src={product.render}
+                      alt={product.renderAlt}
+                      fill
+                      sizes='(min-width: 720px) 50vw, 100vw'
+                      className='object-contain object-top'
+                    />
+                  </div>
                 </div>
-                <div className='mt-8 flex flex-wrap items-baseline gap-x-5 gap-y-2'>
-                  <h3 className={`${CELL_TITLE} text-white`}>{product.name}</h3>
-                  <p className={`${MARKER} text-white/40`}>
-                    {product.platforms}
-                  </p>
+                <div className='mt-8 flex items-center gap-4'>
+                  <Image
+                    src={product.icon}
+                    alt=''
+                    aria-hidden='true'
+                    width={44}
+                    height={44}
+                    className='h-11 w-11 rounded-[10px]'
+                  />
+                  <div>
+                    <h3 className={`${CELL_TITLE} text-white`}>
+                      {product.name}
+                    </h3>
+                    <p className={`mt-2 ${MARKER} text-white/40`}>
+                      {product.platforms}
+                    </p>
+                  </div>
                 </div>
                 <p className={`mt-5 ${BODY} text-white/70`}>
                   {product.description}
@@ -550,9 +618,11 @@ export default function StudioClient() {
               {experience.map(({ domain, name, detail }) => (
                 <li key={name}>
                   <CellMarker>
-                    <p className={`${MARKER} text-white/40`}>{domain}</p>
+                    <p className={`${MARKER} text-orange`}>{domain}</p>
                   </CellMarker>
-                  <h3 className={`mt-8 ${CELL_TITLE} text-white`}>{name}</h3>
+                  <h3 className='mt-8 font-pixel text-base leading-snug text-white md:text-lg'>
+                    {name}
+                  </h3>
                   <p className={`mt-5 ${BODY} text-white/70`}>{detail}</p>
                 </li>
               ))}
@@ -633,7 +703,8 @@ export default function StudioClient() {
                 <p>
                   Yonko Level is led by Ricardo Abreu, a mobile product engineer
                   with experience shipping consumer software across creative
-                  technology, transport, payments and high-reliability systems.
+                  technology, transport, health, payments and high-reliability
+                  systems.
                 </p>
                 <p>
                   Ricardo works directly on every engagement. When a project
