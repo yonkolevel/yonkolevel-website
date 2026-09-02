@@ -42,7 +42,22 @@ const expertise = [
   },
 ] as const;
 
-const products = [
+type RenderFit = 'tall' | 'full' | 'wide';
+
+type Product = {
+  name: string;
+  platforms: string;
+  description: string;
+  href: string;
+  icon: string;
+  render: string;
+  renderAlt: string;
+  /** tall: rises out of the plate's bottom edge; full: contained; wide: a landscape render, contained */
+  renderFit: RenderFit;
+  plate: string;
+};
+
+const products: Product[] = [
   {
     name: 'MIDICIRCUIT',
     platforms: 'iPhone · iPad · Mac · Android',
@@ -65,10 +80,10 @@ const products = [
     render: '/products/invisible-camera/marketing/ic-viewfinder.webp',
     renderAlt:
       'Invisible Camera viewfinder on iPhone, framing a street scene in Tokyo',
-    renderFit: 'tall',
+    renderFit: 'full',
     plate: '#F3B23F',
   },
-] as const;
+];
 
 /** The three surfaces a partnership can call on, led by the promise. */
 const surfaces = [
@@ -476,7 +491,9 @@ export default function StudioClient() {
                     className={
                       product.renderFit === 'wide'
                         ? 'absolute inset-x-6 bottom-6 top-6 sm:inset-x-10 sm:bottom-8 sm:top-8'
-                        : 'absolute inset-x-0 -bottom-[18%] top-[2.5rem] sm:top-12'
+                        : product.renderFit === 'full'
+                          ? 'absolute inset-x-0 bottom-6 top-6 sm:bottom-8 sm:top-8'
+                          : 'absolute inset-x-0 -bottom-[18%] top-[2.5rem] sm:top-12'
                     }
                   >
                     <Image
@@ -485,9 +502,9 @@ export default function StudioClient() {
                       fill
                       sizes='(min-width: 720px) 50vw, 100vw'
                       className={
-                        product.renderFit === 'wide'
-                          ? 'object-contain object-center'
-                          : 'object-contain object-top'
+                        product.renderFit === 'tall'
+                          ? 'object-contain object-top'
+                          : 'object-contain object-center'
                       }
                     />
                   </div>
