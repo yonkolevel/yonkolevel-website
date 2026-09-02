@@ -163,6 +163,26 @@ const engagements = [
   },
 ] as const;
 
+/**
+ * Independent collaborators Yonko Level brings in when a project needs more
+ * than one person. Both are named, with these roles, in the founder's own
+ * blog posts; add to this list only with the person's agreement.
+ */
+const friends = [
+  {
+    role: 'DESIGN',
+    name: 'Délcio Baptista',
+    detail:
+      'Designed Midicircuit from the first wireframes through v2, and the limited-edition pins we launched it with. A long-time friend, and the first person we call.',
+  },
+  {
+    role: 'ENGINEERING',
+    name: 'Tiago',
+    detail:
+      'Software engineer and music producer, with a master’s thesis on turning audio into MIDI. Wrote the backend tests and set up the observability and CI that let Midicircuit v1 ship with confidence.',
+  },
+] as const;
+
 const STUDIO_ADDRESS = 'team@yonkolevel.com';
 
 /** The questions a useful first email answers. */
@@ -698,6 +718,45 @@ export default function StudioClient() {
                 className='object-cover'
               />
             </div>
+          </SectionGrid>
+        </Container>
+      </section>
+
+      {/* ------------------------------------------------------------- FRIENDS */}
+      <section
+        className='overflow-hidden bg-black py-[5rem] md:py-[7rem] lg:py-[10rem]'
+        aria-labelledby='friends-title'
+      >
+        <Container>
+          <SectionGrid>
+            <div>
+              <p className={`mb-5 ${EYEBROW} text-orange`}>
+                {'// YONKO LEVEL FRIENDS'}
+              </p>
+              <h2 id='friends-title' className={`${HEADING} text-white`}>
+                The friends we bring in
+              </h2>
+              <p className={`mt-10 ${BODY} text-white/70`}>
+                Yonko Level is one person most days. On the days it isn’t, it’s
+                these people: independent, brilliant at one thing, and around
+                long enough that we don’t need a kickoff meeting. They’re not
+                employees, and we don’t pretend otherwise.
+              </p>
+            </div>
+
+            <ul role='list' className='contents'>
+              {friends.map(({ role, name, detail }) => (
+                <li key={name}>
+                  <CellMarker>
+                    <p className={`${MARKER} text-orange`}>{role}</p>
+                  </CellMarker>
+                  <h3 className={`mt-[2rem] ${CELL_TITLE} text-white`}>
+                    {name}
+                  </h3>
+                  <p className={`mt-5 ${BODY} text-white/70`}>{detail}</p>
+                </li>
+              ))}
+            </ul>
           </SectionGrid>
         </Container>
       </section>
