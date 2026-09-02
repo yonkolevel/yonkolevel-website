@@ -406,7 +406,7 @@ export default function StudioClient() {
                 at a time.
               </p>
 
-              <div className='mt-12 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-[2rem]'>
+              <div className='mt-12 flex flex-col items-start'>
                 <a
                   href='#enquiry'
                   onClick={() => posthog?.capture('studio_enquiry_cta_clicked')}
@@ -414,8 +414,10 @@ export default function StudioClient() {
                 >
                   Tell us what you are building →
                 </a>
-                <p className={`${EYEBROW} tracking-[0.14em] text-black/60`}>
-                  For founders and product teams.
+                <p
+                  className={`mt-6 ${EYEBROW} tracking-[0.14em] text-black/60`}
+                >
+                  For founders, product teams and brands.
                 </p>
               </div>
 
