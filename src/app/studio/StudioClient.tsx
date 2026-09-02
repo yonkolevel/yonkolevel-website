@@ -315,8 +315,8 @@ function FistBump({ play }: { play: number }) {
           ? '/images/pixel/scenes/fist-pump.webp'
           : '/images/pixel/scenes/fist-pump.png'
       }
-      width={160}
-      height={144}
+      width={80}
+      height={52}
       scale={2}
     />
   );
@@ -767,15 +767,24 @@ export default function StudioClient() {
                 everything himself.
               </p>
 
-              <a
-                href={studioEmail}
-                onClick={handleEnquiryStarted}
-                onMouseEnter={bump}
-                onFocus={bump}
-                className={`mt-10 inline-flex min-h-12 items-center rounded-full bg-black px-7 ${EYEBROW} tracking-[0.12em] text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-originalYellow`}
-              >
-                Start an email →
-              </a>
+              <div className='mt-10 flex flex-wrap items-center gap-x-[1.25rem] gap-y-[0.75rem]'>
+                <a
+                  href={studioEmail}
+                  onClick={handleEnquiryStarted}
+                  onMouseEnter={bump}
+                  onFocus={bump}
+                  className={`inline-flex min-h-12 items-center rounded-full bg-black px-7 whitespace-nowrap ${EYEBROW} tracking-[0.12em] text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-originalYellow`}
+                >
+                  Start an email →
+                </a>
+
+                <div
+                  aria-hidden='true'
+                  className='pointer-events-none hidden sm:block'
+                >
+                  <FistBump play={bumps} />
+                </div>
+              </div>
 
               <p className='mt-[2rem] text-sm leading-7 text-black/70'>
                 Or write to{' '}
@@ -789,10 +798,6 @@ export default function StudioClient() {
                 directly. We will only use these details to discuss your
                 enquiry.
               </p>
-
-              <div className='pointer-events-none mt-12 hidden lg:block'>
-                <FistBump play={bumps} />
-              </div>
             </PixelPanel>
 
             <div>
