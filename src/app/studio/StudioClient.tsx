@@ -285,7 +285,7 @@ export default function StudioClient() {
     <div className='bg-black text-white'>
       {/* ---------------------------------------------------------------- HERO */}
       <section
-        className='relative flex items-center overflow-hidden bg-black pb-[5rem] pt-[5rem] md:pb-[13rem] md:pt-[7rem] lg:min-h-screen xl:pb-[7rem]'
+        className='relative flex items-center overflow-hidden bg-black py-[5rem] md:py-[7rem] lg:min-h-screen'
         aria-labelledby='studio-hero-title'
       >
         <Container>
@@ -352,7 +352,7 @@ export default function StudioClient() {
                 half its width past the panel's edge. */}
             <div
               aria-hidden='true'
-              className='pointer-events-none absolute bottom-0 right-6 z-50 hidden translate-x-1/2 translate-y-1/2 md:block xl:right-0 xl:translate-y-0'
+              className='pointer-events-none absolute bottom-0 right-6 z-50 hidden translate-x-1/2 md:block xl:right-0'
             >
               <PixelSprite
                 src='/images/pixel/scenes/studio-desk.png'
