@@ -50,9 +50,9 @@ const products = [
       'A simple and approachable DAW for creating and sharing music. Record audio, lay down MIDI in real time, mix your tracks and export when you are ready.',
     href: '/products/midicircuit',
     icon: '/products/midicircuit/app-icon.png',
-    render: '/products/midicircuit/marketing/mc-song.webp',
-    renderAlt:
-      'Midicircuit song view on a phone, with drum, melodic and bass tracks',
+    render: '/products/midicircuit/marketing/mc-devices.webp',
+    renderAlt: 'Midicircuit playgrounds running on Mac, iPad and iPhone',
+    renderFit: 'wide',
     plate: '#FF5C24',
   },
   {
@@ -65,6 +65,7 @@ const products = [
     render: '/products/invisible-camera/marketing/ic-viewfinder.webp',
     renderAlt:
       'Invisible Camera viewfinder on iPhone, framing a street scene in Tokyo',
+    renderFit: 'tall',
     plate: '#F3B23F',
   },
 ] as const;
@@ -589,13 +590,23 @@ export default function StudioClient() {
                   className='relative aspect-[4/3] overflow-hidden'
                   style={{ backgroundColor: product.plate }}
                 >
-                  <div className='absolute inset-x-0 -bottom-[18%] top-[2.5rem] sm:top-12'>
+                  <div
+                    className={
+                      product.renderFit === 'wide'
+                        ? 'absolute inset-x-6 bottom-6 top-6 sm:inset-x-10 sm:bottom-8 sm:top-8'
+                        : 'absolute inset-x-0 -bottom-[18%] top-[2.5rem] sm:top-12'
+                    }
+                  >
                     <Image
                       src={product.render}
                       alt={product.renderAlt}
                       fill
                       sizes='(min-width: 720px) 50vw, 100vw'
-                      className='object-contain object-top'
+                      className={
+                        product.renderFit === 'wide'
+                          ? 'object-contain object-center'
+                          : 'object-contain object-top'
+                      }
                     />
                   </div>
                 </div>

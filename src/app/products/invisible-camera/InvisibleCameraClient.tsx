@@ -45,8 +45,8 @@ export default function InvisibleCameraClient() {
       </div>
 
       <ProductImageSection
-        image='/products/invisible-camera/app-store-2.png'
-        imageAlt='Invisible Camera app screenshot'
+        image='/products/invisible-camera/marketing/ic-racing.webp'
+        imageAlt='Invisible Camera viewfinder framing a vintage racing car'
         backgroundColor='#FBBF2A'
         showPixelEffect
       />
@@ -54,8 +54,8 @@ export default function InvisibleCameraClient() {
       <ProductContentSection
         title='Capture Life Instantly'
         description='Real-time preview with curated film looks inspired by classic film stocks. Apply filters before you shoot and get predictable results — same shot, same result, every time.'
-        image='/products/invisible-camera/app-store-1.png'
-        imageAlt='App interface showing simple camera view'
+        image='/products/invisible-camera/marketing/ic-viewfinder.webp'
+        imageAlt='Invisible Camera viewfinder with the AMY film look, framing a street scene in Tokyo'
         backgroundColor='bg-white'
         textColor='text-black'
         patternColor='#F3B23F'
@@ -65,8 +65,8 @@ export default function InvisibleCameraClient() {
       <ProductContentSection
         title='Privacy First Design'
         description='Your photos never leave your device. No accounts, no cloud uploads. We collect anonymous usage analytics to improve the app — nothing more.'
-        image='/products/invisible-camera/app-store-3.png'
-        imageAlt='Privacy features interface'
+        image='/products/invisible-camera/marketing/ic-blue-frame.webp'
+        imageAlt='Invisible Camera on iPhone with the viewfinder open'
         backgroundColor='bg-gray-50'
         textColor='text-black'
         patternColor='#F3B23F'
@@ -88,14 +88,15 @@ export default function InvisibleCameraClient() {
               >
                 <a
                   target='_blank'
-                  href=''
+                  rel='noreferrer'
+                  href='https://apps.apple.com/gb/app/invisible-camera/id6477348664'
                   className='inline-block'
                   onClick={handleAppStoreClick}
                 >
                   <img
                     className='inline-block transition-opacity hover:opacity-80'
-                    src='/images/common/badge-pre-order-on-the-app-store.svg'
-                    alt='Apple pre-order badge'
+                    src='/images/common/download-on-the-app-store.svg'
+                    alt='Download on the App Store'
                   />
                 </a>
               </motion.div>
@@ -106,6 +107,3 @@ export default function InvisibleCameraClient() {
     </div>
   );
 }
-
-
-

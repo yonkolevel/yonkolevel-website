@@ -60,8 +60,8 @@ export default function MidiCircuitClient() {
       <ProductContentSection
         title='Playgrounds'
         description='A simple and approachable DAW that makes it easy to start creating. Record audio, lay down MIDI in real-time, mix your tracks, and export when you are ready. Comes loaded with sound packs from artists like 7th Wonder.'
-        image='/products/midicircuit/press/screenshot-ios-3.jpg'
-        imageAlt='Midicircuit iOS grid view with tracks and sections'
+        image='/products/midicircuit/marketing/mc-appstore-playgrounds.jpg'
+        imageAlt='Midicircuit song view on iPhone: drop in beats, stack melodies, make it yours'
         backgroundColor='bg-gray-50'
         textColor='text-black'
         patternColor='#FF5C24'
@@ -72,8 +72,8 @@ export default function MidiCircuitClient() {
       <ProductContentSection
         title='Whenever, Wherever'
         description='Works on iPhone, iPad and Mac. Your projects sync across devices via iCloud — pick up exactly where you left off.'
-        image='/products/midicircuit/press/screenshot-macos-2.jpg'
-        imageAlt='Midicircuit Playgrounds on macOS'
+        image='/products/midicircuit/marketing/mc-devices.webp'
+        imageAlt='Midicircuit playgrounds running on Mac, iPad and iPhone'
         backgroundColor='bg-white'
         textColor='text-black'
         patternColor='#FF5C24'
