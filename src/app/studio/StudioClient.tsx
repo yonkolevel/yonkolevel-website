@@ -35,20 +35,22 @@ const expertise = [
     Mark: ConnectMark,
     title: 'CONNECT',
     description:
-      'Audio, MIDI, camera systems, hardware integrations, payments, location services and products that interact with the physical world.',
+      'Audio, MIDI, camera systems, hardware integrations, payments, location services, health data and HealthKit—products that interact with the physical world.',
   },
 ] as const;
 
 const products = [
   {
     name: 'MIDICIRCUIT',
-    platforms: 'iPhone · iPad · Mac',
+    platforms: 'iPhone · iPad · Mac · Android',
     description:
       'A simple and approachable DAW for creating and sharing music. Record audio, lay down MIDI in real time, mix your tracks and export when you are ready.',
     href: '/products/midicircuit',
-    image: '/products/midicircuit/midicircuit-multi-platform.png',
-    imageAlt: 'Midicircuit running across Apple devices',
-    background: '#FF5C24',
+    shots: [
+      '/products/midicircuit/app-store/1.png',
+      '/products/midicircuit/app-store/2.png',
+    ],
+    shotAlt: 'Midicircuit playgrounds and piano roll on iPhone',
   },
   {
     name: 'INVISIBLE CAMERA',
@@ -56,16 +58,47 @@ const products = [
     description:
       'Bypass Apple’s Deep Fusion and Smart HDR for authentic, film-like photos. See exactly what you will capture in real time—no surprises, no post-processing.',
     href: '/products/invisible-camera',
-    image: '/products/invisible-camera/ic-app-store-preview.png',
-    imageAlt: 'Invisible Camera app preview',
-    background: '#F3B23F',
+    shots: [
+      '/products/invisible-camera/app-store/1.png',
+      '/products/invisible-camera/app-store/2.png',
+    ],
+    shotAlt: 'Invisible Camera viewfinder on iPhone',
   },
 ] as const;
 
+/**
+ * Roles and product work from before Yonko Level Studio. Named deliberately as
+ * past employers and projects — never as Studio clients.
+ */
 const experience = [
+  {
+    domain: 'HEALTH',
+    name: 'Babylon Health / eMed',
+    detail:
+      'Two years building consumer health products, including Apple HealthKit integration.',
+  },
+  {
+    domain: 'FINTECH',
+    name: 'Collectable',
+    detail: 'Fractional investing in sports memorabilia, across iOS and web.',
+  },
+  {
+    domain: 'AUCTIONS',
+    name: 'Christie’s',
+    detail: 'Mobile product work for the auction house.',
+  },
+  {
+    domain: 'SYSTEMS',
+    name: 'Across those teams',
+    detail:
+      'Payments, fraud detection, location systems, analytics infrastructure, release management and large-scale React Native architecture.',
+  },
+] as const;
+
+/** Outcomes worth stating plainly, without attaching them to one employer. */
+const experienceProof = [
   'Mobile products used by hundreds of thousands of people.',
   'Critical production incidents reduced by 70%.',
-  'Payments, fraud detection, location systems, analytics infrastructure, release management and large-scale React Native architecture.',
 ] as const;
 
 const engagements = [
@@ -437,17 +470,20 @@ export default function StudioClient() {
 
             {products.map((product) => (
               <article key={product.name}>
-                <div
-                  className='relative aspect-[4/3] overflow-hidden'
-                  style={{ backgroundColor: product.background }}
-                >
-                  <Image
-                    src={product.image}
-                    alt={product.imageAlt}
-                    fill
-                    sizes='(min-width: 720px) 50vw, 100vw'
-                    className='object-contain p-8 sm:p-12'
-                  />
+                {/* Live App Store screenshots: each already carries its own
+                    colour field, so the cell stays neutral behind them. */}
+                <div className='flex aspect-[4/3] items-center justify-center gap-4 overflow-hidden bg-[#1a1a1a] p-6 sm:gap-6 sm:p-8'>
+                  {product.shots.map((shot, index) => (
+                    <div key={shot} className='relative h-full w-[44%]'>
+                      <Image
+                        src={shot}
+                        alt={index === 0 ? product.shotAlt : ''}
+                        fill
+                        sizes='(min-width: 720px) 22vw, 44vw'
+                        className='object-contain'
+                      />
+                    </div>
+                  ))}
                 </div>
                 <div className='mt-8 flex flex-wrap items-baseline gap-x-5 gap-y-2'>
                   <h3 className={`${CELL_TITLE} text-white`}>{product.name}</h3>
@@ -487,27 +523,37 @@ export default function StudioClient() {
               ]}
             >
               <p className={`mb-5 ${EYEBROW} text-black/70`}>
-                {'// FOUNDER EXPERIENCE, NOT A CLIENT LIST'}
+                {'// SELECTED EXPERIENCE, NOT A CLIENT LIST'}
               </p>
               <h2 id='experience-title' className={`${HEADING} text-black`}>
                 Selected experience
               </h2>
               <p className={`mt-10 ${BODY} text-black/80`}>
-                Selected highlights from Ricardo’s wider product-engineering
-                career. These are not claims that previous employers were Yonko
-                Level Studio clients.
+                Roles and product work from Ricardo’s career before Yonko Level
+                Studio. These are past employers and projects, not Studio
+                clients.
               </p>
+
+              <ul role='list' className='mt-10 border-t border-black/20'>
+                {experienceProof.map((item) => (
+                  <li
+                    key={item}
+                    className='border-b border-black/20 py-5 text-base font-medium leading-7 text-black'
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </PixelPanel>
 
             <ul role='list' className='contents'>
-              {experience.map((item, index) => (
-                <li key={item}>
+              {experience.map(({ domain, name, detail }) => (
+                <li key={name}>
                   <CellMarker>
-                    <p className={`${MARKER} text-white/40`}>0{index + 1}</p>
+                    <p className={`${MARKER} text-white/40`}>{domain}</p>
                   </CellMarker>
-                  <p className='mt-8 text-lg leading-8 text-white md:text-xl md:leading-9'>
-                    {item}
-                  </p>
+                  <h3 className={`mt-8 ${CELL_TITLE} text-white`}>{name}</h3>
+                  <p className={`mt-5 ${BODY} text-white/70`}>{detail}</p>
                 </li>
               ))}
             </ul>

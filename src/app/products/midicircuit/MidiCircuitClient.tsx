@@ -81,6 +81,18 @@ export default function MidiCircuitClient() {
       />
 
       <ProductContentSection
+        title='Now on Android'
+        description='Midicircuit is on Google Play too, with the same Playgrounds, tracks and mixer. Start an idea on a phone and carry on wherever you make music.'
+        image='/products/midicircuit/marketing/android-tracks.png'
+        imageAlt='Midicircuit tracks and sections running on an Android phone'
+        backgroundColor='bg-black'
+        textColor='text-white'
+        patternColor='#FF5C24'
+        showPixelEffect
+        reverse
+      />
+
+      <ProductContentSection
         title='Apple Entrepreneur Camp Alumni'
         description={`We are honoured to have been selected as a mentee company at the Apple Entrepreneur Camp. We've learned so much from the best minds in tech, and are ready to take our app to the next level.`}
         image='/products/midicircuit/press/photo-team-1.jpg'
@@ -165,7 +177,7 @@ export default function MidiCircuitClient() {
       <section className='bg-black'>
         <Container>
           <div className='py-16 lg:py-24'>
-            <div className='text-center flex justify-center w-full'>
+            <div className='flex w-full flex-col items-center gap-8'>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -186,6 +198,15 @@ export default function MidiCircuitClient() {
                   />
                 </a>
               </motion.div>
+
+              <a
+                target='_blank'
+                rel='noreferrer'
+                href='https://play.google.com/store/apps/details?id=com.yonkolevel.midicircuit'
+                className='inline-flex min-h-12 items-center rounded-full border-2 border-white/30 px-7 font-pixel text-xs uppercase tracking-[0.12em] text-white transition-colors hover:border-white hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-black'
+              >
+                Get it on Google Play →
+              </a>
             </div>
           </div>
         </Container>
@@ -193,6 +214,3 @@ export default function MidiCircuitClient() {
     </div>
   );
 }
-
-
-

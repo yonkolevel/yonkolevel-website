@@ -5,7 +5,7 @@ import MidiCircuitClient from './MidiCircuitClient';
 export const metadata: Metadata = {
   title: 'Midicircuit - Learn, Create, Share',
   description:
-    'A simple and approachable DAW for creating and sharing music. No experience needed. Available on iOS, iPad and macOS.',
+    'A simple and approachable DAW for creating and sharing music. No experience needed. Available on iPhone, iPad, Mac and Android.',
   keywords: [
     'music app',
     'MIDI',
@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     'music education',
     'iOS music',
     'macOS music',
+    'Android music',
   ],
   openGraph: {
     title: 'Midicircuit - Learn, Create, Share',

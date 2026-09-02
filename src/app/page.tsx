@@ -63,7 +63,7 @@ const Home = () => {
 
       <AppShowcaseSection
         appName='MIDICIRCUIT'
-        appDescription='A simple and approachable DAW that makes it easy to start creating music. Record audio, lay down MIDI, mix your tracks, and share with friends. Available on iOS, iPad and macOS.'
+        appDescription='A simple and approachable DAW that makes it easy to start creating music. Record audio, lay down MIDI, mix your tracks, and share with friends. Available on iPhone, iPad, Mac and Android.'
         appScreenshot='/products/midicircuit/midicircuit-preview-1.png'
         mediaType='image'
         learnMoreLink='/products/midicircuit'
