@@ -7,6 +7,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { usePostHog } from 'posthog-js/react';
 import Container from '@/components/Container';
 import PixelPanel from '@/components/PixelPanel';
+import TrustedBy from '@/components/studio/TrustedBy';
 import {
   AssessMark,
   BuildMark,
@@ -378,6 +379,8 @@ export default function StudioClient() {
           </div>
         </Container>
       </section>
+
+      <TrustedBy />
 
       {/* ----------------------------------------------------------- EXPERTISE */}
       <section
