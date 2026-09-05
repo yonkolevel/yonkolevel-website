@@ -38,7 +38,7 @@ export default function InvisibleCameraClient() {
         description='Real-time preview with curated film looks inspired by classic film stocks. Apply filters before you shoot and get predictable results: same shot, same result, every time.'
         image='/products/invisible-camera/marketing/ic-mockup-2.webp'
         imageAlt='Invisible Camera viewfinder with the AMY film look, framing a studio session'
-        backgroundColor='bg-white'
+        backgroundColor='#F8FAFC'
         textColor='text-black'
         patternColor='#F3B23F'
         showPixelEffect
@@ -49,7 +49,7 @@ export default function InvisibleCameraClient() {
         description='Your photos never leave your device. No accounts, no cloud uploads. We collect anonymous usage analytics to improve the app. Nothing more.'
         image='/products/invisible-camera/marketing/ic-blue-frame.webp'
         imageAlt='Invisible Camera on iPhone with the viewfinder open'
-        backgroundColor='bg-gray-50'
+        backgroundColor='#F9FAFB'
         textColor='text-black'
         patternColor='#F3B23F'
         showPixelEffect

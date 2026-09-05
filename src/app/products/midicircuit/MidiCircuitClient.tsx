@@ -51,7 +51,7 @@ export default function MidiCircuitClient() {
         description='A simple and approachable DAW that makes it easy to start creating. Record audio, lay down MIDI in real-time, mix your tracks, and export when you are ready. Comes loaded with sound packs from artists like 7th Wonder.'
         image='/products/midicircuit/marketing/mc-appstore-playgrounds.jpg'
         imageAlt='Midicircuit song view on iPhone: drop in beats, stack melodies, make it yours'
-        backgroundColor='bg-gray-50'
+        backgroundColor='#F9FAFB'
         textColor='text-black'
         patternColor='#FF5C24'
         showPixelEffect
@@ -63,7 +63,7 @@ export default function MidiCircuitClient() {
         description='Works on iPhone, iPad and Mac. Your projects sync across devices via iCloud. Pick up exactly where you left off.'
         image='/products/midicircuit/marketing/mc-appstore-anywhere.jpg'
         imageAlt='Midicircuit playgrounds on Mac: play freely, anywhere, anytime'
-        backgroundColor='bg-white'
+        backgroundColor='#F8FAFC'
         textColor='text-black'
         patternColor='#FF5C24'
         showPixelEffect
@@ -74,7 +74,7 @@ export default function MidiCircuitClient() {
         description='Midicircuit is on Google Play too, with the same Playgrounds, tracks and mixer. Start an idea on a phone and carry on wherever you make music.'
         image='/products/midicircuit/marketing/mc-song.webp'
         imageAlt='Midicircuit song view with drum, melodic and bass tracks on an Android phone'
-        backgroundColor='bg-black'
+        backgroundColor='#121212'
         textColor='text-white'
         patternColor='#FF5C24'
         showPixelEffect
@@ -87,7 +87,7 @@ export default function MidiCircuitClient() {
         image='/products/midicircuit/press/photo-team-1.jpg'
         imageAlt='Ricardo and Delcio at Apple Entrepreneur Camp'
         imageClassName='rounded-lg'
-        backgroundColor='bg-gray-50'
+        backgroundColor='#F9FAFB'
         textColor='text-black'
         patternColor='#FF5C24'
         showPixelEffect

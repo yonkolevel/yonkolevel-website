@@ -1,0 +1,9 @@
+{
+  "widths": [
+    1440,
+    820,
+    390
+  ],
+  "checks": "entry, live/initial reduced motion, re-entry, container resize, zero-size, recovery, transparent pixel samples, SSR fill, hydration",
+  "errors": []
+}

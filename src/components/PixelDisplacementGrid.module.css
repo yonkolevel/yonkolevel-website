@@ -1,0 +1,55 @@
+.grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  fill: var(--pixel-background);
+}
+
+.origin,
+.pixel {
+  position: absolute;
+  /* Explicitly cancel in-flight transitions when the motion preference changes. */
+  transition: none;
+}
+
+.origin {
+  background: var(--pixel-hole);
+  transform: scale(0.8);
+}
+
+.grid[data-transparent='true'] .origin {
+  background: var(--pixel-background);
+  opacity: 0;
+}
+
+.pixel {
+  z-index: 20;
+  background: var(--pixel-color);
+  transform: translate(var(--pixel-x), var(--pixel-y));
+}
+
+/* Final styles above are also the reduced-motion styles, including before hydration. */
+@media (prefers-reduced-motion: no-preference) {
+  .grid[data-entered='false'] .origin {
+    background: var(--pixel-background);
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .grid[data-entered='false'] .pixel {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.8);
+  }
+
+  .grid[data-entered='true'] .origin,
+  .grid[data-entered='true'] .pixel {
+    transition: transform var(--pixel-duration) ease-in-out var(--pixel-delay),
+      opacity var(--pixel-duration) ease-in-out var(--pixel-delay),
+      background-color var(--pixel-duration) ease-in-out var(--pixel-delay);
+  }
+}

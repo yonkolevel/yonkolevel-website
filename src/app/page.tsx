@@ -37,14 +37,13 @@ const Home = () => {
         backgroundImage='/images/section-backgrounds/invisible-camera-app-section-background.svg'
         reversed={false}
         pixelDisplacements={[
-          // Top-right edge ladder flowing outward
-          { row: 0, col: 13, displaceX: 3, displaceY: -2 },
-          { row: 1, col: 12, displaceX: 4, displaceY: -1 },
-          { row: 2, col: 11, displaceX: 5, displaceY: 1 },
+          // Right-edge ladder, anchored across container sizes.
+          { row: 0, col: -1, displaceX: 3, displaceY: -2 },
+          { row: 1, col: -2, displaceX: 4, displaceY: -1 },
+          { row: 2, col: -3, displaceX: 5, displaceY: 1 },
 
-          // Bottom-right edge ladder flowing outward
-          { row: 12, col: 13, displaceX: 3, displaceY: 2 },
-          { row: 11, col: 12, displaceX: 4, displaceY: 1 },
+          { row: -1, col: -1, displaceX: 3, displaceY: 2 },
+          { row: -2, col: -2, displaceX: 4, displaceY: 1 },
         ]}
         contentSafeZones={[
           { startRow: 2, endRow: 4, startCol: 0, endCol: 2 }, // Title safe zone
@@ -72,7 +71,7 @@ const Home = () => {
         backgroundImage='/images/section-backgrounds/midicircuit-app-section-background.svg'
         reversed={true}
         pixelDisplacements={[
-          { row: 12, col: 13, displaceX: 2, displaceY: -1 },
+          { row: -1, col: -1, displaceX: 2, displaceY: -1 },
           { row: 0, col: 2, displaceX: 5, displaceY: 1 },
           { row: 1, col: 0, displaceX: 8, displaceY: 1 },
           { row: 8, col: 1, displaceX: 8, displaceY: -1 },

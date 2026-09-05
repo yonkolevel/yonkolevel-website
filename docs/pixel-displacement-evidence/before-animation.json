@@ -1,0 +1,279 @@
+{
+  "phase": "before-animation",
+  "screenshots": [],
+  "runs": [
+    {
+      "width": 1440,
+      "run": 0,
+      "grids": [
+        {
+          "width": 1280,
+          "height": 600,
+          "nodes": 485
+        },
+        {
+          "width": 1280,
+          "height": 576,
+          "nodes": 724
+        },
+        {
+          "width": 1440,
+          "height": 630,
+          "nodes": 545
+        }
+      ],
+      "observed": 1754,
+      "delta": {
+        "TaskDuration": 4.204297,
+        "ScriptDuration": 3.62502,
+        "LayoutDuration": 0.07254,
+        "RecalcStyleDuration": 0.291034,
+        "LayoutCount": 127,
+        "RecalcStyleCount": 151
+      }
+    },
+    {
+      "width": 1440,
+      "run": 1,
+      "grids": [
+        {
+          "width": 1280,
+          "height": 600,
+          "nodes": 485
+        },
+        {
+          "width": 1280,
+          "height": 576,
+          "nodes": 724
+        },
+        {
+          "width": 1440,
+          "height": 630,
+          "nodes": 545
+        }
+      ],
+      "observed": 1754,
+      "delta": {
+        "TaskDuration": 4.179176,
+        "ScriptDuration": 3.6041090000000002,
+        "LayoutDuration": 0.06939500000000001,
+        "RecalcStyleDuration": 0.277488,
+        "LayoutCount": 127,
+        "RecalcStyleCount": 147
+      }
+    },
+    {
+      "width": 1440,
+      "run": 2,
+      "grids": [
+        {
+          "width": 1280,
+          "height": 600,
+          "nodes": 485
+        },
+        {
+          "width": 1280,
+          "height": 576,
+          "nodes": 724
+        },
+        {
+          "width": 1440,
+          "height": 630,
+          "nodes": 545
+        }
+      ],
+      "observed": 1754,
+      "delta": {
+        "TaskDuration": 4.1965710000000005,
+        "ScriptDuration": 3.626183,
+        "LayoutDuration": 0.06853799999999999,
+        "RecalcStyleDuration": 0.276373,
+        "LayoutCount": 127,
+        "RecalcStyleCount": 149
+      }
+    },
+    {
+      "width": 390,
+      "run": 0,
+      "grids": [
+        {
+          "width": 230,
+          "height": 600,
+          "nodes": 80
+        },
+        {
+          "width": 230,
+          "height": 560,
+          "nodes": 123
+        },
+        {
+          "width": 390,
+          "height": 913,
+          "nodes": 203
+        }
+      ],
+      "observed": 406,
+      "delta": {
+        "TaskDuration": 1.082192,
+        "ScriptDuration": 0.9119959999999999,
+        "LayoutDuration": 0.021162,
+        "RecalcStyleDuration": 0.039416999999999994,
+        "LayoutCount": 167,
+        "RecalcStyleCount": 210
+      }
+    },
+    {
+      "width": 390,
+      "run": 1,
+      "grids": [
+        {
+          "width": 230,
+          "height": 600,
+          "nodes": 80
+        },
+        {
+          "width": 230,
+          "height": 560,
+          "nodes": 123
+        },
+        {
+          "width": 390,
+          "height": 913,
+          "nodes": 203
+        }
+      ],
+      "observed": 406,
+      "delta": {
+        "TaskDuration": 1.053103,
+        "ScriptDuration": 0.8766619999999999,
+        "LayoutDuration": 0.020522,
+        "RecalcStyleDuration": 0.036814,
+        "LayoutCount": 167,
+        "RecalcStyleCount": 206
+      }
+    },
+    {
+      "width": 390,
+      "run": 2,
+      "grids": [
+        {
+          "width": 230,
+          "height": 600,
+          "nodes": 80
+        },
+        {
+          "width": 230,
+          "height": 560,
+          "nodes": 123
+        },
+        {
+          "width": 390,
+          "height": 913,
+          "nodes": 203
+        }
+      ],
+      "observed": 406,
+      "delta": {
+        "TaskDuration": 1.033572,
+        "ScriptDuration": 0.867487,
+        "LayoutDuration": 0.020894999999999997,
+        "RecalcStyleDuration": 0.037652,
+        "LayoutCount": 167,
+        "RecalcStyleCount": 208
+      }
+    }
+  ],
+  "animations": [
+    {
+      "width": 1440,
+      "run": 0,
+      "styleMutations": 442,
+      "positionedStyleMutations": 442,
+      "frames": 110,
+      "maxFrameMs": 16.800000000000182,
+      "delta": {
+        "TaskDuration": 0.228736,
+        "ScriptDuration": 0.030247999999999997,
+        "LayoutDuration": 0.040254,
+        "RecalcStyleDuration": 0.018978000000000002,
+        "LayoutCount": 59
+      }
+    },
+    {
+      "width": 1440,
+      "run": 1,
+      "styleMutations": 442,
+      "positionedStyleMutations": 442,
+      "frames": 110,
+      "maxFrameMs": 16.800000000000182,
+      "delta": {
+        "TaskDuration": 0.24033300000000002,
+        "ScriptDuration": 0.029654999999999987,
+        "LayoutDuration": 0.041162000000000004,
+        "RecalcStyleDuration": 0.019597000000000003,
+        "LayoutCount": 59
+      }
+    },
+    {
+      "width": 1440,
+      "run": 2,
+      "styleMutations": 442,
+      "positionedStyleMutations": 442,
+      "frames": 110,
+      "maxFrameMs": 16.800000000000182,
+      "delta": {
+        "TaskDuration": 0.241529,
+        "ScriptDuration": 0.030395000000000005,
+        "LayoutDuration": 0.041905,
+        "RecalcStyleDuration": 0.018455,
+        "LayoutCount": 59
+      }
+    },
+    {
+      "width": 390,
+      "run": 0,
+      "styleMutations": 442,
+      "positionedStyleMutations": 442,
+      "frames": 110,
+      "maxFrameMs": 16.799999999999272,
+      "delta": {
+        "TaskDuration": 0.08598899999999998,
+        "ScriptDuration": 0.012912999999999994,
+        "LayoutDuration": 0.009951999999999999,
+        "RecalcStyleDuration": 0.009201999999999998,
+        "LayoutCount": 59
+      }
+    },
+    {
+      "width": 390,
+      "run": 1,
+      "styleMutations": 442,
+      "positionedStyleMutations": 442,
+      "frames": 110,
+      "maxFrameMs": 16.800000000000182,
+      "delta": {
+        "TaskDuration": 0.089092,
+        "ScriptDuration": 0.013985000000000025,
+        "LayoutDuration": 0.010324999999999999,
+        "RecalcStyleDuration": 0.009826,
+        "LayoutCount": 59
+      }
+    },
+    {
+      "width": 390,
+      "run": 2,
+      "styleMutations": 442,
+      "positionedStyleMutations": 442,
+      "frames": 110,
+      "maxFrameMs": 16.800000000000182,
+      "delta": {
+        "TaskDuration": 0.094995,
+        "ScriptDuration": 0.014426999999999995,
+        "LayoutDuration": 0.010812,
+        "RecalcStyleDuration": 0.010319,
+        "LayoutCount": 59
+      }
+    }
+  ],
+  "errors": []
+}

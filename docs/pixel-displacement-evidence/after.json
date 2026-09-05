@@ -1,0 +1,780 @@
+{
+  "phase": "after",
+  "screenshots": [
+    {
+      "name": "HeroWithPixels",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 1440,
+          "height": 900,
+          "nodes": 12
+        },
+        {
+          "width": 560,
+          "height": 523,
+          "nodes": 12
+        },
+        {
+          "width": 560,
+          "height": 523,
+          "nodes": 10
+        }
+      ],
+      "totalNodes": 274
+    },
+    {
+      "name": "AppShowcaseSection",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 1440,
+          "height": 900,
+          "nodes": 12
+        },
+        {
+          "width": 560,
+          "height": 523,
+          "nodes": 12
+        },
+        {
+          "width": 560,
+          "height": 523,
+          "nodes": 10
+        }
+      ],
+      "totalNodes": 274
+    },
+    {
+      "name": "AppShowcaseSection-reversed",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 1440,
+          "height": 900,
+          "nodes": 12
+        },
+        {
+          "width": 560,
+          "height": 523,
+          "nodes": 12
+        },
+        {
+          "width": 560,
+          "height": 523,
+          "nodes": 10
+        }
+      ],
+      "totalNodes": 274
+    },
+    {
+      "name": "ProductContentSection",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 632,
+          "height": 480,
+          "nodes": 10
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 12
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 12
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 12
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 12
+        }
+      ],
+      "totalNodes": 353
+    },
+    {
+      "name": "ProductContentSection-black",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 632,
+          "height": 480,
+          "nodes": 10
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 12
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 12
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 12
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 12
+        }
+      ],
+      "totalNodes": 353
+    },
+    {
+      "name": "ProductImageSection",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 1440,
+          "height": 854,
+          "nodes": 12
+        }
+      ],
+      "totalNodes": 195
+    },
+    {
+      "name": "PixelPanel-Studio",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 784,
+          "height": 721,
+          "nodes": 18
+        },
+        {
+          "width": 632,
+          "height": 430,
+          "nodes": 10
+        },
+        {
+          "width": 632,
+          "height": 514,
+          "nodes": 10
+        },
+        {
+          "width": 632,
+          "height": 726,
+          "nodes": 10
+        },
+        {
+          "width": 632,
+          "height": 742,
+          "nodes": 10
+        }
+      ],
+      "totalNodes": 1336
+    },
+    {
+      "name": "PixelPanel-enquiry",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 784,
+          "height": 721,
+          "nodes": 18
+        },
+        {
+          "width": 632,
+          "height": 430,
+          "nodes": 10
+        },
+        {
+          "width": 632,
+          "height": 514,
+          "nodes": 10
+        },
+        {
+          "width": 632,
+          "height": 726,
+          "nodes": 10
+        },
+        {
+          "width": 632,
+          "height": 742,
+          "nodes": 10
+        }
+      ],
+      "totalNodes": 1336
+    },
+    {
+      "name": "PixelPanel-ProductHero",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 632,
+          "height": 560,
+          "nodes": 10
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 12
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 12
+        }
+      ],
+      "totalNodes": 260
+    },
+    {
+      "name": "ShopHero",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 1280,
+          "height": 600,
+          "nodes": 12
+        },
+        {
+          "width": 1280,
+          "height": 576,
+          "nodes": 10
+        },
+        {
+          "width": 1440,
+          "height": 630,
+          "nodes": 12
+        }
+      ],
+      "totalNodes": 228
+    },
+    {
+      "name": "HeroWithPixels",
+      "width": 390,
+      "grids": [
+        {
+          "width": 390,
+          "height": 900,
+          "nodes": 12
+        },
+        {
+          "width": 382,
+          "height": 400,
+          "nodes": 12
+        },
+        {
+          "width": 382,
+          "height": 400,
+          "nodes": 8
+        }
+      ],
+      "totalNodes": 272
+    },
+    {
+      "name": "AppShowcaseSection",
+      "width": 390,
+      "grids": [
+        {
+          "width": 390,
+          "height": 900,
+          "nodes": 12
+        },
+        {
+          "width": 382,
+          "height": 400,
+          "nodes": 12
+        },
+        {
+          "width": 382,
+          "height": 400,
+          "nodes": 8
+        }
+      ],
+      "totalNodes": 272
+    },
+    {
+      "name": "AppShowcaseSection-reversed",
+      "width": 390,
+      "grids": [
+        {
+          "width": 390,
+          "height": 900,
+          "nodes": 12
+        },
+        {
+          "width": 382,
+          "height": 400,
+          "nodes": 12
+        },
+        {
+          "width": 382,
+          "height": 400,
+          "nodes": 8
+        }
+      ],
+      "totalNodes": 272
+    },
+    {
+      "name": "ProductContentSection",
+      "width": 390,
+      "grids": [
+        {
+          "width": 342,
+          "height": 260,
+          "nodes": 10
+        },
+        {
+          "width": 390,
+          "height": 846,
+          "nodes": 8
+        },
+        {
+          "width": 390,
+          "height": 797,
+          "nodes": 8
+        },
+        {
+          "width": 390,
+          "height": 787,
+          "nodes": 8
+        },
+        {
+          "width": 390,
+          "height": 923,
+          "nodes": 8
+        }
+      ],
+      "totalNodes": 337
+    },
+    {
+      "name": "ProductContentSection-black",
+      "width": 390,
+      "grids": [
+        {
+          "width": 342,
+          "height": 260,
+          "nodes": 10
+        },
+        {
+          "width": 390,
+          "height": 846,
+          "nodes": 8
+        },
+        {
+          "width": 390,
+          "height": 797,
+          "nodes": 8
+        },
+        {
+          "width": 390,
+          "height": 787,
+          "nodes": 8
+        },
+        {
+          "width": 390,
+          "height": 923,
+          "nodes": 8
+        }
+      ],
+      "totalNodes": 337
+    },
+    {
+      "name": "ProductImageSection",
+      "width": 390,
+      "grids": [
+        {
+          "width": 390,
+          "height": 540,
+          "nodes": 12
+        }
+      ],
+      "totalNodes": 195
+    },
+    {
+      "name": "PixelPanel-Studio",
+      "width": 390,
+      "grids": [
+        {
+          "width": 342,
+          "height": 638,
+          "nodes": 16
+        },
+        {
+          "width": 342,
+          "height": 430,
+          "nodes": 10
+        },
+        {
+          "width": 342,
+          "height": 526,
+          "nodes": 10
+        },
+        {
+          "width": 342,
+          "height": 814,
+          "nodes": 10
+        },
+        {
+          "width": 342,
+          "height": 642,
+          "nodes": 10
+        }
+      ],
+      "totalNodes": 1334
+    },
+    {
+      "name": "PixelPanel-enquiry",
+      "width": 390,
+      "grids": [
+        {
+          "width": 342,
+          "height": 638,
+          "nodes": 16
+        },
+        {
+          "width": 342,
+          "height": 430,
+          "nodes": 10
+        },
+        {
+          "width": 342,
+          "height": 526,
+          "nodes": 10
+        },
+        {
+          "width": 342,
+          "height": 814,
+          "nodes": 10
+        },
+        {
+          "width": 342,
+          "height": 642,
+          "nodes": 10
+        }
+      ],
+      "totalNodes": 1334
+    },
+    {
+      "name": "PixelPanel-ProductHero",
+      "width": 390,
+      "grids": [
+        {
+          "width": 342,
+          "height": 340,
+          "nodes": 10
+        },
+        {
+          "width": 390,
+          "height": 855,
+          "nodes": 8
+        },
+        {
+          "width": 390,
+          "height": 826,
+          "nodes": 8
+        }
+      ],
+      "totalNodes": 252
+    },
+    {
+      "name": "ShopHero",
+      "width": 390,
+      "grids": [
+        {
+          "width": 230,
+          "height": 600,
+          "nodes": 12
+        },
+        {
+          "width": 230,
+          "height": 560,
+          "nodes": 10
+        },
+        {
+          "width": 390,
+          "height": 913,
+          "nodes": 12
+        }
+      ],
+      "totalNodes": 228
+    }
+  ],
+  "runs": [
+    {
+      "width": 1440,
+      "run": 0,
+      "grids": [
+        {
+          "width": 1280,
+          "height": 600,
+          "nodes": 12
+        },
+        {
+          "width": 1280,
+          "height": 576,
+          "nodes": 10
+        },
+        {
+          "width": 1440,
+          "height": 630,
+          "nodes": 12
+        }
+      ],
+      "observed": 2,
+      "delta": {
+        "TaskDuration": 0.16938999999999999,
+        "ScriptDuration": 0.047518,
+        "LayoutDuration": 0.023513,
+        "RecalcStyleDuration": 0.029798,
+        "LayoutCount": 96,
+        "RecalcStyleCount": 48
+      }
+    },
+    {
+      "width": 1440,
+      "run": 1,
+      "grids": [
+        {
+          "width": 1280,
+          "height": 600,
+          "nodes": 12
+        },
+        {
+          "width": 1280,
+          "height": 576,
+          "nodes": 10
+        },
+        {
+          "width": 1440,
+          "height": 630,
+          "nodes": 12
+        }
+      ],
+      "observed": 2,
+      "delta": {
+        "TaskDuration": 0.167028,
+        "ScriptDuration": 0.04759,
+        "LayoutDuration": 0.023698,
+        "RecalcStyleDuration": 0.030643,
+        "LayoutCount": 96,
+        "RecalcStyleCount": 48
+      }
+    },
+    {
+      "width": 1440,
+      "run": 2,
+      "grids": [
+        {
+          "width": 1280,
+          "height": 600,
+          "nodes": 12
+        },
+        {
+          "width": 1280,
+          "height": 576,
+          "nodes": 10
+        },
+        {
+          "width": 1440,
+          "height": 630,
+          "nodes": 12
+        }
+      ],
+      "observed": 2,
+      "delta": {
+        "TaskDuration": 0.164263,
+        "ScriptDuration": 0.046027,
+        "LayoutDuration": 0.023114,
+        "RecalcStyleDuration": 0.029729,
+        "LayoutCount": 96,
+        "RecalcStyleCount": 48
+      }
+    },
+    {
+      "width": 390,
+      "run": 0,
+      "grids": [
+        {
+          "width": 230,
+          "height": 600,
+          "nodes": 12
+        },
+        {
+          "width": 230,
+          "height": 560,
+          "nodes": 10
+        },
+        {
+          "width": 390,
+          "height": 913,
+          "nodes": 12
+        }
+      ],
+      "observed": 2,
+      "delta": {
+        "TaskDuration": 0.107677,
+        "ScriptDuration": 0.049590999999999996,
+        "LayoutDuration": 0.00835,
+        "RecalcStyleDuration": 0.006693000000000001,
+        "LayoutCount": 96,
+        "RecalcStyleCount": 48
+      }
+    },
+    {
+      "width": 390,
+      "run": 1,
+      "grids": [
+        {
+          "width": 230,
+          "height": 600,
+          "nodes": 12
+        },
+        {
+          "width": 230,
+          "height": 560,
+          "nodes": 10
+        },
+        {
+          "width": 390,
+          "height": 913,
+          "nodes": 12
+        }
+      ],
+      "observed": 2,
+      "delta": {
+        "TaskDuration": 0.09914499999999998,
+        "ScriptDuration": 0.047917,
+        "LayoutDuration": 0.007541,
+        "RecalcStyleDuration": 0.006281999999999999,
+        "LayoutCount": 96,
+        "RecalcStyleCount": 48
+      }
+    },
+    {
+      "width": 390,
+      "run": 2,
+      "grids": [
+        {
+          "width": 230,
+          "height": 600,
+          "nodes": 12
+        },
+        {
+          "width": 230,
+          "height": 560,
+          "nodes": 10
+        },
+        {
+          "width": 390,
+          "height": 913,
+          "nodes": 12
+        }
+      ],
+      "observed": 2,
+      "delta": {
+        "TaskDuration": 0.09886600000000001,
+        "ScriptDuration": 0.045963000000000004,
+        "LayoutDuration": 0.0075390000000000006,
+        "RecalcStyleDuration": 0.006209000000000001,
+        "LayoutCount": 96,
+        "RecalcStyleCount": 48
+      }
+    }
+  ],
+  "animations": [
+    {
+      "width": 1440,
+      "run": 0,
+      "styleMutations": 0,
+      "positionedStyleMutations": 0,
+      "frames": 110,
+      "maxFrameMs": 16.800000000000182,
+      "delta": {
+        "TaskDuration": 0.05463799999999999,
+        "ScriptDuration": 0.007988000000000002,
+        "LayoutDuration": 0.000268,
+        "RecalcStyleDuration": 0.009914000000000001,
+        "LayoutCount": 2
+      }
+    },
+    {
+      "width": 1440,
+      "run": 1,
+      "styleMutations": 0,
+      "positionedStyleMutations": 0,
+      "frames": 110,
+      "maxFrameMs": 16.800000000000182,
+      "delta": {
+        "TaskDuration": 0.054395,
+        "ScriptDuration": 0.008236,
+        "LayoutDuration": 0.0002639999999999999,
+        "RecalcStyleDuration": 0.010049999999999998,
+        "LayoutCount": 2
+      }
+    },
+    {
+      "width": 1440,
+      "run": 2,
+      "styleMutations": 0,
+      "positionedStyleMutations": 0,
+      "frames": 110,
+      "maxFrameMs": 16.800000000000182,
+      "delta": {
+        "TaskDuration": 0.08702900000000002,
+        "ScriptDuration": 0.016056,
+        "LayoutDuration": 0.0003110000000000001,
+        "RecalcStyleDuration": 0.015419000000000002,
+        "LayoutCount": 2
+      }
+    },
+    {
+      "width": 390,
+      "run": 0,
+      "styleMutations": 0,
+      "positionedStyleMutations": 0,
+      "frames": 110,
+      "maxFrameMs": 16.800000000000182,
+      "delta": {
+        "TaskDuration": 0.051587999999999995,
+        "ScriptDuration": 0.007436000000000005,
+        "LayoutDuration": 0.00008600000000000014,
+        "RecalcStyleDuration": 0.008112999999999999,
+        "LayoutCount": 1
+      }
+    },
+    {
+      "width": 390,
+      "run": 1,
+      "styleMutations": 0,
+      "positionedStyleMutations": 0,
+      "frames": 110,
+      "maxFrameMs": 16.800000000000182,
+      "delta": {
+        "TaskDuration": 0.04886300000000002,
+        "ScriptDuration": 0.006964999999999999,
+        "LayoutDuration": 0.00009500000000000003,
+        "RecalcStyleDuration": 0.007764000000000002,
+        "LayoutCount": 1
+      }
+    },
+    {
+      "width": 390,
+      "run": 2,
+      "styleMutations": 0,
+      "positionedStyleMutations": 0,
+      "frames": 109,
+      "maxFrameMs": 33.29999999999973,
+      "delta": {
+        "TaskDuration": 0.05324499999999999,
+        "ScriptDuration": 0.007315000000000002,
+        "LayoutDuration": 0.00011300000000000004,
+        "RecalcStyleDuration": 0.008347999999999998,
+        "LayoutCount": 1
+      }
+    }
+  ],
+  "errors": []
+}

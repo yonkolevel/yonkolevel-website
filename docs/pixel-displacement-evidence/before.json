@@ -1,0 +1,688 @@
+{
+  "phase": "before",
+  "screenshots": [
+    {
+      "name": "HeroWithPixels",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 1440,
+          "height": 900,
+          "nodes": 797
+        },
+        {
+          "width": 560,
+          "height": 523,
+          "nodes": 187
+        },
+        {
+          "width": 560,
+          "height": 523,
+          "nodes": 186
+        }
+      ],
+      "totalNodes": 1408
+    },
+    {
+      "name": "AppShowcaseSection",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 1440,
+          "height": 900,
+          "nodes": 797
+        },
+        {
+          "width": 560,
+          "height": 523,
+          "nodes": 187
+        },
+        {
+          "width": 560,
+          "height": 523,
+          "nodes": 186
+        }
+      ],
+      "totalNodes": 1408
+    },
+    {
+      "name": "AppShowcaseSection-reversed",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 1440,
+          "height": 900,
+          "nodes": 797
+        },
+        {
+          "width": 560,
+          "height": 523,
+          "nodes": 187
+        },
+        {
+          "width": 560,
+          "height": 523,
+          "nodes": 186
+        }
+      ],
+      "totalNodes": 1408
+    },
+    {
+      "name": "ProductContentSection",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 632,
+          "height": 480,
+          "nodes": 184
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 653
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 653
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 653
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 653
+        }
+      ],
+      "totalNodes": 3090
+    },
+    {
+      "name": "ProductContentSection-black",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 632,
+          "height": 480,
+          "nodes": 184
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 653
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 653
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 653
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 653
+        }
+      ],
+      "totalNodes": 3090
+    },
+    {
+      "name": "ProductImageSection",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 1440,
+          "height": 854,
+          "nodes": 758
+        }
+      ],
+      "totalNodes": 939
+    },
+    {
+      "name": "PixelPanel-Studio",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 784,
+          "height": 721,
+          "nodes": 536
+        },
+        {
+          "width": 632,
+          "height": 430,
+          "nodes": 154
+        },
+        {
+          "width": 632,
+          "height": 514,
+          "nodes": 184
+        },
+        {
+          "width": 632,
+          "height": 726,
+          "nodes": 274
+        },
+        {
+          "width": 632,
+          "height": 742,
+          "nodes": 274
+        }
+      ],
+      "totalNodes": 2699
+    },
+    {
+      "name": "PixelPanel-enquiry",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 784,
+          "height": 721,
+          "nodes": 536
+        },
+        {
+          "width": 632,
+          "height": 430,
+          "nodes": 154
+        },
+        {
+          "width": 632,
+          "height": 514,
+          "nodes": 184
+        },
+        {
+          "width": 632,
+          "height": 726,
+          "nodes": 274
+        },
+        {
+          "width": 632,
+          "height": 742,
+          "nodes": 274
+        }
+      ],
+      "totalNodes": 2699
+    },
+    {
+      "name": "PixelPanel-ProductHero",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 632,
+          "height": 560,
+          "nodes": 214
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 653
+        },
+        {
+          "width": 1440,
+          "height": 724,
+          "nodes": 653
+        }
+      ],
+      "totalNodes": 1745
+    },
+    {
+      "name": "ShopHero",
+      "width": 1440,
+      "grids": [
+        {
+          "width": 1280,
+          "height": 600,
+          "nodes": 485
+        },
+        {
+          "width": 1280,
+          "height": 576,
+          "nodes": 724
+        },
+        {
+          "width": 1440,
+          "height": 630,
+          "nodes": 545
+        }
+      ],
+      "totalNodes": 1947
+    },
+    {
+      "name": "HeroWithPixels",
+      "width": 390,
+      "grids": [
+        {
+          "width": 390,
+          "height": 900,
+          "nodes": 203
+        },
+        {
+          "width": 382,
+          "height": 400,
+          "nodes": 93
+        },
+        {
+          "width": 382,
+          "height": 400,
+          "nodes": 92
+        }
+      ],
+      "totalNodes": 626
+    },
+    {
+      "name": "AppShowcaseSection",
+      "width": 390,
+      "grids": [
+        {
+          "width": 390,
+          "height": 900,
+          "nodes": 203
+        },
+        {
+          "width": 382,
+          "height": 400,
+          "nodes": 93
+        },
+        {
+          "width": 382,
+          "height": 400,
+          "nodes": 92
+        }
+      ],
+      "totalNodes": 626
+    },
+    {
+      "name": "AppShowcaseSection-reversed",
+      "width": 390,
+      "grids": [
+        {
+          "width": 390,
+          "height": 900,
+          "nodes": 203
+        },
+        {
+          "width": 382,
+          "height": 400,
+          "nodes": 93
+        },
+        {
+          "width": 382,
+          "height": 400,
+          "nodes": 92
+        }
+      ],
+      "totalNodes": 626
+    },
+    {
+      "name": "ProductContentSection",
+      "width": 390,
+      "grids": [
+        {
+          "width": 342,
+          "height": 260,
+          "nodes": 52
+        },
+        {
+          "width": 390,
+          "height": 846,
+          "nodes": 194
+        },
+        {
+          "width": 390,
+          "height": 797,
+          "nodes": 176
+        },
+        {
+          "width": 390,
+          "height": 787,
+          "nodes": 176
+        },
+        {
+          "width": 390,
+          "height": 923,
+          "nodes": 212
+        }
+      ],
+      "totalNodes": 1104
+    },
+    {
+      "name": "ProductContentSection-black",
+      "width": 390,
+      "grids": [
+        {
+          "width": 342,
+          "height": 260,
+          "nodes": 52
+        },
+        {
+          "width": 390,
+          "height": 846,
+          "nodes": 194
+        },
+        {
+          "width": 390,
+          "height": 797,
+          "nodes": 176
+        },
+        {
+          "width": 390,
+          "height": 787,
+          "nodes": 176
+        },
+        {
+          "width": 390,
+          "height": 923,
+          "nodes": 212
+        }
+      ],
+      "totalNodes": 1104
+    },
+    {
+      "name": "ProductImageSection",
+      "width": 390,
+      "grids": [
+        {
+          "width": 390,
+          "height": 540,
+          "nodes": 119
+        }
+      ],
+      "totalNodes": 300
+    },
+    {
+      "name": "PixelPanel-Studio",
+      "width": 390,
+      "grids": [
+        {
+          "width": 342,
+          "height": 638,
+          "nodes": 198
+        },
+        {
+          "width": 342,
+          "height": 430,
+          "nodes": 84
+        },
+        {
+          "width": 342,
+          "height": 526,
+          "nodes": 108
+        },
+        {
+          "width": 342,
+          "height": 814,
+          "nodes": 164
+        },
+        {
+          "width": 342,
+          "height": 642,
+          "nodes": 132
+        }
+      ],
+      "totalNodes": 1963
+    },
+    {
+      "name": "PixelPanel-enquiry",
+      "width": 390,
+      "grids": [
+        {
+          "width": 342,
+          "height": 638,
+          "nodes": 198
+        },
+        {
+          "width": 342,
+          "height": 430,
+          "nodes": 84
+        },
+        {
+          "width": 342,
+          "height": 526,
+          "nodes": 108
+        },
+        {
+          "width": 342,
+          "height": 814,
+          "nodes": 164
+        },
+        {
+          "width": 342,
+          "height": 642,
+          "nodes": 132
+        }
+      ],
+      "totalNodes": 1963
+    },
+    {
+      "name": "PixelPanel-ProductHero",
+      "width": 390,
+      "grids": [
+        {
+          "width": 342,
+          "height": 340,
+          "nodes": 68
+        },
+        {
+          "width": 390,
+          "height": 855,
+          "nodes": 194
+        },
+        {
+          "width": 390,
+          "height": 826,
+          "nodes": 185
+        }
+      ],
+      "totalNodes": 672
+    },
+    {
+      "name": "ShopHero",
+      "width": 390,
+      "grids": [
+        {
+          "width": 230,
+          "height": 600,
+          "nodes": 80
+        },
+        {
+          "width": 230,
+          "height": 560,
+          "nodes": 123
+        },
+        {
+          "width": 390,
+          "height": 913,
+          "nodes": 203
+        }
+      ],
+      "totalNodes": 599
+    }
+  ],
+  "runs": [
+    {
+      "width": 1440,
+      "run": 0,
+      "grids": [
+        {
+          "width": 1280,
+          "height": 600,
+          "nodes": 485
+        },
+        {
+          "width": 1280,
+          "height": 576,
+          "nodes": 724
+        },
+        {
+          "width": 1440,
+          "height": 630,
+          "nodes": 545
+        }
+      ],
+      "observed": 1754,
+      "delta": {
+        "TaskDuration": 4.574123,
+        "ScriptDuration": 3.943126,
+        "LayoutDuration": 0.078259,
+        "RecalcStyleDuration": 0.306542,
+        "LayoutCount": 130,
+        "RecalcStyleCount": 170
+      }
+    },
+    {
+      "width": 1440,
+      "run": 1,
+      "grids": [
+        {
+          "width": 1280,
+          "height": 600,
+          "nodes": 485
+        },
+        {
+          "width": 1280,
+          "height": 576,
+          "nodes": 724
+        },
+        {
+          "width": 1440,
+          "height": 630,
+          "nodes": 545
+        }
+      ],
+      "observed": 1754,
+      "delta": {
+        "TaskDuration": 4.4231,
+        "ScriptDuration": 3.835669,
+        "LayoutDuration": 0.073463,
+        "RecalcStyleDuration": 0.29299800000000004,
+        "LayoutCount": 130,
+        "RecalcStyleCount": 156
+      }
+    },
+    {
+      "width": 1440,
+      "run": 2,
+      "grids": [
+        {
+          "width": 1280,
+          "height": 600,
+          "nodes": 485
+        },
+        {
+          "width": 1280,
+          "height": 576,
+          "nodes": 724
+        },
+        {
+          "width": 1440,
+          "height": 630,
+          "nodes": 545
+        }
+      ],
+      "observed": 1754,
+      "delta": {
+        "TaskDuration": 4.60064,
+        "ScriptDuration": 3.996607,
+        "LayoutDuration": 0.07535599999999999,
+        "RecalcStyleDuration": 0.302519,
+        "LayoutCount": 130,
+        "RecalcStyleCount": 157
+      }
+    },
+    {
+      "width": 390,
+      "run": 0,
+      "grids": [
+        {
+          "width": 230,
+          "height": 600,
+          "nodes": 80
+        },
+        {
+          "width": 230,
+          "height": 560,
+          "nodes": 123
+        },
+        {
+          "width": 390,
+          "height": 913,
+          "nodes": 203
+        }
+      ],
+      "observed": 406,
+      "delta": {
+        "TaskDuration": 1.213009,
+        "ScriptDuration": 1.018035,
+        "LayoutDuration": 0.022687,
+        "RecalcStyleDuration": 0.041932000000000004,
+        "LayoutCount": 166,
+        "RecalcStyleCount": 210
+      }
+    },
+    {
+      "width": 390,
+      "run": 1,
+      "grids": [
+        {
+          "width": 230,
+          "height": 600,
+          "nodes": 80
+        },
+        {
+          "width": 230,
+          "height": 560,
+          "nodes": 123
+        },
+        {
+          "width": 390,
+          "height": 913,
+          "nodes": 203
+        }
+      ],
+      "observed": 406,
+      "delta": {
+        "TaskDuration": 1.0825099999999999,
+        "ScriptDuration": 0.8944799999999999,
+        "LayoutDuration": 0.021580000000000002,
+        "RecalcStyleDuration": 0.039455,
+        "LayoutCount": 167,
+        "RecalcStyleCount": 206
+      }
+    },
+    {
+      "width": 390,
+      "run": 2,
+      "grids": [
+        {
+          "width": 230,
+          "height": 600,
+          "nodes": 80
+        },
+        {
+          "width": 230,
+          "height": 560,
+          "nodes": 123
+        },
+        {
+          "width": 390,
+          "height": 913,
+          "nodes": 203
+        }
+      ],
+      "observed": 406,
+      "delta": {
+        "TaskDuration": 1.088501,
+        "ScriptDuration": 0.9099450000000001,
+        "LayoutDuration": 0.021756,
+        "RecalcStyleDuration": 0.039572,
+        "LayoutCount": 166,
+        "RecalcStyleCount": 205
+      }
+    }
+  ],
+  "errors": []
+}

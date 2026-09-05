@@ -6,6 +6,7 @@ import PixelDisplacementGrid from './PixelDisplacementGrid';
 interface ProductImageSectionProps {
   image: string;
   imageAlt: string;
+  /** CSS colour (not a Tailwind class). */
   backgroundColor?: string;
   className?: string;
   imageClassName?: string;
@@ -15,7 +16,7 @@ interface ProductImageSectionProps {
 const ProductImageSection: React.FC<ProductImageSectionProps> = ({
   image,
   imageAlt,
-  backgroundColor = 'bg-white',
+  backgroundColor = '#F8FAFC',
   className = '',
   imageClassName = '',
   showPixelEffect = true,
@@ -33,13 +34,9 @@ const ProductImageSection: React.FC<ProductImageSectionProps> = ({
   ];
   return (
     <section
-      className={`relative ${
-        backgroundColor.startsWith('#') ? '' : backgroundColor
-      } ${className}`}
+      className={`relative ${className}`}
       style={{
-        backgroundColor: backgroundColor.startsWith('#')
-          ? backgroundColor
-          : undefined,
+        backgroundColor,
         maxHeight: '100vh',
         minHeight: '60vh',
       }}

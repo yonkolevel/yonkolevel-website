@@ -90,10 +90,6 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   const activeDisplacements = pixelDisplacements || defaultPixelDisplacements;
   const activeSafeZones = contentSafeZones || defaultContentSafeZones;
 
-  const safePixelDisplacements = activeDisplacements.filter(
-    (displacement) => !isInSafeZone(displacement, activeSafeZones)
-  );
-
   // Media Content Component (Left Column)
   const MediaContent = () => {
     if (mediaType === 'video') {
@@ -190,7 +186,8 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
         holeColor='transparent'
         displacedPixelColor={backgroundColorGrid}
         pixelSize={40}
-        displacements={safePixelDisplacements}
+        displacements={activeDisplacements}
+        placement={(pixels) => pixels.filter((pixel) => !isInSafeZone(pixel, activeSafeZones))}
         animationDelay={0.15}
         animationDuration={0.5}
       />
