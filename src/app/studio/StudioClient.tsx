@@ -679,11 +679,11 @@ export default function StudioClient() {
 
             <div className='relative min-h-[320px] w-full overflow-hidden md:min-h-[460px]'>
               <Image
-                src='/products/midicircuit/press/photo-ricardo.jpg'
+                src='/images/studio/ricardo-riso.webp'
                 alt='Ricardo Abreu, founder of Yonko Level'
                 fill
                 sizes='(min-width: 720px) 50vw, 100vw'
-                className='object-cover'
+                className='object-cover object-[center_35%]'
               />
             </div>
           </SectionGrid>
