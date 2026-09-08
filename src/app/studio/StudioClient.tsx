@@ -279,10 +279,9 @@ export default function StudioClient() {
               </h1>
 
               <p className='mt-10 max-w-2xl text-lg leading-9 text-white md:text-xl'>
-                We build our own products and help other teams build apps and
-                websites. One partnership at a time, with Ricardo involved from
-                the first conversation through to writing the code and getting
-                your project live.
+                We build our own products and help you build yours. One
+                partnership at a time, with Ricardo hands-on from first chat
+                to launch.
               </p>
 
               <div className='mt-12 flex flex-col items-start'>
