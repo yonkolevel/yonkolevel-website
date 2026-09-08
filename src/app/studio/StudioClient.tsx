@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import * as React from 'react';
 import { useReducedMotion } from 'framer-motion';
 import { usePostHog } from 'posthog-js/react';
@@ -25,88 +24,45 @@ const expertise = [
   {
     Mark: CreateMark,
     title: 'CREATE',
-    promise: 'Ideas that need to become real.',
+    promise: 'Build something new',
     description:
-      'New mobile products, technical prototypes, major features and architecture, from a sketch to something in the store.',
+      'We help turn an idea into an app, website, prototype or major feature. Together, we figure out what to build first and choose an architecture that fits the product.',
   },
   {
     Mark: StrengthenMark,
     title: 'STRENGTHEN',
-    promise: 'Make what you have hold up.',
+    promise: 'Improve what’s already there',
     description:
-      'Performance, production reliability, analytics, release processes, CI/CD and the technical modernisation everyone has been putting off.',
+      'We make existing apps and websites faster, more reliable and easier to work on. That might mean fixing bugs, improving analytics and monitoring, making testing and releases simpler, or untangling code that’s become difficult to maintain.',
   },
   {
     Mark: ConnectMark,
     title: 'CONNECT',
-    promise: 'Software that touches the real world.',
+    promise: 'Bring devices and services together',
     description:
-      'Audio, MIDI, cameras, connected hardware, payments, location and health data, the parts of a product that meet something physical.',
+      'We work with audio, MIDI, cameras, connected hardware, payments, location and health data. From connecting a musical instrument to handling a payment, we build the integrations behind those experiences.',
   },
 ] as const;
 
-type RenderFit = 'tall' | 'full' | 'wide';
-
-type Product = {
-  name: string;
-  platforms: string;
-  description: string;
-  href: string;
-  icon: string;
-  render: string;
-  renderAlt: string;
-  /** tall: rises out of the plate's bottom edge; full: contained; wide: a landscape render, contained */
-  renderFit: RenderFit;
-  plate: string;
-};
-
-const products: Product[] = [
-  {
-    name: 'MIDICIRCUIT',
-    platforms: 'iPhone · iPad · Mac · Android',
-    description:
-      'A simple and approachable DAW for creating and sharing music. Record audio, lay down MIDI in real time, mix your tracks and export when you are ready.',
-    href: '/products/midicircuit',
-    icon: '/products/midicircuit/app-icon.png',
-    render: '/products/midicircuit/marketing/mc-devices.webp',
-    renderAlt: 'Midicircuit playgrounds running on Mac, iPad and iPhone',
-    renderFit: 'wide',
-    plate: '#FF5C24',
-  },
-  {
-    name: 'INVISIBLE CAMERA',
-    platforms: 'iPhone',
-    description:
-      'Bypass Apple’s Deep Fusion and Smart HDR for authentic, film-like photos. See exactly what you will capture in real time. No surprises, no post-processing.',
-    href: '/products/invisible-camera',
-    icon: '/products/invisible-camera/app-icon.png',
-    render: '/products/invisible-camera/marketing/ic-viewfinder.webp',
-    renderAlt:
-      'Invisible Camera viewfinder on iPhone, framing a street scene in Tokyo',
-    renderFit: 'full',
-    plate: '#F3B23F',
-  },
-];
-
-/** The three surfaces a partnership can call on, led by the promise. */
+/** Three layers of product expertise, led by the promise. */
 const surfaces = [
   {
-    label: 'MOBILE',
-    promise: 'One codebase. Both app stores. Easier releases.',
+    label: 'NATIVE',
+    promise: 'Audio, cameras and hardware',
     description:
-      'We take apps that have outgrown their first architecture and make them modular, fast and releasable again, so several teams can ship in the same week without standing on each other.',
+      'Native integrations for features that need to work directly with the device.',
   },
   {
-    label: 'NATIVE',
-    promise: 'When the platform is the product.',
+    label: 'MOBILE',
+    promise: 'One app for iOS and Android',
     description:
-      'Audio engines, camera pipelines, health data and hardware integrations: where a cross-platform layer is not enough, written natively and bridged into the app cleanly.',
+      'Cross-platform apps that are fast, reliable and easy to build on.',
   },
   {
     label: 'WEB',
-    promise: 'APIs and web flows that hold up.',
+    promise: 'Websites, dashboards and APIs',
     description:
-      'APIs, dashboards, booking flows and sites that hold up under real traffic, so the product does not stop at the app icon.',
+      'We build websites and web apps, from landing pages to dashboards and booking flows.',
   },
 ] as const;
 
@@ -119,25 +75,30 @@ const trackRecord = [
     label: 'REACH',
     headline: 'Hundreds of thousands of users',
     detail:
-      'A past product-team outcome: mobile releases built for national and international audiences in the hundreds of thousands.',
+      'Ricardo has helped build and release mobile apps serving hundreds of thousands of users, as part of teams working with national and international audiences.',
   },
   {
     label: 'RELIABILITY',
     headline: '70% fewer critical incidents',
     detail:
-      'A measured result from earlier product-team work: crash resolution, monitoring, observability and proactive alerting.',
+      'In a previous product-team role, Ricardo helped reduce critical incidents by 70% through crash fixes, better monitoring and proactive alerts.',
   },
   {
     label: 'RANGE',
-    headline: 'Nearly a decade in product teams',
+    headline: 'More than ten years building apps',
     detail:
-      'Work across travel, health, fintech, retail and consumer apps, including regulated products where reliability matters.',
+      'Ricardo’s work spans travel, health, fintech, retail and consumer apps, including regulated products where reliability is especially important.',
   },
   {
     label: 'RECOGNITION',
     headline: 'Apple Entrepreneur Camp alumni',
+    detail: 'Midicircuit was selected for Apple’s Entrepreneur Camp.',
+  },
+  {
+    label: 'PUBLIC SPEAKING',
+    headline: 'Public speaking on music apps',
     detail:
-      'Selected for Apple’s Entrepreneur Camp with Midicircuit, and our audio engineering was presented at ADC Japan 2026.',
+      'Ricardo has spoken about building music apps across platforms at various events, most recently at ADC Japan 2026.',
   },
 ] as const;
 
@@ -147,21 +108,21 @@ const engagements = [
     step: '01',
     title: 'Mobile Product Health Sprint',
     description:
-      'A focused assessment of architecture, crashes, performance, reliability, analytics, observability, testing, release processes and technical risk. The outcome is a written assessment and prioritised plan.',
+      'We look at how your app is built, how it behaves in production and how your team develops and releases it. That covers architecture, crashes, performance, analytics, monitoring, testing and technical risk. You get a written assessment with priorities and practical next steps, whether we continue together or not.',
   },
   {
     Mark: BuildMark,
     step: '02',
     title: 'Focused Build Partnership',
     description:
-      'A bounded engagement organised around one meaningful outcome: shipping a major feature, stabilising a product, building a technical prototype, modernising a critical flow, or preparing an application for launch or scale.',
+      'We agree on one clear outcome and work towards it together. That could be launching an app or website, building a technical prototype, adding a major feature, modernising a critical flow or making an existing product more reliable.',
   },
   {
     Mark: LeadMark,
     step: '03',
     title: 'Fractional Product Engineering Lead',
     description:
-      'Ongoing technical direction, architecture, mentoring, production ownership and selective implementation for teams that need senior mobile leadership without a full-time hire.',
+      'Ricardo works with your team on technical direction, architecture, mentoring and production ownership, while continuing to write code. This is for teams that need senior engineering support without a full-time hire.',
   },
 ] as const;
 
@@ -169,12 +130,12 @@ const STUDIO_ADDRESS = 'team@yonkolevel.com';
 
 /** The questions a useful first email answers. */
 const enquiryPrompts = [
-  'Company',
-  'Product or website',
-  'What are you trying to ship, fix or understand?',
-  'What would a successful outcome look like?',
-  'Desired start date',
-  'Constraints, dependencies or decisions already made',
+  'Your company',
+  'Your product or website',
+  'What are you trying to build, fix or figure out?',
+  'What would a good outcome look like?',
+  'When would you like to start?',
+  'Any constraints or decisions we should know about?',
 ] as const;
 
 /**
@@ -185,22 +146,20 @@ const enquiryPrompts = [
 const studioEmail = (() => {
   const subject = 'Yonko Level Studio enquiry';
   const body = [
-    'Hello Yonko Level,',
+    'Hey Ricardo,',
     '',
-    'Name:',
     'Company:',
     'Product or website:',
     '',
-    'What we are trying to ship, fix or understand:',
+    'What we’re trying to build, fix or figure out:',
     '',
     '',
-    'What a successful outcome looks like:',
+    'What a good outcome looks like:',
     '',
     '',
-    'Desired start date:',
-    'Expected investment (under £10k / £10k–£25k / £25k–£50k / £50k+ / not sure yet):',
+    'When we’d like to start:',
     '',
-    'Anything else worth knowing:',
+    'Constraints or decisions worth knowing about:',
     '',
   ].join('\r\n');
 
@@ -320,9 +279,10 @@ export default function StudioClient() {
               </h1>
 
               <p className='mt-10 max-w-2xl text-lg leading-9 text-white md:text-xl'>
-                We build mobile products for a living, and we help a few other
-                teams build theirs. One partnership at a time, with the founder
-                doing the work.
+                We build our own products and help other teams build apps and
+                websites. One partnership at a time, with Ricardo involved from
+                the first conversation through to writing the code and getting
+                your project live.
               </p>
 
               <div className='mt-12 flex flex-col items-start'>
@@ -331,7 +291,7 @@ export default function StudioClient() {
                   onClick={() => posthog?.capture('studio_enquiry_cta_clicked')}
                   className={`inline-flex min-h-12 items-center rounded-full bg-black px-7 ${EYEBROW} tracking-[0.12em] text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue1`}
                 >
-                  Tell us what you are building →
+                  Tell us what you’re building →
                 </a>
                 <p
                   className={`mt-6 ${EYEBROW} tracking-[0.14em] text-white/70`}
@@ -382,14 +342,14 @@ export default function StudioClient() {
                 WHERE WE HELP
               </p>
               <h2 id='expertise-title' className={`${HEADING} text-white`}>
-                Where good products get unstuck
+                What are you working on?
               </h2>
               <p className={`mt-10 ${BODY} text-white/70`}>
-                Yonko Level is where we make our own apps. The Studio is the
-                part where we work on other people’s. We like the problems that
-                are awkward on purpose: audio, cameras, hardware, the places
-                where a normal app framework runs out. If yours is one of those,
-                we’ll get on.
+                Maybe you have an idea you want to try, an app or website that’s
+                getting harder to work on, or a feature you’re not sure how to
+                build. We can help. We especially enjoy working with audio, cameras
+                and connected hardware, where figuring out how things work is
+                part of the fun.
               </p>
             </div>
 
@@ -411,128 +371,35 @@ export default function StudioClient() {
         </Container>
       </section>
 
-      {/* ------------------------------------------------------------ SURFACES */}
+      {/* ------------------------------------------------------------ EXPERTISE */}
       <section
         className='overflow-hidden bg-black py-[5rem] md:py-[7rem] lg:py-[10rem]'
         aria-labelledby='surfaces-title'
       >
         <Container>
-          <SectionGrid>
-            <div>
-              <p className={`mb-5 ${EYEBROW} text-orange`}>
-                WHAT WE BRING
-              </p>
+          <div className='border-t border-white/10 pt-[4rem] lg:pt-[6rem]'>
+            <div className='max-w-3xl'>
+              <p className={`mb-5 ${EYEBROW} text-orange`}>WHAT WE BRING</p>
               <h2 id='surfaces-title' className={`${HEADING} text-white`}>
-                The whole product, not one layer
+                We have the expertise you need
               </h2>
               <p className={`mt-10 ${BODY} text-white/70`}>
-                We don’t hand things off. The architecture, the native work
-                nobody wants to touch, and the release itself: same pair of
-                hands. Fewer things fall through the gaps, because there aren’t
-                many gaps.
+                Native features, mobile apps and websites.
               </p>
             </div>
 
-            {surfaces.map(({ label, promise, description }) => (
-              <article key={label}>
-                <CellMarker>
+            <div className='mt-14 grid grid-cols-1 gap-x-[3rem] gap-y-[4rem] md:grid-cols-3 lg:mt-20 lg:gap-x-[5rem]'>
+              {surfaces.map(({ label, promise, description }) => (
+                <article key={label}>
                   <p className={`${MARKER} text-orange`}>{label}</p>
-                </CellMarker>
-                <h3 className='mt-[2rem] font-pixel text-base leading-snug text-white md:text-lg'>
-                  {promise}
-                </h3>
-                <p className={`mt-5 ${BODY} text-white/70`}>{description}</p>
-              </article>
-            ))}
-          </SectionGrid>
-        </Container>
-      </section>
-
-      {/* ------------------------------------------------------------ PRODUCTS */}
-      <section
-        className='overflow-hidden bg-black py-[5rem] md:py-[7rem] lg:py-[10rem]'
-        aria-labelledby='products-title'
-      >
-        <Container>
-          <SectionGrid>
-            <div>
-              <p className={`mb-5 ${EYEBROW} text-orange`}>
-                PRODUCT COMPANY FIRST
-              </p>
-              <h2 id='products-title' className={`${HEADING} text-white`}>
-                We ship our own products
-              </h2>
-              <p className={`mt-10 ${BODY} text-white/70`}>
-                We’ve been shipping Midicircuit for five years, through a pivot,
-                an Apple Entrepreneur Camp and a lot of App Store reviews.
-                Invisible Camera came after. Everything we bring to a
-                partnership, we learned the hard way on our own products first.
-              </p>
+                  <h3 className='mt-6 font-pixel text-base leading-snug text-white md:text-lg'>
+                    {promise}
+                  </h3>
+                  <p className={`mt-5 ${BODY} text-white/70`}>{description}</p>
+                </article>
+              ))}
             </div>
-
-            {/* Left empty so the two products sit side by side on one row. */}
-            <div aria-hidden='true' className='hidden md:block' />
-
-            {products.map((product) => (
-              <article key={product.name}>
-                {/* Transparent device render on a solid plate, cropped by the
-                    plate's bottom edge so it fills rather than floats. */}
-                <div
-                  className='relative aspect-[4/3] overflow-hidden'
-                  style={{ backgroundColor: product.plate }}
-                >
-                  <div
-                    className={
-                      product.renderFit === 'wide'
-                        ? 'absolute inset-x-6 bottom-6 top-6 sm:inset-x-10 sm:bottom-8 sm:top-8'
-                        : product.renderFit === 'full'
-                          ? 'absolute inset-x-0 bottom-6 top-6 sm:bottom-8 sm:top-8'
-                          : 'absolute inset-x-0 -bottom-[18%] top-[2.5rem] sm:top-12'
-                    }
-                  >
-                    <Image
-                      src={product.render}
-                      alt={product.renderAlt}
-                      fill
-                      sizes='(min-width: 720px) 50vw, 100vw'
-                      className={
-                        product.renderFit === 'tall'
-                          ? 'object-contain object-top'
-                          : 'object-contain object-center'
-                      }
-                    />
-                  </div>
-                </div>
-                <div className='mt-[2rem] flex items-center gap-[1rem]'>
-                  <Image
-                    src={product.icon}
-                    alt=''
-                    aria-hidden='true'
-                    width={44}
-                    height={44}
-                    className='h-11 w-11 rounded-[10px]'
-                  />
-                  <div>
-                    <h3 className={`${CELL_TITLE} text-white`}>
-                      {product.name}
-                    </h3>
-                    <p className={`mt-2 ${MARKER} text-white/40`}>
-                      {product.platforms}
-                    </p>
-                  </div>
-                </div>
-                <p className={`mt-5 ${BODY} text-white/70`}>
-                  {product.description}
-                </p>
-                <Link
-                  href={product.href}
-                  className={`mt-7 inline-flex items-center border-b border-orange pb-2 ${EYEBROW} tracking-[0.14em] text-white transition-colors hover:text-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-4 focus-visible:ring-offset-black`}
-                >
-                  Explore {product.name} →
-                </Link>
-              </article>
-            ))}
-          </SectionGrid>
+          </div>
         </Container>
       </section>
 
@@ -558,12 +425,12 @@ export default function StudioClient() {
                 TRACK RECORD
               </p>
               <h2 id='record-title' className={`${HEADING} text-black`}>
-                Proven in production
+                Some of the work behind the Studio
               </h2>
               <p className={`mt-10 ${BODY} text-black/80`}>
-                Some of this is from our own releases, some from years inside
-                other people’s product teams. We’d rather show numbers than
-                adjectives. Ask us about any of them.
+                Some of this comes from our own products, and some from
+                Ricardo’s work within other product teams. Here are a few
+                examples.
               </p>
             </PixelPanel>
 
@@ -606,13 +473,13 @@ export default function StudioClient() {
                 ENGAGEMENTS
               </p>
               <h2 id='work-title' className={`${HEADING} text-white`}>
-                A clear path to shipping
+                How we can work together
               </h2>
               <p className='mt-10 text-lg leading-9 text-white md:text-xl'>
-                We start small, on purpose. A short health sprint tells us both
-                whether this is worth doing. If it is, we carry on: a bounded
-                build, or a fractional lead on your team. If it isn’t, you still
-                leave with a written plan.
+                We start by understanding what you want to build or improve,
+                whether it’s an app or a website. From there, we can agree on a
+                focused build, assess an existing mobile app through a health
+                sprint, or work with your team on an ongoing basis.
               </p>
             </PixelPanel>
 
@@ -658,21 +525,23 @@ export default function StudioClient() {
                 FOUNDER-LED
               </p>
               <h2 id='founder-title' className={`${HEADING} text-white`}>
-                The founder stays in the work
+                Hey, I’m Ricardo.
               </h2>
               <div className={`mt-10 space-y-6 ${BODY} text-white`}>
                 <p>
-                  Yonko Level is led by Ricardo Abreu. He has spent a decade
-                  shipping consumer apps in travel, health, payments and
-                  creative tech, and the last five building our own. He loves
-                  understanding problems, solving them, making new things, and
-                  teaching people to do the same.
+                  I started Yonko Level as a place to build things I care about.
+                  I’ve spent more than ten years working on apps across travel,
+                  health, payments and creative technology, and the last five
+                  building our own too. I love figuring out how things work and
+                  making something useful from what I learn. Teaching people and
+                  helping them build their own things is a big part of that too.
                 </p>
                 <p>
-                  Ricardo does the work himself. When a project needs more than
-                  one person, we bring in friends we’ve worked with for years,
-                  on design and on code. Never a bench, never a handover to
-                  someone you haven’t met.
+                  When we work together, you’ll be working directly with me.
+                  If a project needs more people, I bring in friends and
+                  collaborators I’ve worked with for years, across design and
+                  engineering. You’ll know who’s involved and what each of us
+                  is working on.
                 </p>
               </div>
             </PixelPanel>
@@ -715,12 +584,13 @@ export default function StudioClient() {
                 START A CONVERSATION
               </p>
               <h2 id='enquiry-title' className={`${HEADING} text-black`}>
-                Tell us what you are building
+                Tell us what you’re building
               </h2>
               <p className={`mt-10 ${BODY} text-black/80`}>
-                Just email us. The link fills in the questions we’d ask anyway;
-                answer the ones you can and skip the rest. Ricardo reads
-                everything himself.
+                Tell us about your idea, what you’d like to improve or the
+                problem you’re trying to figure out. The email link includes a
+                few questions to get you started. Answer what you can; it doesn’t
+                need to be a complete brief. Ricardo reads every enquiry.
               </p>
 
               <div className='mt-10 flex flex-wrap items-center gap-x-[1.25rem] gap-y-[0.75rem]'>
@@ -751,7 +621,7 @@ export default function StudioClient() {
                 >
                   {STUDIO_ADDRESS}
                 </a>{' '}
-                directly. We will only use these details to discuss your
+                directly. We’ll only use the details you share to discuss your
                 enquiry.
               </p>
             </PixelPanel>
@@ -772,10 +642,6 @@ export default function StudioClient() {
                   </li>
                 ))}
               </ul>
-              <p className='mt-[2rem] text-sm leading-7 text-white/40'>
-                Name and email come with the message. Everything else is
-                optional.
-              </p>
             </div>
           </SectionGrid>
         </Container>

@@ -100,18 +100,19 @@ const Home = () => {
               >
                 WE BUILD OUR OWN PRODUCTS.
                 <br />
-                WE ALSO HELP SELECTED TEAMS BUILD THEIRS.
+                WE HELP TEAMS BUILD APPS AND WEBSITES.
               </h2>
             </div>
 
             <div className='max-w-2xl lg:pt-10'>
               <p className='text-base leading-8 text-white/70 md:text-lg'>
-                We make our own apps, and we help a few teams and brands make
-                theirs, especially the awkward ones: audio, cameras, hardware,
-                payments, anything that touches the real world.
+                We work with founders, product teams and brands to build apps
+                and websites, or improve the ones they already have. We
+                especially enjoy working with audio, cameras and connected
+                hardware.
               </p>
               <p className='mt-5 font-pixel text-xs uppercase tracking-[0.16em] text-white/50'>
-                One principal partnership at a time.
+                One partnership at a time, working directly with Ricardo.
               </p>
               <Link
                 href='/studio'
