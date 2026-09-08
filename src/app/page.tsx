@@ -1,12 +1,16 @@
 'use client';
 import Head from 'next/head';
-import HeroSection from '@/components/home/HeroSection';
+import Link from 'next/link';
+import { usePostHog } from 'posthog-js/react';
 import AppShowcaseSection from '@/components/AppShowcaseSection';
+import Container from '@/components/Container';
 import HeroWithPixels from '@/components/HeroWithPixels';
 import PromotionalVideoSection from '@/components/PromotionalVideoSection';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 const Home = () => {
+  const posthog = usePostHog();
+
   return (
     <div>
       <Head>
@@ -24,8 +28,8 @@ const Home = () => {
       />
       <AppShowcaseSection
         appName='INVISIBLE CAMERA'
-        appDescription="Tired of over-processed iPhone photos? Invisible Camera bypasses Deep Fusion and Smart HDR. See your shot in real-time. What you see is what you get."
-        appScreenshot='/products/invisible-camera/ic-app-store-preview.png'
+        appDescription='Tired of over-processed iPhone photos? Invisible Camera bypasses Deep Fusion and Smart HDR. See your shot in real-time. What you see is what you get.'
+        appScreenshot='/products/invisible-camera/marketing/ic-viewfinder.webp'
         mediaType='image'
         learnMoreLink='/products/invisible-camera'
         sectionBackgroundColor='#1a1a1a'
@@ -33,14 +37,13 @@ const Home = () => {
         backgroundImage='/images/section-backgrounds/invisible-camera-app-section-background.svg'
         reversed={false}
         pixelDisplacements={[
-          // Top-right edge ladder flowing outward
-          { row: 0, col: 13, displaceX: 3, displaceY: -2 },
-          { row: 1, col: 12, displaceX: 4, displaceY: -1 },
-          { row: 2, col: 11, displaceX: 5, displaceY: 1 },
+          // Right-edge ladder, anchored across container sizes.
+          { row: 0, col: -1, displaceX: 3, displaceY: -2 },
+          { row: 1, col: -2, displaceX: 4, displaceY: -1 },
+          { row: 2, col: -3, displaceX: 5, displaceY: 1 },
 
-          // Bottom-right edge ladder flowing outward
-          { row: 12, col: 13, displaceX: 3, displaceY: 2 },
-          { row: 11, col: 12, displaceX: 4, displaceY: 1 },
+          { row: -1, col: -1, displaceX: 3, displaceY: 2 },
+          { row: -2, col: -2, displaceX: 4, displaceY: 1 },
         ]}
         contentSafeZones={[
           { startRow: 2, endRow: 4, startCol: 0, endCol: 2 }, // Title safe zone
@@ -59,8 +62,8 @@ const Home = () => {
 
       <AppShowcaseSection
         appName='MIDICIRCUIT'
-        appDescription='A simple and approachable DAW that makes it easy to start creating music. Record audio, lay down MIDI, mix your tracks, and share with friends. Available on iOS, iPad and macOS.'
-        appScreenshot='/products/midicircuit/midicircuit-preview-1.png'
+        appDescription='A simple and approachable DAW that makes it easy to start creating music. Record audio, lay down MIDI, mix your tracks, and share with friends. Available on iPhone, iPad, Mac and Android.'
+        appScreenshot='/products/midicircuit/marketing/mc-song.webp'
         mediaType='image'
         learnMoreLink='/products/midicircuit'
         sectionBackgroundColor='#121212'
@@ -68,7 +71,7 @@ const Home = () => {
         backgroundImage='/images/section-backgrounds/midicircuit-app-section-background.svg'
         reversed={true}
         pixelDisplacements={[
-          { row: 12, col: 13, displaceX: 2, displaceY: -1 },
+          { row: -1, col: -1, displaceX: 2, displaceY: -1 },
           { row: 0, col: 2, displaceX: 5, displaceY: 1 },
           { row: 1, col: 0, displaceX: 8, displaceY: 1 },
           { row: 8, col: 1, displaceX: 8, displaceY: -1 },
@@ -80,6 +83,51 @@ const Home = () => {
           { startRow: 10, endRow: 11, startCol: 0, endCol: 2 }, // Custom button area
         ]}
       />
+
+      <section
+        className='bg-black py-20 md:py-28'
+        aria-labelledby='home-studio-title'
+      >
+        <Container>
+          <div className='grid grid-cols-1 gap-10 border-t border-white/10 pt-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:pt-20'>
+            <div>
+              <p className='mb-5 font-pixel text-xs uppercase tracking-[0.22em] text-orange'>
+                {'// STUDIO'}
+              </p>
+              <h2
+                id='home-studio-title'
+                className='font-pixel text-2xl leading-tight tracking-tight text-white md:text-4xl'
+              >
+                WE BUILD OUR OWN PRODUCTS.
+                <br />
+                WE ALSO HELP SELECTED TEAMS BUILD THEIRS.
+              </h2>
+            </div>
+
+            <div className='max-w-2xl lg:pt-10'>
+              <p className='text-base leading-8 text-white/70 md:text-lg'>
+                We make our own apps, and we help a few teams and brands make
+                theirs, especially the awkward ones: audio, cameras, hardware,
+                payments, anything that touches the real world.
+              </p>
+              <p className='mt-5 font-pixel text-xs uppercase tracking-[0.16em] text-white/50'>
+                One principal partnership at a time.
+              </p>
+              <Link
+                href='/studio'
+                onClick={() =>
+                  posthog?.capture('homepage_studio_cta_clicked', {
+                    destination: '/studio',
+                  })
+                }
+                className='mt-10 inline-flex min-h-12 items-center rounded-full border-2 border-orange px-7 font-pixel text-xs uppercase tracking-[0.12em] text-white transition-colors hover:bg-orange hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-4 focus-visible:ring-offset-black'
+              >
+                Visit the Studio →
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
 
       <NewsletterSignup />
     </div>

@@ -120,7 +120,7 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
         {/* Content Overlay */}
         {(appName || appDescription || learnMoreLink) && (
           <div className='absolute inset-0 flex items-center justify-center z-10'>
-            <div className='text-center px-4 sm:px-6 md:px-12 max-w-4xl'>
+            <div className='text-center px-[1rem] sm:px-6 md:px-12 max-w-4xl'>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -128,7 +128,7 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
                 transition={{ delay: 0.3, duration: 0.8 }}
               >
                 {appName && (
-                  <div className='mb-6 sm:mb-8 md:mb-10 lg:mb-12'>
+                  <div className='mb-6 sm:mb-[2rem] md:mb-10 lg:mb-12'>
                     <motion.h2
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -143,7 +143,7 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
                 )}
 
                 {appDescription && (
-                  <div className='mb-8 sm:mb-10 md:mb-12 lg:mb-14'>
+                  <div className='mb-[2rem] sm:mb-10 md:mb-12 lg:mb-14'>
                     <motion.p
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -166,7 +166,7 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
                   >
                     <Link
                       href={learnMoreLink}
-                      className='inline-flex items-center font-pixel text-white text-base sm:text-lg md:text-xl lg:text-2xl opacity-90 hover:opacity-100 transition-opacity border-2 border-white/30 px-8 py-4 sm:px-10 sm:py-5 md:px-12 md:py-5 rounded-full hover:border-white/60 transition-colors'
+                      className='inline-flex items-center font-pixel text-white text-base sm:text-lg md:text-xl lg:text-2xl opacity-90 hover:opacity-100 transition-opacity border-2 border-white/30 px-[2rem] py-[1rem] sm:px-10 sm:py-5 md:px-12 md:py-5 rounded-full hover:border-white/60 transition-colors'
                       onClick={() => {
                         posthog?.capture('video_learn_more_clicked', {
                           app_name: appName,

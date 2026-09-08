@@ -8,6 +8,7 @@ interface ProductContentSectionProps {
   description: string;
   image: string;
   imageAlt: string;
+  /** CSS colour (not a Tailwind class). */
   backgroundColor?: string;
   textColor?: string;
   className?: string;
@@ -22,7 +23,7 @@ const ProductContentSection: React.FC<ProductContentSectionProps> = ({
   description,
   image,
   imageAlt,
-  backgroundColor = 'bg-white',
+  backgroundColor = '#F8FAFC',
   textColor = 'text-black',
   className = '',
   imageClassName = '',
@@ -44,14 +45,8 @@ const ProductContentSection: React.FC<ProductContentSectionProps> = ({
 
   return (
     <section
-      className={`relative ${
-        backgroundColor.startsWith('#') ? '' : backgroundColor
-      } ${className}`}
-      style={{
-        backgroundColor: backgroundColor.startsWith('#')
-          ? backgroundColor
-          : undefined,
-      }}
+      className={`relative ${className}`}
+      style={{ backgroundColor }}
     >
       {/* Pixel displacement effect */}
       {showPixelEffect && (
@@ -108,7 +103,7 @@ const ProductContentSection: React.FC<ProductContentSectionProps> = ({
 
       <div className='relative z-10'>
         <Container>
-          <div className='py-16 lg:py-24'>
+          <div className='py-[5rem] lg:py-[7rem]'>
             <div
               className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center ${
                 reverse ? 'lg:grid-flow-col-dense' : ''

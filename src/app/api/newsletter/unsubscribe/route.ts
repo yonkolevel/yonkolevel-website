@@ -20,6 +20,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Failed to process request' }, { status: 500 });
   }
 
-  // Always return success — never confirm whether the email was in the list
+  // Always return success: never confirm whether the email was in the list
   return NextResponse.json({ success: true });
 }

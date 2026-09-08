@@ -13,7 +13,7 @@ const Close: React.FunctionComponent<ICloseProps> = (props) => {
       {...props}
     >
       <path
-        stroke='#F8FAFC'
+        stroke='currentColor'
         strokeLinecap='square'
         strokeLinejoin='round'
         strokeWidth='2'

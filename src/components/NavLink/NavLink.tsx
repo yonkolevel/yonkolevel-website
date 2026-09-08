@@ -32,6 +32,7 @@ const NavLink: React.FunctionComponent<INavLinkProps & any> = ({
     <Link
       href={href}
       className={`${styles.navLink} white ${active ? 'active' : ''} font-pixel font-semibold`}
+      aria-current={active ? 'page' : undefined}
       {...props}
       style={{ color: color }}
     >

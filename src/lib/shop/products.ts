@@ -14,7 +14,7 @@ export const categories: Category[] = [
   },
 ];
 
-// Local config — only UI-specific data that Stripe doesn't manage.
+// Local config: only UI-specific data that Stripe doesn't manage.
 // Keys must match the `shop_id` metadata on your Stripe products.
 const localProductConfig: Record<string, LocalProductConfig> = {
   'adam-meets-music-pin': {

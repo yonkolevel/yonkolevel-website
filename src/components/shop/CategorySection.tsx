@@ -21,7 +21,7 @@ export default function CategorySection({ name, description, products }: Categor
       >
         <div className='flex items-center gap-3 mb-2'>
           <span className='font-pixel text-[#FCC552]/60 text-sm tracking-widest'>
-            //
+            {'//'}
           </span>
           <h2 className='font-pixel text-white text-2xl md:text-4xl'>
             {name}

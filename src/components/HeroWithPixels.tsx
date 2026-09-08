@@ -83,10 +83,7 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
               >
                 <h1
                   className='font-pixel text-3xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-[10rem] font-black leading-[0.9] tracking-tight uppercase px-2 sm:px-0'
-                  style={{
-                    color: pixelColor,
-                    textShadow: `0 0 20px ${pixelColor}40, 0 0 40px ${pixelColor}20`,
-                  }}
+                  style={{ color: pixelColor }}
                 >
                   {secondWord}
                 </h1>
@@ -113,7 +110,7 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className='font-pixel text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.08em] text-white/50 block text-center'
+            className='font-body text-sm sm:text-base md:text-lg lg:text-xl leading-normal tracking-[0.08em] text-white/50 block text-center'
           >
             ヨンコ・レベル
           </motion.span>

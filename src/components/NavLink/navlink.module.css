@@ -2,7 +2,7 @@
   position: relative;
   font-family: var(--font-pixel);
   font-size: theme('fontSize.lg');
-  transition: all 500ms;
+  transition: color 500ms, transform 500ms;
   display: flex;
   color: theme('colors.blue2');
 }
@@ -27,4 +27,10 @@
 
 .navLink.white {
   color: theme('colors.white');
+}
+
+.navLink:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid theme('colors.orange');
+  outline-offset: 6px;
 }

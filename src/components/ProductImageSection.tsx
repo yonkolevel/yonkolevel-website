@@ -6,6 +6,7 @@ import PixelDisplacementGrid from './PixelDisplacementGrid';
 interface ProductImageSectionProps {
   image: string;
   imageAlt: string;
+  /** CSS colour (not a Tailwind class). */
   backgroundColor?: string;
   className?: string;
   imageClassName?: string;
@@ -15,7 +16,7 @@ interface ProductImageSectionProps {
 const ProductImageSection: React.FC<ProductImageSectionProps> = ({
   image,
   imageAlt,
-  backgroundColor = 'bg-white',
+  backgroundColor = '#F8FAFC',
   className = '',
   imageClassName = '',
   showPixelEffect = true,
@@ -33,13 +34,9 @@ const ProductImageSection: React.FC<ProductImageSectionProps> = ({
   ];
   return (
     <section
-      className={`relative ${
-        backgroundColor.startsWith('#') ? '' : backgroundColor
-      } ${className}`}
+      className={`relative ${className}`}
       style={{
-        backgroundColor: backgroundColor.startsWith('#')
-          ? backgroundColor
-          : undefined,
+        backgroundColor,
         maxHeight: '100vh',
         minHeight: '60vh',
       }}
@@ -60,7 +57,7 @@ const ProductImageSection: React.FC<ProductImageSectionProps> = ({
 
       <div className='relative z-10 h-full'>
         <Container>
-          <div className='py-16 lg:py-24 h-full flex items-center justify-center'>
+          <div className='py-[5rem] lg:py-[7rem] h-full flex items-center justify-center'>
             <motion.div
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}

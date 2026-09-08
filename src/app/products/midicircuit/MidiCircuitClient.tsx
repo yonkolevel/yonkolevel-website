@@ -1,10 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 import { motion } from 'framer-motion';
-import ProductHeroSection from '@/components/ProductHeroSection';
-import ProductDescriptionSection from '@/components/ProductDescriptionSection';
 import ProductContentSection from '@/components/ProductContentSection';
-import ProductAppIcon from '@/components/ProductAppIcon';
+import ProductHero from '@/components/ProductHero';
 import PromotionalVideoSection from '@/components/PromotionalVideoSection';
 import Container from '@/components/Container';
 import * as React from 'react';
@@ -21,30 +19,21 @@ export default function MidiCircuitClient() {
   };
   return (
     <div>
-      <div className='relative'>
-        <ProductHeroSection
-          className='bg-white'
-          heroImage='/products/midicircuit/cover-photo-full-pixelated.jpg'
-        />
-
-        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10'>
-          <ProductAppIcon
-            appIcon='/products/midicircuit/app-icon.png'
-            appIconAlt='Midicircuit app icon'
-          />
-        </div>
-
-        <ProductDescriptionSection
-          title='Learn, Create, Share'
-          description='A simple and approachable DAW in your pocket. Create beats, share songs with friends, and learn music — no experience needed. Circuits coming soon.'
-          backgroundColor='#FF5C24'
-          textColor='text-white'
-          patternColor='#FFFFFF'
-          showPixelEffect
-          ctaLink='https://apps.apple.com/us/app/midicircuit/id1558844679'
-          ctaLabel='/images/common/download-on-the-app-store.svg'
-        />
-      </div>
+      <ProductHero
+        product='midicircuit'
+        name='Midicircuit'
+        tagline='Learn, Create, Share'
+        description='A simple and approachable DAW in your pocket. Create beats, share songs with friends, and learn music. No experience needed. Circuits coming soon.'
+        platforms='iPhone · iPad · Mac · Android'
+        icon='/products/midicircuit/app-icon.png'
+        color='#FF5C24'
+        render='/products/midicircuit/marketing/mc-devices.webp'
+        renderAlt='Midicircuit playgrounds running on Mac, iPad and iPhone'
+        renderFit='wide'
+        backdrop='/products/midicircuit/cover-photo-full-pixelated.jpg'
+        appStoreUrl='https://apps.apple.com/us/app/midicircuit/id1558844679'
+        googlePlayUrl='https://play.google.com/store/apps/details?id=com.yonkolevel.midicircuit'
+      />
 
       {/* Promotional Video Section */}
       <PromotionalVideoSection
@@ -60,9 +49,9 @@ export default function MidiCircuitClient() {
       <ProductContentSection
         title='Playgrounds'
         description='A simple and approachable DAW that makes it easy to start creating. Record audio, lay down MIDI in real-time, mix your tracks, and export when you are ready. Comes loaded with sound packs from artists like 7th Wonder.'
-        image='/products/midicircuit/press/screenshot-ios-3.jpg'
-        imageAlt='Midicircuit iOS grid view with tracks and sections'
-        backgroundColor='bg-gray-50'
+        image='/products/midicircuit/marketing/mc-appstore-playgrounds.jpg'
+        imageAlt='Midicircuit song view on iPhone: drop in beats, stack melodies, make it yours'
+        backgroundColor='#F9FAFB'
         textColor='text-black'
         patternColor='#FF5C24'
         showPixelEffect
@@ -71,13 +60,25 @@ export default function MidiCircuitClient() {
 
       <ProductContentSection
         title='Whenever, Wherever'
-        description='Works on iPhone, iPad and Mac. Your projects sync across devices via iCloud — pick up exactly where you left off.'
-        image='/products/midicircuit/press/screenshot-macos-2.jpg'
-        imageAlt='Midicircuit Playgrounds on macOS'
-        backgroundColor='bg-white'
+        description='Works on iPhone, iPad and Mac. Your projects sync across devices via iCloud. Pick up exactly where you left off.'
+        image='/products/midicircuit/marketing/mc-appstore-anywhere.jpg'
+        imageAlt='Midicircuit playgrounds on Mac: play freely, anywhere, anytime'
+        backgroundColor='#F8FAFC'
         textColor='text-black'
         patternColor='#FF5C24'
         showPixelEffect
+      />
+
+      <ProductContentSection
+        title='Now on Android'
+        description='Midicircuit is on Google Play too, with the same Playgrounds, tracks and mixer. Start an idea on a phone and carry on wherever you make music.'
+        image='/products/midicircuit/marketing/mc-song.webp'
+        imageAlt='Midicircuit song view with drum, melodic and bass tracks on an Android phone'
+        backgroundColor='#121212'
+        textColor='text-white'
+        patternColor='#FF5C24'
+        showPixelEffect
+        reverse
       />
 
       <ProductContentSection
@@ -86,7 +87,7 @@ export default function MidiCircuitClient() {
         image='/products/midicircuit/press/photo-team-1.jpg'
         imageAlt='Ricardo and Delcio at Apple Entrepreneur Camp'
         imageClassName='rounded-lg'
-        backgroundColor='bg-gray-50'
+        backgroundColor='#F9FAFB'
         textColor='text-black'
         patternColor='#FF5C24'
         showPixelEffect
@@ -96,7 +97,7 @@ export default function MidiCircuitClient() {
       {/* Testimonials Section */}
       <section className='bg-black'>
         <Container>
-          <div className='py-16 lg:py-24'>
+          <div className='py-[5rem] lg:py-[7rem]'>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -104,17 +105,17 @@ export default function MidiCircuitClient() {
               transition={{ duration: 0.6 }}
               className='text-center mb-12'
             >
-              <h2 className='font-pixel text-3xl md:text-4xl lg:text-5xl text-white mb-4 uppercase tracking-wider'>
+              <h2 className='font-pixel text-3xl md:text-4xl lg:text-5xl text-white mb-[1rem] uppercase tracking-wider'>
                 What people say
               </h2>
             </motion.div>
-            <div className='grid md:grid-cols-2 gap-8 max-w-4xl mx-auto'>
+            <div className='grid md:grid-cols-2 gap-[2rem] max-w-4xl mx-auto'>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className='bg-[#1a1a1a] border border-white/10 p-8 rounded-lg'
+                className='bg-[#1a1a1a] border border-white/10 p-[2rem] rounded-lg'
               >
                 <p className='text-lg text-white mb-6 leading-relaxed'>
                   "This is the coolest, most impressive thing I've seen in a
@@ -137,7 +138,7 @@ export default function MidiCircuitClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className='bg-[#1a1a1a] border border-white/10 p-8 rounded-lg'
+                className='bg-[#1a1a1a] border border-white/10 p-[2rem] rounded-lg'
               >
                 <p className='text-lg text-white mb-6 leading-relaxed'>
                   "Love it. I like the integration with Push. This program would
@@ -164,28 +165,40 @@ export default function MidiCircuitClient() {
       {/* App Store Section */}
       <section className='bg-black'>
         <Container>
-          <div className='py-16 lg:py-24'>
-            <div className='text-center flex justify-center w-full'>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className='w-[320px]'
+          <div className='py-[5rem] lg:py-[7rem]'>
+            <div className='flex w-full flex-wrap items-center justify-center gap-[1.25rem]'>
+              <a
+                target='_blank'
+                rel='noreferrer'
+                href='https://apps.apple.com/us/app/midicircuit/id1558844679'
+                className='inline-flex transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-black'
+                onClick={handleAppStoreClick}
               >
-                <a
-                  target='_blank'
-                  href='https://apps.apple.com/us/app/midicircuit/id1558844679'
-                  className='inline-block'
-                  onClick={handleAppStoreClick}
-                >
-                  <img
-                    className='inline-block transition-opacity hover:opacity-80'
-                    src='/images/common/download-on-the-app-store.svg'
-                    alt='Download on the App Store'
-                  />
-                </a>
-              </motion.div>
+                <img
+                  className='h-[3.25rem] w-auto'
+                  src='/images/common/download-on-the-app-store.svg'
+                  alt='Download on the App Store'
+                />
+              </a>
+              <a
+                target='_blank'
+                rel='noreferrer'
+                href='https://play.google.com/store/apps/details?id=com.yonkolevel.midicircuit'
+                className='inline-flex transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-black'
+                onClick={() =>
+                  posthog?.capture('play_store_badge_clicked', {
+                    product: 'midicircuit',
+                    location: 'product_page',
+                  })
+                }
+              >
+                {/* Google's badge carries its own margin, so it sits a little taller to match */}
+                <img
+                  className='h-[4.5rem] w-auto'
+                  src='/images/common/get-it-on-google-play.png'
+                  alt='Get it on Google Play'
+                />
+              </a>
             </div>
           </div>
         </Container>
@@ -193,6 +206,3 @@ export default function MidiCircuitClient() {
     </div>
   );
 }
-
-
-

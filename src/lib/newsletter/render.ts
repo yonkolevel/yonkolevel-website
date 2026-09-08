@@ -11,10 +11,10 @@ export const sampleNewsletterData: NewsletterEmailProps = {
   biggestNews: {
     variant: 'feature' as const,
     appTag: 'Midicircuit',
-    headline: 'Android Beta is Here — Be Among the First',
+    headline: 'Android Beta is Here: Be Among the First',
     imageUrl: `${BASE}/products/midicircuit/press/screenshot-ios-1.jpg`,
     imageAlt: 'Midicircuit running on iOS',
-    copy: "Three years in the making. Midicircuit is coming to Android and we're opening beta access now. If you've been waiting to bring your MIDI workflow off iOS, this is your moment — spots are limited.",
+    copy: "Three years in the making. Midicircuit is coming to Android and we're opening beta access now. If you've been waiting to bring your MIDI workflow off iOS, this is your moment. Spots are limited.",
     ctaText: 'Join the Android Beta →',
     ctaUrl: 'https://yonkolevel.com/midicircuit',
   },
@@ -23,7 +23,7 @@ export const sampleNewsletterData: NewsletterEmailProps = {
     {
       type: 'Blog' as const,
       headline: 'Music as Markdown',
-      excerpt: "What if fenced code blocks could play music? We built an open-source toolkit that turns markdown into interactive instruments — drum pads, keyboards, sequencers — all running in the browser.",
+      excerpt: "What if fenced code blocks could play music? We built an open-source toolkit that turns markdown into interactive instruments: drum pads, keyboards and sequencers, all running in the browser.",
       author: 'Ricardo',
       date: 'Mar 19 2026',
       thumbnailUrl: `${BASE}/images/blog/obsidian-elementary-audio/og-cover.png`,
@@ -31,8 +31,8 @@ export const sampleNewsletterData: NewsletterEmailProps = {
     },
     {
       type: 'Vlog' as const,
-      headline: 'Making Music with Midicircuit — Watch the Session',
-      excerpt: 'A live session showing what Midicircuit can do in practice — Playgrounds, Circuits, and the whole workflow from scratch.',
+      headline: 'Making Music with Midicircuit: Watch the Session',
+      excerpt: 'A live session showing what Midicircuit can do in practice: Playgrounds, Circuits and the whole workflow from scratch.',
       thumbnailUrl: 'https://img.youtube.com/vi/sFPUNKcgCl4/hqdefault.jpg',
       ctaUrl: 'https://www.youtube.com/watch?v=sFPUNKcgCl4',
     },
@@ -41,7 +41,7 @@ export const sampleNewsletterData: NewsletterEmailProps = {
   education: {
     label: 'The Session',
     headline: 'What Makes a Great Sample Pack',
-    body: 'Not all samples are created equal. The ones people actually come back to have six things in common: punch (crisp transients), body (no thin or hollow sounds), character (a distinctive identity), consistency (everything belongs together), dynamics (responds well to velocity), and a clean tail — no clicks, pops, or abrupt cuts.',
+    body: 'Not all samples are created equal. The ones people actually come back to have six things in common: punch (crisp transients), body (no thin or hollow sounds), character (a distinctive identity), consistency (everything belongs together), dynamics (responds well to velocity), and a clean tail. No clicks, pops, or abrupt cuts.',
     exampleContent: "Quick test: load each sample, play it at velocity 30 and then 127. If there's no personality difference, your dynamics need work. The best packs feel alive at every velocity.",
     ctaText: 'Try it in Midicircuit →',
     ctaUrl: 'https://yonkolevel.com/midicircuit',
@@ -52,13 +52,13 @@ export const sampleNewsletterData: NewsletterEmailProps = {
       thumbnailUrl: `${BASE}/products/midicircuit/app-icon.png`,
       title: 'Midicircuit Sound Pack Guide',
       url: 'https://yonkolevel.com/blog/midicircuit-sound-pack-guide',
-      note: 'We published the full spec for anyone who wants to submit a pack. WAV, 44.1k, 24-bit — and a checklist that actually means something.',
+      note: 'We published the full spec for anyone who wants to submit a pack. WAV, 44.1k, 24-bit, and a checklist that actually means something.'
     },
     {
       thumbnailUrl: `${BASE}/products/invisible-camera/app-icon.png`,
       title: 'Invisible Camera',
       url: 'https://yonkolevel.com/products/invisible-camera',
-      note: "Our other app — if you don't know it yet, it's been quietly doing its thing. Worth a look.",
+      note: "Our other app. If you don't know it yet, it's been quietly doing its thing. Worth a look.",
     },
     {
       thumbnailUrl: `${BASE}/images/blog/midicircuit-v2-launch/midicircuit-pins.jpg`,
@@ -109,7 +109,7 @@ export function resolveNewsletterRenderInput(body: Record<string, unknown>): New
   const previewTextFromPackage = typeof pkg?.previewText === 'string' ? pkg.previewText : undefined;
   const subject = typeof body.subject === 'string'
     ? body.subject
-    : subjectFromPackage ?? `Yonko Level Newsletter ${props.issueNumber} — ${props.issueDate}`;
+    : subjectFromPackage ?? `Yonko Level Newsletter ${props.issueNumber}: ${props.issueDate}`;
 
   return {
     props,

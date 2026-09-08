@@ -17,6 +17,11 @@ const PRODUCTS = [
     mobileLabel: 'MIDICIRCUIT',
   },
   {
+    href: '/studio',
+    label: 'STUDIO',
+    mobileLabel: 'STUDIO',
+  },
+  {
     href: '/shop',
     label: 'SHOP',
     mobileLabel: 'SHOP',

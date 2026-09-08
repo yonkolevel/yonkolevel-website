@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint . --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit",
     "email:dev": "email dev --dir emails --port 3100",
     "email:build": "email export --dir emails --outDir .email-output",
     "email:export": "email export --dir emails --outDir .email-output --pretty"
