@@ -92,7 +92,7 @@ const Home = () => {
           <div className='grid grid-cols-1 gap-10 border-t border-white/10 pt-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:pt-20'>
             <div>
               <p className='mb-5 font-pixel text-xs uppercase tracking-[0.22em] text-orange'>
-                {'// STUDIO'}
+                STUDIO
               </p>
               <h2
                 id='home-studio-title'

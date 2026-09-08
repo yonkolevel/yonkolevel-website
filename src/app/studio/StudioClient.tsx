@@ -379,7 +379,7 @@ export default function StudioClient() {
           <SectionGrid>
             <div>
               <p className={`mb-5 ${EYEBROW} text-orange`}>
-                {'// WHERE WE HELP'}
+                WHERE WE HELP
               </p>
               <h2 id='expertise-title' className={`${HEADING} text-white`}>
                 Where good products get unstuck
@@ -420,7 +420,7 @@ export default function StudioClient() {
           <SectionGrid>
             <div>
               <p className={`mb-5 ${EYEBROW} text-orange`}>
-                {'// WHAT WE BRING'}
+                WHAT WE BRING
               </p>
               <h2 id='surfaces-title' className={`${HEADING} text-white`}>
                 The whole product, not one layer
@@ -457,7 +457,7 @@ export default function StudioClient() {
           <SectionGrid>
             <div>
               <p className={`mb-5 ${EYEBROW} text-orange`}>
-                {'// PRODUCT COMPANY FIRST'}
+                PRODUCT COMPANY FIRST
               </p>
               <h2 id='products-title' className={`${HEADING} text-white`}>
                 We ship our own products
@@ -555,7 +555,7 @@ export default function StudioClient() {
               ]}
             >
               <p className={`mb-5 ${EYEBROW} text-black/70`}>
-                {'// TRACK RECORD'}
+                TRACK RECORD
               </p>
               <h2 id='record-title' className={`${HEADING} text-black`}>
                 Proven in production
@@ -603,7 +603,7 @@ export default function StudioClient() {
               ]}
             >
               <p className={`mb-5 ${EYEBROW} text-white/70`}>
-                {'// ENGAGEMENTS'}
+                ENGAGEMENTS
               </p>
               <h2 id='work-title' className={`${HEADING} text-white`}>
                 A clear path to shipping
@@ -655,7 +655,7 @@ export default function StudioClient() {
               ]}
             >
               <p className={`mb-5 ${EYEBROW} text-white/70`}>
-                {'// FOUNDER-LED'}
+                FOUNDER-LED
               </p>
               <h2 id='founder-title' className={`${HEADING} text-white`}>
                 The founder stays in the work
@@ -712,7 +712,7 @@ export default function StudioClient() {
               ]}
             >
               <p className={`mb-5 ${EYEBROW} text-black/70`}>
-                {'// START A CONVERSATION'}
+                START A CONVERSATION
               </p>
               <h2 id='enquiry-title' className={`${HEADING} text-black`}>
                 Tell us what you are building
@@ -759,7 +759,7 @@ export default function StudioClient() {
             <div>
               <CellMarker>
                 <p className={`${MARKER} text-white/40`}>
-                  {'// WHAT TO INCLUDE'}
+                  WHAT TO INCLUDE
                 </p>
               </CellMarker>
               <ul role='list' className='mt-[2rem] border-t border-white/10'>

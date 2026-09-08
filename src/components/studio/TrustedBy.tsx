@@ -30,7 +30,7 @@ export default function TrustedBy() {
             id='trusted-by-title'
             className='shrink-0 font-pixel text-xs uppercase tracking-[0.22em] text-orange'
           >
-            {'// TRUSTED BY'}
+            TRUSTED BY
           </h2>
           <ul
             role='list'

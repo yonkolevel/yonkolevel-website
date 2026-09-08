@@ -31,7 +31,7 @@ export default function Friends() {
             id='friends-title'
             className='shrink-0 font-pixel text-xs uppercase tracking-[0.22em] text-orange'
           >
-            {'// YONKO LEVEL FRIENDS'}
+            YONKO LEVEL FRIENDS
           </h2>
           <ul
             role='list'

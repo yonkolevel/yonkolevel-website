@@ -72,7 +72,6 @@ export default function ProductHero({
                 className='h-16 w-16 rounded-[14px]'
               />
               <p className='font-pixel text-xs uppercase tracking-[0.22em] text-orange'>
-                {'// '}
                 {platforms}
               </p>
             </div>
