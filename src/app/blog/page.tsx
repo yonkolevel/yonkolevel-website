@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Container from '@/components/Container';
+import { TITLE } from '@/lib/typography';
 import { getAllPosts } from '@/lib/mdx';
 import { Metadata } from 'next';
 
@@ -45,7 +46,7 @@ export default async function BlogPage() {
     <main className='min-h-screen bg-black text-white pt-32 pb-20'>
       <Container>
         <div className='max-w-3xl mx-auto'>
-          <h1 className='font-pixel font-[700] text-4xl mb-16 text-white'>BLOG_POSTS</h1>
+          <h1 className={`${TITLE} mb-16 text-white`}>BLOG_POSTS</h1>
 
           <div className='space-y-8'>
             {posts.map((post) => (

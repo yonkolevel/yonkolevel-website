@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Metadata } from 'next';
 import Container from '@/components/Container';
+import { HEADING, SUBHEAD } from '@/lib/typography';
 import RicardoIdle from '@/components/placeholders/RicardoIdle';
 import * as React from 'react';
 
@@ -51,11 +52,11 @@ const AboutUsPage: React.FunctionComponent<IAboutUsPageProps> = (props) => {
         <div className='py-16'>
           <Container>
             <div className='pb-10'>
-              <h1 className='font-pixel font-[700] text-3xl text-blue2'>Who we are</h1>
+              <h1 className={`${HEADING} text-blue2`}>Who we are</h1>
             </div>
             <div className='grid grid-cols-2 gap-[40px]'>
               <div className='col-span-2 md:col-span-1 prose'>
-                <h1 className='font-pixel font-[500] text-black'>Designers</h1>
+                <h1 className={`${SUBHEAD} text-black`}>Designers</h1>
 
                 <p className='text-black'>
                   Historically, the main area of design was regarded as only
@@ -90,7 +91,7 @@ const AboutUsPage: React.FunctionComponent<IAboutUsPageProps> = (props) => {
                 />
               </div>
               <div className='col-span-2 md:col-span-1 prose'>
-                <h1 className='font-pixel font-[500] text-black'>Developers</h1>
+                <h1 className={`${SUBHEAD} text-black`}>Developers</h1>
 
                 <p className='text-black'>
                   A developer is a key individual behind all software
@@ -112,11 +113,11 @@ const AboutUsPage: React.FunctionComponent<IAboutUsPageProps> = (props) => {
         <div className='py-16'>
           <Container>
             <div className='pb-10'>
-              <h1 className='font-pixel font-[700] text-3xl text-blue2'>How we do it</h1>
+              <h1 className={`${HEADING} text-blue2`}>How we do it</h1>
             </div>
             <div className='grid grid-cols-2 gap-[40px]'>
               <div className='col-span-2 md:col-span-1 prose'>
-                <h1 className='font-pixel font-[500] text-black'>Nakama</h1>
+                <h1 className={`${SUBHEAD} text-black`}>Nakama</h1>
 
                 <p className='text-black'>
                   Building a professional and friendly environment is very
@@ -152,7 +153,7 @@ const AboutUsPage: React.FunctionComponent<IAboutUsPageProps> = (props) => {
                 />
               </div>
               <div className='col-span-2 md:col-span-1 prose'>
-                <h1 className='font-pixel font-[500] text-black'>Sprint</h1>
+                <h1 className={`${SUBHEAD} text-black`}>Sprint</h1>
 
                 <p className='text-black'>
                   We use Sprints to quickly assess the possibility of success of
@@ -180,7 +181,7 @@ const AboutUsPage: React.FunctionComponent<IAboutUsPageProps> = (props) => {
                 />
               </div>
               <div className='col-span-2 md:col-span-1 prose'>
-                <h1 className='font-pixel font-[500] text-black'>Project Management</h1>
+                <h1 className={`${SUBHEAD} text-black`}>Project Management</h1>
 
                 <p className='text-black'>
                   The brand visuals are based on these values, professional,
@@ -201,7 +202,7 @@ const AboutUsPage: React.FunctionComponent<IAboutUsPageProps> = (props) => {
         <Container>
           <div className='grid grid-cols-2'>
             <div className='col-span-1 self-center'>
-              <h1 className='font-pixel font-[500] text-blue2 mb-8'>
+              <h1 className={`${SUBHEAD} text-blue2 mb-8`}>
                 Let’s work together!
               </h1>
               <p>

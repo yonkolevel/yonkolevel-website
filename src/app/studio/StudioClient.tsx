@@ -9,6 +9,7 @@ import PixelPanel from '@/components/PixelPanel';
 import PixelSprite from '@/components/PixelSprite';
 import TrustedBy from '@/components/studio/TrustedBy';
 import Friends from '@/components/studio/Friends';
+import { BODY, HEADING, LABEL, SUBHEAD } from '@/lib/typography';
 import {
   AssessMark,
   BuildMark,
@@ -170,16 +171,8 @@ const studioEmail = (() => {
 
 /* ------------------------------------------------------------- type tokens */
 
-const EYEBROW = 'font-pixel text-xs uppercase tracking-[0.22em]';
-const HEADING =
-  'font-pixel font-[700] text-2xl uppercase leading-tight tracking-tight lg:text-3xl xl:text-4xl';
-const CELL_TITLE = 'font-pixel text-lg uppercase md:text-xl';
-const MARKER = 'font-pixel text-xs tracking-[0.2em]';
-const CELL_PROMISE_BASE =
-  'font-pixel font-[500] text-xl leading-snug tracking-[0.03em]';
-const CELL_PROMISE_COMPACT = `${CELL_PROMISE_BASE} lg:text-[1.75rem]`;
-const CELL_PROMISE = `${CELL_PROMISE_BASE} lg:text-[2rem]`;
-const BODY = 'text-base leading-8 md:text-lg';
+/** The page sets its section headings in caps; size and weight come from the ramp. */
+const SECTION = `${HEADING} uppercase`;
 
 /* -------------------------------------------------------------- primitives */
 
@@ -292,12 +285,12 @@ export default function StudioClient() {
                 <a
                   href='#enquiry'
                   onClick={() => posthog?.capture('studio_enquiry_cta_clicked')}
-                  className={`inline-flex min-h-12 items-center rounded-full bg-black px-7 ${EYEBROW} tracking-[0.12em] text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue1`}
+                  className={`inline-flex min-h-12 items-center rounded-full bg-black px-7 ${LABEL} tracking-[0.12em] text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue1`}
                 >
                   Tell us what you’re building →
                 </a>
                 <p
-                  className={`mt-6 ${EYEBROW} tracking-[0.14em] text-white/70`}
+                  className={`mt-6 ${LABEL} tracking-[0.14em] text-white/70`}
                 >
                   For founders, product teams and brands.
                 </p>
@@ -341,10 +334,10 @@ export default function StudioClient() {
         <Container>
           <SectionGrid>
             <div>
-              <p className={`mb-5 ${EYEBROW} text-orange`}>
+              <p className={`mb-5 ${LABEL} text-orange`}>
                 WHERE WE HELP
               </p>
-              <h2 id='expertise-title' className={`${HEADING} text-white`}>
+              <h2 id='expertise-title' className={`${SECTION} text-white`}>
                 What are you working on?
               </h2>
               <p className={`mt-10 ${BODY} text-white/70`}>
@@ -361,10 +354,10 @@ export default function StudioClient() {
                 <CellMarker>
                   <div className='flex items-center gap-[1rem]'>
                     <Mark className='h-14 w-14 md:h-16 md:w-16' />
-                    <p className={`${MARKER} text-orange`}>{title}</p>
+                    <p className={`${LABEL} text-orange`}>{title}</p>
                   </div>
                 </CellMarker>
-                <h3 className={`mt-[2rem] ${CELL_PROMISE} text-white`}>
+                <h3 className={`mt-[2rem] ${SUBHEAD} text-white`}>
                   {promise}
                 </h3>
                 <p className={`mt-5 ${BODY} text-white/70`}>{description}</p>
@@ -382,8 +375,8 @@ export default function StudioClient() {
         <Container>
           <div className='border-t border-white/10 pt-[4rem] lg:pt-[6rem]'>
             <div className='max-w-3xl'>
-              <p className={`mb-5 ${EYEBROW} text-orange`}>WHAT WE BRING</p>
-              <h2 id='surfaces-title' className={`${HEADING} text-white`}>
+              <p className={`mb-5 ${LABEL} text-orange`}>WHAT WE BRING</p>
+              <h2 id='surfaces-title' className={`${SECTION} text-white`}>
                 We have the expertise you need
               </h2>
               <p className={`mt-10 ${BODY} text-white/70`}>
@@ -394,8 +387,8 @@ export default function StudioClient() {
             <div className='mt-14 grid grid-cols-1 gap-x-[3rem] gap-y-[4rem] md:grid-cols-3 lg:mt-20 lg:gap-x-[5rem]'>
               {surfaces.map(({ label, promise, description }) => (
                 <article key={label}>
-                  <p className={`${MARKER} text-orange`}>{label}</p>
-                  <h3 className={`mt-6 ${CELL_PROMISE_COMPACT} text-white`}>
+                  <p className={`${LABEL} text-orange`}>{label}</p>
+                  <h3 className={`mt-6 ${SUBHEAD} text-white`}>
                     {promise}
                   </h3>
                   <p className={`mt-5 ${BODY} text-white/70`}>{description}</p>
@@ -424,10 +417,10 @@ export default function StudioClient() {
                 { row: -1, col: -1, displaceX: 1, displaceY: 1 },
               ]}
             >
-              <p className={`mb-5 ${EYEBROW} text-black/70`}>
+              <p className={`mb-5 ${LABEL} text-black/70`}>
                 TRACK RECORD
               </p>
-              <h2 id='record-title' className={`${HEADING} text-black`}>
+              <h2 id='record-title' className={`${SECTION} text-black`}>
                 Some of the work behind the Studio
               </h2>
               <p className={`mt-10 ${BODY} text-black/80`}>
@@ -441,9 +434,9 @@ export default function StudioClient() {
               {trackRecord.map(({ label, headline, detail }) => (
                 <li key={headline}>
                   <CellMarker>
-                    <p className={`${MARKER} text-orange`}>{label}</p>
+                    <p className={`${LABEL} text-orange`}>{label}</p>
                   </CellMarker>
-                  <h3 className={`mt-[2rem] ${CELL_PROMISE} text-white`}>
+                  <h3 className={`mt-[2rem] ${SUBHEAD} text-white`}>
                     {headline}
                   </h3>
                   <p className={`mt-5 ${BODY} text-white/70`}>{detail}</p>
@@ -472,10 +465,10 @@ export default function StudioClient() {
                 { row: -1, col: 3, displaceX: 0, displaceY: 3 },
               ]}
             >
-              <p className={`mb-5 ${EYEBROW} text-white/70`}>
+              <p className={`mb-5 ${LABEL} text-white/70`}>
                 ENGAGEMENTS
               </p>
-              <h2 id='work-title' className={`${HEADING} text-white`}>
+              <h2 id='work-title' className={`${SECTION} text-white`}>
                 How we can work together
               </h2>
               <p className='mt-10 text-lg leading-9 text-white md:text-xl'>
@@ -492,10 +485,10 @@ export default function StudioClient() {
                   <CellMarker>
                     <div className='flex items-center gap-[1rem]'>
                       <Mark className='h-12 w-12' />
-                      <p className={`${MARKER} text-white/40`}>{step}</p>
+                      <p className={`${LABEL} text-white/40`}>{step}</p>
                     </div>
                   </CellMarker>
-                  <h3 className={`mt-[2rem] ${CELL_PROMISE} text-white`}>
+                  <h3 className={`mt-[2rem] ${SUBHEAD} text-white`}>
                     {title}
                   </h3>
                   <p className={`mt-5 ${BODY} text-white/70`}>{description}</p>
@@ -524,10 +517,10 @@ export default function StudioClient() {
                 { row: -1, col: -2, displaceX: 0, displaceY: 3 },
               ]}
             >
-              <p className={`mb-5 ${EYEBROW} text-white/70`}>
+              <p className={`mb-5 ${LABEL} text-white/70`}>
                 FOUNDER-LED
               </p>
-              <h2 id='founder-title' className={`${HEADING} text-white`}>
+              <h2 id='founder-title' className={`${SECTION} text-white`}>
                 Hey, I’m Ricardo.
               </h2>
               <div className={`mt-10 space-y-6 ${BODY} text-white`}>
@@ -583,10 +576,10 @@ export default function StudioClient() {
                 { row: -1, col: 1, displaceX: 0, displaceY: 3 },
               ]}
             >
-              <p className={`mb-5 ${EYEBROW} text-black/70`}>
+              <p className={`mb-5 ${LABEL} text-black/70`}>
                 START A CONVERSATION
               </p>
-              <h2 id='enquiry-title' className={`${HEADING} text-black`}>
+              <h2 id='enquiry-title' className={`${SECTION} text-black`}>
                 Tell us what you’re building
               </h2>
               <p className={`mt-10 ${BODY} text-black/80`}>
@@ -602,7 +595,7 @@ export default function StudioClient() {
                   onClick={handleEnquiryStarted}
                   onMouseEnter={bump}
                   onFocus={bump}
-                  className={`inline-flex min-h-12 items-center rounded-full bg-black px-7 whitespace-nowrap ${EYEBROW} tracking-[0.12em] text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-originalYellow`}
+                  className={`inline-flex min-h-12 items-center rounded-full bg-black px-7 whitespace-nowrap ${LABEL} tracking-[0.12em] text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-originalYellow`}
                 >
                   Start an email →
                 </a>
@@ -631,7 +624,7 @@ export default function StudioClient() {
 
             <div>
               <CellMarker>
-                <p className={`${MARKER} text-white/40`}>
+                <p className={`${LABEL} text-white/40`}>
                   WHAT TO INCLUDE
                 </p>
               </CellMarker>

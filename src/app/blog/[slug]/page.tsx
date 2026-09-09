@@ -2,6 +2,7 @@ import { getPostBySlug, getAllPosts } from '@/lib/mdx';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import Container from '@/components/Container';
+import { TITLE } from '@/lib/typography';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { BlogDrumPads, BlogPianoKeys, BlogPianoRoll } from '@/components/blog/MusicBlocks';
@@ -82,14 +83,14 @@ export default async function BlogPost({ params }: Props) {
             <time className='font-mono text-sm text-orange mb-4 block'>
               {post.frontMatter.date}
             </time>
-            <h1 className='font-pixel text-3xl md:text-5xl leading-tight mb-8'>
+            <h1 className={`${TITLE} mb-8`}>
               {post.frontMatter.title}
             </h1>
           </header>
 
           <div
             className='prose prose-invert prose-lg max-w-none
-            prose-headings:font-pixel prose-headings:font-[500]
+            prose-headings:font-pixel prose-headings:font-[500] prose-h2:text-2xl prose-h3:text-xl
             prose-p:text-white/80
             prose-a:text-orange prose-a:no-underline hover:prose-a:underline
             prose-code:text-white/90 prose-code:bg-white/10 prose-code:px-1 prose-code:rounded prose-code:before:content-none prose-code:after:content-none

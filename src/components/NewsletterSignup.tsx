@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { usePostHog } from 'posthog-js/react';
 import Container from './Container';
+import { HEADING } from '@/lib/typography';
 
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -54,7 +55,7 @@ export default function NewsletterSignup() {
         <div className='grid grid-cols-1 gap-10 border-t border-white/10 pt-14 lg:grid-cols-[0.85fr_1fr] lg:gap-20 lg:pt-20'>
           <div className='max-w-xl'>
             <p className='font-pixel text-orange text-xs tracking-[0.22em] uppercase mb-5'>Newsletter</p>
-            <h2 className='font-pixel text-white text-2xl md:text-4xl leading-tight tracking-tight'>
+            <h2 className={`${HEADING} text-white`}>
               Field notes from the Yonko Level lab.
             </h2>
             <p id={emailHelpId} className='text-white/60 text-base md:text-lg leading-8 mt-4'>

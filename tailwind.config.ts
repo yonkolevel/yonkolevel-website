@@ -27,15 +27,9 @@ const config: Config = {
         md: '16px',
         lg: '18px',
         xl: '24px',
-        '2xl': [
-          '32px',
-          {
-            // fontSize: ['40px', '40px', '56px'],
-            fontWeight: '700',
-            lineHeight: '1.2',
-            letterSpacing: '0.03em',
-          },
-        ],
+        // Every step is a plain size. Weight, leading and tracking belong to the
+        // type roles in src/lib/typography.ts, not to the size token.
+        '2xl': '32px',
         '3xl': '48px',
         '4xl': '64px',
         '5xl': '72px',

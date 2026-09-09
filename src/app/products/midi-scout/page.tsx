@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Button from '@/components/Button';
 import Container from '@/components/Container';
+import { TITLE } from '@/lib/typography';
 import ProductImageSection from '@/components/ProductImageSection';
 import * as React from 'react';
 
@@ -37,7 +38,7 @@ const AboutUsPage: React.FunctionComponent<IAboutUsPageProps> = (props) => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className='font-pixel text-4xl md:text-5xl lg:text-6xl text-white text-center mb-6 uppercase tracking-wider'
+                className={`${TITLE} text-white text-center mb-6 uppercase`}
               >
                 Debug MIDI events{' '}
                 <span className='text-[#FF5C24]'>Faster & Smarter</span> with

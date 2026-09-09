@@ -5,6 +5,7 @@ import * as React from 'react';
 import { usePostHog } from 'posthog-js/react';
 import Container from './Container';
 import PixelPanel from './PixelPanel';
+import { LABEL, LEAD, TITLE } from '@/lib/typography';
 
 /**
  * Product page hero, in the same language as the homepage showcase and the
@@ -71,15 +72,15 @@ export default function ProductHero({
                 height={64}
                 className='h-16 w-16 rounded-[14px]'
               />
-              <p className='font-pixel text-xs uppercase tracking-[0.22em] text-orange'>
+              <p className={`${LABEL} text-orange`}>
                 {platforms}
               </p>
             </div>
 
-            <h1 className='mt-[2rem] font-pixel font-[700] text-3xl uppercase leading-tight tracking-tight lg:text-4xl xl:text-5xl'>
+            <h1 className={`mt-[2rem] ${TITLE} uppercase`}>
               {name}
             </h1>
-            <p className='mt-[1rem] font-pixel text-base uppercase tracking-[0.12em] text-white/60 md:text-lg'>
+            <p className={`mt-[1rem] ${LEAD} text-white/60`}>
               {tagline}
             </p>
             <p className='mt-[2rem] max-w-xl text-base leading-8 text-white/70 md:text-lg'>
