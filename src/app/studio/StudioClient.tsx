@@ -175,8 +175,9 @@ const HEADING =
   'font-pixel text-2xl uppercase leading-tight tracking-tight lg:text-3xl xl:text-4xl';
 const CELL_TITLE = 'font-pixel text-lg uppercase md:text-xl';
 const MARKER = 'font-pixel text-xs tracking-[0.2em]';
-const CELL_PROMISE_COMPACT = 'font-pixel text-xl leading-snug';
-const CELL_PROMISE = `${CELL_PROMISE_COMPACT} lg:text-2xl`;
+const CELL_PROMISE_BASE = 'font-pixel text-xl leading-snug tracking-[0.03em]';
+const CELL_PROMISE_COMPACT = `${CELL_PROMISE_BASE} lg:text-[1.75rem]`;
+const CELL_PROMISE = `${CELL_PROMISE_BASE} lg:text-2xl`;
 const BODY = 'text-base leading-8 md:text-lg';
 
 /* -------------------------------------------------------------- primitives */
