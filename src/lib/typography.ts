@@ -40,6 +40,13 @@ export const LEAD =
 /** Eyebrows, markers, badges, metadata and pixel-font buttons. 12. */
 export const LABEL = 'font-pixel font-[900] text-xs uppercase tracking-[0.22em]';
 
+/**
+ * Header, drawer and footer navigation. 18, and fixed: the nav reads at the
+ * same size on a phone as on a desktop. Heavy like the labels, since it is the
+ * same kind of small caps signpost.
+ */
+export const NAV = 'font-pixel font-[900] text-lg';
+
 /** Body copy. 16 → 18 from medium up. */
 export const BODY = 'text-base leading-8 md:text-lg';
 

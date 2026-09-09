@@ -2,6 +2,7 @@
 import * as React from 'react';
 import Container from './Container';
 import NavLink from './NavLink/NavLink';
+import { LABEL } from '@/lib/typography';
 import { usePathname } from 'next/navigation';
 
 // Product navigation configuration
@@ -69,7 +70,7 @@ const Footer: React.FunctionComponent<IFooterProps> = (props) => {
           </nav>
 
           {/* Copyright */}
-          <div className='text-white/60 font-pixel text-sm tracking-wider'>
+          <div className={`${LABEL} text-white/60`}>
             © {new Date().getFullYear()} - Yonko Level Ltd.
           </div>
         </div>
