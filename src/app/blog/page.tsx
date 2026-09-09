@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Container from '@/components/Container';
-import { TITLE } from '@/lib/typography';
+import { BODY, LABEL, SUBHEAD, TITLE } from '@/lib/typography';
 import { getAllPosts } from '@/lib/mdx';
 import { Metadata } from 'next';
 
@@ -53,17 +53,17 @@ export default async function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className='group block border-b border-white/10 pb-8 hover:border-white/40 transition-colors'
+                className='group block border-b border-white/10 pb-8 transition-colors last:border-b-0 last:pb-0 hover:border-white/40'
               >
                 <article className='flex flex-col md:flex-row md:items-start gap-4 md:gap-12'>
                   <div className='flex-1'>
-                    <h2 className='text-xl md:text-2xl font-bold mb-2 group-hover:text-orange transition-colors'>
+                    <h2 className={`${SUBHEAD} mb-2 text-white transition-colors group-hover:text-orange`}>
                       {post.frontMatter.title}
                     </h2>
-                    <time className='font-mono text-sm text-white/50 block mb-3'>
+                    <time className={`${LABEL} mb-3 block text-white/50`}>
                       {post.frontMatter.date}
                     </time>
-                    <p className='text-white/60 line-clamp-2'>
+                    <p className={`${BODY} text-white/60`}>
                       {post.frontMatter.excerpt}
                     </p>
                   </div>
