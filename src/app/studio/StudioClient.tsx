@@ -175,6 +175,7 @@ const HEADING =
   'font-pixel text-2xl uppercase leading-tight tracking-tight lg:text-3xl xl:text-4xl';
 const CELL_TITLE = 'font-pixel text-lg uppercase md:text-xl';
 const MARKER = 'font-pixel text-xs tracking-[0.2em]';
+const CELL_PROMISE = 'font-pixel text-xl leading-snug lg:text-2xl';
 const BODY = 'text-base leading-8 md:text-lg';
 
 /* -------------------------------------------------------------- primitives */
@@ -360,7 +361,7 @@ export default function StudioClient() {
                     <p className={`${MARKER} text-orange`}>{title}</p>
                   </div>
                 </CellMarker>
-                <h3 className='mt-[2rem] font-pixel text-base leading-snug text-white md:text-lg'>
+                <h3 className={`mt-[2rem] ${CELL_PROMISE} text-white`}>
                   {promise}
                 </h3>
                 <p className={`mt-5 ${BODY} text-white/70`}>{description}</p>
