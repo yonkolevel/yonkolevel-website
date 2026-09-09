@@ -38,24 +38,21 @@ Responsive via CSS custom properties. Breakpoint: `640px` (Tailwind `sm:`).
 Pixel font (`var(--font-pixel)`), `leading-tight`.  
 Tag → heading gap: always **16px** (`marginTop: 16px`).
 
-| Level | Mobile | Tablet | Desktop | Weight | Used in |
-|---|---|---|---|---|---|
-| Display H1 | 30px | 36px | 48px | 700 | S1 Feature headline |
-| Large H1 / H2 | 24px | 30px | 36px | 700 | S1 Changelog, S1 MultiApp primary |
-| Medium H2 | 20px | 24px | 30px | 700 | S1 MultiApp secondary |
-| Small H3 | 18px | 20px | 24px | 500 | Blog/Vlog posts, Education section |
+| Level | Mobile | Tablet | Desktop | Used in |
+|---|---|---|---|---|
+| Display H1 | 30px | 36px | 48px | S1 Feature headline |
+| Large H1 / H2 | 24px | 30px | 36px | S1 Changelog, S1 MultiApp primary |
+| Medium H2 | 20px | 24px | 30px | S1 MultiApp secondary |
+| Small H3 | 18px | 20px | 24px | Blog/Vlog posts, Education section |
 
 ### On weight
 
-Doto is a dot matrix face and its weight sets how far the dots swell before
-they touch. At 900 they close up and the glyphs read as solid strokes, which
-only works where the type is either large enough for the gaps to reopen or too
-small for them to register at all. So 900 is kept for anything at 12px and
-below — tags, CTAs, micro-labels — and headings run at 700, card titles at 500.
-This matches the ramp the rest of the site uses.
+Everything pixel runs at 900, the single cut the email loads
+(`Doto:wght@900`). Doto is a dot matrix face and 900 closes the dots up into
+solid strokes, so the pixel grain only reads at display sizes. Levels are
+separated by size, not by weight, which matches the rest of the site.
 
-The email loads `Doto:wght@500;700;900`. Clients that block webfonts fall back
-to `Courier New`, where weight behaves normally and none of this applies.
+Clients that block webfonts fall back to `Courier New`.
 
 ---
 
@@ -157,7 +154,7 @@ to `Courier New`, where weight behaves normally and none of this applies.
 - Each entry: `16px` padding top and bottom
 - Hairline (`border`) between entries, `margin: 0`
 - Entry layout: 38×38px thumbnail + text column (title + note)
-- Title: `ty.body`, pixel font, `font-weight: 700`, colour `tp`
+- Title: pixel font, lead role, colour `tp`
 - Note: `ty.body`, colour `tt`, `line-height: 1.5`
 
 ### Footer

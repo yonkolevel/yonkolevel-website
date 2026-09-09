@@ -140,7 +140,7 @@ const font = {
 // ─── CSS for prefers-color-scheme (Apple Mail, iOS Mail, Outlook Mac) ─────────
 
 const darkModeCSS = `
-  @import url('https://fonts.googleapis.com/css2?family=Doto:wght@500;700;900&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Doto:wght@900&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600&display=swap');
   @media only screen and (max-width: 600px) {
     .yl-post-row { display: block !important; width: 100% !important; }
     .yl-post-col-text { display: block !important; width: 100% !important; }
@@ -226,7 +226,7 @@ function S1FeatureBlock({ t, data }: { t: Tokens; data: S1Feature }) {
         <div style={innerWrapper}>
           <div style={{ padding: '60px 24px' }}>
             <AppTag>{data.appTag}</AppTag>
-            <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '18px', fontWeight: 700, color: t.textPrimary, lineHeight: '1.4', margin: '12px 0 0' }}>
+            <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '18px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.4', margin: '12px 0 0' }}>
               {data.headline}
             </Heading>
           </div>
@@ -263,7 +263,7 @@ function S1ChangelogBlock({ t, data }: { t: Tokens; data: S1Changelog }) {
         <div style={innerWrapper}>
           <div style={{ padding: '60px 24px' }}>
             <NeutralTag t={t}>{data.versionTag}</NeutralTag>
-            <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '14px', fontWeight: 700, color: t.textPrimary, lineHeight: '1.5', margin: '12px 0 0' }}>
+            <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '14px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.5', margin: '12px 0 0' }}>
               {data.headline}
             </Heading>
           </div>
@@ -304,7 +304,7 @@ function S1MultiAppBlock({ t, data }: { t: Tokens; data: S1MultiApp }) {
         <div style={innerWrapper}>
           <div style={{ padding: '60px 24px' }}>
             <AppTag>{data.primary.appTag}</AppTag>
-            <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '14px', fontWeight: 700, color: t.textPrimary, lineHeight: '1.5', margin: '12px 0 12px' }}>
+            <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '14px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.5', margin: '12px 0 12px' }}>
               {data.primary.headline}
             </Heading>
             <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '14px', color: t.textSecondary, lineHeight: '1.6', margin: '0 0 14px' }}>{data.primary.copy}</Text>
@@ -316,7 +316,7 @@ function S1MultiAppBlock({ t, data }: { t: Tokens; data: S1MultiApp }) {
         <div style={innerWrapper}>
           <div style={{ padding: '60px 24px' }}>
             <NeutralTag t={t}>{data.secondary.appTag}</NeutralTag>
-            <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '13px', fontWeight: 500, color: t.textPrimary, lineHeight: '1.5', margin: '10px 0 10px' }}>
+            <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '13px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.5', margin: '10px 0 10px' }}>
               {data.secondary.headline}
             </Heading>
             <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '14px', color: t.textSecondary, lineHeight: '1.6', margin: '0 0 14px' }}>{data.secondary.copy}</Text>
@@ -418,7 +418,7 @@ export default function NewsletterEmail({
                         </Column>
                       )}
                       <Column style={{ verticalAlign: 'top' }}>
-                        <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '13px', fontWeight: 500, color: t.textPrimary, lineHeight: '1.5', margin: '0 0 6px' }}>
+                        <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '13px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.5', margin: '0 0 6px' }}>
                           {adjacentNews.headline}
                         </Heading>
                         <Text className="yl-tt" style={{ fontFamily: font.body, fontSize: '11px', color: t.textTertiary, lineHeight: '1.4', margin: '0 0 8px' }}>
@@ -451,7 +451,7 @@ export default function NewsletterEmail({
                       <Row className="yl-post-row">
                         <Column className="yl-post-col-text" style={{ verticalAlign: 'top' }}>
                           <NeutralTag t={t}>{post.type}</NeutralTag>
-                          <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '13px', fontWeight: 500, color: t.textPrimary, lineHeight: '1.5', margin: '8px 0 6px' }}>
+                          <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '13px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.5', margin: '8px 0 6px' }}>
                             {post.headline}
                           </Heading>
                           <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '14px', color: t.textSecondary, lineHeight: '1.6', margin: '0 0 8px' }}>
@@ -492,7 +492,7 @@ export default function NewsletterEmail({
                         <div style={{ width: '3px', minHeight: '80px', background: '#FF5C24', borderRadius: '2px', opacity: 0.5 }} />
                       </Column>
                       <Column style={{ verticalAlign: 'top' }}>
-                        <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '13px', fontWeight: 500, color: t.textPrimary, lineHeight: '1.5', margin: '0 0 10px' }}>
+                        <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '13px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.5', margin: '0 0 10px' }}>
                           {education.headline}
                         </Heading>
                         <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '14px', color: t.textSecondary, lineHeight: '1.6', margin: '0 0 14px' }}>
