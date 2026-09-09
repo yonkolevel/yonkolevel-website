@@ -13,7 +13,9 @@ const tk = {
   orange: '#FF5C24',
 };
 
-const COL = 'mx-auto w-full px-4 sm:px-8 lg:px-12';
+// The Tailwind config in this project redefines spacing 4 and 8 as 4px and
+// 8px, so px-4 and px-8 are not the gutters they look like. Set them here.
+const COL = 'mx-auto w-full px-[1.25rem] sm:px-[2rem] lg:px-[3rem]';
 const PAD = 'py-10 sm:py-14 lg:py-[60px]';
 
 function Sec({ bg, border, pad = true, children }: { bg: string; border?: string; pad?: boolean; children: React.ReactNode }) {
@@ -193,7 +195,7 @@ export default function NewsletterPreviewPage() {
                     </div>
                   </div>
                   {post.thumbnailUrl && (
-                    <div className="mt-4 sm:mt-0 sm:flex-[0_0_calc(40%-32px)]">
+                    <div className="mt-[1rem] sm:mt-0 sm:flex-[0_0_calc(40%-32px)]">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={post.thumbnailUrl} alt={post.headline} className="w-full rounded-lg object-cover" style={{ aspectRatio: '16/9', border: `1px solid ${tk.border}` }} />
                     </div>
