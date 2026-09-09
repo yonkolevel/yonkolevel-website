@@ -13,6 +13,10 @@ const notoSans = Noto_Sans({
   variable: '--font-body',
 });
 
+/**
+ * Doto carries one cut. `.font-pixel` pins 900 in globals.css, so anything
+ * using the pixel face gets it whether or not the call site asks.
+ */
 const departureMono = Doto({
   subsets: ['latin'],
   weight: ['900'],

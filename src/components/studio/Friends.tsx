@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Container from '@/components/Container';
 import PixelSprite from '@/components/PixelSprite';
+import { LABEL } from '@/lib/typography';
 
 /**
  * The independent people Yonko Level brings in when a project needs more than
@@ -29,7 +30,7 @@ export default function Friends() {
         <div className='flex flex-col gap-[1.75rem] border-t border-white/10 py-[2.5rem] lg:flex-row lg:items-center lg:gap-[4rem] lg:py-[3rem]'>
           <h2
             id='friends-title'
-            className='shrink-0 font-pixel text-xs uppercase tracking-[0.22em] text-orange'
+            className={`shrink-0 ${LABEL} text-orange`}
           >
             YONKO LEVEL FRIENDS
           </h2>
@@ -53,7 +54,7 @@ export default function Friends() {
                     friend.name
                   )}
                 </span>
-                <span className='font-pixel text-xs uppercase tracking-[0.18em] text-white/40'>
+                <span className={`${LABEL} text-white/40`}>
                   {friend.role}
                 </span>
               </li>

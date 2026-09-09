@@ -5,6 +5,7 @@ import ProductContentSection from '@/components/ProductContentSection';
 import ProductHero from '@/components/ProductHero';
 import PromotionalVideoSection from '@/components/PromotionalVideoSection';
 import Container from '@/components/Container';
+import { HEADING, LABEL, SUBHEAD } from '@/lib/typography';
 import * as React from 'react';
 import { usePostHog } from 'posthog-js/react';
 
@@ -105,7 +106,7 @@ export default function MidiCircuitClient() {
               transition={{ duration: 0.6 }}
               className='text-center mb-12'
             >
-              <h2 className='font-pixel text-3xl md:text-4xl lg:text-5xl text-white mb-[1rem] uppercase tracking-wider'>
+              <h2 className={`${HEADING} text-white mb-[1rem] uppercase`}>
                 What people say
               </h2>
             </motion.div>
@@ -122,13 +123,13 @@ export default function MidiCircuitClient() {
                   LONG fucking time."
                 </p>
                 <div className='text-sm text-white/60'>
-                  <p className='font-pixel font-semibold text-white mb-1 uppercase tracking-wider'>
+                  <p className={`${SUBHEAD} text-white mb-1 uppercase`}>
                     Ken Wheeler
                   </p>
-                  <p className='font-pixel text-xs uppercase tracking-wider mb-1'>
+                  <p className={`${LABEL} mb-1`}>
                     SOFTWARE DEVELOPER AND MUSIC PRODUCER
                   </p>
-                  <p className='text-[#FF5C24] font-pixel text-xs uppercase tracking-wider'>
+                  <p className={`text-[#FF5C24] ${LABEL}`}>
                     @KEN_WHEELER
                   </p>
                 </div>
@@ -146,13 +147,13 @@ export default function MidiCircuitClient() {
                   students."
                 </p>
                 <div className='text-sm text-white/60'>
-                  <p className='font-pixel font-semibold text-white mb-1 uppercase tracking-wider'>
+                  <p className={`${SUBHEAD} text-white mb-1 uppercase`}>
                     Brian Ellison
                   </p>
-                  <p className='font-pixel text-xs uppercase tracking-wider mb-1'>
+                  <p className={`${LABEL} mb-1`}>
                     ELECTRONIC MUSIC EDUCATOR
                   </p>
-                  <p className='text-[#FF5C24] font-pixel text-xs uppercase tracking-wider'>
+                  <p className={`text-[#FF5C24] ${LABEL}`}>
                     @MUSICTECHED
                   </p>
                 </div>

@@ -1,7 +1,6 @@
 .navLink {
   position: relative;
-  font-family: var(--font-pixel);
-  font-size: theme('fontSize.lg');
+  /* Family and size come from the NAV role in src/lib/typography.ts. */
   transition: color 500ms, transform 500ms;
   display: flex;
   color: theme('colors.blue2');

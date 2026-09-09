@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { LABEL, SUBHEAD } from '@/lib/typography';
 import { usePostHog } from 'posthog-js/react';
 import { formatPrice } from '@/lib/shop/utils';
 import type { ClientProduct } from '@/lib/shop/types';
@@ -67,17 +68,17 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className='p-5 flex flex-col flex-1 gap-3'>
         {/* Retro badges */}
         <div className='flex items-center gap-2'>
-          <span className='text-[10px] font-pixel uppercase px-2 py-1 border border-[#FCC552]/40 text-[#FCC552] tracking-widest'>
+          <span className={`${LABEL} px-2 py-1 border border-[#FCC552]/40 text-[#FCC552]`}>
             {product.type === 'physical' ? '◆ ITEM' : '◆ DLC'}
           </span>
           {product.series ? (
-            <span className='text-[10px] font-pixel uppercase px-2 py-1 border border-white/20 text-white/50 tracking-widest'>
+            <span className={`${LABEL} px-2 py-1 border border-white/20 text-white/50`}>
               COLLECTION {product.series}
             </span>
           ) : null}
         </div>
 
-        <h3 className='font-pixel text-white text-lg leading-tight'>
+        <h3 className={`${SUBHEAD} text-white`}>
           {product.name}
         </h3>
 
@@ -87,23 +88,23 @@ export default function ProductCard({ product }: ProductCardProps) {
 
         <div className='flex items-center justify-between mt-2'>
           <div>
-            <span className='font-pixel text-[#FCC552] text-xl'>
+            <span className={`${SUBHEAD} text-[#FCC552]`}>
               {formatPrice(product.price)}
             </span>
             {product.type === 'physical' ? (
-              <span className='text-white/40 text-xs block font-pixel'>+ shipping</span>
+              <span className={`${LABEL} text-white/40 block`}>+ shipping</span>
             ) : null}
           </div>
 
           {product.soldOut ? (
-            <span className='font-pixel text-sm px-6 py-2 border-2 border-white/20 text-white/30 tracking-wider cursor-not-allowed'>
+            <span className={`${LABEL} px-6 py-2 border-2 border-white/20 text-white/30 cursor-not-allowed`}>
               SOLD OUT
             </span>
           ) : (
             <button
               onClick={handleBuy}
               disabled={loading}
-              className='font-pixel text-sm px-6 py-2 bg-[#FCC552] text-black border-2 border-[#FCC552] hover:bg-transparent hover:text-[#FCC552] active:translate-y-[2px] transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed tracking-wider'
+              className={`${LABEL} px-6 py-2 bg-[#FCC552] text-black border-2 border-[#FCC552] hover:bg-transparent hover:text-[#FCC552] active:translate-y-[2px] transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed`}
             >
               {loading ? '...' : '► BUY'}
             </button>

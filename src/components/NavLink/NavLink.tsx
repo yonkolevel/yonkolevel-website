@@ -2,6 +2,7 @@ import * as React from 'react';
 import styles from './navlink.module.css';
 import config from '../../../tailwind.config';
 import Link from 'next/link';
+import { NAV } from '@/lib/typography';
 
 enum Variant {
   blue,
@@ -31,7 +32,7 @@ const NavLink: React.FunctionComponent<INavLinkProps & any> = ({
   return (
     <Link
       href={href}
-      className={`${styles.navLink} white ${active ? 'active' : ''} font-pixel font-semibold`}
+      className={`${styles.navLink} white ${active ? 'active' : ''} ${NAV}`}
       aria-current={active ? 'page' : undefined}
       {...props}
       style={{ color: color }}

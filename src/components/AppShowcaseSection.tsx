@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import PixelDisplacementGrid from './PixelDisplacementGrid';
 import Link from 'next/link';
+import { HEADING, LEAD } from '@/lib/typography';
 
 interface AppShowcaseSectionProps {
   appName: string;
@@ -158,7 +159,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
       variants={sectionVariants}
       className='relative z-40 p-6 sm:p-8 md:p-12 lg:p-16 h-full flex flex-col justify-center'
     >
-      <h2 className='font-pixel text-2xl sm:text-3xl md:text-4xl text-white mb-4 sm:mb-6 md:mb-8'>
+      <h2 className={`${HEADING} text-white mb-4 sm:mb-6 md:mb-8`}>
         {appName}
       </h2>
 
@@ -168,7 +169,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
 
       <Link
         href={learnMoreLink}
-        className='inline-flex items-center font-pixel text-white text-base sm:text-lg md:text-xl opacity-90 hover:opacity-100 transition-opacity'
+        className={`inline-flex items-center ${LEAD} text-white opacity-90 hover:opacity-100 transition-opacity`}
       >
         Learn more →
       </Link>

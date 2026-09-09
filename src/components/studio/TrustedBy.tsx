@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Container from '@/components/Container';
+import { LABEL } from '@/lib/typography';
 
 /**
  * Companies Yonko Level has been contracted by. Each mark is the company's own
@@ -28,7 +29,7 @@ export default function TrustedBy() {
         <div className='flex flex-col items-center gap-[1.75rem] border-t border-white/10 py-[2.5rem] text-center lg:py-[3rem]'>
           <h2
             id='trusted-by-title'
-            className='shrink-0 font-pixel text-xs uppercase tracking-[0.22em] text-orange'
+            className={`shrink-0 ${LABEL} text-orange`}
           >
             TRUSTED BY
           </h2>

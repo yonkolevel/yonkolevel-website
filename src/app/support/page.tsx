@@ -2,6 +2,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Container from '@/components/Container';
+import { LABEL, SUBHEAD, TITLE } from '@/lib/typography';
 
 export const metadata: Metadata = {
   title: 'Support | Yonko Level',
@@ -34,14 +35,14 @@ export default function SupportPage() {
         <div className='py-16 md:py-24 max-w-4xl mx-auto'>
           {/* Page Header */}
           <div className='mb-16'>
-            <h1 className='font-pixel text-4xl md:text-5xl text-white tracking-wider'>
+            <h1 className={`${TITLE} text-white`}>
               SUPPORT
             </h1>
           </div>
 
           {/* Get Help */}
           <section className='mb-16'>
-            <h2 className='font-pixel text-sm text-[#FCC552]/60 tracking-widest mb-6'>
+            <h2 className={`${LABEL} text-[#FCC552]/60 mb-6`}>
               GET HELP
             </h2>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
@@ -51,7 +52,7 @@ export default function SupportPage() {
                 rel='noopener noreferrer'
                 className='group bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors'
               >
-                <h3 className='font-pixel text-white tracking-wider mb-2'>
+                <h3 className={`${SUBHEAD} text-white mb-2`}>
                   DISCORD
                 </h3>
                 <p className='text-white/50 text-sm'>
@@ -62,7 +63,7 @@ export default function SupportPage() {
                 href='mailto:team@yonkolevel.com'
                 className='group bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors'
               >
-                <h3 className='font-pixel text-white tracking-wider mb-2'>
+                <h3 className={`${SUBHEAD} text-white mb-2`}>
                   EMAIL
                 </h3>
                 <p className='text-white/50 text-sm'>
@@ -74,7 +75,7 @@ export default function SupportPage() {
 
           {/* Apps */}
           <section>
-            <h2 className='font-pixel text-sm text-[#FCC552]/60 tracking-widest mb-6'>
+            <h2 className={`${LABEL} text-[#FCC552]/60 mb-6`}>
               APPS
             </h2>
             <div className='grid grid-cols-1 gap-4'>
@@ -90,19 +91,19 @@ export default function SupportPage() {
                     height={48}
                     className='rounded-xl'
                   />
-                  <span className='font-pixel text-white text-sm tracking-wider flex-1'>
+                  <span className={`${LABEL} text-white flex-1`}>
                     {app.name.toUpperCase()}
                   </span>
                   <div className='flex items-center gap-3'>
                     <Link
                       href={`/products/${app.slug}/guides`}
-                      className='font-pixel text-xs text-white/80 hover:text-white transition-colors tracking-wider px-4 py-2'
+                      className={`${LABEL} text-white/80 hover:text-white transition-colors px-4 py-2`}
                     >
                       GUIDES
                     </Link>
                     <Link
                       href={`/products/${app.slug}/press`}
-                      className='font-pixel text-xs text-white/80 hover:text-white transition-colors tracking-wider px-4 py-2'
+                      className={`${LABEL} text-white/80 hover:text-white transition-colors px-4 py-2`}
                     >
                       PRESS KIT
                     </Link>

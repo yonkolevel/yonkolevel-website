@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePostHog } from 'posthog-js/react';
 import AppShowcaseSection from '@/components/AppShowcaseSection';
 import Container from '@/components/Container';
+import { BODY, HEADING, LABEL } from '@/lib/typography';
 import HeroWithPixels from '@/components/HeroWithPixels';
 import PromotionalVideoSection from '@/components/PromotionalVideoSection';
 import NewsletterSignup from '@/components/NewsletterSignup';
@@ -91,12 +92,12 @@ const Home = () => {
         <Container>
           <div className='grid grid-cols-1 gap-10 border-t border-white/10 pt-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:pt-20'>
             <div>
-              <p className='mb-5 font-pixel text-xs uppercase tracking-[0.22em] text-orange'>
+              <p className={`mb-5 ${LABEL} text-orange`}>
                 STUDIO
               </p>
               <h2
                 id='home-studio-title'
-                className='font-pixel text-2xl leading-tight tracking-tight text-white md:text-4xl'
+                className={`${HEADING} text-white`}
               >
                 WE BUILD OUR OWN PRODUCTS.
                 <br />
@@ -105,13 +106,13 @@ const Home = () => {
             </div>
 
             <div className='max-w-2xl lg:pt-10'>
-              <p className='text-base leading-8 text-white/70 md:text-lg'>
+              <p className={`${BODY} text-white/70`}>
                 We work with founders, product teams and brands to build apps
                 and websites, or improve the ones they already have. We
                 especially enjoy working with audio, cameras and connected
                 hardware.
               </p>
-              <p className='mt-5 font-pixel text-xs uppercase tracking-[0.16em] text-white/50'>
+              <p className={`mt-5 ${LABEL} text-white/50`}>
                 One partnership at a time, working directly with Ricardo.
               </p>
               <Link
@@ -121,7 +122,7 @@ const Home = () => {
                     destination: '/studio',
                   })
                 }
-                className='mt-10 inline-flex min-h-12 items-center rounded-full border-2 border-orange px-7 font-pixel text-xs uppercase tracking-[0.12em] text-white transition-colors hover:bg-orange hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-4 focus-visible:ring-offset-black'
+                className={`mt-10 inline-flex min-h-12 items-center rounded-full border-2 border-orange px-7 ${LABEL} text-white transition-colors hover:bg-orange hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-4 focus-visible:ring-offset-black`}
               >
                 Visit the Studio →
               </Link>

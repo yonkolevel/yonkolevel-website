@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Container from '@/components/Container';
 import PixelDisplacementGrid from '@/components/PixelDisplacementGrid';
 import { formatPrice } from '@/lib/shop/utils';
+import { HEADING, LABEL, TITLE } from '@/lib/typography';
 import type { ClientProduct } from '@/lib/shop/types';
 
 const heroPixelDisplacements = [
@@ -98,13 +99,13 @@ export default function ShopHero({ product }: ShopHeroProps) {
                 viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.6 }}
               >
-                <span className='font-pixel text-[#FCC552]/60 text-xs tracking-[0.3em] uppercase'>
+                <span className={`${LABEL} text-[#FCC552]/60`}>
                   ★ Featured
                 </span>
               </motion.div>
 
               <motion.h1
-                className='font-pixel text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1]'
+                className={`${TITLE} text-white`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -130,11 +131,11 @@ export default function ShopHero({ product }: ShopHeroProps) {
                 viewport={{ once: true }}
                 transition={{ delay: 0.55, duration: 0.6 }}
               >
-                <span className='text-[10px] font-pixel uppercase px-2 py-1 border border-[#FCC552]/40 text-[#FCC552] tracking-widest'>
+                <span className={`${LABEL} px-2 py-1 border border-[#FCC552]/40 text-[#FCC552]`}>
                   ◆ ITEM
                 </span>
                 {product.series ? (
-                  <span className='text-[10px] font-pixel uppercase px-2 py-1 border border-white/20 text-white/50 tracking-widest'>
+                  <span className={`${LABEL} px-2 py-1 border border-white/20 text-white/50`}>
                     COLLECTION {product.series}
                   </span>
                 ) : null}
@@ -148,23 +149,23 @@ export default function ShopHero({ product }: ShopHeroProps) {
                 transition={{ delay: 0.6, duration: 0.6 }}
               >
                 <div>
-                  <span className='font-pixel text-[#FCC552] text-3xl md:text-4xl'>
+                  <span className={`${HEADING} text-[#FCC552]`}>
                     {formatPrice(product.price)}
                   </span>
-                  <span className='text-white/40 text-xs block font-pixel mt-1'>
+                  <span className={`${LABEL} text-white/40 block mt-1`}>
                     + shipping
                   </span>
                 </div>
 
                 {product.soldOut ? (
-                  <span className='font-pixel text-base px-8 py-3 border-2 border-white/20 text-white/30 tracking-wider cursor-not-allowed'>
+                  <span className={`${LABEL} px-8 py-3 border-2 border-white/20 text-white/30 cursor-not-allowed`}>
                     SOLD OUT
                   </span>
                 ) : (
                   <button
                     onClick={handleBuy}
                     disabled={loading}
-                    className='font-pixel text-base px-8 py-3 bg-[#FCC552] text-black border-2 border-[#FCC552] hover:bg-transparent hover:text-[#FCC552] active:translate-y-[2px] transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed tracking-wider'
+                    className={`${LABEL} px-8 py-3 bg-[#FCC552] text-black border-2 border-[#FCC552] hover:bg-transparent hover:text-[#FCC552] active:translate-y-[2px] transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed`}
                   >
                     {loading ? '...' : '► BUY NOW'}
                   </button>
