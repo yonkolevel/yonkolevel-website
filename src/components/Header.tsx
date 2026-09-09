@@ -222,9 +222,21 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
               onClick={handleLogoClick}
             >
               <div className='flex items-center gap-2'>
+                {/*
+                  * logo.svg draws its wordmark inside a much larger viewBox, with
+                  * the artwork starting 30.3% in from the left edge. At the 100px
+                  * mobile size that empty margin put the mark 54px from the screen
+                  * edge while the menu button sat 24px from the other side. Shift
+                  * it back onto the gutter.
+                  *
+                  * A transform rather than a negative margin: the margin changed
+                  * the flex line's width and the logo moved by the wrong amount.
+                  * This leaves layout alone and moves only what is drawn. Desktop
+                  * is untouched, since the ask was the mobile header.
+                  */}
                 <img
                   src='/images/logo.svg'
-                  className='w-[100px] md:w-[120px] transition-opacity group-hover:opacity-80'
+                  className='w-[100px] translate-x-[-30px] transition-opacity group-hover:opacity-80 md:w-[120px] md:translate-x-0'
                   alt='Yonko Level Logo'
                 />
                 {/* Optional: Add text logo variant for more impact */}
