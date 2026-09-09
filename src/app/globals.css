@@ -79,6 +79,17 @@
   letter-spacing: -0.02em;
 }
 
+/**
+ * Doto ships two cuts here. Everything using the pixel face reads as 900
+ * unless it opts out with a font-weight utility, which lands in Tailwind's
+ * utilities layer and so wins over this rule.
+ */
+@layer components {
+  .font-pixel {
+    font-weight: 900;
+  }
+}
+
 /* Pixel font rendering optimization */
 .hero-section .font-pixel {
   image-rendering: pixelated;

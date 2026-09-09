@@ -13,9 +13,15 @@ const notoSans = Noto_Sans({
   variable: '--font-body',
 });
 
+/**
+ * Doto is a dot matrix face. 900 is the site's default cut, but at that weight
+ * the dots run together into solid strokes once the type drops below display
+ * size, so 500 is carried too for titles that need the gaps to stay visible.
+ * `.font-pixel` pins 900 in globals.css, so a lighter cut is opt-in.
+ */
 const departureMono = Doto({
   subsets: ['latin'],
-  weight: ['900'],
+  weight: ['500', '900'],
   variable: '--font-pixel',
 });
 
