@@ -223,22 +223,24 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
             >
               <div className='flex items-center gap-2'>
                 {/*
-                  * logo.svg draws its wordmark inside a much larger viewBox, with
-                  * the artwork starting 30.3% in from the left edge. At the 100px
-                  * mobile size that empty margin put the mark 54px from the screen
-                  * edge while the menu button sat 24px from the other side. Shift
-                  * it back onto the gutter.
+                  * logo.svg draws its wordmark inside a much larger viewBox: at
+                  * rest the art occupies 70.3% of the width and 58% of the height,
+                  * starting 30.3% in from the left. Left alone, that empty margin
+                  * put the mark 54px from the screen edge on mobile while the menu
+                  * button sat 24px from the other side.
                   *
-                  * A transform rather than a negative margin: the margin changed
-                  * the flex line's width and the logo moved by the wrong amount.
-                  * This leaves layout alone and moves only what is drawn. Desktop
-                  * is untouched, since the ask was the mobile header.
+                  * The wrapper below is the size of the art at rest, so layout
+                  * positions what you can actually see. The image keeps its own
+                  * size and is offset inside, and nothing clips it: the entry
+                  * animation still swings outside the wrapper as it always did.
                   */}
-                <img
-                  src='/images/logo.svg'
-                  className='w-[100px] translate-x-[-30px] transition-opacity group-hover:opacity-80 md:w-[120px] md:translate-x-0'
-                  alt='Yonko Level Logo'
-                />
+                <span className='relative block h-[21.22px] w-[70.33px] md:h-[25.46px] md:w-[84.4px]'>
+                  <img
+                    src='/images/logo.svg'
+                    className='absolute left-[-30.31px] top-[-8.91px] w-[100px] max-w-none transition-opacity group-hover:opacity-80 md:left-[-36.37px] md:top-[-10.69px] md:w-[120px]'
+                    alt='Yonko Level Logo'
+                  />
+                </span>
                 {/* Optional: Add text logo variant for more impact */}
                 {/* <span className='hidden md:block font-pixel text-white text-sm tracking-wider opacity-60 group-hover:opacity-100 transition-opacity'>
                   YONKO LEVEL
