@@ -126,16 +126,20 @@ export default function ProductHero({
                     {/*
                       * Google ships the badge with 41px of clear space baked into all
                       * four sides, which their brand terms require, so the asset stays
-                      * as-is. Scale it so the badge inside that padding matches the
-                      * App Store's 3.25rem, then pull the padding back out of the
-                      * layout so the two line up on their visible edges.
+                      * as-is. The window below is the size of the art alone, matching
+                      * the App Store badge's 3.25rem, with the image oversized and
+                      * offset inside it so the clear space falls outside. A negative
+                      * margin cannot do this: it shrinks the box without moving it,
+                      * so the badge lands off-centre in a centred row.
                       */}
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      className='-m-[0.79rem] h-[4.84rem] w-auto'
-                      src='/images/common/get-it-on-google-play.png'
-                      alt='Get it on Google Play'
-                    />
+                    <span className='relative block h-[3.25rem] w-[10.91rem] overflow-hidden'>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        className='absolute -left-[0.79rem] -top-[0.79rem] h-[4.84rem] w-auto max-w-none'
+                        src='/images/common/get-it-on-google-play.png'
+                        alt='Get it on Google Play'
+                      />
+                    </span>
                   </a>
                 )}
               </div>
