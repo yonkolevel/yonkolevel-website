@@ -100,7 +100,7 @@ const HeroWithPixels: React.FC<HeroWithPixelsProps> = ({
             viewport={{ once: true, amount: 0.3 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            <motion.span className={`${LEAD} text-white/90 px-4 py-2 sm:px-6 sm:py-3 border border-white/20 rounded-full bg-white/5 backdrop-blur-sm mx-2 sm:mx-0`}>
+            <motion.span className={`${LEAD} text-center text-white/90 px-4 py-2 sm:px-6 sm:py-3 border border-white/20 rounded-full bg-white/5 backdrop-blur-sm mx-2 sm:mx-0`}>
               {subtitle}
             </motion.span>
           </motion.div>
