@@ -14,15 +14,12 @@ const notoSans = Noto_Sans({
 });
 
 /**
- * Doto is a dot matrix face, and the dots run together into solid strokes as
- * the weight climbs. Three cuts carry the type ramp: 900 for display sizes
- * where the dots stay wide apart, 700 for section headings, 500 for the
- * smaller titles that need the gaps to stay open. `.font-pixel` pins 900 in
- * globals.css, so anything lighter is opt-in.
+ * Doto carries one cut. `.font-pixel` pins 900 in globals.css, so anything
+ * using the pixel face gets it whether or not the call site asks.
  */
 const departureMono = Doto({
   subsets: ['latin'],
-  weight: ['500', '700', '900'],
+  weight: ['900'],
   variable: '--font-pixel',
 });
 

@@ -4,14 +4,10 @@
  * Every heading and label on the site composes from one of these roles, so
  * type is changed here rather than at each call site.
  *
- * Weight is baked into each role rather than left free. Doto is a dot matrix
- * face and its weight controls how far the dots swell before they touch. At
- * 900 the dots close up and the glyphs read as solid strokes, so 900 works
- * only at the two ends of the ramp: the hero wordmarks, where the type is
- * large enough for the gaps to reopen, and the 12px labels, where the dots
- * would be too small to register anyway and the text needs the weight to
- * hold. Everything between runs at 700, or at 500 where a sub-heading should
- * sit lighter than the heading above it.
+ * Every role runs at 900, the single cut Doto is loaded at. The face is a dot
+ * matrix and 900 closes the dots up into solid strokes, so the pixel grain
+ * only reads at display sizes and at the smallest labels. That is a
+ * deliberate call: the ramp separates roles by size, not by weight.
  *
  * Sizes stay on the scale in tailwind.config.ts. Hero wordmarks are the one
  * exception: they size fluidly against the viewport so they keep filling
@@ -23,19 +19,19 @@
 
 /** Page titles. 48 → 72 from large up. */
 export const TITLE =
-  'font-pixel font-[700] text-3xl leading-tight tracking-tight lg:text-5xl';
+  'font-pixel font-[900] text-3xl leading-tight tracking-tight lg:text-5xl';
 
 /** Section headings within a page. 32 → 64 from large up. */
 export const HEADING =
-  'font-pixel font-[700] text-2xl leading-tight tracking-tight lg:text-4xl';
+  'font-pixel font-[900] text-2xl leading-tight tracking-tight lg:text-4xl';
 
 /** Card titles and sub-headings. 24 → 32 from large up. */
 export const SUBHEAD =
-  'font-pixel font-[500] text-xl leading-snug tracking-[0.03em] lg:text-2xl';
+  'font-pixel font-[900] text-xl leading-snug tracking-[0.03em] lg:text-2xl';
 
 /** Standfirsts and taglines sitting directly under a title. 18 → 24. */
 export const LEAD =
-  'font-pixel font-[700] text-lg uppercase tracking-[0.12em] lg:text-xl';
+  'font-pixel font-[900] text-lg uppercase tracking-[0.12em] lg:text-xl';
 
 /** Eyebrows, markers, badges, metadata and pixel-font buttons. 12. */
 export const LABEL = 'font-pixel font-[900] text-xs uppercase tracking-[0.22em]';
