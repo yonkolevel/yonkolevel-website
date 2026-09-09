@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import PixelDisplacementGrid from './PixelDisplacementGrid';
 import Link from 'next/link';
-import { HEADING, LEAD } from '@/lib/typography';
+import { HEADING, LABEL } from '@/lib/typography';
 
 const PIXEL_SIZE = 40;
 /** Below this the panel is narrow enough that the copy runs its full width. */
@@ -205,7 +205,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
 
       <Link
         href={learnMoreLink}
-        className={`inline-flex items-center ${LEAD} text-white opacity-90 hover:opacity-100 transition-opacity`}
+        className={`inline-flex items-center ${LABEL} normal-case text-white opacity-90 hover:opacity-100 transition-opacity`}
       >
         Learn more →
       </Link>

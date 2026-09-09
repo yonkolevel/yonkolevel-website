@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { LEAD } from '@/lib/typography';
+import { LABEL } from '@/lib/typography';
 import { usePostHog } from 'posthog-js/react';
 
 interface PromotionalVideoSectionProps {
@@ -167,7 +167,7 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
                   >
                     <Link
                       href={learnMoreLink}
-                      className={`inline-flex items-center ${LEAD} text-white opacity-90 hover:opacity-100 transition-opacity border-2 border-white/30 px-[2rem] py-[1rem] sm:px-10 sm:py-5 md:px-12 md:py-5 rounded-full hover:border-white/60 transition-colors`}
+                      className={`inline-flex items-center ${LABEL} normal-case text-white opacity-90 hover:opacity-100 transition-opacity border-2 border-white/30 px-[2rem] py-[1rem] sm:px-10 sm:py-5 md:px-12 md:py-5 rounded-full hover:border-white/60 transition-colors`}
                       onClick={() => {
                         posthog?.capture('video_learn_more_clicked', {
                           app_name: appName,
