@@ -32,7 +32,7 @@ export default function StyleGuidePage() {
         {/* Title */}
         <div style={{ marginBottom: '60px' }}>
           <p style={{ fontSize: '10px', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase' as const, color: '#64645E', margin: '0 0 12px' }}>Yonko Level</p>
-          <h1 style={{ fontFamily: 'var(--font-pixel)', fontSize: '28px', fontWeight: 900, color: '#EDEDE8', margin: 0, lineHeight: 1.3 }}>Newsletter Style Guide</h1>
+          <h1 style={{ fontFamily: 'var(--font-pixel)', fontSize: '28px', fontWeight: 700, color: '#EDEDE8', margin: 0, lineHeight: 1.3 }}>Newsletter Style Guide</h1>
         </div>
 
         {/* Colours */}
@@ -63,27 +63,27 @@ export default function StyleGuidePage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
             <div>
               <p style={{ fontSize: '9px', color: '#64645E', margin: '0 0 6px', fontFamily: 'var(--font-body)', letterSpacing: '0.1em', textTransform: 'uppercase' as const }}>Display H1 — 48px desktop / 30px mobile</p>
-              <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '48px', fontWeight: 900, color: '#EDEDE8', margin: 0, lineHeight: 1.2 }}>Android Beta is Here</p>
+              <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '48px', fontWeight: 700, color: '#EDEDE8', margin: 0, lineHeight: 1.2 }}>Android Beta is Here</p>
             </div>
             <div>
               <p style={{ fontSize: '9px', color: '#64645E', margin: '0 0 6px', fontFamily: 'var(--font-body)', letterSpacing: '0.1em', textTransform: 'uppercase' as const }}>Large H1 / H2 — 36px desktop / 24px mobile</p>
-              <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '36px', fontWeight: 900, color: '#EDEDE8', margin: 0, lineHeight: 1.2 }}>v2.4 — Biggest Update Yet</p>
+              <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '36px', fontWeight: 700, color: '#EDEDE8', margin: 0, lineHeight: 1.2 }}>v2.4 — Biggest Update Yet</p>
             </div>
             <div>
               <p style={{ fontSize: '9px', color: '#64645E', margin: '0 0 6px', fontFamily: 'var(--font-body)', letterSpacing: '0.1em', textTransform: 'uppercase' as const }}>Medium H2 — 30px desktop / 20px mobile</p>
-              <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '30px', fontWeight: 900, color: '#EDEDE8', margin: 0, lineHeight: 1.2 }}>Also Shipping This Month</p>
+              <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '30px', fontWeight: 700, color: '#EDEDE8', margin: 0, lineHeight: 1.2 }}>Also Shipping This Month</p>
             </div>
             <div>
               <p style={{ fontSize: '9px', color: '#64645E', margin: '0 0 6px', fontFamily: 'var(--font-body)', letterSpacing: '0.1em', textTransform: 'uppercase' as const }}>Small H3 — 24px desktop / 18px mobile</p>
-              <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '24px', fontWeight: 900, color: '#EDEDE8', margin: 0, lineHeight: 1.2 }}>Music as Markdown</p>
+              <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '24px', fontWeight: 500, color: '#EDEDE8', margin: 0, lineHeight: 1.2 }}>Music as Markdown</p>
             </div>
             <div>
               <p style={{ fontSize: '9px', color: '#64645E', margin: '0 0 6px', fontFamily: 'var(--font-body)', letterSpacing: '0.1em', textTransform: 'uppercase' as const }}>CTAs & Tags — 12px desktop / 10px mobile</p>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' as const }}>
                 <a href="#" style={{ display: 'inline-block', padding: '8px 16px', borderRadius: '4px', background: 'rgba(255,92,36,0.08)', border: '1px solid rgba(255,92,36,0.3)', fontFamily: 'var(--font-pixel)', fontSize: '12px', fontWeight: 900, color: '#FF5C24', textDecoration: 'none' }}>Read More →</a>
                 <a href="#" style={{ display: 'inline-block', padding: '8px 16px', borderRadius: '4px', background: 'transparent', border: '1px solid #3D3D3B', fontFamily: 'var(--font-pixel)', fontSize: '12px', fontWeight: 900, color: '#96958F', textDecoration: 'none' }}>Watch →</a>
-                <span style={{ display: 'inline-block', padding: '2px 10px', borderRadius: '999px', background: 'rgba(255,92,36,0.08)', border: '1px solid rgba(255,92,36,0.25)', fontFamily: 'var(--font-pixel)', fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: '#FF5C24' }}>Midicircuit</span>
-                <span style={{ display: 'inline-block', padding: '2px 10px', borderRadius: '999px', background: '#2B2B29', border: '1px solid #3D3D3B', fontFamily: 'var(--font-pixel)', fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: '#96958F' }}>Blog</span>
+                <span style={{ display: 'inline-block', padding: '2px 10px', borderRadius: '999px', background: 'rgba(255,92,36,0.08)', border: '1px solid rgba(255,92,36,0.25)', fontFamily: 'var(--font-pixel)', fontSize: '12px', fontWeight: 900, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: '#FF5C24' }}>Midicircuit</span>
+                <span style={{ display: 'inline-block', padding: '2px 10px', borderRadius: '999px', background: '#2B2B29', border: '1px solid #3D3D3B', fontFamily: 'var(--font-pixel)', fontSize: '12px', fontWeight: 900, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: '#96958F' }}>Blog</span>
               </div>
             </div>
           </div>
@@ -122,9 +122,9 @@ export default function StyleGuidePage() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
             <div style={{ background: '#191919', borderRadius: '8px', padding: '24px' }}>
               <p style={{ fontSize: '9px', color: '#64645E', margin: '0 0 16px', fontFamily: 'var(--font-body)', letterSpacing: '0.1em', textTransform: 'uppercase' as const }}>Doto · Pixel Font</p>
-              <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '22px', fontWeight: 900, color: '#EDEDE8', margin: '0 0 6px', lineHeight: 1.3 }}>ABCDEFGHIJ</p>
-              <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '22px', fontWeight: 900, color: '#EDEDE8', margin: '0 0 6px', lineHeight: 1.3 }}>KLMNOPQRST</p>
-              <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '22px', fontWeight: 900, color: '#EDEDE8', margin: '0 0 16px', lineHeight: 1.3 }}>UVWXYZ 0–9</p>
+              <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '22px', fontWeight: 700, color: '#EDEDE8', margin: '0 0 6px', lineHeight: 1.3 }}>ABCDEFGHIJ</p>
+              <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '22px', fontWeight: 700, color: '#EDEDE8', margin: '0 0 6px', lineHeight: 1.3 }}>KLMNOPQRST</p>
+              <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '22px', fontWeight: 700, color: '#EDEDE8', margin: '0 0 16px', lineHeight: 1.3 }}>UVWXYZ 0–9</p>
               <p style={{ fontSize: '9px', color: '#64645E', margin: 0, fontFamily: 'var(--font-body)' }}>Used for: all headings, CTAs, tags</p>
             </div>
             <div style={{ background: '#191919', borderRadius: '8px', padding: '24px' }}>

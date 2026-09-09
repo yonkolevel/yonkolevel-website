@@ -16,6 +16,8 @@ const COL = 'mx-auto w-full px-4 sm:px-8 lg:px-12';
 const PAD = 'py-10 sm:py-14 lg:py-[60px]';
 
 // Type scale via CSS custom properties — responsive via media query
+// Doto weights follow the site ramp: 900 only at 12px and below, where the
+// dots are too small to read as separate; 700 for headings, 500 for card titles.
 // Mobile:         label 8px  | meta 10px | fine 12px | body 14px
 // Tablet/Desktop: label 10px | meta 12px | fine 14px | body 16px
 const ty = {
@@ -103,7 +105,7 @@ function S1Feature({ data }: { data: S1Feature }) {
     <>
       <Sec bg={tk.surface}>
         <AppTag>{data.appTag}</AppTag>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight" style={{ color: tk.tp, fontFamily: 'var(--font-pixel)', marginTop: '16px', marginBottom: 0 }}>{data.headline}</h1>
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-[700] leading-tight" style={{ color: tk.tp, fontFamily: 'var(--font-pixel)', marginTop: '16px', marginBottom: 0 }}>{data.headline}</h1>
       </Sec>
       {data.imageUrl && (
         <div style={{ background: tk.surface }}>
@@ -128,7 +130,7 @@ function S1Changelog({ data }: { data: S1Changelog }) {
     <>
       <Sec bg={tk.surface} border={`1px solid ${tk.border}`}>
         <NeutralTag>{data.versionTag}</NeutralTag>
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black leading-tight" style={{ color: tk.tp, fontFamily: 'var(--font-pixel)', marginTop: '16px', marginBottom: 0 }}>{data.headline}</h1>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-[700] leading-tight" style={{ color: tk.tp, fontFamily: 'var(--font-pixel)', marginTop: '16px', marginBottom: 0 }}>{data.headline}</h1>
       </Sec>
       <Sec bg={tk.surface} border={`1px solid ${tk.border}`}>
         <span style={{ display: 'block', fontSize: ty.label, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase' as const, color: tk.tt, marginBottom: '12px' }}>What&apos;s new</span>
@@ -153,7 +155,7 @@ function S1MultiApp({ data }: { data: S1MultiApp }) {
     <>
       <Sec bg={tk.surface} border={`3px solid ${tk.surface3}`}>
         <AppTag>{data.primary.appTag}</AppTag>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black leading-tight" style={{ color: tk.tp, fontFamily: 'var(--font-pixel)', marginTop: '16px', marginBottom: '12px' }}>{data.primary.headline}</h2>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-[700] leading-tight" style={{ color: tk.tp, fontFamily: 'var(--font-pixel)', marginTop: '16px', marginBottom: '12px' }}>{data.primary.headline}</h2>
         <p style={{ fontSize: ty.body, lineHeight: 1.7, color: tk.ts, marginTop: 0, marginBottom: 0 }}>{data.primary.copy}</p>
         <div style={{ marginTop: '24px' }}>
           <CtaOrange href={data.primary.ctaUrl}>{data.primary.ctaText}</CtaOrange>
@@ -161,7 +163,7 @@ function S1MultiApp({ data }: { data: S1MultiApp }) {
       </Sec>
       <Sec bg={tk.surface2}>
         <NeutralTag>{data.secondary.appTag}</NeutralTag>
-        <h2 className="text-xl sm:text-2xl lg:text-3xl font-black leading-tight" style={{ color: tk.tp, fontFamily: 'var(--font-pixel)', marginTop: '16px', marginBottom: '12px' }}>{data.secondary.headline}</h2>
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-[700] leading-tight" style={{ color: tk.tp, fontFamily: 'var(--font-pixel)', marginTop: '16px', marginBottom: '12px' }}>{data.secondary.headline}</h2>
         <p style={{ fontSize: ty.body, lineHeight: 1.7, color: tk.ts, marginTop: 0, marginBottom: 0 }}>{data.secondary.copy}</p>
         <div style={{ marginTop: '24px' }}>
           <CtaNeutral href={data.secondary.ctaUrl}>{data.secondary.ctaText}</CtaNeutral>
@@ -212,7 +214,7 @@ export default function NewsletterPreviewPage() {
                 <div className="flex flex-col sm:flex-row sm:items-center sm:gap-10">
                   <div className="sm:flex-[0_0_60%] min-w-0">
                     <NeutralTag>{post.type}</NeutralTag>
-                    <h3 className="text-lg sm:text-xl lg:text-2xl font-black leading-tight" style={{ color: tk.tp, fontFamily: 'var(--font-pixel)', marginTop: '16px', marginBottom: '8px' }}>{post.headline}</h3>
+                    <h3 className="text-lg sm:text-xl lg:text-[2rem] font-[500] leading-tight" style={{ color: tk.tp, fontFamily: 'var(--font-pixel)', marginTop: '16px', marginBottom: '8px' }}>{post.headline}</h3>
                     <p style={{ fontSize: ty.body, lineHeight: 1.6, color: tk.ts, marginTop: 0, marginBottom: 0 }}>{post.excerpt}</p>
                     {(post.author || post.date) && <p style={{ fontSize: ty.fine, color: tk.tt, marginTop: '6px', marginBottom: 0 }}>{[post.author, post.date].filter(Boolean).join(' · ')}</p>}
                     <div style={{ marginTop: '24px' }}>
@@ -241,7 +243,7 @@ export default function NewsletterPreviewPage() {
               <div className="flex gap-3 items-stretch">
                 <div style={{ flexShrink: 0, width: '3px', background: tk.orange, opacity: 0.5, borderRadius: '2px' }} />
                 <div>
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-black leading-tight" style={{ color: tk.tp, fontFamily: 'var(--font-pixel)', marginTop: 0, marginBottom: '12px' }}>{d.education.headline}</h3>
+                  <h3 className="text-lg sm:text-xl lg:text-[2rem] font-[500] leading-tight" style={{ color: tk.tp, fontFamily: 'var(--font-pixel)', marginTop: 0, marginBottom: '12px' }}>{d.education.headline}</h3>
                   <p style={{ fontSize: ty.body, lineHeight: 1.6, color: tk.ts, marginTop: 0, marginBottom: 0 }}>{d.education.body}</p>
                 </div>
               </div>
@@ -274,7 +276,7 @@ export default function NewsletterPreviewPage() {
                         <img src={pick.thumbnailUrl} alt={pick.title} style={{ width: '38px', height: '38px', borderRadius: '6px', objectFit: 'cover', border: `1px solid ${tk.border}`, flexShrink: 0 }} />
                       )}
                       <div>
-                        <a href={pick.url} style={{ fontSize: ty.body, fontWeight: 900, color: tk.tp, textDecoration: 'none', display: 'block', marginBottom: '3px', fontFamily: 'var(--font-pixel)' }}>{pick.title}</a>
+                        <a href={pick.url} style={{ fontSize: ty.body, fontWeight: 700, color: tk.tp, textDecoration: 'none', display: 'block', marginBottom: '3px', fontFamily: 'var(--font-pixel)' }}>{pick.title}</a>
                         <p style={{ fontSize: ty.body, lineHeight: 1.5, color: tk.tt, margin: 0 }}>{pick.note}</p>
                       </div>
                     </div>
