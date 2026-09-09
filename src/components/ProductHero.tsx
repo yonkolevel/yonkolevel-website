@@ -123,10 +123,16 @@ export default function ProductHero({
                       })
                     }
                   >
-                    {/* Google's badge carries its own margin, so it sits a little taller to match */}
+                    {/*
+                      * Google ships the badge with 41px of clear space baked into all
+                      * four sides, which their brand terms require, so the asset stays
+                      * as-is. Scale it so the badge inside that padding matches the
+                      * App Store's 3.25rem, then pull the padding back out of the
+                      * layout so the two line up on their visible edges.
+                      */}
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      className='h-[4.5rem] w-auto'
+                      className='-m-[0.79rem] h-[4.84rem] w-auto'
                       src='/images/common/get-it-on-google-play.png'
                       alt='Get it on Google Play'
                     />

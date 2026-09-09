@@ -193,9 +193,9 @@ export default function MidiCircuitClient() {
                   })
                 }
               >
-                {/* Google's badge carries its own margin, so it sits a little taller to match */}
+                {/* Same crop as the hero: see the note in ProductHero. */}
                 <img
-                  className='h-[4.5rem] w-auto'
+                  className='-m-[0.79rem] h-[4.84rem] w-auto'
                   src='/images/common/get-it-on-google-play.png'
                   alt='Get it on Google Play'
                 />
