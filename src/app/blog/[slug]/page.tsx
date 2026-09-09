@@ -89,7 +89,7 @@ export default async function BlogPost({ params }: Props) {
 
           <div
             className='prose prose-invert prose-lg max-w-none
-            prose-headings:font-pixel
+            prose-headings:font-pixel prose-headings:font-[500]
             prose-p:text-white/80
             prose-a:text-orange prose-a:no-underline hover:prose-a:underline
             prose-code:text-white/90 prose-code:bg-white/10 prose-code:px-1 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
