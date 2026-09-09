@@ -122,7 +122,7 @@ export default function MidiCircuitClient() {
                   LONG fucking time."
                 </p>
                 <div className='text-sm text-white/60'>
-                  <p className='font-pixel font-semibold text-white mb-1 uppercase tracking-wider'>
+                  <p className='font-pixel text-white mb-1 uppercase tracking-wider'>
                     Ken Wheeler
                   </p>
                   <p className='font-pixel text-xs uppercase tracking-wider mb-1'>
@@ -146,7 +146,7 @@ export default function MidiCircuitClient() {
                   students."
                 </p>
                 <div className='text-sm text-white/60'>
-                  <p className='font-pixel font-semibold text-white mb-1 uppercase tracking-wider'>
+                  <p className='font-pixel text-white mb-1 uppercase tracking-wider'>
                     Brian Ellison
                   </p>
                   <p className='font-pixel text-xs uppercase tracking-wider mb-1'>
