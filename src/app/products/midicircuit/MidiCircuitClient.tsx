@@ -105,7 +105,7 @@ export default function MidiCircuitClient() {
               transition={{ duration: 0.6 }}
               className='text-center mb-12'
             >
-              <h2 className='font-pixel text-3xl md:text-4xl lg:text-5xl text-white mb-[1rem] uppercase tracking-wider'>
+              <h2 className='font-pixel font-[700] text-3xl md:text-4xl lg:text-5xl text-white mb-[1rem] uppercase tracking-wider'>
                 What people say
               </h2>
             </motion.div>

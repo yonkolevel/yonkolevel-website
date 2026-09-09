@@ -76,7 +76,7 @@ export default function ProductHero({
               </p>
             </div>
 
-            <h1 className='mt-[2rem] font-pixel text-3xl uppercase leading-tight tracking-tight lg:text-4xl xl:text-5xl'>
+            <h1 className='mt-[2rem] font-pixel font-[700] text-3xl uppercase leading-tight tracking-tight lg:text-4xl xl:text-5xl'>
               {name}
             </h1>
             <p className='mt-[1rem] font-pixel text-base uppercase tracking-[0.12em] text-white/60 md:text-lg'>
