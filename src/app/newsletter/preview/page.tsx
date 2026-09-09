@@ -247,7 +247,7 @@ export default function NewsletterPreviewPage() {
                         <img src={pick.thumbnailUrl} alt={pick.title} style={{ width: '38px', height: '38px', borderRadius: '6px', objectFit: 'cover', border: `1px solid ${tk.border}`, flexShrink: 0 }} />
                       )}
                       <div>
-                        <a href={pick.url} className={LEAD} style={{ color: tk.tp, textDecoration: 'none', display: 'block', marginBottom: '6px' }}>{pick.title}</a>
+                        <a href={pick.url} className={`${LEAD} normal-case`} style={{ color: tk.tp, textDecoration: 'none', display: 'block', marginBottom: '6px' }}>{pick.title}</a>
                         <p className={BODY} style={{ color: tk.tt, margin: 0 }}>{pick.note}</p>
                       </div>
                     </div>
