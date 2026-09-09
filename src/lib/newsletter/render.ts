@@ -47,13 +47,11 @@ export const sampleNewsletterData: NewsletterEmailProps = {
     ctaUrl: 'https://yonkolevel.com/midicircuit',
   },
 
+  // The Midicircuit Sound Pack Guide used to sit at the top of this list. Its
+  // post carries `hidden: true`, which delists it and leaves it unrouted, so
+  // the link returned a 404. Removed rather than pointed elsewhere; put it
+  // back if the post is ever unhidden.
   culturalPicks: [
-    {
-      thumbnailUrl: `${BASE}/products/midicircuit/app-icon.png`,
-      title: 'Midicircuit Sound Pack Guide',
-      url: 'https://yonkolevel.com/blog/midicircuit-sound-pack-guide',
-      note: 'We published the full spec for anyone who wants to submit a pack. WAV, 44.1k, 24-bit, and a checklist that actually means something.'
-    },
     {
       thumbnailUrl: `${BASE}/products/invisible-camera/app-icon.png`,
       title: 'Invisible Camera',
