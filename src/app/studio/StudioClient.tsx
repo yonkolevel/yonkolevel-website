@@ -392,7 +392,7 @@ export default function StudioClient() {
               {surfaces.map(({ label, promise, description }) => (
                 <article key={label}>
                   <p className={`${MARKER} text-orange`}>{label}</p>
-                  <h3 className='mt-6 font-pixel text-base leading-snug text-white md:text-lg'>
+                  <h3 className={`mt-6 ${CELL_PROMISE} text-white`}>
                     {promise}
                   </h3>
                   <p className={`mt-5 ${BODY} text-white/70`}>{description}</p>
@@ -440,7 +440,7 @@ export default function StudioClient() {
                   <CellMarker>
                     <p className={`${MARKER} text-orange`}>{label}</p>
                   </CellMarker>
-                  <h3 className='mt-[2rem] font-pixel text-base leading-snug text-white md:text-lg'>
+                  <h3 className={`mt-[2rem] ${CELL_PROMISE} text-white`}>
                     {headline}
                   </h3>
                   <p className={`mt-5 ${BODY} text-white/70`}>{detail}</p>
@@ -492,7 +492,7 @@ export default function StudioClient() {
                       <p className={`${MARKER} text-white/40`}>{step}</p>
                     </div>
                   </CellMarker>
-                  <h3 className='mt-[2rem] font-pixel text-base leading-snug text-white md:text-lg'>
+                  <h3 className={`mt-[2rem] ${CELL_PROMISE} text-white`}>
                     {title}
                   </h3>
                   <p className={`mt-5 ${BODY} text-white/70`}>{description}</p>
