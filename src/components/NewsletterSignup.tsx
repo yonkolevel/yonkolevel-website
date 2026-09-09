@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { usePostHog } from 'posthog-js/react';
 import Container from './Container';
-import { HEADING } from '@/lib/typography';
+import { HEADING, LABEL } from '@/lib/typography';
 
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -54,7 +54,7 @@ export default function NewsletterSignup() {
       <Container>
         <div className='grid grid-cols-1 gap-10 border-t border-white/10 pt-14 lg:grid-cols-[0.85fr_1fr] lg:gap-20 lg:pt-20'>
           <div className='max-w-xl'>
-            <p className='font-pixel text-orange text-xs tracking-[0.22em] uppercase mb-5'>Newsletter</p>
+            <p className={`${LABEL} text-orange mb-5`}>Newsletter</p>
             <h2 className={`${HEADING} text-white`}>
               Field notes from the Yonko Level lab.
             </h2>
@@ -100,7 +100,7 @@ export default function NewsletterSignup() {
               <button
                 type='submit'
                 disabled={state === 'submitting'}
-                className='min-h-16 bg-white px-8 font-pixel text-xs uppercase tracking-[0.14em] text-black transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-black disabled:opacity-60 disabled:cursor-not-allowed sm:min-w-48'
+                className='min-h-16 bg-white px-8 ${LABEL} text-black transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-black disabled:opacity-60 disabled:cursor-not-allowed sm:min-w-48'
               >
                 {state === 'submitting' ? 'Subscribing…' : 'Subscribe'}
               </button>
