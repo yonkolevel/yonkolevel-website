@@ -4,6 +4,18 @@
   pointer-events: none;
 }
 
+/**
+ * The lattice only paints whole cells, so it is narrower than the panel by
+ * whatever does not divide evenly. Centre it, or that remainder reads as a
+ * gap down one side.
+ */
+.lattice {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .fill {
   position: absolute;
   inset: 0;

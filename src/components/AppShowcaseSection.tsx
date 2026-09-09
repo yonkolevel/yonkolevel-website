@@ -1,9 +1,13 @@
 'use client';
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import PixelDisplacementGrid from './PixelDisplacementGrid';
 import Link from 'next/link';
 import { HEADING, LEAD } from '@/lib/typography';
+
+const PIXEL_SIZE = 40;
+/** Below this the panel is narrow enough that the copy runs its full width. */
+const NARROW_PANEL_COLS = 12;
 
 interface AppShowcaseSectionProps {
   appName: string;
@@ -56,6 +60,38 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   contentSafeZones,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+
+  /**
+   * Rows the copy occupies, measured rather than declared.
+   *
+   * The safe zones below are written in grid cells for the wide layout, where
+   * the copy sits in the first few columns. Once the panel narrows the copy
+   * runs full width and those column bounds stop describing it, so squares
+   * land on the text. Measuring the copy keeps the two in step at any width,
+   * and it does not drift when the copy or the type scale changes.
+   */
+  const [copyRows, setCopyRows] = useState<{ top: number; bottom: number } | null>(null);
+
+  useEffect(() => {
+    const panel = containerRef.current;
+    if (!panel) return;
+    const measure = () => {
+      const heading = panel.querySelector('h2');
+      const last = panel.querySelector('a');
+      if (!heading || !last) return;
+      const box = panel.getBoundingClientRect();
+      const top = heading.getBoundingClientRect().top - box.top;
+      const bottom = last.getBoundingClientRect().bottom - box.top;
+      setCopyRows(previous =>
+        previous && previous.top === top && previous.bottom === bottom
+          ? previous
+          : { top, bottom });
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(panel);
+    return () => observer.disconnect();
+  }, []);
 
   // Default pixel displacements if none provided
   const defaultPixelDisplacements = [
@@ -157,7 +193,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
       whileInView='visible'
       viewport={{ once: true }}
       variants={sectionVariants}
-      className='relative z-40 p-6 sm:p-8 md:p-12 lg:p-16 h-full flex flex-col justify-center'
+      className='relative z-40 flex-1 p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-center'
     >
       <h2 className={`${HEADING} text-white mb-4 sm:mb-6 md:mb-8`}>
         {appName}
@@ -179,16 +215,23 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   const rightContent = (
     <div
       ref={containerRef}
-      className='app-description-container relative lg:col-span-5 h-auto min-h-[400px] sm:min-h-[450px] md:h-[523px]'
+      className='app-description-container relative flex flex-col lg:col-span-5 min-h-[400px] sm:min-h-[450px] md:h-[523px]'
     >
       {/* Pixel displacement grid */}
       <PixelDisplacementGrid
         backgroundColor={backgroundColorGrid}
         holeColor='transparent'
         displacedPixelColor={backgroundColorGrid}
-        pixelSize={40}
+        pixelSize={PIXEL_SIZE}
         displacements={activeDisplacements}
-        placement={(pixels) => pixels.filter((pixel) => !isInSafeZone(pixel, activeSafeZones))}
+        placement={(pixels, grid) => pixels.filter((pixel) => {
+          if (isInSafeZone(pixel, activeSafeZones)) return false;
+          // Wide panels keep the copy in the leading columns, so the declared
+          // zones already describe it and the squares beside it should stay.
+          if (!copyRows || grid.cols > NARROW_PANEL_COLS) return true;
+          const top = pixel.row * PIXEL_SIZE;
+          return top + PIXEL_SIZE <= copyRows.top || top >= copyRows.bottom;
+        })}
         animationDelay={0.15}
         animationDuration={0.5}
       />
