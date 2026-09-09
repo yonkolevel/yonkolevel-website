@@ -6,10 +6,12 @@
  *
  * Weight is baked into each role rather than left free. Doto is a dot matrix
  * face and its weight controls how far the dots swell before they touch. At
- * 900 the dots close up completely and the glyphs read as solid strokes,
- * which only works once the type is large enough for the gaps to reopen, so
- * 900 is reserved for the hero wordmarks. Everything else runs at 700, or at
- * 500 where a sub-heading should sit lighter than the heading above it.
+ * 900 the dots close up and the glyphs read as solid strokes, so 900 works
+ * only at the two ends of the ramp: the hero wordmarks, where the type is
+ * large enough for the gaps to reopen, and the 12px labels, where the dots
+ * would be too small to register anyway and the text needs the weight to
+ * hold. Everything between runs at 700, or at 500 where a sub-heading should
+ * sit lighter than the heading above it.
  *
  * Sizes stay on the scale in tailwind.config.ts. Hero wordmarks are the one
  * exception: they size fluidly against the viewport so they keep filling
@@ -36,7 +38,7 @@ export const LEAD =
   'font-pixel font-[700] text-lg uppercase tracking-[0.12em] lg:text-xl';
 
 /** Eyebrows, markers, badges, metadata and pixel-font buttons. 12. */
-export const LABEL = 'font-pixel font-[700] text-xs uppercase tracking-[0.22em]';
+export const LABEL = 'font-pixel font-[900] text-xs uppercase tracking-[0.22em]';
 
 /** Body copy. 16 → 18 from medium up. */
 export const BODY = 'text-base leading-8 md:text-lg';
