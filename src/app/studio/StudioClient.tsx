@@ -172,7 +172,7 @@ const studioEmail = (() => {
 
 const EYEBROW = 'font-pixel text-xs uppercase tracking-[0.22em]';
 const HEADING =
-  'font-pixel text-2xl uppercase leading-tight tracking-tight lg:text-3xl xl:text-4xl';
+  'font-pixel font-[500] text-2xl uppercase leading-tight tracking-tight lg:text-3xl xl:text-4xl';
 const CELL_TITLE = 'font-pixel text-lg uppercase md:text-xl';
 const MARKER = 'font-pixel text-xs tracking-[0.2em]';
 const CELL_PROMISE_BASE =
