@@ -43,11 +43,11 @@ export const LABEL = 'font-pixel font-[900] text-xs uppercase tracking-[0.22em]'
  */
 export const NAV = 'font-pixel font-[900] text-lg';
 
-/** Body copy. 16 → 18 from medium up. */
-export const BODY = 'text-base leading-8 md:text-lg';
+/** Body copy. 16 → 18 from medium up, leading at 150%. */
+export const BODY = 'text-base leading-normal md:text-lg';
 
 /** Secondary body copy: captions and fine print. 14. */
-export const BODY_SM = 'text-sm leading-6';
+export const BODY_SM = 'text-sm leading-normal';
 
 /* ---------------------------------------------------------------- spacing */
 
