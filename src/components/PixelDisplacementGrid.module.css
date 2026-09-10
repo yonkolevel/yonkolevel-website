@@ -4,11 +4,8 @@
   pointer-events: none;
 }
 
-/**
- * The lattice only paints whole cells, so it is narrower than the panel by
- * whatever does not divide evenly. Centre it, or that remainder reads as a
- * gap down one side.
- */
+/* Whole cells only, so the remainder that will not divide reads as a gap down
+   one side unless the lattice is centred. */
 .lattice {
   position: absolute;
   top: 0;

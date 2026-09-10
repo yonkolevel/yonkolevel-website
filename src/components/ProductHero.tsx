@@ -124,13 +124,12 @@ export default function ProductHero({
                     }
                   >
                     {/*
-                      * Google ships the badge with 41px of clear space baked into all
-                      * four sides, which their brand terms require, so the asset stays
-                      * as-is. The window below is the size of the art alone, matching
-                      * the App Store badge's 3.25rem, with the image oversized and
-                      * offset inside it so the clear space falls outside. A negative
-                      * margin cannot do this: it shrinks the box without moving it,
-                      * so the badge lands off-centre in a centred row.
+                      * Google's badge carries 41px of clear space on every side,
+                      * which their terms require, so the asset stays whole. The
+                      * window is the size of the art alone; the image sits
+                      * oversized inside it, putting the clear space out of the
+                      * layout. A negative margin shrinks the box without moving
+                      * it, which lands the badge off-centre in a centred row.
                       */}
                     <span className='relative block h-[3.25rem] w-[10.91rem] overflow-hidden'>
                       {/* eslint-disable-next-line @next/next/no-img-element */}

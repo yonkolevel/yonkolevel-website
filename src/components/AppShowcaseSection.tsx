@@ -3,10 +3,11 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import PixelDisplacementGrid from './PixelDisplacementGrid';
 import Link from 'next/link';
-import { HEADING, LABEL } from '@/lib/typography';
+import { HEADING, LEAD } from '@/lib/typography';
 
 const PIXEL_SIZE = 40;
-/** Below this the panel is narrow enough that the copy runs its full width. */
+
+/** Below this width the copy runs the panel's full width, whatever the zones say. */
 const NARROW_PANEL_COLS = 12;
 
 interface AppShowcaseSectionProps {
@@ -62,13 +63,10 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
 
   /**
-   * Rows the copy occupies, measured rather than declared.
-   *
-   * The safe zones below are written in grid cells for the wide layout, where
-   * the copy sits in the first few columns. Once the panel narrows the copy
-   * runs full width and those column bounds stop describing it, so squares
-   * land on the text. Measuring the copy keeps the two in step at any width,
-   * and it does not drift when the copy or the type scale changes.
+   * The rows the copy occupies, measured rather than declared. Safe zones are
+   * written in cells for the wide layout, where the copy keeps to the leading
+   * columns; once the panel narrows the copy spans every column and those
+   * bounds stop describing it. Measuring keeps the two in step at any width.
    */
   const [copyRows, setCopyRows] = useState<{ top: number; bottom: number } | null>(null);
 
@@ -193,7 +191,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
       whileInView='visible'
       viewport={{ once: true }}
       variants={sectionVariants}
-      className='relative z-40 flex-1 p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-center'
+      className='relative z-40 flex flex-1 flex-col justify-center p-[2.5rem] md:p-12'
     >
       <h2 className={`${HEADING} text-white mb-4 sm:mb-6 md:mb-8`}>
         {appName}
@@ -205,7 +203,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
 
       <Link
         href={learnMoreLink}
-        className={`inline-flex items-center ${LABEL} normal-case text-white opacity-90 hover:opacity-100 transition-opacity`}
+        className={`inline-flex items-center ${LEAD} normal-case text-white opacity-90 hover:opacity-100 transition-opacity`}
       >
         Learn more →
       </Link>

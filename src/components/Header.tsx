@@ -223,16 +223,11 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
             >
               <div className='flex items-center gap-2'>
                 {/*
-                  * logo.svg draws its wordmark inside a much larger viewBox: at
-                  * rest the art occupies 70.3% of the width and 58% of the height,
-                  * starting 30.3% in from the left. Left alone, that empty margin
-                  * put the mark 54px from the screen edge on mobile while the menu
-                  * button sat 24px from the other side.
-                  *
-                  * The wrapper below is the size of the art at rest, so layout
-                  * positions what you can actually see. The image keeps its own
-                  * size and is offset inside, and nothing clips it: the entry
-                  * animation still swings outside the wrapper as it always did.
+                  * logo.svg draws its wordmark inside a much larger canvas: at
+                  * rest the art fills 70.3% of the width and 58% of the height,
+                  * starting 30.3% in. The wrapper is that art's size, so layout
+                  * places what you can see rather than the empty margin around
+                  * it. Nothing clips, so the entry animation still swings out.
                   */}
                 <span className='relative block h-[21.22px] w-[70.33px] md:h-[25.46px] md:w-[84.4px]'>
                   <img
