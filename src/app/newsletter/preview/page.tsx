@@ -13,8 +13,9 @@ const tk = {
   orange: '#FF5C24',
 };
 
-// The Tailwind config in this project redefines spacing 4 and 8 as 4px and
-// 8px, so px-4 and px-8 are not the gutters they look like. Set them here.
+/* ------------------------------------------------------------- type tokens */
+
+/** Spacing 4 and 8 are redefined as 4px and 8px, so the gutters are set here. */
 const COL = 'mx-auto w-full px-[1.25rem] sm:px-[2rem] lg:px-[3rem]';
 const PAD = 'py-10 sm:py-14 lg:py-[60px]';
 

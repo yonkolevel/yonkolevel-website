@@ -47,10 +47,8 @@ export const sampleNewsletterData: NewsletterEmailProps = {
     ctaUrl: 'https://yonkolevel.com/midicircuit',
   },
 
-  // The Midicircuit Sound Pack Guide used to sit at the top of this list. Its
-  // post carries `hidden: true`, which delists it and leaves it unrouted, so
-  // the link returned a 404. Removed rather than pointed elsewhere; put it
-  // back if the post is ever unhidden.
+  // the sound pack guide led this list until its post took `hidden: true`,
+  // which delists it and leaves it unrouted, so the link answered 404
   culturalPicks: [
     {
       thumbnailUrl: `${BASE}/products/invisible-camera/app-icon.png`,
