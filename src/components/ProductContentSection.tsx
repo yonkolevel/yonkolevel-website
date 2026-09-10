@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import Container from './Container';
 import PixelDisplacementGrid from './PixelDisplacementGrid';
-import { BODY, GAP_HEADING, HEADING } from '@/lib/typography';
+import { BODY, GAP_HEADING, HEADING, SECTION_Y } from '@/lib/typography';
 
 interface ProductContentSectionProps {
   title: string;
@@ -104,7 +104,7 @@ const ProductContentSection: React.FC<ProductContentSectionProps> = ({
 
       <div className='relative z-10'>
         <Container>
-          <div className='py-[5rem] lg:py-[7rem]'>
+          <div className={`${SECTION_Y}`}>
             <div
               className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center ${
                 reverse ? 'lg:grid-flow-col-dense' : ''

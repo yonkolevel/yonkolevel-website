@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePostHog } from 'posthog-js/react';
 import AppShowcaseSection from '@/components/AppShowcaseSection';
 import Container from '@/components/Container';
-import { BODY, HEADING, LABEL } from '@/lib/typography';
+import { BODY, HEADING, LABEL, SECTION_Y } from '@/lib/typography';
 import HeroWithPixels from '@/components/HeroWithPixels';
 import PromotionalVideoSection from '@/components/PromotionalVideoSection';
 import NewsletterSignup from '@/components/NewsletterSignup';
@@ -86,7 +86,7 @@ const Home = () => {
       />
 
       <section
-        className='bg-black py-20 md:py-28'
+        className={`bg-black ${SECTION_Y}`}
         aria-labelledby='home-studio-title'
       >
         <Container>

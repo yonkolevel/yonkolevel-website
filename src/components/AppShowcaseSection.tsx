@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import PixelDisplacementGrid from './PixelDisplacementGrid';
 import Link from 'next/link';
-import { BODY, GAP_HEADING, HEADING, LEAD } from '@/lib/typography';
+import { BODY, GAP_HEADING, HEADING, LEAD, SECTION_Y } from '@/lib/typography';
 
 const PIXEL_SIZE = 40;
 
@@ -241,7 +241,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
 
   return (
     <section
-      className='relative overflow-hidden py-16 md:py-24'
+      className={`relative overflow-hidden ${SECTION_Y}`}
       style={{ backgroundColor: sectionBackgroundColor }}
     >
       {/* Background SVG Overlay */}
