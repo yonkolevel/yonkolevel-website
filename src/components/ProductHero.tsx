@@ -5,7 +5,7 @@ import * as React from 'react';
 import { usePostHog } from 'posthog-js/react';
 import Container from './Container';
 import PixelPanel from './PixelPanel';
-import { LABEL, LEAD, TITLE } from '@/lib/typography';
+import { BODY, GAP_HEADING, LABEL, LEAD, TITLE } from '@/lib/typography';
 
 /**
  * Product page hero, in the same language as the homepage showcase and the
@@ -83,7 +83,7 @@ export default function ProductHero({
             <p className={`mt-[1rem] ${LEAD} text-white/60`}>
               {tagline}
             </p>
-            <p className='mt-[2rem] max-w-xl text-base leading-8 text-white/70 md:text-lg'>
+            <p className={`${GAP_HEADING} max-w-xl ${BODY} text-white/70`}>
               {description}
             </p>
 

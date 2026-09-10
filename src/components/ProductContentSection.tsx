@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import Container from './Container';
 import PixelDisplacementGrid from './PixelDisplacementGrid';
-import { HEADING } from '@/lib/typography';
+import { BODY, GAP_HEADING, HEADING } from '@/lib/typography';
 
 interface ProductContentSectionProps {
   title: string;
@@ -121,13 +121,13 @@ const ProductContentSection: React.FC<ProductContentSectionProps> = ({
                 className={`${reverse ? 'lg:col-start-2' : 'lg:col-start-1'}`}
               >
                 <h2
-                  className={`${HEADING} ${textColor} mb-6 uppercase`}
+                  className={`${HEADING} ${textColor} uppercase`}
                 >
                   {title}
                 </h2>
 
                 <div
-                  className={`text-lg lg:text-xl ${textColor} leading-relaxed`}
+                  className={`${GAP_HEADING} ${BODY} ${textColor}`}
                 >
                   {description}
                 </div>

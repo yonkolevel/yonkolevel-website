@@ -48,3 +48,23 @@ export const BODY = 'text-base leading-8 md:text-lg';
 
 /** Secondary body copy: captions and fine print. 14. */
 export const BODY_SM = 'text-sm leading-6';
+
+/* ---------------------------------------------------------------- spacing */
+
+/**
+ * The gaps a section is built from, read off the Studio page so every page
+ * opens the same way: an eyebrow, its heading, then the copy. Applied to the
+ * lower element of each pair, so a section reads top to bottom in the markup.
+ */
+
+/** Eyebrow down to the heading it introduces. 20. */
+export const GAP_LABEL = 'mb-5';
+
+/** Section heading down to its copy. 40. */
+export const GAP_HEADING = 'mt-10';
+
+/** Marker down to the sub-head it introduces. 32. */
+export const GAP_MARKER = 'mt-[2rem]';
+
+/** Sub-head down to its copy. 20. */
+export const GAP_SUBHEAD = 'mt-5';

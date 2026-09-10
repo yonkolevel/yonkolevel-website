@@ -2,7 +2,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Container from '@/components/Container';
-import { LABEL, SUBHEAD, TITLE } from '@/lib/typography';
+import { BODY_SM, LABEL, SUBHEAD, TITLE } from '@/lib/typography';
 
 export const metadata: Metadata = {
   title: 'Support | Yonko Level',
@@ -55,7 +55,7 @@ export default function SupportPage() {
                 <h3 className={`${SUBHEAD} text-white mb-2`}>
                   DISCORD
                 </h3>
-                <p className='text-white/50 text-sm'>
+                <p className={`${BODY_SM} text-white/50`}>
                   Community help, feedback, and feature requests.
                 </p>
               </a>
@@ -66,7 +66,7 @@ export default function SupportPage() {
                 <h3 className={`${SUBHEAD} text-white mb-2`}>
                   EMAIL
                 </h3>
-                <p className='text-white/50 text-sm'>
+                <p className={`${BODY_SM} text-white/50`}>
                   team@yonkolevel.com
                 </p>
               </a>

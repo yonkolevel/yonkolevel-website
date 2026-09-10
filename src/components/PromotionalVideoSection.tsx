@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { LABEL } from '@/lib/typography';
+import { BODY, LABEL } from '@/lib/typography';
 import { usePostHog } from 'posthog-js/react';
 
 interface PromotionalVideoSectionProps {
@@ -151,7 +151,7 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
                       viewport={{ once: true }}
                       transition={{ delay: 0.5, duration: 0.8 }}
                     >
-                      <span className='font-body text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-loose px-2 sm:px-0 block'>
+                      <span className={`block ${BODY} px-2 text-white/90 sm:px-0`}>
                         {appDescription}
                       </span>
                     </motion.p>
