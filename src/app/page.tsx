@@ -90,7 +90,7 @@ const Home = () => {
         aria-labelledby='home-studio-title'
       >
         <Container>
-          <div className='grid grid-cols-1 gap-10 border-t border-white/10 pt-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:pt-20'>
+          <div className='grid grid-cols-1 gap-x-[3rem] gap-y-[4rem] border-t border-white/10 pt-[3.5rem] lg:grid-cols-[0.85fr_1.15fr] lg:gap-x-[5rem] lg:pt-[6rem]'>
             <div>
               <p className={`mb-5 ${LABEL} text-orange`}>
                 STUDIO

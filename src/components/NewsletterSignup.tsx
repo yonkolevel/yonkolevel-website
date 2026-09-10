@@ -52,7 +52,7 @@ export default function NewsletterSignup() {
   return (
     <section className={`bg-black ${SECTION_Y}`}>
       <Container>
-        <div className='grid grid-cols-1 gap-10 border-t border-white/10 pt-14 lg:grid-cols-[0.85fr_1fr] lg:gap-20 lg:pt-20'>
+        <div className='grid grid-cols-1 gap-x-[3rem] gap-y-[4rem] border-t border-white/10 pt-[3.5rem] lg:grid-cols-[0.85fr_1fr] lg:gap-x-[5rem] lg:pt-[6rem]'>
           <div className='max-w-xl'>
             <p className={`${LABEL} text-orange mb-5`}>Newsletter</p>
             <h2 className={`${HEADING} text-white`}>
