@@ -163,7 +163,9 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
     // Image mode: Just show the app screenshot with proper alignment based on reversed prop
     return (
       <div
-  className={`flex h-full w-full items-center justify-center ${reversed ? 'lg:justify-end' : 'lg:justify-start'}`}
+        className={`w-full h-full flex items-center py-12 justify-center lg:${
+          reversed ? 'justify-end' : 'justify-start'
+        }`}
       >
         {appScreenshot && (
           <img
@@ -177,7 +179,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   };
 
   const leftContent = (
-    <div className='relative h-full min-h-[400px] sm:min-h-[500px] lg:col-span-7'>
+    <div className='relative lg:col-span-7 h-full min-h-[400px] sm:min-h-[500px] md:min-h-screen'>
       <MediaContent />
     </div>
   );
@@ -211,7 +213,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   const rightContent = (
     <div
       ref={containerRef}
-      className='app-description-container relative flex flex-col lg:col-span-5 lg:min-h-[523px]'
+      className='app-description-container relative flex flex-col lg:col-span-5 min-h-[400px] sm:min-h-[450px] md:h-[523px]'
     >
       {/* Pixel displacement grid */}
       <PixelDisplacementGrid

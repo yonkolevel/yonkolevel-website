@@ -71,3 +71,6 @@ export const GAP_SUBHEAD = 'mt-5';
 
 /** The rhythm a full-width section sits on. 80 → 112 → 160. */
 export const SECTION_Y = 'py-[5rem] md:py-[7rem] lg:py-[10rem]';
+
+/** The same rhythm for a section opening on a hairline, which sits flush. */
+export const SECTION_Y_RULED = 'pb-[5rem] md:pb-[7rem] lg:pb-[10rem]';
