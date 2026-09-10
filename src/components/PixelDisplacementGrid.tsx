@@ -96,6 +96,7 @@ export default function PixelDisplacementGrid({
         '--pixel-duration': `${Number.isFinite(animationDuration) ? Math.max(0, animationDuration) : 0}s`,
       } as CSSProperties}
     >
+      <div className={styles.lattice} style={{ width, height }}>
       <svg className={styles.fill} width='100%' height='100%' focusable='false'>
         {fillPath ? <path d={fillPath} fillRule='evenodd' /> : <rect width='100%' height='100%' />}
       </svg>
@@ -116,6 +117,7 @@ export default function PixelDisplacementGrid({
           </Fragment>
         );
       })}
+      </div>
     </div>
   );
 }

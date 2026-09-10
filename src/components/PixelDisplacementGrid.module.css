@@ -4,6 +4,15 @@
   pointer-events: none;
 }
 
+/* Whole cells only, so the remainder that will not divide reads as a gap down
+   one side unless the lattice is centred. */
+.lattice {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .fill {
   position: absolute;
   inset: 0;

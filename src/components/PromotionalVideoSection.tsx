@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { LEAD } from '@/lib/typography';
+import { BODY, LABEL } from '@/lib/typography';
 import { usePostHog } from 'posthog-js/react';
 
 interface PromotionalVideoSectionProps {
@@ -151,7 +151,7 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
                       viewport={{ once: true }}
                       transition={{ delay: 0.5, duration: 0.8 }}
                     >
-                      <span className='font-body text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-loose px-2 sm:px-0 block'>
+                      <span className={`block ${BODY} px-2 text-white/90 sm:px-0`}>
                         {appDescription}
                       </span>
                     </motion.p>
@@ -167,7 +167,7 @@ const PromotionalVideoSection: React.FC<PromotionalVideoSectionProps> = ({
                   >
                     <Link
                       href={learnMoreLink}
-                      className={`inline-flex items-center ${LEAD} text-white opacity-90 hover:opacity-100 transition-opacity border-2 border-white/30 px-[2rem] py-[1rem] sm:px-10 sm:py-5 md:px-12 md:py-5 rounded-full hover:border-white/60 transition-colors`}
+                      className={`inline-flex items-center ${LABEL} text-white opacity-90 hover:opacity-100 transition-opacity border-2 border-white/30 px-[2rem] py-[1rem] sm:px-10 sm:py-5 md:px-12 md:py-5 rounded-full hover:border-white/60 transition-colors`}
                       onClick={() => {
                         posthog?.capture('video_learn_more_clicked', {
                           app_name: appName,
