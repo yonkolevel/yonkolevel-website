@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import PixelDisplacementGrid from './PixelDisplacementGrid';
 import Link from 'next/link';
-import { BODY, GAP_HEADING, HEADING, LEAD, SECTION_Y } from '@/lib/typography';
+import { BODY, GAP_HEADING, HEADING, LABEL, SECTION_Y } from '@/lib/typography';
 
 const PIXEL_SIZE = 40;
 
@@ -203,7 +203,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
 
       <Link
         href={learnMoreLink}
-        className={`${GAP_HEADING} inline-flex items-center ${LEAD} normal-case text-white opacity-90 transition-opacity hover:opacity-100`}
+        className={`${GAP_HEADING} inline-flex items-center ${LABEL} text-white opacity-90 transition-opacity hover:opacity-100`}
       >
         Learn more →
       </Link>
