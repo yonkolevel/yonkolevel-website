@@ -69,6 +69,9 @@ export const GAP_MARKER = 'mt-[2rem]';
 /** Sub-head down to its copy. 20. */
 export const GAP_SUBHEAD = 'mt-5';
 
+/** Between the two blocks a panel is built from, once they stack. 40. */
+export const GAP_BLOCKS = 'gap-y-[2.5rem]';
+
 /** The rhythm a full-width section sits on. 80 → 112 → 160. */
 export const SECTION_Y = 'py-[5rem] md:py-[7rem] lg:py-[10rem]';
 

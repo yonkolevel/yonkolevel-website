@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import PixelDisplacementGrid from './PixelDisplacementGrid';
 import Link from 'next/link';
-import { BODY, GAP_HEADING, HEADING, LABEL, SECTION_Y } from '@/lib/typography';
+import { BODY, GAP_BLOCKS, GAP_HEADING, HEADING, LABEL, SECTION_Y } from '@/lib/typography';
 
 const PIXEL_SIZE = 40;
 
@@ -262,7 +262,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
       )}
 
       {/* Content */}
-      <div className='relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-0 items-center px-4 sm:px-6 md:px-12'>
+      <div className={`relative z-10 grid grid-cols-1 items-center ${GAP_BLOCKS} px-4 sm:px-6 lg:grid-cols-12 md:px-12`}>
         {/* Conditionally render content based on reversed prop */}
         {reversed ? (
           <>
