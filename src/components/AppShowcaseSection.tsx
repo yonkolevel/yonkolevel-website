@@ -163,9 +163,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
     // Image mode: Just show the app screenshot with proper alignment based on reversed prop
     return (
       <div
-        className={`w-full h-full flex items-center py-12 justify-center lg:${
-          reversed ? 'justify-end' : 'justify-start'
-        }`}
+        className={`flex h-full w-full items-center justify-center ${reversed ? 'lg:justify-end' : 'lg:justify-start'}`}
       >
         {/*
           * Sized by height, not width. The screenshots have slightly different
@@ -219,7 +217,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   const rightContent = (
     <div
       ref={containerRef}
-      className='app-description-container relative flex flex-col lg:col-span-5 min-h-[400px] sm:min-h-[450px] md:h-[523px]'
+      className='app-description-container relative flex flex-col lg:col-span-5 min-h-[400px] sm:min-h-[480px] md:h-[520px]'
     >
       {/* Pixel displacement grid */}
       <PixelDisplacementGrid
