@@ -167,9 +167,15 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
           reversed ? 'justify-end' : 'justify-start'
         }`}
       >
+        {/*
+          * Sized by height, not width. The screenshots have slightly different
+          * proportions, so a shared width cap left one panel taller than the
+          * other and the two sections never matched. Each height is the tallest
+          * that keeps the wider screenshot inside its old width.
+          */}
         {appScreenshot && (
           <img
-            className='w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[400px] h-auto object-contain'
+            className='h-[33rem] w-auto max-w-full object-contain sm:h-[38rem] md:h-[42.5rem] lg:h-[47.5rem]'
             src={appScreenshot}
             alt={appName}
           />
