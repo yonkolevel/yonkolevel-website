@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Container from '@/components/Container';
-import { TITLE } from '@/lib/typography';
+import { BODY, LABEL, SUBHEAD, TITLE } from '@/lib/typography';
 import { getAllPosts } from '@/lib/mdx';
 import { Metadata } from 'next';
 
@@ -43,27 +43,27 @@ export default async function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <main className='min-h-screen bg-black text-white pt-32 pb-20'>
+    <main className='min-h-screen bg-black py-[5rem] text-white md:py-[7rem] lg:py-[10rem]'>
       <Container>
         <div className='max-w-3xl mx-auto'>
           <h1 className={`${TITLE} mb-16 text-white`}>BLOG_POSTS</h1>
 
-          <div className='space-y-8'>
+          <div className='space-y-[2.5rem]'>
             {posts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className='group block border-b border-white/10 pb-8 hover:border-white/40 transition-colors'
+                className='group block border-b border-white/10 pb-[2.5rem] transition-colors last:border-b-0 last:pb-0 hover:border-white/40'
               >
                 <article className='flex flex-col md:flex-row md:items-start gap-4 md:gap-12'>
                   <div className='flex-1'>
-                    <h2 className='text-xl md:text-2xl font-bold mb-2 group-hover:text-orange transition-colors'>
+                    <h2 className={`${SUBHEAD} mb-2 text-white transition-colors group-hover:text-orange`}>
                       {post.frontMatter.title}
                     </h2>
-                    <time className='font-mono text-sm text-white/50 block mb-3'>
+                    <time className={`${LABEL} mb-3 block text-white/50`}>
                       {post.frontMatter.date}
                     </time>
-                    <p className='text-white/60 line-clamp-2'>
+                    <p className={`${BODY} text-white/60`}>
                       {post.frontMatter.excerpt}
                     </p>
                   </div>
