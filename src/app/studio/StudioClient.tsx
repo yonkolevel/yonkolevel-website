@@ -9,6 +9,7 @@ import PixelPanel from '@/components/PixelPanel';
 import PixelSprite from '@/components/PixelSprite';
 import TrustedBy from '@/components/studio/TrustedBy';
 import Friends from '@/components/studio/Friends';
+import SelectedWork from '@/components/studio/SelectedWork';
 import { BODY, HEADING, LABEL, SUBHEAD } from '@/lib/typography';
 import {
   AssessMark,
@@ -446,6 +447,8 @@ export default function StudioClient() {
           </SectionGrid>
         </Container>
       </section>
+
+      <SelectedWork />
 
       {/* -------------------------------------------------------- HOW WE WORK */}
       <section
