@@ -11,26 +11,27 @@ import { BODY, HEADING, LABEL, SUBHEAD } from '@/lib/typography';
 /**
  * Client projects, each shown as a capture of the live site framed as a
  * browser window. Captures are 1920x1200 so every slide shares one aspect
- * ratio. Say what the client does, not what we did for them, until the scope
- * of each project is confirmed.
+ * ratio. The label names our part and the tool it was built with; the
+ * description describes the client in their own words, from their metadata
+ * or hero copy, and stays within three lines on desktop.
  */
 const projects = [
   {
     name: 'Etermar',
-    sector: 'MARINE ENGINEERING',
-    location: 'PORTUGAL',
+    work: 'WEBSITE DEVELOPMENT',
+    tool: 'NEXT.JS',
     description:
-      'Website for a European marine engineering company with over half a century of port works, dredging and submarine pipelines.',
+      'A leading European marine engineering company in port works, dredging and submarine pipelines.',
     href: 'https://www.etermar.pt/',
     domain: 'etermar.pt',
     image: '/images/studio/work/etermar.webp',
   },
   {
     name: 'Rule 30',
-    sector: 'VENTURE CAPITAL',
-    location: 'UK',
+    work: 'WEBSITE DEVELOPMENT',
+    tool: 'WEBFLOW',
     description:
-      'Website for an AI research lab and fund that uses a systematic, algorithmic approach to back early-stage founders.',
+      'An AI research lab building systematic strategies to identify and back outlier founders at scale.',
     href: 'https://www.rule30.vc/',
     domain: 'rule30.vc',
     image: '/images/studio/work/rule30.webp',
@@ -144,11 +145,10 @@ export default function SelectedWork() {
                 id='selected-work-title'
                 className={`${HEADING} uppercase text-white`}
               >
-                Recent client work
+                Client work
               </h2>
               <p className={`mt-10 ${BODY} text-white/70`}>
-                A few of the projects we’ve worked on with clients. Each one
-                links to the live site.
+                A few of the projects we’ve worked on with clients.
               </p>
             </div>
 
@@ -241,7 +241,7 @@ export default function SelectedWork() {
                     <div className='mt-[2rem] grid grid-cols-1 gap-y-5 md:grid-cols-2 md:gap-x-[3rem] lg:gap-x-[5rem]'>
                       <div>
                         <p className={`${LABEL} text-orange`}>
-                          {project.sector} · {project.location}
+                          {project.work} · {project.tool}
                         </p>
                         <h3 className={`mt-5 ${SUBHEAD} text-white`}>
                           {project.name}
