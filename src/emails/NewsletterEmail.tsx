@@ -169,12 +169,18 @@ const darkModeCSS = `
 
 // ─── Primitive components (token-aware) ───────────────────────────────────────
 
+const innerWrapper: React.CSSProperties = { maxWidth: '600px', margin: '0 auto' };
+
 function SectionLabel({ t, children }: { t: Tokens; children: React.ReactNode }) {
   return (
-    <Section className="yl-s2" style={{ padding: '14px 24px 10px', borderBottom: `1px solid ${t.border}`, background: t.surface2 }}>
-      <Text className="yl-tt" style={{ fontFamily: font.label, fontSize: '9px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: t.textTertiary, margin: 0 }}>
-        {children}
-      </Text>
+    <Section className="yl-s2" style={{ borderBottom: `1px solid ${t.border}`, background: t.surface2 }}>
+      <div style={innerWrapper}>
+        <div style={{ padding: '14px 24px 10px' }}>
+          <Text className="yl-tt" style={{ fontFamily: font.label, fontSize: '9px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: t.textTertiary, margin: 0 }}>
+            {children}
+          </Text>
+        </div>
+      </div>
     </Section>
   );
 }
@@ -216,25 +222,35 @@ function CtaNeutral({ t, href, children }: { t: Tokens; href: string; children: 
 function S1FeatureBlock({ t, data }: { t: Tokens; data: S1Feature }) {
   return (
     <>
-      <Section className="yl-s" style={{ padding: '20px 24px 16px', borderBottom: `1px solid ${t.border}` }}>
-        <AppTag>{data.appTag}</AppTag>
-        <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '18px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.4', margin: '12px 0 0' }}>
-          {data.headline}
-        </Heading>
+      <Section className="yl-s" style={{ borderBottom: `1px solid ${t.border}` }}>
+        <div style={innerWrapper}>
+          <div style={{ padding: '60px 24px' }}>
+            <AppTag>{data.appTag}</AppTag>
+            <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '18px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.4', margin: '12px 0 0' }}>
+              {data.headline}
+            </Heading>
+          </div>
+        </div>
       </Section>
 
       {data.imageUrl && (
         <Section style={{ padding: '0', borderBottom: `1px solid ${t.border}` }}>
-          <Img src={data.imageUrl} alt={data.imageAlt ?? data.headline} width="600" height="340"
-            style={{ display: 'block', width: '100%', height: '340px', objectFit: 'cover', objectPosition: 'top' }} />
+          <div style={innerWrapper}>
+            <Img src={data.imageUrl} alt={data.imageAlt ?? data.headline} width="600" height="340"
+              style={{ display: 'block', width: '100%', height: '340px', objectFit: 'cover', objectPosition: 'top' }} />
+          </div>
         </Section>
       )}
 
-      <Section className="yl-s" style={{ padding: '20px 24px', borderBottom: `1px solid ${t.border}` }}>
-        <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '14px', color: t.textSecondary, lineHeight: '1.6', margin: '0 0 16px' }}>
-          {data.copy}
-        </Text>
-        <CtaOrange href={data.ctaUrl}>{data.ctaText}</CtaOrange>
+      <Section className="yl-s" style={{ borderBottom: `1px solid ${t.border}` }}>
+        <div style={innerWrapper}>
+          <div style={{ padding: '60px 24px' }}>
+            <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '14px', color: t.textSecondary, lineHeight: '1.6', margin: '0 0 16px' }}>
+              {data.copy}
+            </Text>
+            <CtaOrange href={data.ctaUrl}>{data.ctaText}</CtaOrange>
+          </div>
+        </div>
       </Section>
     </>
   );
@@ -243,31 +259,39 @@ function S1FeatureBlock({ t, data }: { t: Tokens; data: S1Feature }) {
 function S1ChangelogBlock({ t, data }: { t: Tokens; data: S1Changelog }) {
   return (
     <>
-      <Section className="yl-s" style={{ padding: '20px 24px 16px', borderBottom: `1px solid ${t.border}` }}>
-        <NeutralTag t={t}>{data.versionTag}</NeutralTag>
-        <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '14px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.5', margin: '12px 0 0' }}>
-          {data.headline}
-        </Heading>
+      <Section className="yl-s" style={{ borderBottom: `1px solid ${t.border}` }}>
+        <div style={innerWrapper}>
+          <div style={{ padding: '60px 24px' }}>
+            <NeutralTag t={t}>{data.versionTag}</NeutralTag>
+            <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '14px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.5', margin: '12px 0 0' }}>
+              {data.headline}
+            </Heading>
+          </div>
+        </div>
       </Section>
-      <Section className="yl-s" style={{ padding: '20px 24px' }}>
-        <span style={{ fontFamily: font.label, fontSize: '9px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: t.textPlaceholder, marginBottom: '10px', display: 'block' }}>
-          What's new
-        </span>
-        {data.items.map((item, i) => (
-          <Row key={i} style={{ marginBottom: '10px' }}>
-            <Column style={{ width: '24px', verticalAlign: 'top', paddingTop: '1px' }}>
-              <span style={{ display: 'inline-block', width: '16px', height: '16px', borderRadius: '50%', border: `1px solid ${t.borderStrong}`, fontFamily: font.label, fontSize: '8px', fontWeight: 600, color: t.textTertiary, textAlign: 'center', lineHeight: '16px' }}>
-                {i + 1}
-              </span>
-            </Column>
-            <Column>
-              <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '14px', color: t.textSecondary, lineHeight: '1.6', margin: 0 }}>{item}</Text>
-            </Column>
-          </Row>
-        ))}
-        <Section style={{ marginTop: '16px' }}>
-          <CtaOrange href={data.ctaUrl}>{data.ctaText}</CtaOrange>
-        </Section>
+      <Section className="yl-s">
+        <div style={innerWrapper}>
+          <div style={{ padding: '60px 24px' }}>
+            <span style={{ fontFamily: font.label, fontSize: '9px', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: t.textPlaceholder, marginBottom: '10px', display: 'block' }}>
+              What's new
+            </span>
+            {data.items.map((item, i) => (
+              <Row key={i} style={{ marginBottom: '10px' }}>
+                <Column style={{ width: '24px', verticalAlign: 'top', paddingTop: '1px' }}>
+                  <span style={{ display: 'inline-block', width: '16px', height: '16px', borderRadius: '50%', border: `1px solid ${t.borderStrong}`, fontFamily: font.label, fontSize: '8px', fontWeight: 600, color: t.textTertiary, textAlign: 'center', lineHeight: '16px' }}>
+                    {i + 1}
+                  </span>
+                </Column>
+                <Column>
+                  <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '14px', color: t.textSecondary, lineHeight: '1.6', margin: 0 }}>{item}</Text>
+                </Column>
+              </Row>
+            ))}
+            <Section style={{ marginTop: '16px' }}>
+              <CtaOrange href={data.ctaUrl}>{data.ctaText}</CtaOrange>
+            </Section>
+          </div>
+        </div>
       </Section>
     </>
   );
@@ -276,21 +300,29 @@ function S1ChangelogBlock({ t, data }: { t: Tokens; data: S1Changelog }) {
 function S1MultiAppBlock({ t, data }: { t: Tokens; data: S1MultiApp }) {
   return (
     <>
-      <Section className="yl-s" style={{ padding: '20px 24px', borderBottom: `3px solid ${t.surface3}` }}>
-        <AppTag>{data.primary.appTag}</AppTag>
-        <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '14px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.5', margin: '12px 0 12px' }}>
-          {data.primary.headline}
-        </Heading>
-        <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '14px', color: t.textSecondary, lineHeight: '1.6', margin: '0 0 14px' }}>{data.primary.copy}</Text>
-        <CtaOrange href={data.primary.ctaUrl}>{data.primary.ctaText}</CtaOrange>
+      <Section className="yl-s" style={{ borderBottom: `3px solid ${t.surface3}` }}>
+        <div style={innerWrapper}>
+          <div style={{ padding: '60px 24px' }}>
+            <AppTag>{data.primary.appTag}</AppTag>
+            <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '14px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.5', margin: '12px 0 12px' }}>
+              {data.primary.headline}
+            </Heading>
+            <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '14px', color: t.textSecondary, lineHeight: '1.6', margin: '0 0 14px' }}>{data.primary.copy}</Text>
+            <CtaOrange href={data.primary.ctaUrl}>{data.primary.ctaText}</CtaOrange>
+          </div>
+        </div>
       </Section>
-      <Section className="yl-s2" style={{ padding: '20px 24px', background: t.surface2 }}>
-        <NeutralTag t={t}>{data.secondary.appTag}</NeutralTag>
-        <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '13px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.5', margin: '10px 0 10px' }}>
-          {data.secondary.headline}
-        </Heading>
-        <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '14px', color: t.textSecondary, lineHeight: '1.6', margin: '0 0 14px' }}>{data.secondary.copy}</Text>
-        <CtaNeutral t={t} href={data.secondary.ctaUrl}>{data.secondary.ctaText}</CtaNeutral>
+      <Section className="yl-s2" style={{ background: t.surface2 }}>
+        <div style={innerWrapper}>
+          <div style={{ padding: '60px 24px' }}>
+            <NeutralTag t={t}>{data.secondary.appTag}</NeutralTag>
+            <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '13px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.5', margin: '10px 0 10px' }}>
+              {data.secondary.headline}
+            </Heading>
+            <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '14px', color: t.textSecondary, lineHeight: '1.6', margin: '0 0 14px' }}>{data.secondary.copy}</Text>
+            <CtaNeutral t={t} href={data.secondary.ctaUrl}>{data.secondary.ctaText}</CtaNeutral>
+          </div>
+        </div>
       </Section>
     </>
   );
@@ -328,40 +360,43 @@ export default function NewsletterEmail({
       <Preview>{previewText}</Preview>
 
       <Body className="yl-body" style={{ background: t.pageBg, margin: 0, padding: 0, fontFamily: font.body }}>
-        <Container className="yl-card" style={{ maxWidth: '600px', margin: '0 auto', background: t.surface, overflow: 'hidden' }}>
 
           {/* ── Header ── */}
-          <Section className="yl-s" style={{ padding: '20px 24px', borderBottom: `1px solid ${t.border}` }}>
-            <Row>
-              <Column style={{ verticalAlign: 'middle' }}>
-                <Link href="https://yonkolevel.com">
-                  <Img
-                    src="https://yonkolevel.com/images/logo.svg"
-                    alt="Yonko Level"
-                    width="130"
-                    height="48"
-                    style={{ display: 'block', width: '130px', height: '48px' }}
-                  />
-                </Link>
-              </Column>
-              <Column align="right">
-                <Text className="yl-tt" style={{ fontFamily: font.label, fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', color: t.textTertiary, lineHeight: '1.4', margin: 0, textAlign: 'right' }}>
-                  {issueNumber}
-                </Text>
-                <Text className="yl-tt" style={{ fontFamily: font.label, fontSize: '10px', letterSpacing: '0.06em', color: t.textTertiary, lineHeight: '1.4', margin: '2px 0 0', textAlign: 'right' }}>
-                  {issueDate}
-                </Text>
-              </Column>
-            </Row>
+          <Section className="yl-s" style={{ borderBottom: `1px solid ${t.border}` }}>
+            <div style={innerWrapper}>
+              <div style={{ padding: '60px 24px' }}>
+                <Row>
+                  <Column style={{ verticalAlign: 'middle' }}>
+                    <Link href="https://yonkolevel.com">
+                      <Img
+                        src="https://yonkolevel.com/images/logo.svg"
+                        alt="Yonko Level"
+                        width="130"
+                        height="48"
+                        style={{ display: 'block', width: '130px', height: '48px' }}
+                      />
+                    </Link>
+                  </Column>
+                  <Column align="right">
+                    <Text className="yl-tt" style={{ fontFamily: font.label, fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', color: t.textTertiary, lineHeight: '1.4', margin: 0, textAlign: 'right' }}>
+                      {issueNumber}
+                    </Text>
+                    <Text className="yl-tt" style={{ fontFamily: font.label, fontSize: '10px', letterSpacing: '0.06em', color: t.textTertiary, lineHeight: '1.4', margin: '2px 0 0', textAlign: 'right' }}>
+                      {issueDate}
+                    </Text>
+                  </Column>
+                </Row>
 
-            {editorialNote && (
-              <>
-                <Hr className="yl-hr" style={{ borderColor: t.border, margin: '16px 0 12px' }} />
-                <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '13px', fontStyle: 'italic', color: t.textSecondary, lineHeight: '1.6', margin: 0 }}>
-                  {editorialNote}
-                </Text>
-              </>
-            )}
+                {editorialNote && (
+                  <>
+                    <Hr className="yl-hr" style={{ borderColor: t.border, margin: '16px 0 12px' }} />
+                    <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '13px', fontStyle: 'italic', color: t.textSecondary, lineHeight: '1.6', margin: 0 }}>
+                      {editorialNote}
+                    </Text>
+                  </>
+                )}
+              </div>
+            </div>
           </Section>
 
           {/* ── S1: Biggest News ── */}
@@ -373,26 +408,30 @@ export default function NewsletterEmail({
           {adjacentNews && (
             <>
               <SectionLabel t={t}>{adjacentNews.label}</SectionLabel>
-              <Section className="yl-s" style={{ padding: '20px 24px', borderBottom: `1px solid ${t.border}` }}>
-                <Row>
-                  {adjacentNews.iconUrl && (
-                    <Column style={{ width: '66px', verticalAlign: 'top' }}>
-                      <Img src={adjacentNews.iconUrl} alt="" width="52" height="52" className="yl-img" style={{ display: 'block', borderRadius: '8px', border: `1px solid ${t.border}` }} />
-                    </Column>
-                  )}
-                  <Column style={{ verticalAlign: 'top' }}>
-                    <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '13px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.5', margin: '0 0 6px' }}>
-                      {adjacentNews.headline}
-                    </Heading>
-                    <Text className="yl-tt" style={{ fontFamily: font.body, fontSize: '11px', color: t.textTertiary, lineHeight: '1.4', margin: '0 0 8px' }}>
-                      {adjacentNews.location} · {adjacentNews.date}
-                    </Text>
-                    <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '14px', color: t.textSecondary, lineHeight: '1.6', margin: '0 0 12px' }}>
-                      {adjacentNews.copy}
-                    </Text>
-                    <CtaNeutral t={t} href={adjacentNews.ctaUrl}>{adjacentNews.ctaText}</CtaNeutral>
-                  </Column>
-                </Row>
+              <Section className="yl-s" style={{ borderBottom: `1px solid ${t.border}` }}>
+                <div style={innerWrapper}>
+                  <div style={{ padding: '60px 24px' }}>
+                    <Row>
+                      {adjacentNews.iconUrl && (
+                        <Column style={{ width: '66px', verticalAlign: 'top' }}>
+                          <Img src={adjacentNews.iconUrl} alt="" width="52" height="52" className="yl-img" style={{ display: 'block', borderRadius: '8px', border: `1px solid ${t.border}` }} />
+                        </Column>
+                      )}
+                      <Column style={{ verticalAlign: 'top' }}>
+                        <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '13px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.5', margin: '0 0 6px' }}>
+                          {adjacentNews.headline}
+                        </Heading>
+                        <Text className="yl-tt" style={{ fontFamily: font.body, fontSize: '11px', color: t.textTertiary, lineHeight: '1.4', margin: '0 0 8px' }}>
+                          {adjacentNews.location} · {adjacentNews.date}
+                        </Text>
+                        <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '14px', color: t.textSecondary, lineHeight: '1.6', margin: '0 0 12px' }}>
+                          {adjacentNews.copy}
+                        </Text>
+                        <CtaNeutral t={t} href={adjacentNews.ctaUrl}>{adjacentNews.ctaText}</CtaNeutral>
+                      </Column>
+                    </Row>
+                  </div>
+                </div>
               </Section>
             </>
           )}
@@ -405,33 +444,37 @@ export default function NewsletterEmail({
                 <Section
                   key={i}
                   className={i % 2 === 1 ? 'yl-s2' : 'yl-s'}
-                  style={{ padding: '20px 24px', borderBottom: `1px solid ${t.border}`, background: i % 2 === 1 ? t.surface2 : t.surface }}
+                  style={{ borderBottom: `1px solid ${t.border}`, background: i % 2 === 1 ? t.surface2 : t.surface }}
                 >
-                  <Row className="yl-post-row">
-                    <Column className="yl-post-col-text" style={{ verticalAlign: 'top' }}>
-                      <NeutralTag t={t}>{post.type}</NeutralTag>
-                      <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '13px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.5', margin: '8px 0 6px' }}>
-                        {post.headline}
-                      </Heading>
-                      <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '14px', color: t.textSecondary, lineHeight: '1.6', margin: '0 0 8px' }}>
-                        {post.excerpt}
-                      </Text>
-                      {(post.author || post.date) && (
-                        <Text className="yl-tt" style={{ fontFamily: font.body, fontSize: '11px', color: t.textTertiary, lineHeight: '1.4', margin: '0 0 10px' }}>
-                          {[post.author, post.date].filter(Boolean).join(' · ')}
-                        </Text>
-                      )}
-                      <CtaNeutral t={t} href={post.ctaUrl}>
-                        {post.type === 'Vlog' ? 'Watch →' : 'Read →'}
-                      </CtaNeutral>
-                    </Column>
-                    {post.thumbnailUrl && (
-                      <Column className="yl-post-col-thumb" style={{ width: '100px', paddingLeft: '16px', verticalAlign: 'middle' }}>
-                        <Img src={post.thumbnailUrl} alt={post.headline} width="88" height="66" className="yl-img"
-                          style={{ display: 'block', width: '88px', height: '66px', objectFit: 'cover', borderRadius: '8px', border: `1px solid ${t.border}` }} />
-                      </Column>
-                    )}
-                  </Row>
+                  <div style={innerWrapper}>
+                    <div style={{ padding: '60px 24px' }}>
+                      <Row className="yl-post-row">
+                        <Column className="yl-post-col-text" style={{ verticalAlign: 'top' }}>
+                          <NeutralTag t={t}>{post.type}</NeutralTag>
+                          <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '13px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.5', margin: '8px 0 6px' }}>
+                            {post.headline}
+                          </Heading>
+                          <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '14px', color: t.textSecondary, lineHeight: '1.6', margin: '0 0 8px' }}>
+                            {post.excerpt}
+                          </Text>
+                          {(post.author || post.date) && (
+                            <Text className="yl-tt" style={{ fontFamily: font.body, fontSize: '11px', color: t.textTertiary, lineHeight: '1.4', margin: '0 0 10px' }}>
+                              {[post.author, post.date].filter(Boolean).join(' · ')}
+                            </Text>
+                          )}
+                          <CtaNeutral t={t} href={post.ctaUrl}>
+                            {post.type === 'Vlog' ? 'Watch →' : 'Read →'}
+                          </CtaNeutral>
+                        </Column>
+                        {post.thumbnailUrl && (
+                          <Column className="yl-post-col-thumb" style={{ width: '100px', paddingLeft: '16px', verticalAlign: 'middle' }}>
+                            <Img src={post.thumbnailUrl} alt={post.headline} width="88" height="66" className="yl-img"
+                              style={{ display: 'block', width: '88px', height: '66px', objectFit: 'cover', borderRadius: '8px', border: `1px solid ${t.border}` }} />
+                          </Column>
+                        )}
+                      </Row>
+                    </div>
+                  </div>
                 </Section>
               ))}
             </>
@@ -441,28 +484,32 @@ export default function NewsletterEmail({
           {education && (
             <>
               <SectionLabel t={t}>{education.label}</SectionLabel>
-              <Section className="yl-s" style={{ padding: '20px 24px', borderBottom: `1px solid ${t.border}` }}>
-                <Row>
-                  <Column style={{ width: '17px', verticalAlign: 'top' }}>
-                    <div style={{ width: '3px', minHeight: '80px', background: '#FF5C24', borderRadius: '2px', opacity: 0.5 }} />
-                  </Column>
-                  <Column style={{ verticalAlign: 'top' }}>
-                    <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '13px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.5', margin: '0 0 10px' }}>
-                      {education.headline}
-                    </Heading>
-                    <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '14px', color: t.textSecondary, lineHeight: '1.6', margin: '0 0 14px' }}>
-                      {education.body}
-                    </Text>
-                    {education.exampleContent && (
-                      <Section className="yl-ex" style={{ background: t.surface2, border: `1px dashed ${t.borderStrong}`, borderRadius: '8px', padding: '14px 16px', marginBottom: '16px' }}>
-                        <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '13px', color: t.textSecondary, lineHeight: '1.6', margin: 0 }}>
-                          {education.exampleContent}
+              <Section className="yl-s" style={{ borderBottom: `1px solid ${t.border}` }}>
+                <div style={innerWrapper}>
+                  <div style={{ padding: '60px 24px' }}>
+                    <Row>
+                      <Column style={{ width: '17px', verticalAlign: 'top' }}>
+                        <div style={{ width: '3px', minHeight: '80px', background: '#FF5C24', borderRadius: '2px', opacity: 0.5 }} />
+                      </Column>
+                      <Column style={{ verticalAlign: 'top' }}>
+                        <Heading className="yl-tp" style={{ fontFamily: font.pixel, fontSize: '13px', fontWeight: 900, color: t.textPrimary, lineHeight: '1.5', margin: '0 0 10px' }}>
+                          {education.headline}
+                        </Heading>
+                        <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '14px', color: t.textSecondary, lineHeight: '1.6', margin: '0 0 14px' }}>
+                          {education.body}
                         </Text>
-                      </Section>
-                    )}
-                    <CtaOrange href={education.ctaUrl}>{education.ctaText}</CtaOrange>
-                  </Column>
-                </Row>
+                        {education.exampleContent && (
+                          <Section className="yl-ex" style={{ background: t.surface2, border: `1px dashed ${t.borderStrong}`, borderRadius: '8px', padding: '14px 16px', marginBottom: '16px' }}>
+                            <Text className="yl-ts" style={{ fontFamily: font.body, fontSize: '13px', color: t.textSecondary, lineHeight: '1.6', margin: 0 }}>
+                              {education.exampleContent}
+                            </Text>
+                          </Section>
+                        )}
+                        <CtaOrange href={education.ctaUrl}>{education.ctaText}</CtaOrange>
+                      </Column>
+                    </Row>
+                  </div>
+                </div>
               </Section>
             </>
           )}
@@ -471,82 +518,93 @@ export default function NewsletterEmail({
           {culturalPicks.length > 0 && (
             <>
               <SectionLabel t={t}>What We're Into</SectionLabel>
-              <Section className="yl-s" style={{ padding: '20px 24px', borderBottom: `1px solid ${t.border}` }}>
-                {culturalPicks.slice(0, 3).map((pick, i) => (
-                  <React.Fragment key={i}>
-                    {i > 0 && <Hr className="yl-hr" style={{ borderColor: t.border, margin: '12px 0' }} />}
-                    <Row>
-                      {pick.thumbnailUrl && (
-                        <Column style={{ width: '50px', verticalAlign: 'top', paddingTop: '2px' }}>
-                          <Img src={pick.thumbnailUrl} alt={pick.title} width="38" height="38" className="yl-img"
-                            style={{ display: 'block', borderRadius: '6px', border: `1px solid ${t.border}` }} />
-                        </Column>
-                      )}
-                      <Column style={{ verticalAlign: 'top' }}>
-                        <Link href={pick.url} className="yl-tp" style={{ fontFamily: font.body, fontSize: '13px', fontWeight: 600, color: t.textPrimary, textDecoration: 'none', display: 'block', marginBottom: '3px' }}>
-                          {pick.title}
-                        </Link>
-                        <Text className="yl-tt" style={{ fontFamily: font.body, fontSize: '11px', color: t.textTertiary, lineHeight: '1.4', margin: 0 }}>
-                          {pick.note}
-                        </Text>
-                      </Column>
-                    </Row>
-                  </React.Fragment>
-                ))}
+              <Section className="yl-s" style={{ borderBottom: `1px solid ${t.border}` }}>
+                <div style={innerWrapper}>
+                  <div style={{ padding: '60px 24px' }}>
+                    {culturalPicks.slice(0, 3).map((pick, i) => (
+                      <React.Fragment key={i}>
+                        {i > 0 && <Hr className="yl-hr" style={{ borderColor: t.border, margin: '12px 0' }} />}
+                        <Row>
+                          {pick.thumbnailUrl && (
+                            <Column style={{ width: '50px', verticalAlign: 'top', paddingTop: '2px' }}>
+                              <Img src={pick.thumbnailUrl} alt={pick.title} width="38" height="38" className="yl-img"
+                                style={{ display: 'block', borderRadius: '6px', border: `1px solid ${t.border}` }} />
+                            </Column>
+                          )}
+                          <Column style={{ verticalAlign: 'top' }}>
+                            <Link href={pick.url} className="yl-tp" style={{ fontFamily: font.body, fontSize: '13px', fontWeight: 600, color: t.textPrimary, textDecoration: 'none', display: 'block', marginBottom: '3px' }}>
+                              {pick.title}
+                            </Link>
+                            <Text className="yl-tt" style={{ fontFamily: font.body, fontSize: '11px', color: t.textTertiary, lineHeight: '1.4', margin: 0 }}>
+                              {pick.note}
+                            </Text>
+                          </Column>
+                        </Row>
+                      </React.Fragment>
+                    ))}
+                  </div>
+                </div>
               </Section>
             </>
           )}
 
           {/* ── Footer ── */}
-          <Section className="yl-footer" style={{ padding: '24px', background: t.surface2, textAlign: 'center' }}>
-            <Link href="https://yonkolevel.com">
-              <Img
-                src="https://yonkolevel.com/images/logo.svg"
-                alt="Yonko Level"
-                width="90"
-                height="33"
-                style={{ display: 'block', width: '90px', height: '33px', margin: '0 auto 16px' }}
-              />
-            </Link>
+          <Section className="yl-footer" style={{ background: t.surface2 }}>
+            <div style={innerWrapper}>
+              <div style={{ padding: '60px 24px', textAlign: 'center' }}>
+                <Link href="https://yonkolevel.com">
+                  <Img
+                    src="https://yonkolevel.com/images/logo.svg"
+                    alt="Yonko Level"
+                    width="90"
+                    height="33"
+                    style={{ display: 'block', width: '90px', height: '33px', margin: '0 auto 16px' }}
+                  />
+                </Link>
 
-            {socialLinks && (
-              <Row style={{ marginBottom: '16px' }}>
-                <Column align="center">
-                  {socialLinks.twitter && (
-                    <Link href={socialLinks.twitter} style={{ display: 'inline-block', margin: '0 6px' }}>
-                      <span className="yl-social" style={{ display: 'inline-block', width: '24px', height: '24px', lineHeight: '24px', borderRadius: '50%', background: t.surface3, border: `1px solid ${t.borderStrong}`, fontFamily: font.label, fontSize: '9px', fontWeight: 600, color: t.textSecondary, textAlign: 'center' }}>𝕏</span>
-                    </Link>
-                  )}
-                  {socialLinks.instagram && (
-                    <Link href={socialLinks.instagram} style={{ display: 'inline-block', margin: '0 6px' }}>
-                      <span className="yl-social" style={{ display: 'inline-block', width: '24px', height: '24px', lineHeight: '24px', borderRadius: '50%', background: t.surface3, border: `1px solid ${t.borderStrong}`, fontFamily: font.label, fontSize: '9px', fontWeight: 600, color: t.textSecondary, textAlign: 'center' }}>IG</span>
-                    </Link>
-                  )}
-                  {socialLinks.youtube && (
-                    <Link href={socialLinks.youtube} style={{ display: 'inline-block', margin: '0 6px' }}>
-                      <span className="yl-social" style={{ display: 'inline-block', width: '24px', height: '24px', lineHeight: '24px', borderRadius: '50%', background: t.surface3, border: `1px solid ${t.borderStrong}`, fontFamily: font.label, fontSize: '9px', fontWeight: 600, color: t.textSecondary, textAlign: 'center' }}>YT</span>
-                    </Link>
-                  )}
-                </Column>
-              </Row>
-            )}
+                <div style={{ marginBottom: '16px' }}>
+                  <CtaNeutral t={t} href="https://yonkolevel.com">Visit yonkolevel.com</CtaNeutral>
+                </div>
 
-            <Hr className="yl-hr" style={{ borderColor: t.border, margin: '0 0 14px' }} />
+                {socialLinks && (
+                  <Row style={{ marginBottom: '16px' }}>
+                    <Column align="center">
+                      {socialLinks.twitter && (
+                        <Link href={socialLinks.twitter} style={{ display: 'inline-block', margin: '0 6px' }}>
+                          <span className="yl-social" style={{ display: 'inline-block', width: '24px', height: '24px', lineHeight: '24px', borderRadius: '50%', background: t.surface3, border: `1px solid ${t.borderStrong}`, fontFamily: font.label, fontSize: '9px', fontWeight: 600, color: t.textSecondary, textAlign: 'center' }}>𝕏</span>
+                        </Link>
+                      )}
+                      {socialLinks.instagram && (
+                        <Link href={socialLinks.instagram} style={{ display: 'inline-block', margin: '0 6px' }}>
+                          <span className="yl-social" style={{ display: 'inline-block', width: '24px', height: '24px', lineHeight: '24px', borderRadius: '50%', background: t.surface3, border: `1px solid ${t.borderStrong}`, fontFamily: font.label, fontSize: '9px', fontWeight: 600, color: t.textSecondary, textAlign: 'center' }}>IG</span>
+                        </Link>
+                      )}
+                      {socialLinks.youtube && (
+                        <Link href={socialLinks.youtube} style={{ display: 'inline-block', margin: '0 6px' }}>
+                          <span className="yl-social" style={{ display: 'inline-block', width: '24px', height: '24px', lineHeight: '24px', borderRadius: '50%', background: t.surface3, border: `1px solid ${t.borderStrong}`, fontFamily: font.label, fontSize: '9px', fontWeight: 600, color: t.textSecondary, textAlign: 'center' }}>YT</span>
+                        </Link>
+                      )}
+                    </Column>
+                  </Row>
+                )}
 
-            <Text style={{ fontFamily: font.body, fontSize: '11px', color: t.textTertiary, lineHeight: '1.4', textAlign: 'center', margin: '0 0 6px' }}>
-              {preferencesUrl && (
-                <><Link href={preferencesUrl} className="yl-tt" style={{ color: t.textTertiary, textDecoration: 'none' }}>Manage preferences</Link>{' · '}</>
-              )}
-              <Link href={unsubscribeUrl} className="yl-tt" style={{ color: t.textTertiary, textDecoration: 'none' }}>Unsubscribe</Link>
-              {' · '}
-              <Link href="https://yonkolevel.com" className="yl-tt" style={{ color: t.textTertiary, textDecoration: 'none' }}>yonkolevel.com</Link>
-            </Text>
-            <Text className="yl-tph" style={{ fontFamily: font.body, fontSize: '10px', color: t.textPlaceholder, textAlign: 'center', margin: 0 }}>
-              © {new Date().getFullYear()} Yonko Level Ltd.
-            </Text>
+                <Hr className="yl-hr" style={{ borderColor: t.border, margin: '0 0 14px' }} />
+
+                <Text style={{ fontFamily: font.body, fontSize: '11px', color: t.textTertiary, lineHeight: '1.4', textAlign: 'center', margin: '0 0 6px' }}>
+                  {preferencesUrl && (
+                    <><Link href={preferencesUrl} className="yl-tt" style={{ color: t.textTertiary, textDecoration: 'none' }}>Manage preferences</Link>{' · '}</>
+                  )}
+                  <Link href={unsubscribeUrl} className="yl-tt" style={{ color: t.textTertiary, textDecoration: 'none' }}>Unsubscribe</Link>
+                  {' · '}
+                  <Link href="https://yonkolevel.com" className="yl-tt" style={{ color: t.textTertiary, textDecoration: 'none' }}>yonkolevel.com</Link>
+                </Text>
+                <Text className="yl-tph" style={{ fontFamily: font.body, fontSize: '10px', color: t.textPlaceholder, textAlign: 'center', margin: 0 }}>
+                  © {new Date().getFullYear()} Yonko Level Ltd.
+                </Text>
+              </div>
+            </div>
           </Section>
 
-        </Container>
       </Body>
     </Html>
   );

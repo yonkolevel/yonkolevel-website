@@ -1,7 +1,7 @@
 import { type NewsletterEmailProps, type Theme } from '@/emails/NewsletterEmail';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL
-  ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+  ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://yonkolevel.com');
 
 export const sampleNewsletterData: NewsletterEmailProps = {
   issueNumber: '#001',
@@ -16,7 +16,7 @@ export const sampleNewsletterData: NewsletterEmailProps = {
     imageAlt: 'Midicircuit running on iOS',
     copy: "Three years in the making. Midicircuit is coming to Android and we're opening beta access now. If you've been waiting to bring your MIDI workflow off iOS, this is your moment. Spots are limited.",
     ctaText: 'Join the Android Beta →',
-    ctaUrl: 'https://yonkolevel.com/midicircuit',
+    ctaUrl: 'https://yonkolevel.com/products/midicircuit',
   },
 
   posts: [
@@ -44,16 +44,12 @@ export const sampleNewsletterData: NewsletterEmailProps = {
     body: 'Not all samples are created equal. The ones people actually come back to have six things in common: punch (crisp transients), body (no thin or hollow sounds), character (a distinctive identity), consistency (everything belongs together), dynamics (responds well to velocity), and a clean tail. No clicks, pops, or abrupt cuts.',
     exampleContent: "Quick test: load each sample, play it at velocity 30 and then 127. If there's no personality difference, your dynamics need work. The best packs feel alive at every velocity.",
     ctaText: 'Try it in Midicircuit →',
-    ctaUrl: 'https://yonkolevel.com/midicircuit',
+    ctaUrl: 'https://yonkolevel.com/products/midicircuit',
   },
 
+  // the sound pack guide led this list until its post took `hidden: true`,
+  // which delists it and leaves it unrouted, so the link answered 404
   culturalPicks: [
-    {
-      thumbnailUrl: `${BASE}/products/midicircuit/app-icon.png`,
-      title: 'Midicircuit Sound Pack Guide',
-      url: 'https://yonkolevel.com/blog/midicircuit-sound-pack-guide',
-      note: 'We published the full spec for anyone who wants to submit a pack. WAV, 44.1k, 24-bit, and a checklist that actually means something.'
-    },
     {
       thumbnailUrl: `${BASE}/products/invisible-camera/app-icon.png`,
       title: 'Invisible Camera',
