@@ -5,7 +5,7 @@ import * as React from 'react';
 import { usePostHog } from 'posthog-js/react';
 import Container from './Container';
 import PixelPanel from './PixelPanel';
-import { LABEL, LEAD, TITLE } from '@/lib/typography';
+import { BODY, GAP_HEADING, LABEL, LEAD, TITLE } from '@/lib/typography';
 
 /**
  * Product page hero, in the same language as the homepage showcase and the
@@ -83,7 +83,7 @@ export default function ProductHero({
             <p className={`mt-[1rem] ${LEAD} text-white/60`}>
               {tagline}
             </p>
-            <p className='mt-[2rem] max-w-xl text-base leading-8 text-white/70 md:text-lg'>
+            <p className={`${GAP_HEADING} max-w-xl ${BODY} text-white/70`}>
               {description}
             </p>
 
@@ -123,13 +123,22 @@ export default function ProductHero({
                       })
                     }
                   >
-                    {/* Google's badge carries its own margin, so it sits a little taller to match */}
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      className='h-[4.5rem] w-auto'
-                      src='/images/common/get-it-on-google-play.png'
-                      alt='Get it on Google Play'
-                    />
+                    {/*
+                      * Google's badge carries 41px of clear space on every side,
+                      * which their terms require, so the asset stays whole. The
+                      * window is the size of the art alone; the image sits
+                      * oversized inside it, putting the clear space out of the
+                      * layout. A negative margin shrinks the box without moving
+                      * it, which lands the badge off-centre in a centred row.
+                      */}
+                    <span className='relative block h-[3.25rem] w-[10.91rem] overflow-hidden'>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        className='absolute -left-[0.79rem] -top-[0.79rem] h-[4.84rem] w-auto max-w-none'
+                        src='/images/common/get-it-on-google-play.png'
+                        alt='Get it on Google Play'
+                      />
+                    </span>
                   </a>
                 )}
               </div>

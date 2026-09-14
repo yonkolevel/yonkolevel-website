@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePostHog } from 'posthog-js/react';
 import AppShowcaseSection from '@/components/AppShowcaseSection';
 import Container from '@/components/Container';
-import { BODY, HEADING, LABEL } from '@/lib/typography';
+import { BODY, HEADING, LABEL, SECTION_Y_RULED } from '@/lib/typography';
 import HeroWithPixels from '@/components/HeroWithPixels';
 import PromotionalVideoSection from '@/components/PromotionalVideoSection';
 import NewsletterSignup from '@/components/NewsletterSignup';
@@ -86,11 +86,11 @@ const Home = () => {
       />
 
       <section
-        className='bg-black py-20 md:py-28'
+        className={`bg-black ${SECTION_Y_RULED}`}
         aria-labelledby='home-studio-title'
       >
         <Container>
-          <div className='grid grid-cols-1 gap-10 border-t border-white/10 pt-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:pt-20'>
+          <div className='grid grid-cols-1 gap-x-[3rem] gap-y-[4rem] border-t border-white/10 pt-[3.5rem] lg:grid-cols-[0.85fr_1.15fr] lg:gap-x-[5rem] lg:pt-[6rem]'>
             <div>
               <p className={`mb-5 ${LABEL} text-orange`}>
                 STUDIO

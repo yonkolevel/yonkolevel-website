@@ -193,12 +193,14 @@ export default function MidiCircuitClient() {
                   })
                 }
               >
-                {/* Google's badge carries its own margin, so it sits a little taller to match */}
-                <img
-                  className='h-[4.5rem] w-auto'
-                  src='/images/common/get-it-on-google-play.png'
-                  alt='Get it on Google Play'
-                />
+                {/* Same window as the hero: see the note in ProductHero. */}
+                <span className='relative block h-[3.25rem] w-[10.91rem] overflow-hidden'>
+                  <img
+                    className='absolute -left-[0.79rem] -top-[0.79rem] h-[4.84rem] w-auto max-w-none'
+                    src='/images/common/get-it-on-google-play.png'
+                    alt='Get it on Google Play'
+                  />
+                </span>
               </a>
             </div>
           </div>

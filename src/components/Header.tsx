@@ -222,11 +222,20 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
               onClick={handleLogoClick}
             >
               <div className='flex items-center gap-2'>
-                <img
-                  src='/images/logo.svg'
-                  className='w-[100px] md:w-[120px] transition-opacity group-hover:opacity-80'
-                  alt='Yonko Level Logo'
-                />
+                {/*
+                  * logo.svg draws its wordmark inside a much larger canvas: at
+                  * rest the art fills 70.3% of the width and 58% of the height,
+                  * starting 30.3% in. The wrapper is that art's size, so layout
+                  * places what you can see rather than the empty margin around
+                  * it. Nothing clips, so the entry animation still swings out.
+                  */}
+                <span className='relative block h-[21.22px] w-[70.33px] md:h-[25.46px] md:w-[84.4px]'>
+                  <img
+                    src='/images/logo.svg'
+                    className='absolute left-[-30.31px] top-[-8.91px] w-[100px] max-w-none transition-opacity group-hover:opacity-80 md:left-[-36.37px] md:top-[-10.69px] md:w-[120px]'
+                    alt='Yonko Level Logo'
+                  />
+                </span>
                 {/* Optional: Add text logo variant for more impact */}
                 {/* <span className='hidden md:block font-pixel text-white text-sm tracking-wider opacity-60 group-hover:opacity-100 transition-opacity'>
                   YONKO LEVEL

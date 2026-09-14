@@ -1,9 +1,14 @@
 'use client';
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import PixelDisplacementGrid from './PixelDisplacementGrid';
 import Link from 'next/link';
-import { HEADING, LEAD } from '@/lib/typography';
+import { BODY, GAP_BLOCKS, GAP_HEADING, HEADING, LABEL, SECTION_Y } from '@/lib/typography';
+
+const PIXEL_SIZE = 40;
+
+/** Below this width the copy runs the panel's full width, whatever the zones say. */
+const NARROW_PANEL_COLS = 12;
 
 interface AppShowcaseSectionProps {
   appName: string;
@@ -56,6 +61,35 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   contentSafeZones,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+
+  /**
+   * The rows the copy occupies, measured rather than declared. Safe zones are
+   * written in cells for the wide layout, where the copy keeps to the leading
+   * columns; once the panel narrows the copy spans every column and those
+   * bounds stop describing it. Measuring keeps the two in step at any width.
+   */
+  const [copyRows, setCopyRows] = useState<{ top: number; bottom: number } | null>(null);
+
+  useEffect(() => {
+    const panel = containerRef.current;
+    if (!panel) return;
+    const measure = () => {
+      const heading = panel.querySelector('h2');
+      const last = panel.querySelector('a');
+      if (!heading || !last) return;
+      const box = panel.getBoundingClientRect();
+      const top = heading.getBoundingClientRect().top - box.top;
+      const bottom = last.getBoundingClientRect().bottom - box.top;
+      setCopyRows(previous =>
+        previous && previous.top === top && previous.bottom === bottom
+          ? previous
+          : { top, bottom });
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(panel);
+    return () => observer.disconnect();
+  }, []);
 
   // Default pixel displacements if none provided
   const defaultPixelDisplacements = [
@@ -129,13 +163,17 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
     // Image mode: Just show the app screenshot with proper alignment based on reversed prop
     return (
       <div
-        className={`w-full h-full flex items-center py-12 justify-center lg:${
-          reversed ? 'justify-end' : 'justify-start'
-        }`}
+        className={`flex h-full w-full items-center justify-center ${reversed ? 'lg:justify-end' : 'lg:justify-start'}`}
       >
+        {/*
+          * Sized by height, not width. The screenshots have slightly different
+          * proportions, so a shared width cap left one panel taller than the
+          * other and the two sections never matched. Each height is the tallest
+          * that keeps the wider screenshot inside its old width.
+          */}
         {appScreenshot && (
           <img
-            className='w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[400px] h-auto object-contain'
+            className='h-[33rem] w-auto max-w-full object-contain sm:h-[38rem] md:h-[42.5rem] lg:h-[47.5rem]'
             src={appScreenshot}
             alt={appName}
           />
@@ -157,19 +195,19 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
       whileInView='visible'
       viewport={{ once: true }}
       variants={sectionVariants}
-      className='relative z-40 p-6 sm:p-8 md:p-12 lg:p-16 h-full flex flex-col justify-center'
+      className='relative z-40 flex flex-1 flex-col justify-center p-[2.5rem] md:p-12'
     >
-      <h2 className={`${HEADING} text-white mb-4 sm:mb-6 md:mb-8`}>
+      <h2 className={`${HEADING} text-white`}>
         {appName}
       </h2>
 
-      <p className='font-body text-xs sm:text-sm md:text-base text-white opacity-90 mb-6 sm:mb-8 leading-relaxed pb-6 sm:pb-8 md:pb-12'>
+      <p className={`${GAP_HEADING} ${BODY} text-white opacity-90`}>
         {appDescription}
       </p>
 
       <Link
         href={learnMoreLink}
-        className={`inline-flex items-center ${LEAD} text-white opacity-90 hover:opacity-100 transition-opacity`}
+        className={`${GAP_HEADING} inline-flex items-center ${LABEL} text-white opacity-90 transition-opacity hover:opacity-100`}
       >
         Learn more →
       </Link>
@@ -179,16 +217,23 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   const rightContent = (
     <div
       ref={containerRef}
-      className='app-description-container relative lg:col-span-5 h-auto min-h-[400px] sm:min-h-[450px] md:h-[523px]'
+      className='app-description-container relative flex flex-col lg:col-span-5 min-h-[400px] sm:min-h-[480px] md:h-[520px]'
     >
       {/* Pixel displacement grid */}
       <PixelDisplacementGrid
         backgroundColor={backgroundColorGrid}
         holeColor='transparent'
         displacedPixelColor={backgroundColorGrid}
-        pixelSize={40}
+        pixelSize={PIXEL_SIZE}
         displacements={activeDisplacements}
-        placement={(pixels) => pixels.filter((pixel) => !isInSafeZone(pixel, activeSafeZones))}
+        placement={(pixels, grid) => pixels.filter((pixel) => {
+          if (isInSafeZone(pixel, activeSafeZones)) return false;
+          // Wide panels keep the copy in the leading columns, so the declared
+          // zones already describe it and the squares beside it should stay.
+          if (!copyRows || grid.cols > NARROW_PANEL_COLS) return true;
+          const top = pixel.row * PIXEL_SIZE;
+          return top + PIXEL_SIZE <= copyRows.top || top >= copyRows.bottom;
+        })}
         animationDelay={0.15}
         animationDuration={0.5}
       />
@@ -200,7 +245,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
 
   return (
     <section
-      className='relative overflow-hidden py-16 md:py-24'
+      className={`relative overflow-hidden ${SECTION_Y}`}
       style={{ backgroundColor: sectionBackgroundColor }}
     >
       {/* Background SVG Overlay */}
@@ -217,7 +262,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
       )}
 
       {/* Content */}
-      <div className='relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-0 items-center px-4 sm:px-6 md:px-12'>
+      <div className={`relative z-10 grid grid-cols-1 items-center ${GAP_BLOCKS} px-4 sm:px-6 lg:grid-cols-12 md:px-12`}>
         {/* Conditionally render content based on reversed prop */}
         {reversed ? (
           <>
