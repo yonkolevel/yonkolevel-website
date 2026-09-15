@@ -17,8 +17,18 @@ import { BODY, HEADING, LABEL, SUBHEAD } from '@/lib/typography';
  */
 const projects = [
   {
+    name: 'Christie’s',
+    work: 'DEVELOPMENT',
+    tool: 'SITECORE',
+    description:
+      'A world-leading art and luxury auction house, trusted for live and online auctions and private sales.',
+    href: 'https://www.christies.com/en',
+    domain: 'christies.com',
+    image: '/images/studio/work/christies.webp',
+  },
+  {
     name: 'Etermar',
-    work: 'WEBSITE DEVELOPMENT',
+    work: 'DEVELOPMENT',
     tool: 'NEXT.JS',
     description:
       'A leading European marine engineering company in port works, dredging and submarine pipelines.',
@@ -28,7 +38,7 @@ const projects = [
   },
   {
     name: 'Rule 30',
-    work: 'WEBSITE DEVELOPMENT',
+    work: 'DEVELOPMENT',
     tool: 'WEBFLOW',
     description:
       'An AI research lab building systematic strategies to identify and back outlier founders at scale.',
