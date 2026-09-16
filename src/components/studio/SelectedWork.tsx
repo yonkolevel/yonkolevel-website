@@ -15,7 +15,19 @@ import { BODY, HEADING, LABEL, SUBHEAD } from '@/lib/typography';
  * description describes the client in their own words, from their metadata
  * or hero copy, and stays within three lines on desktop.
  */
-const projects = [
+type Project = {
+  name: string;
+  work: string;
+  /** The tool the project was built with, where we know it. */
+  tool?: string;
+  description: string;
+  /** A project whose site has closed has no link, and shows its name in the frame. */
+  href?: string;
+  domain?: string;
+  image: string;
+};
+
+const projects: readonly Project[] = [
   {
     name: 'Christie’s',
     work: 'DEVELOPMENT',
@@ -25,6 +37,13 @@ const projects = [
     href: 'https://www.christies.com/en',
     domain: 'christies.com',
     image: '/images/studio/work/christies.webp',
+  },
+  {
+    name: 'Babylon Health',
+    work: 'APP DEVELOPMENT',
+    description:
+      'A London digital health service that connected patients with doctors through its app. Closed in 2023.',
+    image: '/images/studio/work/babylon.webp',
   },
   {
     name: 'Etermar',
@@ -46,7 +65,7 @@ const projects = [
     domain: 'rule30.vc',
     image: '/images/studio/work/rule30.webp',
   },
-] as const;
+];
 
 /** Seconds a slide rests before the carousel moves on by itself. */
 const ROTATE_SECONDS = 6;
@@ -77,6 +96,37 @@ function slideOffsets(node: HTMLElement) {
   const slides = Array.from(node.children) as HTMLElement[];
   const origin = slides[0]?.offsetLeft ?? 0;
   return slides.map((slide) => slide.offsetLeft - origin);
+}
+
+/**
+ * The slide itself: a link when the project has a live site, plain markup when
+ * it has closed. Only the slide in view takes a tab stop, so the keyboard walks
+ * the carousel rather than every slide behind it.
+ */
+function SlideShell({
+  href,
+  inView,
+  children,
+}: {
+  href?: string;
+  inView: boolean;
+  children: React.ReactNode;
+}) {
+  const className = 'group block focus-visible:outline-none';
+
+  if (!href) return <div className={className}>{children}</div>;
+
+  return (
+    <a
+      href={href}
+      target='_blank'
+      rel='noreferrer'
+      tabIndex={inView ? 0 : -1}
+      className={className}
+    >
+      {children}
+    </a>
+  );
 }
 
 /* ------------------------------------------------------------------- page */
@@ -217,13 +267,7 @@ export default function SelectedWork() {
                   aria-label={`${index + 1} of ${projects.length}: ${project.name}`}
                   className='w-[88%] shrink-0 snap-start lg:w-[80%]'
                 >
-                  <a
-                    href={project.href}
-                    target='_blank'
-                    rel='noreferrer'
-                    tabIndex={index === active ? 0 : -1}
-                    className='group block focus-visible:outline-none'
-                  >
+                  <SlideShell href={project.href} inView={index === active}>
                     {/* The capture framed as a browser window, so it reads as
                         a live site rather than a flat picture. */}
                     <div className='overflow-hidden border border-white/10 bg-[#1c1c1c] transition-colors group-hover:border-orange group-focus-visible:border-orange'>
@@ -234,13 +278,17 @@ export default function SelectedWork() {
                           <span className='h-[0.5rem] w-[0.5rem] bg-blue1' />
                         </div>
                         <span className={`${LABEL} truncate normal-case tracking-[0.08em] text-white/50`}>
-                          {project.domain}
+                          {project.domain ?? project.name}
                         </span>
                       </div>
                       <div className='relative aspect-[16/10]'>
                         <Image
                           src={project.image}
-                          alt={`The ${project.name} website`}
+                          alt={
+                            project.domain
+                              ? `The ${project.name} website`
+                              : `The ${project.name} logo`
+                          }
                           fill
                           sizes='(min-width: 1024px) 80vw, 88vw'
                           className='object-cover object-top'
@@ -251,7 +299,9 @@ export default function SelectedWork() {
                     <div className='mt-[2rem] grid grid-cols-1 gap-y-5 md:grid-cols-2 md:gap-x-[3rem] lg:gap-x-[5rem]'>
                       <div>
                         <p className={`${LABEL} text-orange`}>
-                          {project.work} · {project.tool}
+                          {project.tool
+                            ? `${project.work} · ${project.tool}`
+                            : project.work}
                         </p>
                         <h3 className={`mt-5 ${SUBHEAD} text-white`}>
                           {project.name}
@@ -261,14 +311,16 @@ export default function SelectedWork() {
                         <p className={`${BODY} text-white/70`}>
                           {project.description}
                         </p>
-                        <p
-                          className={`mt-5 ${LABEL} text-white transition-colors group-hover:text-orange`}
-                        >
-                          Visit {project.domain} →
-                        </p>
+                        {project.domain && (
+                          <p
+                            className={`mt-5 ${LABEL} text-white transition-colors group-hover:text-orange`}
+                          >
+                            Visit {project.domain} →
+                          </p>
+                        )}
                       </div>
                     </div>
-                  </a>
+                  </SlideShell>
                 </li>
               ))}
             </ul>
