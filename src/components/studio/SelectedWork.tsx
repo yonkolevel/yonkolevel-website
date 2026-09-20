@@ -143,8 +143,11 @@ export default function SelectedWork() {
     if (!node) return;
 
     const wrapped = (index + projects.length) % projects.length;
-    node.scrollTo({ left: slideOffsets(node)[wrapped] ?? 0, behavior: 'smooth' });
-  }, []);
+    node.scrollTo({
+      left: slideOffsets(node)[wrapped] ?? 0,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
+    });
+  }, [prefersReducedMotion]);
 
   // the active slide follows the scroll position, so swiping, the buttons and
   // the timer all move through one path
