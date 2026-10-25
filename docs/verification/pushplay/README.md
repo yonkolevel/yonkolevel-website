@@ -17,6 +17,27 @@ reported runtime errors. No email/payment actions were exercised.
 Code review: skipped (mechanical diff) — brand-string substitutions and refreshed
 verification artifacts only; no application logic or privacy claims changed.
 
+## TestFlight disclosure correction (2026-10-25)
+
+Addressed the PR review finding against Apple's [TestFlight privacy notice](https://www.apple.com/legal/privacy/data/en/test-flight/):
+Apple automatically collects and shares crash logs and usage information with
+Yonko Level, even without feedback. The policy now distinguishes this from
+optional feedback and states that TestFlight collection cannot be opted out of.
+
+Lint, typecheck, and the production webpack build passed again. The updated
+privacy page passed rendered-text, canonical URL, and horizontal-overflow checks
+at 1440×1000 and 390×844. Refreshed both privacy screenshots. Keyboard navigation
+between privacy and support passed; no browser runtime errors were reported.
+The browser driver's point-click did not activate a wrapped inline support
+link, so its keyboard activation was used instead. No email/payment actions
+were exercised. The temporary local environment symlink was removed after the
+build; no credentials or lockfiles changed.
+
+The owner authorized publishing the corrected policy and merging when permitted.
+This records approval, not deployment: confirm the live URLs before adding them
+to App Store Connect. Runtime network and physical-device checks remain outside
+this website-only verification.
+
 ## Checks
 
 - Node 22.19.0.
@@ -59,9 +80,9 @@ feature code. Its DJ mixer uses its own player wrapper, not the shared
 contain PostHog/Firebase components, so this is not a claim that the binary has
 no analytics SDKs, nor a runtime network audit.
 
-Before publication, the owner should confirm support retention/provider
-practices and the final privacy wording. This PR does not submit App Privacy
-answers, change website analytics, or deploy the pages. App Store Connect URLs
+The owner approved publication of the corrected policy on 2026-10-25. This
+verification does not independently audit support retention/provider practices,
+submit App Privacy answers, or change website analytics. App Store Connect URLs
 should be filled only after the reviewed pages are live.
 
 ## Screenshots

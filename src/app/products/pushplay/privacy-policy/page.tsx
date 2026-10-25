@@ -73,12 +73,17 @@ export default function PushPlayPrivacyPolicyPage() {
               personal information or use your music for advertising.
             </p>
             <p>
-              Apple processes installation, usage, and diagnostic information
-              for TestFlight under its own terms. Apple may make beta crash
-              information and feedback available to us. Feedback you send can
-              include your email address, device and app details, comments, and
-              screenshots. Do not include private material you do not want us
-              to receive. Read{' '}
+              When you test Push Play with TestFlight, Apple automatically
+              collects crash logs and usage information and shares them with
+              Yonko Level, even if you send no feedback. You cannot opt out of
+              this collection while using TestFlight. We use this information
+              to investigate problems and improve Push Play.
+            </p>
+            <p>
+              Sending feedback through TestFlight is optional. Feedback you send
+              can include your email address, device and app details, comments,
+              and screenshots. Do not include private material you do not want
+              us to receive. Read{' '}
               <a href='https://www.apple.com/legal/privacy/data/en/test-flight/'>
                 Apple&apos;s TestFlight privacy information
               </a>{' '}
