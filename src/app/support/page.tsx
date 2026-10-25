@@ -112,7 +112,7 @@ export default function SupportPage() {
               ))}
               <div className='bg-white/5 rounded-lg p-6 flex flex-wrap items-center gap-6'>
                 <span className={`${LABEL} text-white flex-1`}>
-                  PUSHPLAY
+                  PUSH PLAY
                 </span>
                 <div className='flex flex-wrap items-center gap-3'>
                   <Link

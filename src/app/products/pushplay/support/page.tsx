@@ -3,9 +3,9 @@ import Link from 'next/link';
 import Container from '@/components/Container';
 
 export const metadata: Metadata = {
-  title: 'PushPlay Support',
+  title: 'Push Play Support',
   description:
-    'Get help with the PushPlay early beta: loading tracks, connecting MIDI controllers, audio output, and reporting problems.',
+    'Get help with the Push Play early beta: loading tracks, connecting MIDI controllers, audio output, and reporting problems.',
   alternates: {
     canonical: 'https://yonkolevel.com/products/pushplay/support',
   },
@@ -17,14 +17,14 @@ export default function PushPlaySupportPage() {
       <Container>
         <div className='max-w-4xl mx-auto'>
           <div className='pb-10 text-center'>
-            <p className='text-sm text-gray-500 mb-4'>PushPlay · Early beta</p>
+            <p className='text-sm text-gray-500 mb-4'>Push Play · Early beta</p>
             <h1 className='font-body font-bold text-3xl text-black'>
-              PushPlay support
+              Push Play support
             </h1>
           </div>
           <div className='prose prose-lg text-gray-700 prose-headings:text-gray-900 prose-a:text-gray-900 prose-bullets:text-gray-600'>
             <p>
-              PushPlay is a two-deck DJ app for Mac, iPhone, and iPad, with MIDI
+              Push Play is a two-deck DJ app for Mac, iPhone, and iPad, with MIDI
               mappings for Ableton Push 2 and Move. The early beta is for trying
               the workflow and finding problems, not for relying on at a live gig.
               Hardware compatibility is still being tested.
@@ -33,7 +33,7 @@ export default function PushPlaySupportPage() {
             <h2>Get in touch</h2>
             <p>
               Email{' '}
-              <a href='mailto:team@yonkolevel.com?subject=PushPlay%20support'>
+              <a href='mailto:team@yonkolevel.com?subject=Push%20Play%20support'>
                 team@yonkolevel.com
               </a>{' '}
               for help or to report a problem. If you installed through
@@ -41,7 +41,7 @@ export default function PushPlaySupportPage() {
             </p>
             <p>To help us reproduce a problem, include:</p>
             <ul>
-              <li>Your PushPlay version and build number, shown in TestFlight.</li>
+              <li>Your Push Play version and build number, shown in TestFlight.</li>
               <li>Your device model and macOS or iOS/iPadOS version.</li>
               <li>
                 Your MIDI controller, its firmware version, and any audio
@@ -67,14 +67,14 @@ export default function PushPlaySupportPage() {
             </p>
             <p>
               If a track is missing, check the selected folder and search filter.
-              If access was denied, review PushPlay&apos;s Music Library permission
+              If access was denied, review Push Play&apos;s Music Library permission
               in your device settings, or use the file picker instead.
             </p>
 
             <h2>Connecting a MIDI controller</h2>
             <p>
               Check the USB cable, power supply, and any adapter or hub. Open
-              PushPlay&apos;s Settings and check the selected MIDI device and
+              Push Play&apos;s Settings and check the selected MIDI device and
               profile. Move&apos;s built-in mapping is for Live Control mode.
               Other MIDI controllers may need custom mappings.
             </p>
@@ -103,13 +103,13 @@ export default function PushPlaySupportPage() {
             <p>
               Read the{' '}
               <Link href='/products/pushplay/privacy-policy'>
-                PushPlay privacy policy
+                Push Play privacy policy
               </Link>{' '}
               for information about local music files, permissions, TestFlight
               feedback, and support messages.
             </p>
             <p className='text-sm'>
-              PushPlay is an independent Yonko Level product. It is not affiliated
+              Push Play is an independent Yonko Level product. It is not affiliated
               with or endorsed by Ableton. Ableton, Push, and Move are trademarks
               of their respective owners.
             </p>

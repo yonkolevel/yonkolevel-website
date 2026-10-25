@@ -1,8 +1,21 @@
-# PushPlay support/privacy verification
+# Push Play support/privacy verification
 
 Checked 2026-10-25 on `feat/pushplay-support-privacy`, based on `origin/main`
 (`e52c309`). The original website checkout's homepage, Studio, and mobile-menu
 work was left untouched.
+
+## Rename follow-up (2026-10-25)
+
+Updated the product spelling to **Push Play** in both pages, metadata, support
+index, and URL-encoded support-email subject. Existing `/products/pushplay/`
+routes and component identifiers are unchanged. Refreshed all five screenshots.
+Lint, TypeScript, and the production webpack build passed again. Browser checks
+passed on all three routes at 1440×1000 and 390×844: new branding, unchanged
+canonical URLs, support/privacy navigation, and no horizontal overflow or
+reported runtime errors. No email/payment actions were exercised.
+
+Code review: skipped (mechanical diff) — brand-string substitutions and refreshed
+verification artifacts only; no application logic or privacy claims changed.
 
 ## Checks
 
@@ -27,7 +40,7 @@ Desktop viewport: 1440×1000. Mobile viewport: 390×844. Screenshots are full-pa
 
 | Route | Result | Evidence |
 | --- | --- | --- |
-| `/support` | Pass | Both PushPlay links present; clicked the support link successfully; mobile layout has no horizontal overflow. |
+| `/support` | Pass | Both Push Play links present; clicked the support link successfully; mobile layout has no horizontal overflow. |
 | `/products/pushplay/support` | Pass | Content, support mailto, canonical URL, and privacy link checked; desktop/mobile screenshots. |
 | `/products/pushplay/privacy-policy` | Pass | Navigated from support; title, content, canonical/source URLs, and desktop/mobile layout checked. |
 
@@ -38,9 +51,9 @@ No email was sent. Off-screen links were scrolled into view before clicking.
 
 ## Privacy review boundary
 
-The draft is based on PushPlay's app entry point, local file/library and MIDI
+The draft is based on Push Play's app entry point, local file/library and MIDI
 persistence code, and its shared dependency implementations. No analytics
-initialisation or analytics dependency access was found in PushPlay's active
+initialisation or analytics dependency access was found in Push Play's active
 feature code. Its DJ mixer uses its own player wrapper, not the shared
 `AudioPlayerConductor` / `AudioManager` analytics path. Shared packages still
 contain PostHog/Firebase components, so this is not a claim that the binary has

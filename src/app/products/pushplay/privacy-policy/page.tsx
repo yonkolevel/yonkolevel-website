@@ -3,9 +3,9 @@ import Link from 'next/link';
 import Container from '@/components/Container';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy - PushPlay',
+  title: 'Privacy Policy - Push Play',
   description:
-    'How PushPlay handles local music files, MIDI settings, optional Music Library access, TestFlight feedback, and support messages.',
+    'How Push Play handles local music files, MIDI settings, optional Music Library access, TestFlight feedback, and support messages.',
   alternates: {
     canonical: 'https://yonkolevel.com/products/pushplay/privacy-policy',
   },
@@ -18,7 +18,7 @@ export default function PushPlayPrivacyPolicyPage() {
         <div className='max-w-4xl mx-auto'>
           <div className='pb-10 text-center'>
             <h1 className='font-body font-bold text-3xl text-black'>
-              PushPlay privacy policy
+              Push Play privacy policy
             </h1>
             <p className='text-sm text-gray-500 mt-4'>
               Last updated: <time dateTime='2026-10-25'>25 October 2026</time>
@@ -28,22 +28,22 @@ export default function PushPlayPrivacyPolicyPage() {
             <h2>Overview</h2>
             <p>
               Yonko Level Ltd (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or
-              &ldquo;our&rdquo;) develops PushPlay. This policy covers the
-              PushPlay 0.1 early beta for macOS and iOS/iPadOS and information
-              you choose to send us for support. You do not need a PushPlay
+              &ldquo;our&rdquo;) develops Push Play. This policy covers the
+              Push Play 0.1 early beta for macOS and iOS/iPadOS and information
+              you choose to send us for support. You do not need a Push Play
               account to use the app.
             </p>
 
             <h2>Music files and library access</h2>
             <p>
-              PushPlay reads audio files you select and processes their audio,
+              Push Play reads audio files you select and processes their audio,
               waveforms, and track metadata on your device. It does not provide
               a service that uploads your tracks or music library to Yonko Level.
               Track names, artists, and other available metadata are used to
               display and find tracks in the app.
             </p>
             <p>
-              On iPhone and iPad, you can optionally give PushPlay permission to
+              On iPhone and iPad, you can optionally give Push Play permission to
               read your Music Library. You can decline or revoke this permission
               in your device settings and use the file picker instead. Files
               selected through iCloud Drive or another file provider remain
@@ -52,7 +52,7 @@ export default function PushPlayPrivacyPolicyPage() {
 
             <h2>Local settings and MIDI</h2>
             <p>
-              PushPlay stores preferences, selected-folder references, and saved
+              Push Play stores preferences, selected-folder references, and saved
               MIDI mappings locally. It exchanges MIDI messages with connected
               controllers to operate the decks and update controller feedback.
               These features do not require a Yonko Level cloud account or
@@ -60,7 +60,7 @@ export default function PushPlayPrivacyPolicyPage() {
             </p>
             <p>
               You control the original music files and can remove them using
-              your device&apos;s file tools. Removing PushPlay does not delete
+              your device&apos;s file tools. Removing Push Play does not delete
               original files stored outside the app. Local settings and backups
               are also subject to your operating system&apos;s storage and backup
               settings; contact us if you need help locating app-specific data.
@@ -68,7 +68,7 @@ export default function PushPlayPrivacyPolicyPage() {
 
             <h2>Analytics and beta diagnostics</h2>
             <p>
-              The current PushPlay early beta does not initialise an in-app
+              The current Push Play early beta does not initialise an in-app
               advertising or usage-analytics service. It does not sell your
               personal information or use your music for advertising.
             </p>
@@ -89,7 +89,7 @@ export default function PushPlayPrivacyPolicyPage() {
             <p>
               If you email support, we receive your email address, the contents
               of your message, and any files you attach. We use that information
-              to answer you, investigate problems, and improve PushPlay. Where
+              to answer you, investigate problems, and improve Push Play. Where
               data-protection law requires a legal basis, we rely on our
               legitimate interests in providing support and maintaining the app,
               or on meeting applicable legal obligations.
@@ -119,14 +119,14 @@ export default function PushPlayPrivacyPolicyPage() {
             <h2>Children&apos;s information</h2>
             <p>
               We do not ask children to provide personal information through
-              PushPlay. If you believe a child has sent us personal information
+              Push Play. If you believe a child has sent us personal information
               in a support message or beta report, contact us so we can review
               and address it.
             </p>
 
             <h2>Changes and contact</h2>
             <p>
-              We will update this page and its date if PushPlay&apos;s data
+              We will update this page and its date if Push Play&apos;s data
               practices change. This app policy does not describe analytics used
               on the Yonko Level website itself or replace Apple&apos;s or your
               file provider&apos;s privacy terms.
@@ -135,7 +135,7 @@ export default function PushPlayPrivacyPolicyPage() {
               For privacy questions, email{' '}
               <a href='mailto:team@yonkolevel.com'>team@yonkolevel.com</a> at
               Yonko Level Ltd. For help using the app, visit{' '}
-              <Link href='/products/pushplay/support'>PushPlay support</Link>.
+              <Link href='/products/pushplay/support'>Push Play support</Link>.
             </p>
           </div>
         </div>
