@@ -110,6 +110,25 @@ export default function SupportPage() {
                   </div>
                 </div>
               ))}
+              <div className='bg-white/5 rounded-lg p-6 flex flex-wrap items-center gap-6'>
+                <span className={`${LABEL} text-white flex-1`}>
+                  PUSH PLAY
+                </span>
+                <div className='flex flex-wrap items-center gap-3'>
+                  <Link
+                    href='/products/pushplay/support'
+                    className={`${LABEL} text-white/80 hover:text-white transition-colors px-4 py-2`}
+                  >
+                    SUPPORT
+                  </Link>
+                  <Link
+                    href='/products/pushplay/privacy-policy'
+                    className={`${LABEL} text-white/80 hover:text-white transition-colors px-4 py-2`}
+                  >
+                    PRIVACY
+                  </Link>
+                </div>
+              </div>
             </div>
           </section>
         </div>
