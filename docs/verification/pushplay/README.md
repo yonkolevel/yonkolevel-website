@@ -22,7 +22,8 @@ verification artifacts only; no application logic or privacy claims changed.
 Addressed the PR review finding against Apple's [TestFlight privacy notice](https://www.apple.com/legal/privacy/data/en/test-flight/):
 Apple automatically collects and shares crash logs and usage information with
 Yonko Level, even without feedback. The policy now distinguishes this from
-optional feedback and states that TestFlight collection cannot be opted out of.
+optional feedback. Only the automatic crash-log and usage-information collection
+is described as non-optional.
 
 Lint, typecheck, and the production webpack build passed again. The updated
 privacy page passed rendered-text, canonical URL, and horizontal-overflow checks
