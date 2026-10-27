@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-labelledby="midicircuit-drum-pads-flat-title midicircuit-drum-pads-flat-desc"><title id="midicircuit-drum-pads-flat-title">Midicircuit — Drum-pad surface</title><desc id="midicircuit-drum-pads-flat-desc">four-by-four Midicircuit drum-pad grid with one active pad and a separate touch surface in the exploded version. With a few source-backed size annotations.</desc><metadata>MIT License
+
+Copyright (c) 2026 Enes Ozturk
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</metadata><style>
+    .app-elements *{vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+    .obj{fill:#fff;stroke:#333;stroke-width:2.5}
+    .well{fill:#f4f4f4;stroke:#555;stroke-width:2.5}
+    .hug{fill:#e4e4e4;stroke:#555;stroke-width:2.5}
+    .slot{fill:none;stroke:#888;stroke-width:1.5;stroke-dasharray:5 4}
+    .line{fill:none;stroke:#555;stroke-width:1.5}
+    .guide{fill:none;stroke:#aaa;stroke-width:0.6}
+    .annotations line,.annotations polyline,.annotations circle{vector-effect:non-scaling-stroke}
+    .measure{fill:none;stroke:#555;stroke-width:1.5}
+    .extension,.tick{fill:none;stroke:#777;stroke-width:0.6}
+    .size-note{font-family:monospace;font-size:12px;font-weight:400;fill:#555;stroke:none}
+  </style><g class="app-elements" transform="translate(100 100) scale(1.550387596899225)"><g transform="translate(0 0)"><rect x="0" y="0" width="96" height="96" rx="0" class="well" /><rect x="97" y="0" width="96" height="96" rx="0" class="well" /><rect x="194" y="0" width="96" height="96" rx="0" class="well" /><rect x="291" y="0" width="96" height="96" rx="0" class="well" /><rect x="0" y="97" width="96" height="96" rx="0" class="well" /><rect x="97" y="97" width="96" height="96" rx="0" class="well" /><rect x="194" y="97" width="96" height="96" rx="0" class="well" /><rect x="291" y="97" width="96" height="96" rx="0" class="well" /><rect x="0" y="194" width="96" height="96" rx="0" class="well" /><rect x="97" y="194" width="96" height="96" rx="0" class="hug" /><rect x="194" y="194" width="96" height="96" rx="0" class="well" /><rect x="291" y="194" width="96" height="96" rx="0" class="well" /><rect x="0" y="291" width="96" height="96" rx="0" class="well" /><rect x="97" y="291" width="96" height="96" rx="0" class="well" /><rect x="194" y="291" width="96" height="96" rx="0" class="well" /><rect x="291" y="291" width="96" height="96" rx="0" class="well" /></g><g transform="translate(0 0)"><rect x="27" y="46" width="42" height="4" rx="2" class="" fill="#bbb"/><rect x="124" y="46" width="42" height="4" rx="2" class="" fill="#bbb"/><rect x="221" y="46" width="42" height="4" rx="2" class="" fill="#bbb"/><rect x="318" y="46" width="42" height="4" rx="2" class="" fill="#bbb"/><rect x="27" y="143" width="42" height="4" rx="2" class="" fill="#bbb"/><rect x="124" y="143" width="42" height="4" rx="2" class="" fill="#bbb"/><rect x="221" y="143" width="42" height="4" rx="2" class="" fill="#bbb"/><rect x="318" y="143" width="42" height="4" rx="2" class="" fill="#bbb"/><rect x="27" y="240" width="42" height="4" rx="2" class="" fill="#bbb"/><rect x="124" y="240" width="42" height="4" rx="2" class="" fill="#bbb"/><rect x="221" y="240" width="42" height="4" rx="2" class="" fill="#bbb"/><rect x="318" y="240" width="42" height="4" rx="2" class="" fill="#bbb"/><rect x="27" y="337" width="42" height="4" rx="2" class="" fill="#bbb"/><rect x="124" y="337" width="42" height="4" rx="2" class="" fill="#bbb"/><rect x="221" y="337" width="42" height="4" rx="2" class="" fill="#bbb"/><rect x="318" y="337" width="42" height="4" rx="2" class="" fill="#bbb"/></g><g transform="translate(0 0)"></g></g><g class="annotations"><circle cx="249.6124031007752" cy="100" r="1.8" class="" fill="#777"/><polyline points="249.6124031007752,100 301.61240310077517,70 313.61240310077517,70" class="extension"/><text x="319.61240310077517" y="74" class="size-note" text-anchor="start" data-annotation="size" data-code="S1" data-value="1" data-unit="px">1px gap</text><circle cx="106.2015503875969" cy="106.2015503875969" r="1.8" class="" fill="#777"/><polyline points="106.2015503875969,106.2015503875969 98.2015503875969,130.2015503875969 86.2015503875969,130.2015503875969" class="extension"/><text x="80.2015503875969" y="134.2015503875969" class="size-note" text-anchor="end" data-annotation="size" data-code="S2" data-value="4" data-unit="px">4px inset</text></g></svg>

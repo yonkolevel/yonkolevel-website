@@ -1,0 +1,518 @@
+[
+  {
+    "id": "invisible-camera-viewfinder",
+    "product": "Invisible Camera",
+    "title": "Viewfinder anatomy",
+    "alt": "line drawing of the Invisible Camera preview and control deck, with film-look controls, gallery thumbnail, shutter and camera switch. With a few source-backed size annotations.",
+    "width": 1600,
+    "height": 1000,
+    "transparent": true,
+    "visibleText": true,
+    "promotionalText": false,
+    "annotations": [
+      {
+        "code": "Z1",
+        "value": 70,
+        "unit": "pt",
+        "label": "Ø70pt"
+      },
+      {
+        "code": "S1",
+        "value": 16,
+        "unit": "pt",
+        "label": "16pt"
+      },
+      {
+        "code": "H1",
+        "value": 44,
+        "unit": "pt",
+        "label": "44pt"
+      }
+    ],
+    "explodedAnnotations": [
+      {
+        "code": "Z1",
+        "value": 70,
+        "unit": "pt",
+        "label": "Ø70pt"
+      },
+      {
+        "code": "S1",
+        "value": 16,
+        "unit": "pt",
+        "label": "16pt"
+      },
+      {
+        "code": "H1",
+        "value": 44,
+        "unit": "pt",
+        "label": "44pt"
+      }
+    ],
+    "strokeReference": "/images/section-backgrounds/invisible-camera-app-section-background.svg",
+    "svg": "/images/app-diagrams/invisible-camera-viewfinder.svg",
+    "webp": "/images/app-diagrams/invisible-camera-viewfinder.webp",
+    "figure": "/images/app-diagrams/invisible-camera-viewfinder-figure.svg",
+    "figureSize": [
+      590,
+      900
+    ],
+    "exploded": "/images/app-diagrams/invisible-camera-viewfinder-exploded.svg",
+    "explodedFigure": "/images/app-diagrams/invisible-camera-viewfinder-exploded-figure.svg",
+    "explodedFigureSize": [
+      805,
+      932
+    ],
+    "explodedWebp": "/images/app-diagrams/invisible-camera-viewfinder-exploded.webp",
+    "explodedPng": "exports/invisible-camera-viewfinder-exploded.png",
+    "explodedSize": [
+      3200,
+      2000
+    ],
+    "sheet": "sheets/invisible-camera-viewfinder.html",
+    "technicalSvg": "sheets/invisible-camera-viewfinder.svg",
+    "landscape": "exports/invisible-camera-viewfinder-landscape.png",
+    "landscapeSize": [
+      3200,
+      2000
+    ],
+    "square": "exports/invisible-camera-viewfinder-square.png",
+    "squareSize": [
+      1080,
+      1080
+    ],
+    "sourceRevision": "a23912f"
+  },
+  {
+    "id": "invisible-camera-shutter",
+    "product": "Invisible Camera",
+    "title": "Shutter construction",
+    "alt": "Three concentric circular surfaces forming the Invisible Camera shutter button. With a few source-backed size annotations.",
+    "width": 1600,
+    "height": 1000,
+    "transparent": true,
+    "visibleText": true,
+    "promotionalText": false,
+    "annotations": [
+      {
+        "code": "Z1",
+        "value": 70,
+        "unit": "pt",
+        "label": "Ø70pt"
+      },
+      {
+        "code": "Z3",
+        "value": 64,
+        "unit": "pt",
+        "label": "Ø64pt"
+      },
+      {
+        "code": "S1",
+        "value": 2.5,
+        "unit": "pt",
+        "label": "2.5pt"
+      }
+    ],
+    "explodedAnnotations": [
+      {
+        "code": "Z1",
+        "value": 70,
+        "unit": "pt",
+        "label": "Ø70pt"
+      },
+      {
+        "code": "Z3",
+        "value": 64,
+        "unit": "pt",
+        "label": "Ø64pt"
+      },
+      {
+        "code": "Z2",
+        "value": 65,
+        "unit": "pt",
+        "label": "Ø65pt"
+      }
+    ],
+    "strokeReference": "/images/section-backgrounds/invisible-camera-app-section-background.svg",
+    "svg": "/images/app-diagrams/invisible-camera-shutter.svg",
+    "webp": "/images/app-diagrams/invisible-camera-shutter.webp",
+    "figure": "/images/app-diagrams/invisible-camera-shutter-figure.svg",
+    "figureSize": [
+      800,
+      800
+    ],
+    "exploded": "/images/app-diagrams/invisible-camera-shutter-exploded.svg",
+    "explodedFigure": "/images/app-diagrams/invisible-camera-shutter-exploded-figure.svg",
+    "explodedFigureSize": [
+      800,
+      726
+    ],
+    "explodedWebp": "/images/app-diagrams/invisible-camera-shutter-exploded.webp",
+    "explodedPng": "exports/invisible-camera-shutter-exploded.png",
+    "explodedSize": [
+      3200,
+      2000
+    ],
+    "sheet": "sheets/invisible-camera-shutter.html",
+    "technicalSvg": "sheets/invisible-camera-shutter.svg",
+    "landscape": "exports/invisible-camera-shutter-landscape.png",
+    "landscapeSize": [
+      3200,
+      2000
+    ],
+    "square": "exports/invisible-camera-shutter-square.png",
+    "squareSize": [
+      1080,
+      1080
+    ],
+    "sourceRevision": "a23912f"
+  },
+  {
+    "id": "midicircuit-song-grid",
+    "product": "Midicircuit",
+    "title": "Playground song grid",
+    "alt": "Midicircuit song grid with a fixed track column, four section columns and four rows of clip cells. With a few source-backed size annotations.",
+    "width": 1600,
+    "height": 1000,
+    "transparent": true,
+    "visibleText": true,
+    "promotionalText": false,
+    "annotations": [
+      {
+        "code": "W1",
+        "value": 80,
+        "unit": "px",
+        "label": "80px"
+      },
+      {
+        "code": "H1",
+        "value": 60,
+        "unit": "px",
+        "label": "60px"
+      },
+      {
+        "code": "S1",
+        "value": 4,
+        "unit": "px",
+        "label": "4px"
+      },
+      {
+        "code": "R1",
+        "value": 6,
+        "unit": "px",
+        "label": "R6px"
+      }
+    ],
+    "explodedAnnotations": [
+      {
+        "code": "W1",
+        "value": 80,
+        "unit": "px",
+        "label": "80px"
+      },
+      {
+        "code": "H1",
+        "value": 60,
+        "unit": "px",
+        "label": "60px"
+      },
+      {
+        "code": "S1",
+        "value": 4,
+        "unit": "px",
+        "label": "4px"
+      },
+      {
+        "code": "R1",
+        "value": 6,
+        "unit": "px",
+        "label": "R6px"
+      }
+    ],
+    "strokeReference": "/images/section-backgrounds/midicircuit-app-section-background.svg",
+    "svg": "/images/app-diagrams/midicircuit-song-grid.svg",
+    "webp": "/images/app-diagrams/midicircuit-song-grid.webp",
+    "figure": "/images/app-diagrams/midicircuit-song-grid-figure.svg",
+    "figureSize": [
+      800,
+      642
+    ],
+    "exploded": "/images/app-diagrams/midicircuit-song-grid-exploded.svg",
+    "explodedFigure": "/images/app-diagrams/midicircuit-song-grid-exploded-figure.svg",
+    "explodedFigureSize": [
+      800,
+      639
+    ],
+    "explodedWebp": "/images/app-diagrams/midicircuit-song-grid-exploded.webp",
+    "explodedPng": "exports/midicircuit-song-grid-exploded.png",
+    "explodedSize": [
+      3200,
+      2000
+    ],
+    "sheet": "sheets/midicircuit-song-grid.html",
+    "technicalSvg": "sheets/midicircuit-song-grid.svg",
+    "landscape": "exports/midicircuit-song-grid-landscape.png",
+    "landscapeSize": [
+      3200,
+      2000
+    ],
+    "square": "exports/midicircuit-song-grid-square.png",
+    "squareSize": [
+      1080,
+      1080
+    ],
+    "sourceRevision": "6afaf2b39"
+  },
+  {
+    "id": "midicircuit-drum-pads",
+    "product": "Midicircuit",
+    "title": "Drum-pad surface",
+    "alt": "four-by-four Midicircuit drum-pad grid with one active pad and a separate touch surface in the exploded version. With a few source-backed size annotations.",
+    "width": 1600,
+    "height": 1000,
+    "transparent": true,
+    "visibleText": true,
+    "promotionalText": false,
+    "annotations": [
+      {
+        "code": "S1",
+        "value": 1,
+        "unit": "px",
+        "label": "1px gap"
+      },
+      {
+        "code": "S2",
+        "value": 4,
+        "unit": "px",
+        "label": "4px inset"
+      }
+    ],
+    "explodedAnnotations": [
+      {
+        "code": "S1",
+        "value": 1,
+        "unit": "px",
+        "label": "1px gap"
+      },
+      {
+        "code": "S2",
+        "value": 4,
+        "unit": "px",
+        "label": "4px inset"
+      }
+    ],
+    "strokeReference": "/images/section-backgrounds/midicircuit-app-section-background.svg",
+    "svg": "/images/app-diagrams/midicircuit-drum-pads.svg",
+    "webp": "/images/app-diagrams/midicircuit-drum-pads.webp",
+    "figure": "/images/app-diagrams/midicircuit-drum-pads-figure.svg",
+    "figureSize": [
+      800,
+      800
+    ],
+    "exploded": "/images/app-diagrams/midicircuit-drum-pads-exploded.svg",
+    "explodedFigure": "/images/app-diagrams/midicircuit-drum-pads-exploded-figure.svg",
+    "explodedFigureSize": [
+      800,
+      725
+    ],
+    "explodedWebp": "/images/app-diagrams/midicircuit-drum-pads-exploded.webp",
+    "explodedPng": "exports/midicircuit-drum-pads-exploded.png",
+    "explodedSize": [
+      3200,
+      2000
+    ],
+    "sheet": "sheets/midicircuit-drum-pads.html",
+    "technicalSvg": "sheets/midicircuit-drum-pads.svg",
+    "landscape": "exports/midicircuit-drum-pads-landscape.png",
+    "landscapeSize": [
+      3200,
+      2000
+    ],
+    "square": "exports/midicircuit-drum-pads-square.png",
+    "squareSize": [
+      1080,
+      1080
+    ],
+    "sourceRevision": "6afaf2b39"
+  },
+  {
+    "id": "push-play-dual-deck",
+    "product": "Push Play",
+    "title": "Performance layout",
+    "alt": "mirrored Push Play decks with waveform regions, volume and tempo knobs, three-band EQ controls, transport buttons and a shared crossfader. With a few source-backed size annotations.",
+    "width": 1600,
+    "height": 1000,
+    "transparent": true,
+    "visibleText": true,
+    "promotionalText": false,
+    "annotations": [
+      {
+        "code": "W1",
+        "value": 68,
+        "unit": "pt",
+        "label": "68pt"
+      },
+      {
+        "code": "S1",
+        "value": 36,
+        "unit": "pt",
+        "label": "36pt"
+      },
+      {
+        "code": "H1",
+        "value": 104,
+        "unit": "pt",
+        "label": "104pt"
+      },
+      {
+        "code": "W2",
+        "value": 180,
+        "unit": "pt",
+        "label": "180pt"
+      }
+    ],
+    "explodedAnnotations": [
+      {
+        "code": "W1",
+        "value": 68,
+        "unit": "pt",
+        "label": "68pt"
+      },
+      {
+        "code": "S1",
+        "value": 36,
+        "unit": "pt",
+        "label": "36pt"
+      },
+      {
+        "code": "H1",
+        "value": 104,
+        "unit": "pt",
+        "label": "104pt"
+      },
+      {
+        "code": "W2",
+        "value": 180,
+        "unit": "pt",
+        "label": "180pt"
+      }
+    ],
+    "strokeReference": "/images/section-backgrounds/midicircuit-app-section-background.svg",
+    "svg": "/images/app-diagrams/push-play-dual-deck.svg",
+    "webp": "/images/app-diagrams/push-play-dual-deck.webp",
+    "figure": "/images/app-diagrams/push-play-dual-deck-figure.svg",
+    "figureSize": [
+      1164,
+      590
+    ],
+    "exploded": "/images/app-diagrams/push-play-dual-deck-exploded.svg",
+    "explodedFigure": "/images/app-diagrams/push-play-dual-deck-exploded-figure.svg",
+    "explodedFigureSize": [
+      1239,
+      735
+    ],
+    "explodedWebp": "/images/app-diagrams/push-play-dual-deck-exploded.webp",
+    "explodedPng": "exports/push-play-dual-deck-exploded.png",
+    "explodedSize": [
+      3200,
+      2000
+    ],
+    "sheet": "sheets/push-play-dual-deck.html",
+    "technicalSvg": "sheets/push-play-dual-deck.svg",
+    "landscape": "exports/push-play-dual-deck-landscape.png",
+    "landscapeSize": [
+      3200,
+      2000
+    ],
+    "square": "exports/push-play-dual-deck-square.png",
+    "squareSize": [
+      1080,
+      1080
+    ],
+    "sourceRevision": "39feefa"
+  },
+  {
+    "id": "push-play-hardware-display",
+    "product": "Push Play",
+    "title": "Push 2 display layout",
+    "alt": "Push Play display layout with eight control columns, paired waveform regions and outer volume and tempo controls. With a few source-backed size annotations.",
+    "width": 1600,
+    "height": 1000,
+    "transparent": true,
+    "visibleText": true,
+    "promotionalText": false,
+    "annotations": [
+      {
+        "code": "W",
+        "value": 960,
+        "unit": "px",
+        "label": "960px"
+      },
+      {
+        "code": "H",
+        "value": 160,
+        "unit": "px",
+        "label": "160px"
+      },
+      {
+        "code": "W1",
+        "value": 120,
+        "unit": "px",
+        "label": "120px"
+      }
+    ],
+    "explodedAnnotations": [
+      {
+        "code": "W",
+        "value": 960,
+        "unit": "px",
+        "label": "960px"
+      },
+      {
+        "code": "H",
+        "value": 160,
+        "unit": "px",
+        "label": "160px"
+      },
+      {
+        "code": "W1",
+        "value": 120,
+        "unit": "px",
+        "label": "120px"
+      }
+    ],
+    "strokeReference": "/images/section-backgrounds/midicircuit-app-section-background.svg",
+    "svg": "/images/app-diagrams/push-play-hardware-display.svg",
+    "webp": "/images/app-diagrams/push-play-hardware-display.webp",
+    "figure": "/images/app-diagrams/push-play-hardware-display-figure.svg",
+    "figureSize": [
+      1160,
+      360
+    ],
+    "exploded": "/images/app-diagrams/push-play-hardware-display-exploded.svg",
+    "explodedFigure": "/images/app-diagrams/push-play-hardware-display-exploded-figure.svg",
+    "explodedFigureSize": [
+      1157,
+      516
+    ],
+    "explodedWebp": "/images/app-diagrams/push-play-hardware-display-exploded.webp",
+    "explodedPng": "exports/push-play-hardware-display-exploded.png",
+    "explodedSize": [
+      3200,
+      2000
+    ],
+    "sheet": "sheets/push-play-hardware-display.html",
+    "technicalSvg": "sheets/push-play-hardware-display.svg",
+    "landscape": "exports/push-play-hardware-display-landscape.png",
+    "landscapeSize": [
+      3200,
+      2000
+    ],
+    "square": "exports/push-play-hardware-display-square.png",
+    "squareSize": [
+      1080,
+      1080
+    ],
+    "sourceRevision": "39feefa"
+  }
+]

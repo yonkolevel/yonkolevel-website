@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="invisible-camera-shutter-exploded-title invisible-camera-shutter-exploded-desc"><title id="invisible-camera-shutter-exploded-title">Invisible Camera — Shutter construction</title><desc id="invisible-camera-shutter-exploded-desc">Three concentric circular surfaces forming the Invisible Camera shutter button. With a few source-backed size annotations.</desc><metadata>MIT License
+
+Copyright (c) 2026 Enes Ozturk
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</metadata><style>
+    .app-elements *{vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+    .obj{fill:#fff;stroke:#333;stroke-width:2.5}
+    .well{fill:#f4f4f4;stroke:#555;stroke-width:2.5}
+    .hug{fill:#e4e4e4;stroke:#555;stroke-width:2.5}
+    .slot{fill:none;stroke:#888;stroke-width:1.25;stroke-dasharray:5 4}
+    .line{fill:none;stroke:#555;stroke-width:1.25}
+    .guide{fill:none;stroke:#aaa;stroke-width:0.6}
+    .annotations line,.annotations polyline,.annotations circle{vector-effect:non-scaling-stroke}
+    .measure{fill:none;stroke:#555;stroke-width:0.6}
+    .extension,.tick{fill:none;stroke:#777;stroke-width:0.6}
+    .size-note{font-family:monospace;font-size:12px;font-weight:400;fill:#555;stroke:none}
+  </style><g class="app-elements" transform="translate(585.7142857142858 442.8571428571429) scale(10.204081632653061)"><g transform="matrix(.94 .17 -.34 .47 0 0)"><circle cx="35" cy="35" r="35" class="obj" /></g><g transform="matrix(.94 .17 -.34 .47 0 -16.8)"><circle cx="35" cy="35" r="32.5" class="hug" /></g><g transform="matrix(.94 .17 -.34 .47 0 -33.6)"><circle cx="35" cy="35" r="32" class="obj" /></g></g><g class="annotations"><line x1="463.57385775099164" y1="614.6504336121642" x2="425.17174004746937" y2="826.9915550316404" class="extension" /><line x1="427.30730965163747" y1="815.1831113380051" x2="425.5276683148307" y2="825.0234810827012" class="tick" /><line x1="1135.002429179563" y1="736.0790050407355" x2="1096.600311476041" y2="948.4201264602117" class="extension" /><line x1="1098.735881080209" y1="936.6116827665765" x2="1096.9562397434022" y2="946.4520525112725" class="tick" /><line x1="426.4174889832341" y1="820.1032962103532" x2="1097.8460604118056" y2="941.5318676389245" class="measure" /><text x="759.8182409596711" y="893.6100625927437" class="size-note" text-anchor="middle" data-annotation="size" data-code="Z1" data-value="70" data-unit="pt" dominant-baseline="middle" transform="rotate(10.251198750817425 759.8182409596711 893.6100625927437)">Ø70pt</text><circle cx="1095.541773034704" cy="259.3038255164198" r="1.8" class="" fill="#777"/><polyline points="1095.541773034704,259.3038255164198 1147.541773034704,231.3038255164198 1159.541773034704,231.3038255164198" class="extension"/><text x="1165.541773034704" y="235.3038255164198" class="size-note" text-anchor="start" data-annotation="size" data-code="Z3" data-value="64" data-unit="pt">Ø64pt</text><circle cx="1111.734693877551" cy="556.3775510204082" r="1.8" class="" fill="#777"/><polyline points="1111.734693877551,556.3775510204082 1169.734693877551,556.3775510204082 1181.734693877551,556.3775510204082" class="extension"/><text x="1187.734693877551" y="560.3775510204082" class="size-note" text-anchor="start" data-annotation="size" data-code="Z2" data-value="65" data-unit="pt">Ø65pt</text></g></svg>
