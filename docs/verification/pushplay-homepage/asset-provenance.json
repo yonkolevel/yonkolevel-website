@@ -1,0 +1,71 @@
+{
+  "source": {
+    "sourceRoot": "/Users/ricardoabreu/Pictures/Push Play App Store/2026-10-25-store-set",
+    "original": {
+      "file": "iphone/05-mac-iphone-ipad.png",
+      "sha256": "412b862d15f215fc1c714449cd5a2531786e19be6bdd6ff37f0f86c6f1442c09"
+    },
+    "project": {
+      "file": "projects/iphone-05-mac-iphone-ipad.matte/project.json",
+      "sha256": "020d5b6eaae8cdee5d94135f893119b227dfd6130e77553f56f02245c28562bf"
+    },
+    "captures": [
+      {
+        "file": "captures/ipad-eq.png",
+        "sha256": "d38d3b12326f0712bb4a1dd12bbd76b1d7a283d283dc1cd3c99acfaabecc3bf9"
+      },
+      {
+        "file": "captures/iphone-mix.png",
+        "sha256": "8d50719fe958bb2925111a12915950ab0ab61194d32059fc2f71bdcbce16831e"
+      },
+      {
+        "file": "captures/mac-mix-window.png",
+        "sha256": "cd0dc09120b1615d13ee3c74f9ac29ec1409df09a1c7bc70694e3bc15d4d26f0"
+      }
+    ],
+    "render": {
+      "file": "docs/marketing/pushplay/three-device-transparent.png",
+      "sha256": "e85d7fd13343499e968a85d03b0fad2033f7809196545d272552196242d1ecfb",
+      "width": 2868,
+      "height": 1320,
+      "tool": "Matte 2.0.5 (235)"
+    },
+    "treatment": "Re-exported an isolated copy of the original three-device project with textClips/textTracks removed and canvas fill transparent. Device positions, frames, screenshots and shadows unchanged. Original source files untouched.",
+    "opaquePixelComparison": {
+      "opaquePixels": 1624815,
+      "matchingPixels": 1619668,
+      "fraction": 0.9968322547490022
+    }
+  },
+  "captureDate": "2026-10-25",
+  "sourceKind": "Existing Mac/iPhone/iPad composition using genuine DEBUG-only ScreenshotStudio captures; not a current Release capture.",
+  "foreground": {
+    "file": "/products/pushplay/marketing/pp-mac-iphone-ipad.webp",
+    "width": 1600,
+    "height": 612,
+    "bytes": 47246,
+    "sha256": "32efdd10c366cf3ecdd6fac8443becb388cb54ff8735eb5629273651d5e866e5"
+  },
+  "trim": {
+    "left": 171,
+    "top": 290,
+    "threshold": 1
+  },
+  "background": {
+    "file": "/images/section-backgrounds/push-play-app-section-background.svg",
+    "width": 1440,
+    "height": 1024,
+    "sources": [
+      {
+        "file": "push-play-dual-deck-figure.svg",
+        "sha256": "84830f17bdae8157795e3a11e89f2f658e217e703d6b0c8e195a7e24310ab501"
+      },
+      {
+        "file": "push-play-hardware-display-figure.svg",
+        "sha256": "14109bbdc356fe04c39f041221c92f71e211010491710674967c3ddf9b7d443e"
+      }
+    ],
+    "sha256": "11eb0f4911403aa4727e974be74f084434f944bbe28fe86b0d6ca2dc2c3e07f7"
+  },
+  "treatment": "Trimmed transparent margins and uniformly resized the existing three-device composition. Original realistic bezels, device arrangement, UI colours, neutral song names and monitor hints retained. No source audio copied. Original captures and reusable diagrams unchanged."
+}

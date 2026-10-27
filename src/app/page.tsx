@@ -85,6 +85,28 @@ const Home = () => {
         ]}
       />
 
+      <AppShowcaseSection
+        appName='PUSH PLAY'
+        appDescription='A beginner-friendly DJ app for mixing your favourite songs on iPad, iPhone or Mac. Connect Ableton Push 2 or Move, or bring your own MIDI controller to get hands on. Beta places are limited.'
+        appScreenshot='/products/pushplay/marketing/pp-mac-iphone-ipad.webp'
+        appScreenshotAlt='Push Play on Mac, iPhone and iPad, showing loaded songs with orange and blue waveforms, EQ controls and crossfaders.'
+        imageLayout='landscape'
+        mediaType='image'
+        learnMoreLink='https://testflight.apple.com/join/UruJbq28'
+        learnMoreLabel='Join TestFlight'
+        learnMoreIcon='/images/common/testflight-icon.png'
+        sectionBackgroundColor='#1a1a1a'
+        backgroundColorGrid='#005AC2'
+        backgroundImage='/images/section-backgrounds/push-play-app-section-background.svg'
+        reversed={false}
+        pixelDisplacements={[
+          { row: 0, col: -1, displaceX: 3, displaceY: -2 },
+          { row: 1, col: -2, displaceX: 4, displaceY: -1 },
+          { row: -1, col: -1, displaceX: 3, displaceY: 2 },
+          { row: -2, col: -2, displaceX: 4, displaceY: 1 },
+        ]}
+      />
+
       <section
         className={`bg-black ${SECTION_Y_RULED}`}
         aria-labelledby='home-studio-title'

@@ -14,9 +14,13 @@ interface AppShowcaseSectionProps {
   appName: string;
   appDescription: string;
   appScreenshot?: string;
+  appScreenshotAlt?: string;
+  imageLayout?: 'portrait' | 'landscape';
   videoSource?: string;
   mediaType: 'image' | 'video';
   learnMoreLink: string;
+  learnMoreLabel?: string;
+  learnMoreIcon?: string;
   decorativeText?: string[];
   backgroundColor?: string;
   backgroundColorGrid?: string;
@@ -50,9 +54,13 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   appName,
   appDescription,
   appScreenshot,
+  appScreenshotAlt = appName,
+  imageLayout = 'portrait',
   videoSource,
   mediaType,
   learnMoreLink,
+  learnMoreLabel = 'Learn more →',
+  learnMoreIcon,
   sectionBackgroundColor = '#F8FAFC',
   backgroundColorGrid = '#007AFF',
   backgroundImage,
@@ -169,13 +177,16 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
           * Sized by height, not width. The screenshots have slightly different
           * proportions, so a shared width cap left one panel taller than the
           * other and the two sections never matched. Each height is the tallest
-          * that keeps the wider screenshot inside its old width.
+          * that keeps the wider screenshot inside its old width. Landscape
+          * compositions instead follow their natural aspect ratio.
           */}
         {appScreenshot && (
           <img
-            className='h-[33rem] w-auto max-w-full object-contain sm:h-[38rem] md:h-[42.5rem] lg:h-[47.5rem]'
+            className={imageLayout === 'landscape'
+              ? 'h-auto w-full object-contain'
+              : 'h-[33rem] w-auto max-w-full object-contain sm:h-[38rem] md:h-[42.5rem] lg:h-[47.5rem]'}
             src={appScreenshot}
-            alt={appName}
+            alt={appScreenshotAlt}
           />
         )}
       </div>
@@ -183,7 +194,7 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
   };
 
   const leftContent = (
-    <div className='relative lg:col-span-7 h-full min-h-[400px] sm:min-h-[500px] md:min-h-screen'>
+    <div className={`relative lg:col-span-7 h-full ${imageLayout === 'landscape' && mediaType === 'image' ? 'min-h-[240px] lg:min-h-[520px]' : 'min-h-[400px] sm:min-h-[500px] md:min-h-screen'}`}>
       <MediaContent />
     </div>
   );
@@ -207,9 +218,23 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
 
       <Link
         href={learnMoreLink}
-        className={`${GAP_HEADING} inline-flex items-center ${LABEL} text-white opacity-90 transition-opacity hover:opacity-100`}
+        className={`${GAP_HEADING} inline-flex items-center ${learnMoreIcon
+          ? 'w-fit max-w-full gap-2.5 rounded-xl bg-white px-3 py-3 text-base font-medium text-gray-950 transition-colors hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white motion-reduce:transition-none'
+          : `${LABEL} text-white opacity-90 transition-opacity hover:opacity-100`}`}
       >
-        Learn more →
+        {learnMoreIcon && (
+          <img
+            src={learnMoreIcon}
+            alt=''
+            aria-hidden='true'
+            width={28}
+            height={28}
+            className='h-7 w-7 shrink-0'
+            loading='lazy'
+            decoding='async'
+          />
+        )}
+        {learnMoreLabel}
       </Link>
     </motion.div>
   );
@@ -251,7 +276,8 @@ const AppShowcaseSection: React.FC<AppShowcaseSectionProps> = ({
       {/* Background SVG Overlay */}
       {backgroundImage && (
         <div
-          className='absolute inset-0 w-full h-full z-0'
+          aria-hidden='true'
+          className='pointer-events-none absolute inset-0 w-full h-full z-0'
           style={{
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: 'cover',

@@ -1,0 +1,11 @@
+{
+  "file": "public/images/common/testflight-icon.png",
+  "sourceUrl": "https://testflight.apple.com/images/tf-web-ios-512-light.png",
+  "referencedBy": "https://testflight.apple.com/join/UruJbq28",
+  "downloadedAt": "2026-10-27",
+  "sha256": "714abcfa268c15c84e5e7d43053b967b5362a3f056473c756a9bcd74ca89eec9",
+  "treatment": "Unmodified original PNG downloaded from Apple's TestFlight site; displayed at 28px with original colours and aspect ratio.",
+  "attribution": "TestFlight icon artwork belongs to Apple. No ownership or open-source license is claimed.",
+  "button": "Custom website markup with Apple's genuine icon and owner-selected 'Join TestFlight' wording. This is not an Apple-issued badge or an endorsement. No downloadable TestFlight badge was found in Apple's TestFlight or App Store marketing resources.",
+  "destination": "https://testflight.apple.com/join/UruJbq28"
+}
