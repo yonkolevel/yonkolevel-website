@@ -12,6 +12,14 @@ const docs = path.join(root, 'docs/marketing/app-diagrams');
 const manifest = JSON.parse(await readFile(path.join(root, 'public/images/app-diagrams/manifest.json'), 'utf8'));
 const publicFile = (url) => path.join(root, 'public', url);
 
+test('diagram tooling declares sharp as a direct development dependency', async () => {
+  const pkg = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'));
+  const lock = JSON.parse(await readFile(path.join(root, 'package-lock.json'), 'utf8'));
+  assert.ok(pkg.devDependencies.sharp, 'sharp must not rely on Next.js optional dependencies');
+  assert.equal(lock.packages[''].devDependencies.sharp, pkg.devDependencies.sharp);
+  assert.notEqual(lock.packages['node_modules/sharp'].optional, true);
+});
+
 test('catalog includes two distinct elements for each app', () => {
   assert.equal(new Set(catalog.map((item) => item.id)).size, 6);
   for (const product of ['Invisible Camera', 'Midicircuit', 'Push Play']) assert.equal(catalog.filter((item) => item.product === product).length, 2);

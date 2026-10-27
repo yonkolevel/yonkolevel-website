@@ -44,7 +44,7 @@ The front-facing drawing replacement left the three-device foreground unchanged.
 - `npm run lint`: passed.
 - `npm run typecheck`: passed.
 - `npm run build`: passed.
-- `node --test scripts/pixel-geometry.test.mjs scripts/app-diagrams/assets.test.mjs`: 15 tests passed.
+- `node --test scripts/pixel-geometry.test.mjs scripts/app-diagrams/assets.test.mjs`: 16 tests passed, including the direct `sharp` dependency regression check.
 - JavaScript syntax and Git whitespace checks: passed.
 - Chromium at **320, 390, 768 and 1440 px**: three-device foreground, technical background and official TestFlight icon load; the foreground uses its natural aspect ratio; background remains decorative and non-interactive; no horizontal overflow or page errors.
 - Existing app links, labels, image filters and portrait heights remain unchanged.
@@ -81,7 +81,7 @@ PLAYWRIGHT_MODULE=/tmp/yonko-diagram-tools/node_modules/playwright/index.mjs \
   node scripts/check-pushplay-homepage.mjs
 ```
 
-The script starts/stops its own production server on `127.0.0.1:3107` (`HOME_SMOKE_PORT` overrides). Without `QA_OUTPUT`, evidence goes to `/tmp/pushplay-homepage-qa`. No application dependency or lockfile changes.
+The script starts/stops its own production server on `127.0.0.1:3107` (`HOME_SMOKE_PORT` overrides). Without `QA_OUTPUT`, evidence goes to `/tmp/pushplay-homepage-qa`. Playwright remains external. The artwork tooling declares `sharp` as a direct development dependency at the existing locked version, 0.34.5, rather than relying on Next.js's optional dependency. The npm lock metadata is updated; the existing Yarn resolution is unchanged.
 
 - [Desktop](pushplay-1440.png)
 - [Tablet](pushplay-768.png)
