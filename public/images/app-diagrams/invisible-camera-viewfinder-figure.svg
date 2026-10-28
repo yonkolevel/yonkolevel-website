@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="590" height="900" viewBox="0 0 590 900" role="img" aria-labelledby="invisible-camera-viewfinder-flat-title invisible-camera-viewfinder-flat-desc"><title id="invisible-camera-viewfinder-flat-title">Invisible Camera — Viewfinder anatomy</title><desc id="invisible-camera-viewfinder-flat-desc">line drawing of the Invisible Camera preview and control deck, with film-look controls, gallery thumbnail, shutter and camera switch. With a few source-backed size annotations.</desc><metadata>MIT License
+
+Copyright (c) 2026 Enes Ozturk
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</metadata><style>
+    .app-elements *{vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+    .obj{fill:#fff;stroke:#333;stroke-width:2.5}
+    .well{fill:#f4f4f4;stroke:#555;stroke-width:2.5}
+    .hug{fill:#e4e4e4;stroke:#555;stroke-width:2.5}
+    .slot{fill:none;stroke:#888;stroke-width:1.25;stroke-dasharray:5 4}
+    .line{fill:none;stroke:#555;stroke-width:1.25}
+    .guide{fill:none;stroke:#aaa;stroke-width:0.6}
+    .annotations line,.annotations polyline,.annotations circle{vector-effect:non-scaling-stroke}
+    .measure{fill:none;stroke:#555;stroke-width:0.6}
+    .extension,.tick{fill:none;stroke:#777;stroke-width:0.6}
+    .size-note{font-family:monospace;font-size:12px;font-weight:400;fill:#555;stroke:none}
+  </style><g class="app-elements" transform="translate(100 100) scale(1)"><g transform="translate(0 0)"><rect x="0" y="0" width="390" height="700" rx="0" class="obj" /><rect x="0" y="0" width="390" height="490" rx="0" class="well" /><line x1="0" y1="0" x2="390" y2="490" class="guide" /><line x1="390" y1="0" x2="0" y2="490" class="guide" /><path d="M175 225 h-10 v20 M215 225 h10 v20 M165 265 v20 h10 M225 265 v20 h-10" class="line"/></g><g transform="translate(0 0)"><rect x="0" y="490" width="390" height="210" rx="0" class="obj" /><rect x="16" y="514" width="122" height="38" rx="19" class="well" /><rect x="252" y="514" width="122" height="38" rx="19" class="well" /><rect x="112" y="565" width="166" height="38" rx="19" class="hug" /></g><g transform="translate(0 0)"><circle cx="34" cy="533" r="3" class="" fill="#888"/><circle cx="55" cy="533" r="3" class="" fill="#888"/><circle cx="76" cy="533" r="3" class="" fill="#888"/><rect x="273" y="524" width="18" height="18" rx="0" class="line" /><rect x="304" y="532" width="46" height="3" rx="1.5" class="" fill="#bbb"/><rect x="132" y="582" width="83" height="4" rx="2" class="" fill="#bbb"/><path d="M249 579 l4 4 -4 4" class="line"/><rect x="16" y="626" width="50" height="50" rx="3" class="well" /><line x1="16" y1="626" x2="66" y2="676" class="guide" /><line x1="66" y1="626" x2="16" y2="676" class="guide" /><circle cx="195" cy="651" r="35" class="obj" /><circle cx="195" cy="651" r="32.5" class="hug" /><circle cx="195" cy="651" r="32" class="obj" /><circle cx="347" cy="651" r="27" class="well" /><path d="M336 648 a12 12 0 0 1 20 -6 l3 3 m0 -7 v7 h-7 M358 654 a12 12 0 0 1 -20 6 l-3 -3 m0 7 v-7 h7" class="line"/></g></g><g class="annotations"><line x1="260" y1="755" x2="260" y2="819" class="extension" /><line x1="260" y1="807" x2="260" y2="817" class="tick" /><line x1="330" y1="755" x2="330" y2="819" class="extension" /><line x1="330" y1="807" x2="330" y2="817" class="tick" /><line x1="260" y1="812" x2="330" y2="812" class="measure" /><text x="295" y="825" class="size-note" text-anchor="middle" data-annotation="size" data-code="Z1" data-value="70" data-unit="pt" dominant-baseline="middle" transform="rotate(0 295 825)">Ø70pt</text><circle cx="116" cy="614" r="1.8" class="" fill="#777"/><polyline points="116,614 71,592 59,592" class="extension"/><text x="53" y="596" class="size-note" text-anchor="end" data-annotation="size" data-code="S1" data-value="16" data-unit="pt">16pt</text><line x1="494" y1="662" x2="527" y2="662" class="extension" /><line x1="525" y1="662" x2="515" y2="662" class="tick" /><line x1="494" y1="706" x2="527" y2="706" class="extension" /><line x1="525" y1="706" x2="515" y2="706" class="tick" /><line x1="520" y1="662" x2="520" y2="706" class="measure" /><text x="533" y="684" class="size-note" text-anchor="middle" data-annotation="size" data-code="H1" data-value="44" data-unit="pt" dominant-baseline="middle" transform="rotate(90 533 684)">44pt</text></g></svg>

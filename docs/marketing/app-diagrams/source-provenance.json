@@ -1,0 +1,97 @@
+{
+  "skill": {
+    "url": "https://github.com/enesozturk/dimensional-drawing",
+    "author": "Enes Ozturk",
+    "license": "MIT",
+    "commit": "5c457437c8c83524308aad3b7443e81adcc13153"
+  },
+  "artifacts": [
+    {
+      "id": "invisible-camera-viewfinder",
+      "repository": "invisible-camera",
+      "commit": "a23912f0fa891f49dbffc77ef5a530069159e847",
+      "files": [
+        {
+          "path": "InvisibleCamera/MainCameraView.swift",
+          "sha256": "281e727adc0c79d59d9d4136b2937d7556fad974bfd7ea01540fc253637b3d3e",
+          "worktreeStatus": "clean"
+        },
+        {
+          "path": "InvisibleCamera/ShutterButton.swift",
+          "sha256": "175be6665dcfb53fb2e3e8ebf35348265090f2b9ff33539db728ab332f9f4852",
+          "worktreeStatus": "clean"
+        }
+      ]
+    },
+    {
+      "id": "invisible-camera-shutter",
+      "repository": "invisible-camera",
+      "commit": "a23912f0fa891f49dbffc77ef5a530069159e847",
+      "files": [
+        {
+          "path": "InvisibleCamera/ShutterButton.swift",
+          "sha256": "175be6665dcfb53fb2e3e8ebf35348265090f2b9ff33539db728ab332f9f4852",
+          "worktreeStatus": "clean"
+        }
+      ]
+    },
+    {
+      "id": "midicircuit-song-grid",
+      "repository": "Midicircuit",
+      "commit": "6afaf2b39ee20726c02d0c1572c8d321c74986ca",
+      "files": [
+        {
+          "path": "react-native-circuit-ui/packages/ui/src/features/playground/components/SongView/SongView.tsx",
+          "sha256": "d009c9c61b6bf65d8a9e7f407da2663f9b07453a30876e2b8ebed4a7b74ed4e2",
+          "worktreeStatus": "clean"
+        }
+      ]
+    },
+    {
+      "id": "midicircuit-drum-pads",
+      "repository": "Midicircuit",
+      "commit": "6afaf2b39ee20726c02d0c1572c8d321c74986ca",
+      "files": [
+        {
+          "path": "react-native-circuit-ui/packages/ui/src/features/playground/components/DrumPads/DrumPadsView.tsx",
+          "sha256": "5c0130accffcf8050a5a6ff1a195f4a10f63c9be3b6747b23af4b461452f2ba6",
+          "worktreeStatus": "clean"
+        }
+      ]
+    },
+    {
+      "id": "push-play-dual-deck",
+      "repository": "pushplay",
+      "commit": "39feefa1c111bea5b9cc4d99d019f3cde9964045",
+      "files": [
+        {
+          "path": "PushPlayKit/Sources/PushPlayCore/PushPlayAppRootView.swift",
+          "sha256": "275780fd3df0bc3bc83e45e1e7857f2151116cf08cff06a57a102eb66a484201",
+          "worktreeStatus": "clean"
+        },
+        {
+          "path": "PushPlayKit/Sources/PushPlayCore/DeckView.swift",
+          "sha256": "fa3e9d28ce4e3e8d9cef80faa33c87c5f3e0dd4b16880951c5f3e83f357bf97e",
+          "worktreeStatus": "clean"
+        },
+        {
+          "path": "PushPlayKit/Sources/PushPlayCore/FaderView.swift",
+          "sha256": "a73e6c6aea6f949e52d54274b5c677695a9a06a65c31f8de750337c8cae59543",
+          "worktreeStatus": "clean"
+        }
+      ]
+    },
+    {
+      "id": "push-play-hardware-display",
+      "repository": "pushplay",
+      "commit": "39feefa1c111bea5b9cc4d99d019f3cde9964045",
+      "files": [
+        {
+          "path": "PushPlayKit/Sources/PushPlayCore/PushDJView.swift",
+          "sha256": "37eaa5afb225207c10b52cae432fbf622865f56dc01a2b855c930562051af935",
+          "worktreeStatus": "clean"
+        }
+      ]
+    }
+  ]
+}

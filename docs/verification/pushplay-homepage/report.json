@@ -1,0 +1,49 @@
+{
+  "results": [
+    {
+      "width": 320,
+      "productCaptureLoaded": true,
+      "technicalBackgroundLoaded": true,
+      "officialTestFlightIconLoaded": true,
+      "keyboardFocusVisible": true,
+      "betaNavigation": "https://testflight.apple.com/join/UruJbq28",
+      "existingAppsPreserved": true,
+      "horizontalOverflow": false,
+      "pageErrors": []
+    },
+    {
+      "width": 390,
+      "productCaptureLoaded": true,
+      "technicalBackgroundLoaded": true,
+      "officialTestFlightIconLoaded": true,
+      "keyboardFocusVisible": true,
+      "betaNavigation": "https://testflight.apple.com/join/UruJbq28",
+      "existingAppsPreserved": true,
+      "horizontalOverflow": false,
+      "pageErrors": []
+    },
+    {
+      "width": 768,
+      "productCaptureLoaded": true,
+      "technicalBackgroundLoaded": true,
+      "officialTestFlightIconLoaded": true,
+      "keyboardFocusVisible": true,
+      "betaNavigation": "https://testflight.apple.com/join/UruJbq28",
+      "existingAppsPreserved": true,
+      "horizontalOverflow": false,
+      "pageErrors": []
+    },
+    {
+      "width": 1440,
+      "productCaptureLoaded": true,
+      "technicalBackgroundLoaded": true,
+      "officialTestFlightIconLoaded": true,
+      "keyboardFocusVisible": true,
+      "betaNavigation": "https://testflight.apple.com/join/UruJbq28",
+      "existingAppsPreserved": true,
+      "horizontalOverflow": false,
+      "pageErrors": []
+    }
+  ],
+  "note": "TestFlight navigation intercepted; this checks the website, not beta capacity. Analytics blocked."
+}
