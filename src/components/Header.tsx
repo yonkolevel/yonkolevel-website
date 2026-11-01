@@ -43,10 +43,8 @@ const PRODUCTS = [
 // Shared constants
 const ACTIVE_COLOR = '#FF5C24';
 const INACTIVE_COLOR = '#F8FAFC';
-const MENU_TRANSITION = {
-  duration: 0.5,
-  ease: [0.4, 0, 0.2, 1] as const,
-};
+const DROPDOWN_CLOSE_DURATION = 150;
+const MENU_TRIGGER_ID = 'mobile-menu-trigger';
 const FULL_VIEWPORT_STYLE = {
   top: 0,
   left: 0,
@@ -54,22 +52,7 @@ const FULL_VIEWPORT_STYLE = {
   height: '100dvh',
 };
 
-const variants = {
-  open: {
-    opacity: 1,
-    y: 0,
-    zIndex: 9999,
-    left: 0,
-    right: 0,
-    transition: MENU_TRANSITION,
-  },
-  closed: {
-    opacity: 0,
-    y: '-100%',
-    zIndex: -1,
-    transition: MENU_TRANSITION,
-  },
-};
+type MenuState = 'closed' | 'open' | 'closing';
 
 interface IHeaderProps {}
 
@@ -120,22 +103,67 @@ const MenuList: React.FunctionComponent<MenuListProps> = ({
 
 const Header: React.FunctionComponent<IHeaderProps> = (props) => {
   const pathname = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuState, setMenuState] = useState<MenuState>('closed');
+  const menuStateRef = React.useRef<MenuState>('closed');
+  const closeTimeoutRef = React.useRef<number | null>(null);
   const menuRef = React.useRef<HTMLDivElement>(null);
   const posthog = usePostHog();
+  const menuOpen = menuState === 'open';
+  const menuVisible = menuState !== 'closed';
+
+  const updateMenuState = React.useCallback((nextState: MenuState) => {
+    menuStateRef.current = nextState;
+    setMenuState(nextState);
+  }, []);
+
+  const clearCloseTimeout = React.useCallback(() => {
+    if (closeTimeoutRef.current !== null) {
+      window.clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+  }, []);
+
+  const openMenu = React.useCallback(() => {
+    clearCloseTimeout();
+    updateMenuState('open');
+    posthog?.capture('mobile_menu_toggled', {
+      action: 'opened',
+    });
+  }, [clearCloseTimeout, posthog, updateMenuState]);
+
+  const closeMenu = React.useCallback(() => {
+    clearCloseTimeout();
+    updateMenuState('closing');
+    document.getElementById(MENU_TRIGGER_ID)?.focus();
+    posthog?.capture('mobile_menu_toggled', {
+      action: 'closed',
+    });
+    closeTimeoutRef.current = window.setTimeout(() => {
+      if (menuStateRef.current === 'closing') {
+        updateMenuState('closed');
+      }
+      closeTimeoutRef.current = null;
+    }, DROPDOWN_CLOSE_DURATION);
+  }, [clearCloseTimeout, posthog, updateMenuState]);
 
   const handleToggleMenu = React.useCallback(() => {
-    setMenuOpen((v) => {
-      const newValue = !v;
-      posthog?.capture('mobile_menu_toggled', {
-        action: newValue ? 'opened' : 'closed',
-      });
-      return newValue;
-    });
-  }, [posthog]);
+    if (menuStateRef.current === 'open') {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }, [closeMenu, openMenu]);
 
   React.useEffect(() => {
-    if (!menuOpen) return;
+    return () => {
+      if (closeTimeoutRef.current !== null) {
+        window.clearTimeout(closeTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  React.useEffect(() => {
+    if (!menuVisible) return;
 
     const menu = menuRef.current;
     const previousFocus =
@@ -146,13 +174,14 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
       menu?.querySelectorAll<HTMLElement>('a[href], button:not([disabled])') ?? []
     );
 
-    focusable[0]?.focus();
     document.body.style.overflow = 'hidden';
     background.forEach((element) => {
       element.inert = true;
     });
 
     const handleKeyDown = (event: KeyboardEvent) => {
+      if (menuStateRef.current !== 'open') return;
+
       if (event.key === 'Escape') {
         event.preventDefault();
         handleToggleMenu();
@@ -173,17 +202,36 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
       }
     };
 
+    const handleFocusIn = (event: FocusEvent) => {
+      if (menuStateRef.current !== 'open') return;
+
+      const target = event.target;
+      if (target instanceof Node && menu?.contains(target)) return;
+
+      focusable[0]?.focus();
+    };
+
     document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('focusin', handleFocusIn);
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('focusin', handleFocusIn);
       document.body.style.overflow = previousOverflow;
       background.forEach((element) => {
         element.inert = false;
       });
       previousFocus?.focus();
     };
-  }, [handleToggleMenu, menuOpen]);
+  }, [handleToggleMenu, menuVisible]);
+
+  React.useEffect(() => {
+    if (!menuOpen) return;
+
+    menuRef.current?.querySelector<HTMLElement>(
+      'a[href], button:not([disabled])'
+    )?.focus();
+  }, [menuOpen]);
 
   React.useEffect(() => {
     if (!menuOpen) return;
@@ -283,11 +331,12 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
                 transition={{ delay: 0.1 }}
               >
                 <MenuButton
+                  id={MENU_TRIGGER_ID}
                   onClick={handleToggleMenu}
-                  isOpen={false}
+                  isOpen={menuOpen}
                   aria-controls='mobile-navigation'
                   aria-expanded={menuOpen}
-                  tabIndex={menuOpen ? -1 : undefined}
+                  tabIndex={menuVisible ? -1 : undefined}
                 />
               </motion.div>
             </TabletAndBelow>
@@ -299,32 +348,28 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: menuOpen ? 1 : 0 }}
-          transition={{ duration: 0.3 }}
+          animate={{ opacity: menuVisible ? 1 : 0 }}
+          transition={{ duration: menuVisible ? 0.25 : 0.15 }}
           className={`fixed inset-0 bg-black/40 backdrop-blur-sm ${
-            menuOpen
-              ? 'z-[9998] pointer-events-auto'
-              : 'z-[-1] pointer-events-none'
-          }`}
+            menuVisible ? 'z-[9998]' : 'z-[-1]'
+          } ${menuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
           onClick={handleToggleMenu}
           style={FULL_VIEWPORT_STYLE}
         />
         {/* Menu */}
-        <motion.div
+        <div
           ref={menuRef}
-          initial='closed'
-          animate={menuOpen ? 'open' : 'closed'}
-          variants={variants}
           id='mobile-navigation'
+          data-origin='top-right'
           role='dialog'
           aria-label='Site navigation'
           aria-modal='true'
           aria-hidden={!menuOpen}
           inert={!menuOpen}
-          className={`fixed overflow-y-auto overscroll-contain bg-black/95 text-white ${
-            menuOpen
-              ? 'z-[9999] pointer-events-auto'
-              : 'z-[-1] pointer-events-none'
+          className={`t-dropdown fixed overflow-y-auto overscroll-contain bg-black/95 text-white ${
+            menuVisible ? 'z-[9999]' : 'z-[-1]'
+          } ${
+            menuOpen ? 'is-open' : menuVisible ? 'is-closing' : ''
           }`}
           style={FULL_VIEWPORT_STYLE}
         >
@@ -333,7 +378,7 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
             <div className='absolute top-6 right-6 z-10'>
               <MenuButton
                 onClick={handleToggleMenu}
-                isOpen={menuOpen}
+                isOpen={menuVisible}
                 aria-controls='mobile-navigation'
                 aria-expanded={menuOpen}
               />
@@ -342,7 +387,7 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
               <MenuList onItemClick={handleToggleMenu} isMobile />
             </div>
           </div>
-        </motion.div>
+        </div>
       </TabletAndBelow>
       </header>
     </MotionConfig>
